@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
@@ -6,6 +7,12 @@ import Helmet from 'react-helmet';
 import Bio from '../components/Bio';
 
 class BlogIndex extends React.Component {
+  static get propTypes() {
+    return {
+      route: PropTypes.object,
+    };
+  }
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
@@ -13,7 +20,6 @@ class BlogIndex extends React.Component {
     return (
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
-        <Bio />
         {posts.map((post) => {
           if (post.node.path !== '/404/') {
             const title = get(post, 'node.frontmatter.title') || post.node.path;
@@ -34,10 +40,6 @@ class BlogIndex extends React.Component {
     );
   }
 }
-
-BlogIndex.propTypes = {
-  route: React.PropTypes.object,
-};
 
 export default BlogIndex;
 

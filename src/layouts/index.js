@@ -1,36 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import styled from 'react-emotion';
+
+import Sidebar from '../components/Sidebar';
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+`;
+
+const SidebarWrapper = styled.div`
+
+`;
+
+const Children = styled.div`
+`;
+
 
 class Template extends React.Component {
   render() {
     const { location, children } = this.props;
-    let header;
-    if (location.pathname === '/') {
-      header = (
-        <h1>
-          <Link to="/">Gatsby Starter Blogaqwqwqfwassda</Link>
-        </h1>
-      );
-    } else {
-      header = (
-        <h3>
-          <Link to="/">Gatsby Starter Blogabqwdwqd</Link>
-        </h3>
-      );
-    }
     return (
-      <div>
-        {header}
-        {children()}
-      </div>
+      <GridWrapper>
+        <SidebarWrapper>
+          <Sidebar/>
+        </SidebarWrapper>
+        <Children>
+          {children()}
+        </Children>
+      </GridWrapper>
     );
   }
 }
 
 Template.propTypes = {
-  children: React.PropTypes.func,
-  location: React.PropTypes.object,
-  route: React.PropTypes.object,
+  children: PropTypes.func,
+  location: PropTypes.object,
+  route: PropTypes.object,
 };
 
 export default Template;
