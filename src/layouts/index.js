@@ -26,7 +26,7 @@ const GridWrapper = styled.div`
 `;
 
 const SidebarWrapper = styled.div`
-  background-color: black;
+  border-right: 1px solid #999;
 `;
 
 const Children = styled.div`
