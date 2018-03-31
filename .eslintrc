@@ -5,5 +5,11 @@
   },
   "globals": {
     "graphql": true
+  },
+  "plugins": [
+    "emotion"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": false
   }
 }

@@ -2,14 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
+import Bio from './Bio';
+
 const Sidebar = ({ location }) => {
   // if (location.pathname === '/')
   return (
-    <h3>
-      <Link to="/">
-        Patricks Blog
-      </Link>
-    </h3>
+    <div>
+      <h3>
+        <Link to="/">
+          torokokill
+        </Link>
+      </h3>
+
+      <Bio />
+    </div>
   );
 };
 

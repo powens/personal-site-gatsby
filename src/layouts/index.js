@@ -2,18 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
-
+import { injectGlobal } from 'emotion';
+import Helmet from 'react-helmet';
 import Sidebar from '../components/Sidebar';
+
+injectGlobal`
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+`;
+
 
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-auto-rows: auto;
   grid-gap: 1rem;
+  height: 100vh;
 `;
 
 const SidebarWrapper = styled.div`
-
+  background-color: black;
 `;
 
 const Children = styled.div`
@@ -25,8 +38,12 @@ class Template extends React.Component {
     const { location, children } = this.props;
     return (
       <GridWrapper>
+        <Helmet>
+          <html lang="en" />
+        </Helmet>
+
         <SidebarWrapper>
-          <Sidebar/>
+          <Sidebar />
         </SidebarWrapper>
         <Children>
           {children()}
