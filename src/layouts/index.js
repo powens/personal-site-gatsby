@@ -5,6 +5,7 @@ import styled from 'react-emotion';
 import { injectGlobal } from 'emotion';
 import Helmet from 'react-helmet';
 import Sidebar from '../components/Sidebar';
+import colors from '../utils/colors';
 
 injectGlobal`
   * {
@@ -23,13 +24,18 @@ const GridWrapper = styled.div`
   grid-auto-rows: auto;
   grid-gap: 1rem;
   height: 100vh;
+  
+  // width: 900px;
+  // margin: auto;
 `;
 
 const SidebarWrapper = styled.div`
-  border-right: 1px solid #999;
+  border-right: 1px solid ${colors.border};
+  padding-top: 5rem;
 `;
 
 const Children = styled.div`
+  padding-top: 5rem;
 `;
 
 

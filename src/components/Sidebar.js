@@ -23,18 +23,20 @@ const Sidebar = ({ location }) => {
   // if (location.pathname === '/')
   return (
     <Wrapper>
+      <Link to="/">
+        <ProfilePicture src={profilePic} alt="torokokill" />
+      </Link>
       <h3>
         <Link to="/">
           torokokill
         </Link>
       </h3>
-      <ProfilePicture src={profilePic} alt="torokokill" />
       <p>
-        Full-stack developer, infosec enthusiast, HAM radio operator.
+        Full-stack engineer, infosec enthusiast, HAM radio operator, gamer.
       </p>
       <p>
-        <FaGithub className={icon} />
-        <FaTwitter className={icon} />
+        <a href="https://github.com/torokokill"><FaGithub className={icon} /></a>
+        <a href="https://twitter.com/torokokill"><FaTwitter className={icon} /></a>
       </p>
 
     </Wrapper>
