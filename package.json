@@ -25,7 +25,7 @@
     "lodash": "^4.15.0",
     "react-emotion": "^9.1.0",
     "react-icons": "^2.2.7",
-    "typography-theme-twin-peaks": "^0.15.11"
+    "typography-theme-judah": "^0.15.10"
   },
   "devDependencies": {
     "babel-plugin-emotion": "^9.1.0",
