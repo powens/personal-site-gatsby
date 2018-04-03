@@ -34,6 +34,14 @@ const Children = styled.div`
 
 
 class Template extends React.Component {
+  static get propTypes() {
+    return {
+      children: PropTypes.func,
+      location: PropTypes.object,
+      route: PropTypes.object,
+    };
+  }
+
   render() {
     const { location, children } = this.props;
     return (
@@ -53,10 +61,5 @@ class Template extends React.Component {
   }
 }
 
-Template.propTypes = {
-  children: PropTypes.func,
-  location: PropTypes.object,
-  route: PropTypes.object,
-};
 
 export default Template;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import FaGithub from 'react-icons/lib/fa/github';
 import FaTwitter from 'react-icons/lib/fa/twitter';
 import profilePic from './profile-pic.jpg';
@@ -12,6 +12,11 @@ const ProfilePicture = styled.img`
 
 const Wrapper = styled.div`
   text-align: center;
+`;
+
+const icon = css`
+  width: 2em;
+  height: 2em;
 `;
 
 const Sidebar = ({ location }) => {
@@ -28,8 +33,8 @@ const Sidebar = ({ location }) => {
         Full-stack developer, infosec enthusiast, HAM radio operator.
       </p>
       <p>
-        <FaGithub />
-        <FaTwitter />
+        <FaGithub className={icon} />
+        <FaTwitter className={icon} />
       </p>
 
     </Wrapper>
