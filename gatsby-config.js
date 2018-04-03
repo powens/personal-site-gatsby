@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'torokokill',
-    author: 'Patrick Owens',
+    author: 'torokokill',
   },
   plugins: [
     {
