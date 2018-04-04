@@ -27,15 +27,20 @@ const GridWrapper = styled.div`
   
   // width: 900px;
   // margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;
 
 const SidebarWrapper = styled.div`
   border-right: 1px solid ${colors.border};
-  padding-top: 5rem;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;
 
 const Children = styled.div`
-  padding-top: 5rem;
+  padding-top: 4rem;
+  padding-right: 1rem;
 `;
 
 
