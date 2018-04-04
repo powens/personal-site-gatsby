@@ -22,6 +22,13 @@ module.exports = {
             },
           },
           {
+            resolve: 'gatsby-remark-embed-youtube',
+            options: {
+              width: 400,
+              height: 200,
+            },
+          },
+          {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {
               wrapperStyle: 'margin-bottom: 1.0725rem',
@@ -47,7 +54,7 @@ module.exports = {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography.js',
-      }
+      },
     },
   ],
 };

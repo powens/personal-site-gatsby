@@ -18,17 +18,17 @@ All the talks during were excellent! However, I’d like to mention the ones I f
 **Note:** There are 2ish very long youtube videos of the entire conference. Once the video is split up into individual talks, I'll post links to all of the talks.
 
 ### Emily Morehouse-Valcarcel: The AST and Me
-.. youtube:: Vkgb3fI8d7M
+`youtube:https://www.youtube.com/embed/Vkgb3fI8d7M`
     
 A dive into Python’s Abstract Syntax Tree; what it is and what can be done with it. I have definitely not spent enough time understanding Python under the hood, and really appreciated a fairly technical discussion it.
 
 ### Kojo Idrissa: Python & Spreadsheets: Canadian Edition
-https://www.youtube.com/watch?v=I2eJO_JF81A]
+`youtube:https://www.youtube.com/embed/I2eJO_JF81A`
 One of my first jobs out of University, I worked within a team at a company that was entirely married to spreadsheets; even when they weren’t appropriate. These spreadsheets were fragile and hard to deal with, and often were used in situations in which a database would be more appropriate. This talk reminded me a lot of my experiences during my tenure at that company, and inspired me to either talk or write about my challenges at that time.
 
 ### Anna Schneider: Navigating unconscious bias
 ### Stephanie Kim: Racial Bias in Facial Recognition Software
-https://www.youtube.com/watch?v=ZlhHhpnGQjA
+`youtube:https://www.youtube.com/embed/ZlhHhpnGQjA`
 I am lumping these two talks together as what I took away from each was similar. They challenged me to take a critical look at my biases, and how to influence positive change in my organization from a position in which where I cannot directly initiate change.
 
 ## Challenging expectations
