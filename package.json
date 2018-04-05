@@ -5,8 +5,10 @@
   "author": "Patrick <torokokill@gmail.com>",
   "dependencies": {
     "emotion": "^9.1.0",
+    "emotion-server": "^9.1.1",
     "gatsby": "^1.8.12",
     "gatsby-link": "^1.6.8",
+    "gatsby-plugin-emotion": "^1.1.16",
     "gatsby-plugin-google-analytics": "^1.0.4",
     "gatsby-plugin-manifest": "^1.0.4",
     "gatsby-plugin-offline": "^1.0.4",
@@ -24,7 +26,7 @@
     "gatsby-transformer-remark": "^1.7.1",
     "gatsby-transformer-sharp": "^1.6.1",
     "lodash": "^4.15.0",
-    "react-emotion": "^9.1.0",
+    "react-emotion": "^9.1.1",
     "react-icons": "^2.2.7",
     "typography-theme-judah": "^0.15.10"
   },
