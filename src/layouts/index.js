@@ -14,9 +14,9 @@ injectGlobal`
   
   body {
     margin: 0;
+    background-color: ${colors.backgroundColor};
   }
 `;
-
 
 const GridWrapper = styled.div`
   display: grid;
