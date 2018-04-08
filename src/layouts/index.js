@@ -3,45 +3,33 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import { injectGlobal } from 'emotion';
-import Helmet from 'react-helmet';
+import HelmetWrapper from '../components/HelmetWrapper';
 import Sidebar from '../components/Sidebar';
-import colors from '../utils/colors';
+import mq from '../utils/responsive';
 
-injectGlobal`
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    background-color: ${colors.backgroundColor};
-  }
-`;
+injectGlobal({
+  '*': {
+    boxSizing: 'border-box',
+  },
+  body: {
+    margin: 0,
+  },
+});
 
-const GridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-auto-rows: auto;
-  grid-gap: 1rem;
-  height: 100vh;
-  
-  // width: 900px;
-  // margin: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-`;
+const LayoutGrid = styled.div(mq({
+  display: 'grid',
+  gridAutoRows: ['none', 'min-content'],
+  gridTemplateColumns: ['1fr 3fr', 'none'],
+  gridGap: '1rem',
+  height: '100vh',
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+}));
 
-const SidebarWrapper = styled.div`
-  border-right: 1px solid ${colors.border};
-  padding-top: 4rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-`;
-
-const Children = styled.div`
-  padding-top: 4rem;
-  padding-right: 1rem;
-`;
+const Children = styled.div(mq({
+  paddingTop: ['4rem', 0],
+  paddingRight: ['1rem', 0],
+}));
 
 
 class Template extends React.Component {
@@ -56,18 +44,15 @@ class Template extends React.Component {
   render() {
     const { location, children } = this.props;
     return (
-      <GridWrapper>
-        <Helmet>
-          <html lang="en" />
-        </Helmet>
+      <LayoutGrid>
+        <HelmetWrapper />
 
-        <SidebarWrapper>
-          <Sidebar />
-        </SidebarWrapper>
+        <Sidebar />
+
         <Children>
           {children()}
         </Children>
-      </GridWrapper>
+      </LayoutGrid>
     );
   }
 }
