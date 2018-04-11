@@ -3,6 +3,7 @@
   "description": "Just a freshly started gatsby blog",
   "version": "0.0.0",
   "author": "Patrick <torokokill@gmail.com>",
+  "private": true,
   "dependencies": {
     "emotion": "^9.1.0",
     "emotion-server": "^9.1.1",
@@ -41,7 +42,7 @@
     "eslint-plugin-react": "^7.7.0",
     "gh-pages": "^0.12.0"
   },
-  "homepage": "https://github.com/noahg/gatsby-starter-blog-no-styles#readme",
+  "homepage": "https://padraig.io",
   "keywords": [
     "gatsby"
   ],
