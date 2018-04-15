@@ -20,15 +20,16 @@ const Wrapper = styled.div(mq({
   textAlign: 'center',
   borderRight: [`1px solid ${colors.border}`, 'none'],
   paddingTop: ['4rem', '1rem'],
-  paddingLeft: ['1rem', 0],
-  paddingRight: ['1rem', 0],
-
-  // display: 'grid',
-  // gridTemplateColumns: '1fr 5fr 1fr',
+  paddingLeft: 0,
+  paddingRight: 0,
 }));
 
 const Title = styled.h3(mq({
+  paddingTop: ['1rem', 0],
+  marginBottom: ['1.66rem', 0],
+  verticalAlign: 'middle',
   display: ['block', 'inline-block'],
+  marginLeft: [0, '2rem'],
 }));
 
 const Blurb = styled.p(mq({
@@ -37,6 +38,7 @@ const Blurb = styled.p(mq({
 
 const SocialBlock = styled.div(mq({
   display: ['block', 'inline-block'],
+  marginLeft: [0, '2rem'],
 }));
 
 const icon = css`
