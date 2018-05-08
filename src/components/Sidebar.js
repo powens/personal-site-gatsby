@@ -42,30 +42,28 @@ const SocialBlock = styled.div(mq({
 }));
 
 const icon = css`
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
 `;
 
-const Sidebar = ({ location }) =>
-  // if (location.pathname === '/')
-  (
-    <Wrapper>
+const Sidebar = () => (
+  <Wrapper>
+    <Link to="/">
+      <ProfilePicture src={profilePic} alt="Picture of me" />
+    </Link>
+    <Title>
       <Link to="/">
-        <ProfilePicture src={profilePic} alt="torokokill" />
-      </Link>
-      <Title>
-        <Link to="/">
           torokokill
-        </Link>
-      </Title>
-      <Blurb>
+      </Link>
+    </Title>
+    <Blurb>
         Full-stack engineer, infosec enthusiast, HAM radio operator, gamer.
-      </Blurb>
-      <SocialBlock>
-        <a href="https://github.com/torokokill"><FaGithub className={icon} /></a>
-        <a href="https://twitter.com/torokokill"><FaTwitter className={icon} /></a>
-      </SocialBlock>
+    </Blurb>
+    <SocialBlock>
+      <a href="https://github.com/torokokill"><FaGithub className={icon} /></a>
+      <a href="https://twitter.com/torokokill"><FaTwitter className={icon} /></a>
+    </SocialBlock>
 
-    </Wrapper>
-  );
+  </Wrapper>
+);
 export default Sidebar;
