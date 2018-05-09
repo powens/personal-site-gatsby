@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Sidebar from '../components/Sidebar';
@@ -20,22 +20,31 @@ injectGlobal({
 
 const LayoutGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 2rem 1rem 1rem 1fr;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
-    "picture content"
-    "name    content"
-    "blurb   content"
-    "social  content";
+    "picture title social"
+    "content content content";
   grid-gap: 1rem;
   height: 100vh;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 2rem;
+  
+  ${mq.medium(css`
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-areas:
+      "picture content"
+      "title   content"
+      "blurb   content"
+      "social  content"
+      ".       content";
+  `)}
 `;
 
 const Children = styled.div`
-  padding-top: 4rem;
-  padding-right: 1rem;
+  grid-area: content;
 `;
 
 

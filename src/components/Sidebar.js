@@ -8,29 +8,44 @@ import profilePic from './profile-pic.jpg';
 import colors from '../utils/colors';
 import mq from '../utils/responsive';
 
+const PictureWrapper = styled.div`
+  grid-area: picture;
+  justify-self: center;
+`;
+
+const PictureLink = styled.css`
+  display: inline-block;
+`;
+
 const ProfilePicture = styled.img`
   border-radius: 50%;
   width: 6rem;
+  min-width: 6rem;
   vertical-align: middle;
   margin-bottom: 0;
 `;
 
-
 const Title = styled.h3`
-  padding-top: 1rem;
-  margin-bottom: 1.66rem;
-  vertical-align: middle;
-  display: block;
-  margin-left: 0;
+  grid-area: title;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 0;
 `;
 
-const Blurb = styled.p`
-  display: block;
+const Blurb = styled.div`
+  display: none;
+  grid-area: blurb;
+  justify-self: center;
+  
+  ${mq.medium(css`
+    display: block;
+  `)}
 `;
 
 const SocialBlock = styled.div`
-  display: block;
-  margin-left: 0;
+  grid-area: social;
+  justify-self: center;
+  align-self: center;
 `;
 
 const icon = css`
@@ -40,9 +55,11 @@ const icon = css`
 
 const Sidebar = () => (
   <React.Fragment>
-    <Link to="/">
-      <ProfilePicture src={profilePic} alt="Picture of me" />
-    </Link>
+    <PictureWrapper>
+      <Link to="/" className={PictureLink}>
+        <ProfilePicture src={profilePic} alt="Picture of me" />
+      </Link>
+    </PictureWrapper>
     <Title>
       <Link to="/">
           torokokill
