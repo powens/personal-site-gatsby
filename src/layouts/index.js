@@ -7,6 +7,8 @@ import HelmetWrapper from '../components/HelmetWrapper';
 import Sidebar from '../components/Sidebar';
 import mq from '../utils/responsive';
 
+require('prismjs/themes/prism-solarizedlight.css');
+
 injectGlobal({
   '*': {
     boxSizing: 'border-box',
