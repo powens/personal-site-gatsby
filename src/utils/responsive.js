@@ -1,5 +1,28 @@
-import facepaint from 'facepaint';
+// import facepaint from 'facepaint';
+import { css } from 'emotion';
 
-export default facepaint([
-  '@media only screen and (max-width: 768px)',
-]);
+const breakpoints = {
+  medium: 768,
+};
+
+const mq = Object.keys(breakpoints).reduce(
+  (accumulator, label) => {
+    const prefix = typeof breakpoints[label] === 'string' ? '' : 'min-width:';
+    const suffix = typeof breakpoints[label] === 'string' ? '' : 'px';
+    // eslint-disable-next-line no-param-reassign
+    accumulator[label] = cls =>
+      css`
+        @media (${prefix + breakpoints[label] + suffix}) {
+          ${cls};
+        }
+      `;
+    return accumulator;
+  },
+  {},
+);
+
+export default mq;
+
+// export default facepaint([
+//   '@media only screen and (max-width: 768px)',
+// ]);

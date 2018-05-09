@@ -18,20 +18,25 @@ injectGlobal({
   },
 });
 
-const LayoutGrid = styled.div(mq({
-  display: 'grid',
-  gridAutoRows: ['none', 'min-content'],
-  gridTemplateColumns: ['1fr 3fr', 'none'],
-  gridGap: '1rem',
-  height: '100vh',
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
-}));
+const LayoutGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 2rem 1rem 1rem 1fr;
+  grid-template-areas:
+    "picture content"
+    "name    content"
+    "blurb   content"
+    "social  content";
+  grid-gap: 1rem;
+  height: 100vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+`;
 
-const Children = styled.div(mq({
-  paddingTop: ['4rem', 0],
-  paddingRight: ['1rem', 0],
-}));
+const Children = styled.div`
+  padding-top: 4rem;
+  padding-right: 1rem;
+`;
 
 
 class Template extends React.Component {

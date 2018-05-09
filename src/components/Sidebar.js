@@ -8,38 +8,30 @@ import profilePic from './profile-pic.jpg';
 import colors from '../utils/colors';
 import mq from '../utils/responsive';
 
-const ProfilePicture = styled.img(mq({
-  borderRadius: '50%',
-  width: ['6rem', '4rem'],
-  verticalAlign: 'middle',
-  marginBottom: 0,
-}));
+const ProfilePicture = styled.img`
+  border-radius: 50%;
+  width: 6rem;
+  vertical-align: middle;
+  margin-bottom: 0;
+`;
 
 
-const Wrapper = styled.div(mq({
-  textAlign: 'center',
-  borderRight: [`1px solid ${colors.border}`, 'none'],
-  paddingTop: ['4rem', '1rem'],
-  paddingLeft: 0,
-  paddingRight: 0,
-}));
+const Title = styled.h3`
+  padding-top: 1rem;
+  margin-bottom: 1.66rem;
+  vertical-align: middle;
+  display: block;
+  margin-left: 0;
+`;
 
-const Title = styled.h3(mq({
-  paddingTop: ['1rem', 0],
-  marginBottom: ['1.66rem', 0],
-  verticalAlign: 'middle',
-  display: ['block', 'inline-block'],
-  marginLeft: [0, '2rem'],
-}));
+const Blurb = styled.p`
+  display: block;
+`;
 
-const Blurb = styled.p(mq({
-  display: ['block', 'none'],
-}));
-
-const SocialBlock = styled.div(mq({
-  display: ['block', 'inline-block'],
-  marginLeft: [0, '2rem'],
-}));
+const SocialBlock = styled.div`
+  display: block;
+  margin-left: 0;
+`;
 
 const icon = css`
   width: 2rem;
@@ -47,7 +39,7 @@ const icon = css`
 `;
 
 const Sidebar = () => (
-  <Wrapper>
+  <React.Fragment>
     <Link to="/">
       <ProfilePicture src={profilePic} alt="Picture of me" />
     </Link>
@@ -64,6 +56,6 @@ const Sidebar = () => (
       <a href="https://twitter.com/torokokill"><FaTwitter className={icon} /></a>
     </SocialBlock>
 
-  </Wrapper>
+  </React.Fragment>
 );
 export default Sidebar;
