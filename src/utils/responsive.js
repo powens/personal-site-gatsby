@@ -1,4 +1,3 @@
-// import facepaint from 'facepaint';
 import { css } from 'emotion';
 
 const breakpoints = {
@@ -22,7 +21,3 @@ const mq = Object.keys(breakpoints).reduce(
 );
 
 export default mq;
-
-// export default facepaint([
-//   '@media only screen and (max-width: 768px)',
-// ]);
