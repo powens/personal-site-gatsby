@@ -20,7 +20,7 @@ injectGlobal({
 
 const LayoutGrid = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 4rem auto auto;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "picture title social"

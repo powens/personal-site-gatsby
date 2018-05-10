@@ -19,8 +19,8 @@ const PictureLink = styled.css`
 
 const ProfilePicture = styled.img`
   border-radius: 50%;
-  width: 6rem;
-  min-width: 6rem;
+  width: 100%;
+  min-width: 100%;
   vertical-align: middle;
   margin-bottom: 0;
 `;
