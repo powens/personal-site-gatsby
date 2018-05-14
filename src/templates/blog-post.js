@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import get from 'lodash/get';
+import HelmetWrapper from '../components/HelmetWrapper';
 
 
 class BlogPostTemplate extends React.Component {
@@ -14,10 +14,14 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
+    const description = get(this.props, 'data.site.siteMetadata.description');
 
     return (
       <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <HelmetWrapper
+          title={`${post.frontmatter.title} | ${siteTitle}`}
+          description={description}
+        />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -34,6 +38,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        description
       }
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
