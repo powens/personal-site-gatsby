@@ -61,10 +61,7 @@ class Template extends React.Component {
     const { location, children } = this.props;
     return (
       <LayoutGrid>
-        <HelmetWrapper />
-
         <Sidebar />
-
         <Children>
           {children()}
         </Children>
