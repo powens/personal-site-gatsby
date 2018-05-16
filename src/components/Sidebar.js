@@ -62,14 +62,14 @@ const Sidebar = () => (
     </PictureWrapper>
     <Title>
       <Link to="/">
-          torokokill
+          Patrick Owens
       </Link>
     </Title>
     <Blurb>
         Full-stack engineer, infosec enthusiast, HAM radio operator, gamer.
     </Blurb>
     <SocialBlock>
-      <a href="https://github.com/torokokill"><FaGithub className={icon} /></a>
+      <a href="https://github.com/powens"><FaGithub className={icon} /></a>
       <a href="https://twitter.com/torokokill"><FaTwitter className={icon} /></a>
     </SocialBlock>
 

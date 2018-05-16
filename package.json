@@ -1,8 +1,8 @@
 {
-  "name": "toro-blog",
+  "name": "powens-blog",
   "description": "Just a freshly started gatsby blog",
   "version": "0.0.0",
-  "author": "Patrick <torokokill@gmail.com>",
+  "author": "Patrick <me@padraig.io>",
   "private": true,
   "dependencies": {
     "emotion": "^9.1.0",
