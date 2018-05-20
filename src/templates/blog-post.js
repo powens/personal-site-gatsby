@@ -8,15 +8,21 @@ import HelmetWrapper from '../components/HelmetWrapper';
 class BlogPostTemplate extends React.Component {
   static get propTypes() {
     return {
-      data: PropTypes.object,
+      data: PropTypes.shape({
+        markdownRemark: PropTypes.object,
+        titleImage: PropTypes.object,
+      }).isRequired,
     };
   }
 
   render() {
-    const post = this.props.data.markdownRemark;
+    const {
+      markdownRemark: post,
+      titleImage,
+    } = this.props.data;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const description = get(this.props, 'data.site.siteMetadata.description');
-    const mainImage = this.props.data.mainImage;
+
 
     return (
       <div>
@@ -26,7 +32,7 @@ class BlogPostTemplate extends React.Component {
         />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
-        <Img sizes={mainImage.sizes} />
+        {titleImage && <Img resolutions={titleImage.resolutions} />}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     );
@@ -52,9 +58,9 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
       }
     }
-    mainImage: imageSharp(id:{regex: $imageRegex}) {
-      sizes(maxWidth: 1380) {
-        ...GatsbyImageSharpSizes
+    titleImage: imageSharp(id:{ regex: $imageRegex }) {
+      resolutions(width: 400) {
+        ...GatsbyImageSharpResolutions
       }
     }
   }
