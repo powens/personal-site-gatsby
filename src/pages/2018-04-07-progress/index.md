@@ -2,6 +2,7 @@
 title: Progress
 date: "2018-04-07T22:48:03.284Z"
 path: "/progress/"
+image: "./pycascades.jpg"
 ---
 
 Progress is coming a bit slowly for this blog. I've decided to handroll my own theme and custom CSS this time around. As I had already known; I'm not good at design.
