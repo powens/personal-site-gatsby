@@ -4,9 +4,11 @@ import Link from 'gatsby-link';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
-import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+import ProfilePicture from '../components/ProfilePicture';
+import Blurb from '../components/Blurb';
 import mq from '../utils/responsive';
-import New from './New';
+
 
 require('prismjs/themes/prism-solarizedlight.css');
 
@@ -24,18 +26,17 @@ injectGlobal`
   }
 `;
 
-const LayoutGrid = styled.div`
-  display: grid;
-  grid-template-columns: 3rem auto 4rem;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "picture title social"
-    "content content content";
-  grid-gap: 1rem;
-  height: 100vh;
+const SiteWrapper = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   margin-top: 0.5rem;
+  
+  display: grid;
+  grid-gap: 1rem;
+`;
+
+const TitleWrapper = styled.div`
+
 
   // ${mq.medium(css`
   //   grid-template-columns: 1fr 3fr;
@@ -50,7 +51,6 @@ const LayoutGrid = styled.div`
 `;
 
 const Children = styled.div`
-  grid-area: content;
 `;
 
 
@@ -64,18 +64,22 @@ class Template extends React.Component {
   }
 
   render() {
-    const { location, children } = this.props;
+    const {
+      location: {
+        pathname = null,
+      } = {},
+      children,
+    } = this.props;
+
     return (
-      <LayoutGrid>
-        <Sidebar />
-        <Children>
-          {children()}
-        </Children>
-      </LayoutGrid>
+      <SiteWrapper>
+        <Header />
+        <ProfilePicture />
+        {children()}
+      </SiteWrapper>
     );
   }
 }
-
 
 
 export default Template;

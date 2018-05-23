@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
-
+import BlogCard from '../components/BlogCard';
 
 class BlogIndex extends React.Component {
   static get propTypes() {
@@ -17,25 +17,23 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <div>
+      <React.Fragment>
         <Helmet title={siteTitle} />
         {posts.map((post) => {
           if (post.node.path !== '/404/') {
             return (
-              <div key={post.node.frontmatter.path}>
-                <h3>
-                  <Link to={post.node.frontmatter.path}>
-                    {post.node.frontmatter.title}
-                  </Link>
-                </h3>
-                <small>{post.node.frontmatter.date}</small>
-                <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-              </div>
+              <BlogCard
+                key={post.node.frontmatter.path}
+                path={post.node.frontmatter.path}
+                title={post.node.frontmatter.title}
+                date={post.node.frontmatter.date}
+                excerpt={post.node.excerpt}
+              />
             );
           }
           return null;
         })}
-      </div>
+      </React.Fragment>
     );
   }
 }
