@@ -6,21 +6,27 @@ import { injectGlobal } from 'emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Sidebar from '../components/Sidebar';
 import mq from '../utils/responsive';
+import New from './New';
 
 require('prismjs/themes/prism-solarizedlight.css');
 
-injectGlobal({
-  '*': {
-    boxSizing: 'border-box',
-  },
-  body: {
-    margin: 0,
-  },
-});
+injectGlobal`
+  html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:after,
+  *:before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const LayoutGrid = styled.div`
   display: grid;
-  grid-template-columns: 4rem auto auto;
+  grid-template-columns: 3rem auto 4rem;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "picture title social"
@@ -29,18 +35,18 @@ const LayoutGrid = styled.div`
   height: 100vh;
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-top: 2rem;
-  
-  ${mq.medium(css`
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto auto auto auto 1fr;
-    grid-template-areas:
-      "picture content"
-      "title   content"
-      "blurb   content"
-      "social  content"
-      ".       content";
-  `)}
+  margin-top: 0.5rem;
+
+  // ${mq.medium(css`
+  //   grid-template-columns: 1fr 3fr;
+  //   grid-template-rows: auto auto auto auto 1fr;
+  //   grid-template-areas:
+  //     "picture content"
+  //     "title   content"
+  //     "blurb   content"
+  //     "social  content"
+  //     ".       content";
+  // `)}
 `;
 
 const Children = styled.div`
@@ -69,6 +75,7 @@ class Template extends React.Component {
     );
   }
 }
+
 
 
 export default Template;

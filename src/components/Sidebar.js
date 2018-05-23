@@ -30,6 +30,7 @@ const Title = styled.h3`
   justify-self: center;
   align-self: center;
   margin-bottom: 0;
+  position: sticky;
 `;
 
 const Blurb = styled.div`
