@@ -33,24 +33,12 @@ const SiteWrapper = styled.div`
   
   display: grid;
   grid-gap: 1rem;
-`;
-
-const TitleWrapper = styled.div`
-
-
-  // ${mq.medium(css`
-  //   grid-template-columns: 1fr 3fr;
-  //   grid-template-rows: auto auto auto auto 1fr;
-  //   grid-template-areas:
-  //     "picture content"
-  //     "title   content"
-  //     "blurb   content"
-  //     "social  content"
-  //     ".       content";
-  // `)}
-`;
-
-const Children = styled.div`
+  
+  ${mq.medium(css`
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42rem;
+  `)}
 `;
 
 
@@ -71,10 +59,13 @@ class Template extends React.Component {
       children,
     } = this.props;
 
+    const isLandingPage = (pathname === '/');
+
     return (
       <SiteWrapper>
         <Header />
         <ProfilePicture />
+        {isLandingPage && <Blurb />}
         {children()}
       </SiteWrapper>
     );
