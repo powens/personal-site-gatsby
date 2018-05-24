@@ -27,7 +27,7 @@ class BlogIndex extends React.Component {
                 path={post.node.frontmatter.path}
                 title={post.node.frontmatter.title}
                 date={post.node.frontmatter.date}
-                excerpt={post.node.excerpt}
+                excerpt={post.node.frontmatter.excerpt}
               />
             );
           }
@@ -50,11 +50,11 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt(pruneLength: 300)
           frontmatter {
             path
             date(formatString: "DD MMMM, YYYY")
             title
+            excerpt
           }
         }
       }

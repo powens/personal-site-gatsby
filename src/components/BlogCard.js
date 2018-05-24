@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
 
+const Card = styled.div`
+  display: grid;
+`;
+
 const BlogCard = ({
   path, title, date, excerpt,
 }) => (
-  <div>
+  <Card>
     <h3>
       <Link to={path}>
         {title}
@@ -14,7 +18,7 @@ const BlogCard = ({
     </h3>
     <small>{date}</small>
     <p dangerouslySetInnerHTML={{ __html: excerpt }} />
-  </div>
+  </Card>
 );
 
 BlogCard.propTypes = {
