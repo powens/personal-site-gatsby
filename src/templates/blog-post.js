@@ -9,7 +9,6 @@ class BlogPostTemplate extends React.Component {
   static get propTypes() {
     return {
       data: PropTypes.object,
-      titleImage: Proptypes.object,
     };
   }
 

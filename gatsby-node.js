@@ -12,9 +12,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             node {
               frontmatter {
                 path
-                titleImage {
-                  id
-                }
               }
             }
           }
@@ -33,7 +30,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: edge.node.frontmatter.path,
           component: blogPost,
           context: {
-            imageId: edge.node.frontmatter.titleImage,
+
           },
         });
       });
