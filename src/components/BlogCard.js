@@ -17,7 +17,7 @@ const BlogCard = ({
         {title}
       </Link>
     </h3>
-    <Img resolutions={titleImage.resolutions} />
+    <Img sizes={titleImage.sizes} />
     <small>{date}</small>
     <p dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
@@ -28,7 +28,10 @@ BlogCard.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
-  titleImage: PropTypes.any.isRequired,
+  titleImage: PropTypes.shape({
+    resolutions: PropTypes.object,
+    sizes: PropTypes.object,
+  }).isRequired,
 };
 
 export default BlogCard;
