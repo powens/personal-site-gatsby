@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import Img from 'gatsby-image';
 import Link from 'gatsby-link';
 
 const Card = styled.div`
@@ -8,7 +9,7 @@ const Card = styled.div`
 `;
 
 const BlogCard = ({
-  path, title, date, excerpt,
+  path, title, date, excerpt, titleImage,
 }) => (
   <Card>
     <h3>
@@ -16,6 +17,7 @@ const BlogCard = ({
         {title}
       </Link>
     </h3>
+    {titleImage && <Img resolutions={titleImage.resolutions} /> }
     <small>{date}</small>
     <p dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
@@ -26,6 +28,7 @@ BlogCard.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
+  titleImage: PropTypes.string.isRequired,
 };
 
 export default BlogCard;

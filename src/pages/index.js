@@ -28,6 +28,7 @@ class BlogIndex extends React.Component {
                 title={post.node.frontmatter.title}
                 date={post.node.frontmatter.date}
                 excerpt={post.node.frontmatter.excerpt}
+                titleImage={post.node.frontmatter.titleImage}
               />
             );
           }
@@ -41,7 +42,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query IndexQuery($imageId: String!) {
     site {
       siteMetadata {
         title
@@ -57,6 +58,11 @@ export const pageQuery = graphql`
             excerpt
           }
         }
+      }
+    }
+    titleImage: imageSharp(id: $imageId) {
+      resolutions(width: 400) {
+        ...GatsbyImageSharpResolutions
       }
     }
   }

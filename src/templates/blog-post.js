@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import Img from 'gatsby-image';
 import HelmetWrapper from '../components/HelmetWrapper';
 
 
@@ -8,6 +9,7 @@ class BlogPostTemplate extends React.Component {
   static get propTypes() {
     return {
       data: PropTypes.object,
+      titleImage: Proptypes.object,
     };
   }
 
