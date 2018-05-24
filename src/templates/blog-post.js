@@ -16,6 +16,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const description = get(this.props, 'data.site.siteMetadata.description');
+    const titleImage = post.frontmatter.titleImage.childImageSharp;
 
     return (
       <div>
@@ -25,6 +26,9 @@ class BlogPostTemplate extends React.Component {
         />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
+        <div>
+          <Img sizes={titleImage.sizes} />
+        </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     );
@@ -48,6 +52,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        titleImage {
+          childImageSharp {
+            sizes(maxWidth: 700) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
