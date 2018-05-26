@@ -17,8 +17,6 @@ As the conference was a single-track event, I was able to attend all but two of 
 ## My memorable talks
 All the talks during were excellent! However, I’d like to mention the ones I found interesting. This is list is unordered.
 
-**Note:** There are 2ish very long youtube videos of the entire conference. Once the video is split up into individual talks, I'll post links to all of the talks.
-
 ### Emily Morehouse-Valcarcel: The AST and Me
 `youtube:https://www.youtube.com/embed/Vkgb3fI8d7M`
     
