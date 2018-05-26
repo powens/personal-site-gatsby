@@ -5,7 +5,7 @@ import styled, { css } from 'react-emotion';
 import colors from '../utils/colors';
 import mq from '../utils/responsive';
 
-const Title = styled.h3`
+const Title = styled.h1`
   grid-area: title;
   justify-self: center;
   align-self: center;

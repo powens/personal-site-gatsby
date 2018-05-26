@@ -10,6 +10,10 @@ const ImageWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
+const Label = styled.span`
+  margin-right: 2rem;
+`;
+
 
 class BlogPostTemplate extends React.Component {
   static get propTypes() {
@@ -32,8 +36,10 @@ class BlogPostTemplate extends React.Component {
         />
         <h3>{post.frontmatter.title}</h3>
         <div>
-          <p>{post.frontmatter.date}</p>
-          {/*<p>{post.timeToRead} min read</p>*/}
+          <p>
+            <Label>{post.frontmatter.date}</Label>
+            <Label>{post.timeToRead} min read</Label>
+          </p>
         </div>
         <ImageWrapper>
           <Img sizes={titleImage.sizes} />
