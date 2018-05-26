@@ -37,7 +37,7 @@ const SiteWrapper = styled.div`
   ${mq.medium(css`
     margin-left: auto;
     margin-right: auto;
-    max-width: 42rem;
+    max-width: 50rem;
   `)}
 `;
 

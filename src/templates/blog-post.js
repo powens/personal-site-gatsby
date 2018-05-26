@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Img from 'gatsby-image';
+import styled, { css } from 'react-emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
+import mq from '../utils/responsive';
+
+const ImageWrapper = styled.div`
+  margin-bottom: 1rem;
+`;
 
 
 class BlogPostTemplate extends React.Component {
@@ -24,11 +30,14 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
           description={description}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
+        <h3>{post.frontmatter.title}</h3>
         <div>
-          <Img sizes={titleImage.sizes} />
+          <p>{post.frontmatter.date}</p>
+          {/*<p>{post.timeToRead} min read</p>*/}
         </div>
+        <ImageWrapper>
+          <Img sizes={titleImage.sizes} />
+        </ImageWrapper>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     );
@@ -49,6 +58,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       id
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

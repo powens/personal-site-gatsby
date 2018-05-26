@@ -7,25 +7,33 @@ import colors from './colors';
 
 const theme = {
   title: 'Boop',
-  baseFontSize: '18px',
+  baseFontSize: '16px',
   baseLineHeight: 5 / 3,
   googleFonts: [
     {
       name: 'Roboto Condensed',
       styles: ['400', '400i'],
     },
-    {
-      name: 'Vollkorn',
-      styles: ['400', '400i', '700'],
-    },
   ],
   headerFontFamily: ['Roboto Condensed', 'sans-serif'],
-  bodyFontFamily: ['Vollkorn', 'Georgia', 'serif'],
+  bodyFontFamily: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+  ],
+  scaleRatio: 2,
   headerColor: 'hsla(0,0%,0%,1)',
   bodyColor: 'hsla(0,0%,0%,0.8)',
-  headerWeight: 400,
-  bodyWeight: 400,
-  boldWeight: 700,
+  headerWeight: 500,
+  bodyWeight: 'normal',
+  boldWeight: 600,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
     a: {
       color: colors.primary,

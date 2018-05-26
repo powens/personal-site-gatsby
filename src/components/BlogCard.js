@@ -8,18 +8,21 @@ const Card = styled.div`
   display: grid;
 `;
 
+const BlogTitle = styled.h3`
+  margin-bottom: 0;
+`;
+
 const BlogCard = ({
   path, title, date, excerpt, titleImage,
 }) => (
   <Card>
-    <h3>
+    <BlogTitle>
       <Link to={path}>
         {title}
       </Link>
-    </h3>
-    <Img sizes={titleImage.sizes} />
+    </BlogTitle>
     <small>{date}</small>
-    <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+    {/*<p dangerouslySetInnerHTML={{ __html: excerpt }} />*/}
   </Card>
 );
 
