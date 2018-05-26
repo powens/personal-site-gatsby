@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import Img from 'gatsby-image';
+import styled, { css } from 'react-emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
+import mq from '../utils/responsive';
+
+const ImageWrapper = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const Label = styled.span`
+  margin-right: 2rem;
+`;
 
 
 class BlogPostTemplate extends React.Component {
@@ -15,6 +26,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const description = get(this.props, 'data.site.siteMetadata.description');
+    const titleImage = post.frontmatter.titleImage.childImageSharp;
 
     return (
       <div>
@@ -22,8 +34,16 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
           description={description}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
+        <h3>{post.frontmatter.title}</h3>
+        <div>
+          <p>
+            <Label>{post.frontmatter.date}</Label>
+            <Label>{post.timeToRead} min read</Label>
+          </p>
+        </div>
+        <ImageWrapper>
+          <Img sizes={titleImage.sizes} />
+        </ImageWrapper>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     );
@@ -44,9 +64,17 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       id
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        titleImage {
+          childImageSharp {
+            sizes(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
