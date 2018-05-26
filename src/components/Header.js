@@ -6,6 +6,7 @@ import colors from '../utils/colors';
 import mq from '../utils/responsive';
 
 const Title = styled.h3`
+  grid-area: title;
   justify-self: center;
   align-self: center;
   margin-bottom: 0;

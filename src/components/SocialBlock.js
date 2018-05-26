@@ -4,6 +4,7 @@ import FaGithub from 'react-icons/lib/fa/github';
 import FaTwitter from 'react-icons/lib/fa/twitter';
 
 const IconWrapper = styled.div`
+  grid-area: social;
   justify-self: center;
   align-self: center;
 `;

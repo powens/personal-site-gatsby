@@ -35,13 +35,29 @@ const SiteWrapper = styled.div`
   display: grid;
   grid-gap: 1rem;
   
+  grid-template-areas:
+    "title"
+    "pic"
+    "social"
+    "blurb"
+    "content";
+  
   ${mq.medium(css`
     margin-left: auto;
     margin-right: auto;
     max-width: 50rem;
-    // grid-template: 
-    //   "pic header
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+      "pic title social"
+      "blurb blurb blurb"
+      "content content content";
   `)}
+`;
+
+const Content = styled.div`
+  grid-area: content;
+  display: grid;
+  grid-gap: 2rem;
 `;
 
 
@@ -70,7 +86,9 @@ class Template extends React.Component {
         <ProfilePicture />
         <SocialBlock />
         {isLandingPage && <Blurb />}
-        {children()}
+        <Content>
+          {children()}
+        </Content>
       </SiteWrapper>
     );
   }

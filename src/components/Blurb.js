@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 
 const BlurbWrapper = styled.div`
+  grid-area: blurb;
 `;
 
 

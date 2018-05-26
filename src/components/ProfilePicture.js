@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import profilePic from './profile-pic.jpg';
 
 const PictureWrapper = styled.div`
+  grid-area: pic;
   justify-self: center;
 `;
 
