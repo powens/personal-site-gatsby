@@ -2,6 +2,7 @@ import { css } from 'emotion';
 
 const breakpoints = {
   medium: 768,
+  small: 425,
 };
 
 const mq = Object.keys(breakpoints).reduce(
