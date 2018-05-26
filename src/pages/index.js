@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
 import BlogCard from '../components/BlogCard';
+import HelmetWrapper from '../components/HelmetWrapper';
 
 class BlogIndex extends React.Component {
   static get propTypes() {
@@ -18,7 +19,7 @@ class BlogIndex extends React.Component {
 
     return (
       <React.Fragment>
-        <Helmet title={siteTitle} />
+        <HelmetWrapper title={siteTitle} />
         {posts.map((post) => {
           if (post.node.path !== '/404/') {
             return (
