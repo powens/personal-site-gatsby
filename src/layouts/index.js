@@ -6,6 +6,7 @@ import { injectGlobal } from 'emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Header from '../components/Header';
 import ProfilePicture from '../components/ProfilePicture';
+import SocialBlock from '../components/SocialBlock';
 import Blurb from '../components/Blurb';
 import mq from '../utils/responsive';
 
@@ -38,6 +39,8 @@ const SiteWrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: 50rem;
+    // grid-template: 
+    //   "pic header
   `)}
 `;
 
@@ -65,6 +68,7 @@ class Template extends React.Component {
       <SiteWrapper>
         <Header />
         <ProfilePicture />
+        <SocialBlock />
         {isLandingPage && <Blurb />}
         {children()}
       </SiteWrapper>
