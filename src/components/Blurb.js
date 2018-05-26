@@ -12,7 +12,7 @@ const Blurb = () => (
     </p>
     <p>
       I am a full stack developer, with a special interest in infosec and all things security.
-      I am a basic with honours licensed HAM radio operator, callsign VA7ORO.
+      I have my basic with honours licensed HAM radio operator, callsign VA7ORO.
     </p>
   </BlurbWrapper>
 );
