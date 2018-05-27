@@ -2,10 +2,15 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
 import profilePic from './profile-pic.jpg';
+import mq from "../utils/responsive";
 
 const PictureWrapper = styled.div`
   grid-area: pic;
   justify-self: center;
+  
+  ${mq.medium(css`
+    justify-self: left;
+  `)}
 `;
 
 const PictureLink = styled.css`

@@ -2,11 +2,16 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import FaGithub from 'react-icons/lib/fa/github';
 import FaTwitter from 'react-icons/lib/fa/twitter';
+import mq from "../utils/responsive";
 
 const IconWrapper = styled.div`
   grid-area: social;
   justify-self: center;
   align-self: center;
+  
+  ${mq.medium(css`
+    justify-self: right;
+  `)}
 `;
 
 const icon = css`
