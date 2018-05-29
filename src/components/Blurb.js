@@ -9,11 +9,9 @@ const BlurbWrapper = styled.div`
 const Blurb = () => (
   <BlurbWrapper>
     <p>
-      Howdy, I'm Patrick.
-    </p>
-    <p>
-      I am a full stack developer, with a special interest in infosec and all things security.
-      I have my basic with honours licensed HAM radio operator, callsign VA7ORO.
+      Howdy, I am a full stack developer, with an interested in all things security.
+      I am a basic with honours licensed HAM radio operator, callsign VA7ORO.
+      I also play games competitively, and have <a href="https://twitter.com/planetside2/status/500821423091630081">won a tournament or two</a>.
     </p>
   </BlurbWrapper>
 );
