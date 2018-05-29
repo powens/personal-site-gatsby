@@ -1,8 +1,11 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
-import FaGithub from 'react-icons/lib/fa/github';
-import FaTwitter from 'react-icons/lib/fa/twitter';
-import mq from "../utils/responsive";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
+import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
+import faMastodon from '@fortawesome/fontawesome-free-brands/faMastodon';
+
+import mq from '../utils/responsive';
 
 const IconWrapper = styled.div`
   grid-area: social;
@@ -15,13 +18,15 @@ const IconWrapper = styled.div`
 `;
 
 const icon = css`
-  font-size: 2rem;
+  font-size: 1.75rem;
+  margin-left: 0.2rem;
 `;
 
 const SocialBlock = () => (
   <IconWrapper>
-    <a href="https://github.com/powens"><FaGithub className={icon} /></a>
-    <a href="https://twitter.com/torokokill"><FaTwitter className={icon} /></a>
+    <a href="https://github.com/powens"><FontAwesomeIcon className={icon} icon={faGithub} /></a>
+    <a href="https://twitter.com/torokokill"><FontAwesomeIcon className={icon} icon={faTwitter} /></a>
+    <a href="https://mastodon.social/powens"><FontAwesomeIcon className={icon} icon={faMastodon} /></a>
   </IconWrapper>
 );
 
