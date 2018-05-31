@@ -24,9 +24,9 @@ const icon = css`
 
 const SocialBlock = () => (
   <IconWrapper>
-    <a href="https://github.com/powens"><FontAwesomeIcon className={icon} icon={faGithub} /></a>
-    <a href="https://twitter.com/torokokill"><FontAwesomeIcon className={icon} icon={faTwitter} /></a>
-    <a href="https://mastodon.social/powens"><FontAwesomeIcon className={icon} icon={faMastodon} /></a>
+    <a href="https://github.com/powens" aria-label="Link to Github"><FontAwesomeIcon className={icon} icon={faGithub} /></a>
+    <a href="https://twitter.com/torokokill" aria-label="Link to Twitter"><FontAwesomeIcon className={icon} icon={faTwitter} /></a>
+    <a href="https://mastodon.social/powens" aria-label="Link to Mastodon"><FontAwesomeIcon className={icon} icon={faMastodon} /></a>
   </IconWrapper>
 );
 
