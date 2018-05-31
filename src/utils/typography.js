@@ -5,29 +5,25 @@ import gray from 'gray-percentage';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
 import colors from './colors';
 
+const nativeStack = [
+  '-apple-system',
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Open Sans',
+  'Helvetica Neue',
+  'sans-serif',
+];
+
 const theme = {
   title: 'Boop',
   baseFontSize: '16px',
   baseLineHeight: 5 / 3,
-  googleFonts: [
-    {
-      name: 'Roboto Condensed',
-      styles: ['400', '400i'],
-    },
-  ],
-  headerFontFamily: ['Roboto Condensed', 'sans-serif'],
-  bodyFontFamily: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Roboto',
-    'Helvetica',
-    'Arial',
-    'sans-serif',
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-  ],
+  headerFontFamily: nativeStack,
+  bodyFontFamily: nativeStack,
   scaleRatio: 2,
   headerColor: 'hsla(0,0%,0%,1)',
   bodyColor: 'hsla(0,0%,0%,0.8)',
