@@ -17,16 +17,16 @@ const IconWrapper = styled.div`
   `)}
 `;
 
-const icon = css`
+const SocialLink = styled.a`
   font-size: 1.75rem;
   margin-left: 0.2rem;
 `;
 
 const SocialBlock = () => (
   <IconWrapper>
-    <a href="https://github.com/powens" aria-label="Link to Github"><FontAwesomeIcon className={icon} icon={faGithub} /></a>
-    <a href="https://twitter.com/torokokill" aria-label="Link to Twitter"><FontAwesomeIcon className={icon} icon={faTwitter} /></a>
-    <a href="https://mastodon.social/powens" aria-label="Link to Mastodon"><FontAwesomeIcon className={icon} icon={faMastodon} /></a>
+    <SocialLink href="https://github.com/powens" aria-label="Link to Github"><FontAwesomeIcon icon={faGithub} /></SocialLink>
+    <SocialLink href="https://twitter.com/torokokill" aria-label="Link to Twitter"><FontAwesomeIcon icon={faTwitter} /></SocialLink>
+    <SocialLink href="https://mastodon.social/powens" aria-label="Link to Mastodon"><FontAwesomeIcon icon={faMastodon} /></SocialLink>
   </IconWrapper>
 );
 
