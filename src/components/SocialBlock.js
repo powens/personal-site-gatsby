@@ -17,16 +17,32 @@ const IconWrapper = styled.div`
   `)}
 `;
 
-const icon = css`
-  font-size: 1.75rem;
+const SocialLink = styled.a`
   margin-left: 0.2rem;
+`;
+
+// Hack overwriting the Font-awesome styles to prevent pop-in
+const PreloadedImage = css`
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  vertical-align: -.125em;
+  width: 0.875em !important;
+  overflow: visible;
+  font-size: 1.75rem;
 `;
 
 const SocialBlock = () => (
   <IconWrapper>
-    <a href="https://github.com/powens" aria-label="Link to Github"><FontAwesomeIcon className={icon} icon={faGithub} /></a>
-    <a href="https://twitter.com/torokokill" aria-label="Link to Twitter"><FontAwesomeIcon className={icon} icon={faTwitter} /></a>
-    <a href="https://mastodon.social/powens" aria-label="Link to Mastodon"><FontAwesomeIcon className={icon} icon={faMastodon} /></a>
+    <SocialLink href="https://github.com/powens" aria-label="Link to Github">
+      <FontAwesomeIcon icon={faGithub} className={PreloadedImage} />
+    </SocialLink>
+    <SocialLink href="https://twitter.com/torokokill" aria-label="Link to Twitter">
+      <FontAwesomeIcon icon={faTwitter} className={PreloadedImage} />
+    </SocialLink>
+    <SocialLink href="https://mastodon.social/powens" aria-label="Link to Mastodon">
+      <FontAwesomeIcon icon={faMastodon} className={PreloadedImage} />
+    </SocialLink>
   </IconWrapper>
 );
 
