@@ -20,6 +20,7 @@ const IconWrapper = styled.div`
 const SocialLink = styled.a`
   font-size: 1.75rem;
   margin-left: 0.2rem;
+  height: 1em;
 `;
 
 const SocialBlock = () => (
