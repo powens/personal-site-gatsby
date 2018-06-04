@@ -22,12 +22,13 @@ const SocialLink = styled.a`
   margin-left: 0.2rem;
 `;
 
+// Hack overwriting the Font-awesome styles to prevent pop-in
 const PreloadedImage = css`
   display: inline-block;
   font-size: inherit;
   height: 1em;
   vertical-align: -.125em;
-  width: 0.875em;
+  width: 1em;
   overflow: visible;
 `;
 
