@@ -27,7 +27,7 @@ const PreloadedImage = css`
   font-size: inherit;
   height: 1em;
   vertical-align: -.125em;
-  width: 0.875em;
+  width: 0.875em !important;
   overflow: visible;
   font-size: 1.75rem;
 `;
