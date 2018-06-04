@@ -18,7 +18,6 @@ const IconWrapper = styled.div`
 `;
 
 const SocialLink = styled.a`
-  font-size: 1.75rem;
   margin-left: 0.2rem;
 `;
 
@@ -28,8 +27,9 @@ const PreloadedImage = css`
   font-size: inherit;
   height: 1em;
   vertical-align: -.125em;
-  width: 1em;
+  width: 0.875em;
   overflow: visible;
+  font-size: 1.75rem;
 `;
 
 const SocialBlock = () => (
