@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
-import get from 'lodash/get';
 import Img from 'gatsby-image';
 import mq from '../utils/responsive';
 
@@ -29,10 +29,15 @@ const Picture = styled.css`
 const ProfilePicture = ({ pic }) => (
   <PictureWrapper>
     <Link to="/" className={PictureLink}>
-      {/* <Picture src={profilePic} alt="Picture of me"/> */}
-      <Img resolutions={pic.resolutions} className={Picture} fadeIn={false} style={{borderRadius: '50%'}} alt="Picture of me" />
+      <Img resolutions={pic.resolutions} className={Picture} style={{ borderRadius: '50%' }} alt="Picture of me" />
     </Link>
   </PictureWrapper>
 );
+
+ProfilePicture.propTypes = {
+  pic: PropTypes.shape({
+    resolutions: PropTypes.object,
+  }).isRequired,
+};
 
 export default ProfilePicture;
