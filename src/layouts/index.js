@@ -111,7 +111,7 @@ export const query = graphql`
     profilePicture:file(relativePath: { eq: "profile-pic.jpg" }) {
       childImageSharp {
         resolutions(width: 139, quality: 100) {
-          ...GatsbyImageSharpResolutions_noBase64
+          ...GatsbyImageSharpResolutions_withWebp
         }
       }
     }
