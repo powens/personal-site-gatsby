@@ -22,7 +22,7 @@ const BlogCard = ({
       </Link>
     </BlogTitle>
     <small>{date}</small>
-    {/*<p dangerouslySetInnerHTML={{ __html: excerpt }} />*/}
+    {/* <p dangerouslySetInnerHTML={{ __html: excerpt }} /> */}
   </Card>
 );
 
