@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import Helmet from 'react-helmet';
 import BlogCard from '../components/BlogCard';
 import HelmetWrapper from '../components/HelmetWrapper';
+import Layout from '../components/Layout';
 
 class BlogIndex extends React.Component {
   static get propTypes() {
@@ -18,7 +19,7 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <React.Fragment>
+      <Layout>
         <HelmetWrapper title={siteTitle} />
         {posts.map((post) => {
           if (post.node.path !== '/404/') {
@@ -35,7 +36,7 @@ class BlogIndex extends React.Component {
           }
           return null;
         })}
-      </React.Fragment>
+      </Layout>
     );
   }
 }

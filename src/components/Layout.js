@@ -95,7 +95,7 @@ class Template extends React.Component {
         <SocialBlock />
         {isLandingPage && <Blurb />}
         <Content>
-          {children()}
+          {children}
         </Content>
       </SiteWrapper>
     );
