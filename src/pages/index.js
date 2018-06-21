@@ -11,6 +11,7 @@ class BlogIndex extends React.Component {
   static get propTypes() {
     return {
       route: PropTypes.object,
+      location: PropTypes.object,
     };
   }
 
@@ -19,7 +20,7 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <Layout>
+      <Layout location={this.props.location}>
         <HelmetWrapper title={siteTitle} />
         {posts.map((post) => {
           if (post.node.path !== '/404/') {
