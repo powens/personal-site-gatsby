@@ -819,7 +819,7 @@
   version "7.0.66"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.66.tgz#3d1dc4d6f52e484e843806ff456379f7e6ad5553"
 
-"@types/react-router-dom@^4.2.2", "@types/react-router-dom@^4.2.5":
+"@types/react-router-dom@^4.2.5":
   version "4.2.7"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.2.7.tgz#9d36bfe175f916dd8d7b6b0237feed6cce376b4c"
   dependencies:
@@ -4735,16 +4735,6 @@ gatsby-image@next:
   dependencies:
     "@babel/runtime" "7.0.0-beta.51"
     prop-types "^15.6.1"
-
-gatsby-link@^1.6.8:
-  version "1.6.44"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.44.tgz#31912e66d3b21632ce27e5b7310ec88d9a75eac3"
-  dependencies:
-    "@types/history" "^4.6.2"
-    "@types/react-router-dom" "^4.2.2"
-    babel-runtime "^6.26.0"
-    prop-types "^15.5.8"
-    ric "^1.3.0"
 
 gatsby-link@^2.0.0-beta.2:
   version "2.0.0-beta.2"

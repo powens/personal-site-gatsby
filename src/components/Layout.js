@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
 import { StaticQuery } from 'gatsby';
