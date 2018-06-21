@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
+import { StaticQuery } from 'gatsby';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Header from '../components/Header';
 import ProfilePicture from '../components/ProfilePicture';
@@ -79,11 +80,6 @@ class Template extends React.Component {
         pathname = null,
       } = {},
       children,
-      data: {
-        profilePicture: {
-          childImageSharp,
-        },
-      },
     } = this.props;
 
     const isLandingPage = (pathname === '/');
@@ -91,7 +87,7 @@ class Template extends React.Component {
     return (
       <SiteWrapper>
         <Header />
-        <ProfilePicture pic={childImageSharp} />
+        <ProfilePicture />
         <SocialBlock />
         {isLandingPage && <Blurb />}
         <Content>
@@ -104,16 +100,3 @@ class Template extends React.Component {
 
 
 export default Template;
-
-
-export const query = graphql`
-  query ProfilePicQuery {
-    profilePicture:file(relativePath: { eq: "profile-pic.jpg" }) {
-      childImageSharp {
-        resolutions(width: 139, quality: 100) {
-          ...GatsbyImageSharpResolutions_withWebp
-        }
-      }
-    }
-  }
-`;
