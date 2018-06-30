@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import BlogCard from '../components/BlogCard';
 
 const Tags = ({ pathContext, data }) => {
   const { tag } = pathContext;
@@ -11,17 +12,24 @@ const Tags = ({ pathContext, data }) => {
 
   return (
     <div>
-      <h1>{tagHeader}</h1>
-      <ul>
+      <h2>{tagHeader}</h2>
+      <div>
         {edges.map(({ node }) => {
-          const { path, title } = node.frontmatter;
+          const {
+            path, title, date, excerpt, titleImage,
+          } = node.frontmatter;
           return (
-            <li key={path}>
-              <Link to={path}>{title}</Link>
-            </li>
+            <BlogCard
+              key={path}
+              path={path}
+              title={title}
+              date={date}
+              excerpt={excerpt}
+              titleImage={titleImage.childImageSharp}
+            />
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };
@@ -29,7 +37,7 @@ const Tags = ({ pathContext, data }) => {
 Tags.propTypes = {
   pathContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
@@ -42,7 +50,7 @@ Tags.propTypes = {
         }),
       }).isRequired),
     }),
-  }),
+  }).isRequired,
 };
 
 export default Tags;
@@ -60,6 +68,15 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            date(formatString: "DD MMMM, YYYY")
+            excerpt
+            titleImage {
+              childImageSharp {
+                sizes(maxWidth: 700) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }
