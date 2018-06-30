@@ -4,6 +4,7 @@ date: "2018-03-30T15:14:03.284Z"
 path: "/pycascades-2018/"
 excerpt: My PyCascades Recap
 titleImage: "./pycascades.jpg"
+tags: ["pycascades", "conference", "python"]
 ---
 
 
