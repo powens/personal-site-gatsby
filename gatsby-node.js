@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 const path = require('path');
-const _ = require('lodash')
+const _ = require('lodash');
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
