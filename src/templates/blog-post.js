@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
 import mq from '../utils/responsive';
+import TagList from '../components/TagList';
 
 const ImageWrapper = styled.div`
   margin-bottom: 1rem;
@@ -18,7 +19,17 @@ const Label = styled.span`
 class BlogPostTemplate extends React.Component {
   static get propTypes() {
     return {
-      data: PropTypes.object,
+      data: PropTypes.shape({
+        markdownRemark: PropTypes.shape({
+          frontmatter: PropTypes.shape({
+            title: PropTypes.string,
+            date: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.string),
+          }),
+          timeToRead: PropTypes.number,
+          html: PropTypes.object,
+        }),
+      }).isRequired,
     };
   }
 
@@ -27,6 +38,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const description = get(this.props, 'data.site.siteMetadata.description');
     const titleImage = post.frontmatter.titleImage.childImageSharp;
+    const tags = post.frontmatter.tags;
 
     return (
       <div>
@@ -40,6 +52,9 @@ class BlogPostTemplate extends React.Component {
             <Label>{post.frontmatter.date}</Label>
             <Label>{post.timeToRead} min read</Label>
           </p>
+        </div>
+        <div>
+          <TagList tags={tags} />
         </div>
         <ImageWrapper>
           <Img sizes={titleImage.sizes} />
@@ -68,6 +83,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
         titleImage {
           childImageSharp {
             sizes(maxWidth: 800, quality: 100) {
