@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import HelmetWrapper from '../components/HelmetWrapper';

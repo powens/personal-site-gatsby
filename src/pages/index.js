@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Layout from '../components/Layout';
