@@ -15,7 +15,7 @@ Some of my personal highlights from the conference were meeting the BDFL himself
 As the conference was a single-track event, I was able to attend all but two of the talks given; which were missed as I was busy attending to my volunteering duties.
 
 
-## My memorable talksF
+## My memorable talks
 All the talks during were excellent! However, I’d like to mention the ones I found interesting. This is list is unordered.
 
 ### Emily Morehouse-Valcarcel: The AST and Me
