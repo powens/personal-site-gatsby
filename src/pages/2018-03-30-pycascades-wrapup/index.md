@@ -2,7 +2,7 @@
 title: PyCascades 2018 Recap
 date: "2018-03-30T15:14:03.284Z"
 path: "/pycascades-2018/"
-excerpt: My PyCascades Recap
+excerpt: I attended PyCascades 2018 in Vancouver. Here are my top 3 (4 actually) talks!
 titleImage: "./pycascades.jpg"
 tags: ["pycascades", "conference", "python"]
 ---
@@ -15,7 +15,7 @@ Some of my personal highlights from the conference were meeting the BDFL himself
 As the conference was a single-track event, I was able to attend all but two of the talks given; which were missed as I was busy attending to my volunteering duties.
 
 
-## My memorable talks
+## My memorable talksF
 All the talks during were excellent! However, I’d like to mention the ones I found interesting. This is list is unordered.
 
 ### Emily Morehouse-Valcarcel: The AST and Me
