@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
 import HelmetWrapper from '../components/HelmetWrapper';
@@ -17,11 +16,15 @@ class BlogIndex extends React.Component {
 
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+    const description = get(this, 'props.data.site.siteMetadata.description');
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
       <Layout location={this.props.location}>
-        <HelmetWrapper title={siteTitle} />
+        <HelmetWrapper
+          title={siteTitle}
+          description={description}
+        />
         {posts.map((post) => {
           if (post.node.path !== '/404/') {
             return (
@@ -49,6 +52,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

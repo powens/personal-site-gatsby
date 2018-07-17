@@ -37,7 +37,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
-    const description = get(this.props, 'data.site.siteMetadata.description');
+    const description = get(this.props, 'post.frontmatter.excerpt');
     const titleImage = post.frontmatter.titleImage.childImageSharp;
     const tags = post.frontmatter.tags;
 
@@ -74,7 +74,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
-        description
       }
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
@@ -85,6 +84,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         tags
+        excerpt
         titleImage {
           childImageSharp {
             sizes(maxWidth: 800, quality: 100) {

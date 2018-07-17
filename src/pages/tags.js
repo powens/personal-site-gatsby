@@ -9,12 +9,15 @@ const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
     site: {
-      siteMetadata: { title },
+      siteMetadata: { title, description },
     },
   },
 }) => (
   <div>
-    <Helmet title={title} />
+    <Helmet
+      title={title}
+      description={description}
+    />
     <div>
       <h1>Tags</h1>
       <ul>
@@ -52,6 +55,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMarkdownRemark(

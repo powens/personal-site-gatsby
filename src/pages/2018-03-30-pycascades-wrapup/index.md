@@ -2,7 +2,7 @@
 title: PyCascades 2018 Recap
 date: "2018-03-30T15:14:03.284Z"
 path: "/pycascades-2018/"
-excerpt: My PyCascades Recap
+excerpt: I attended PyCascades 2018 in Vancouver. Here are my top 3 (4 actually) talks!
 titleImage: "./pycascades.jpg"
 tags: ["pycascades", "conference", "python"]
 ---
