@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 import BlogCard from '../components/BlogCard';
+import Layout from '../components/Layout';
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
@@ -12,7 +13,7 @@ const Tags = ({ pageContext, data }) => {
   } tagged with "${tag}"`;
 
   return (
-    <div>
+    <Layout>
       <h2>{tagHeader}</h2>
       <div>
         {edges.map(({ node }) => {
@@ -31,7 +32,7 @@ const Tags = ({ pageContext, data }) => {
           );
         })}
       </div>
-    </div>
+    </Layout>
   );
 };
 
