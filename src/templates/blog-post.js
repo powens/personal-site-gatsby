@@ -46,6 +46,9 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
           description={description}
         />
+        <ImageWrapper>
+          <Img sizes={titleImage.sizes} />
+        </ImageWrapper>
         <h1>{post.frontmatter.title}</h1>
         <div>
           <p>
@@ -56,9 +59,6 @@ class BlogPostTemplate extends React.Component {
         <div>
           <TagList tags={tags} />
         </div>
-        <ImageWrapper>
-          <Img sizes={titleImage.sizes} />
-        </ImageWrapper>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     );
