@@ -48,50 +48,57 @@ Some useful tools for examining ASTs are:
 
 Here is a look at a basic jscodemod transform that removes all `debugger` statements:
 
-    /**
-     * remove-debugger.js
-     * Removes all debugger statements
-     */
-    module.exports = function(file, api) {
-      const j = api.jscodeshift;
-    
-      return j(file.source)
-        .find(j.DebuggerStatement)
-        .remove()
-        .toSource();
-    };
+```javascript
+/**
+ * remove-debugger.js
+ * Removes all debugger statements
+ */
+module.exports = function(file, api) {
+  const j = api.jscodeshift;
+
+  return j(file.source)
+    .find(j.DebuggerStatement)
+    .remove()
+    .toSource();
+};
+```
 
 First, the transform converts the source into its AST representation through `j(file.source)`. The helper function `.find()` is utilised to find all AST tree nodes that contain a `DebuggerStatement`. The results of the `.find()` are chained with a `.remove()` to remove those nodes from the AST. Finally, the `.toSource()` function is called to return the results of the transformation. 
 
 Note that the object returned from `j(file.source)` is a **mutable object**, and not immutable. The function chain returns the modified version of itself. This is a different behaviour than the more recent paradigm shift to functional programming in Javascript.
 
 **Example**
+```javascript
+const foo = 'Hello';
+debugger;
+const bar = 'World';
 
-    const foo = 'Hello';
-    debugger;
-    const bar = 'World';
-    
-    const baz = (a, b, c) => {
-      console.log('Easy as 1, 2, 3');
-      debugger;
-    };
-    
-    baz();
+const baz = (a, b, c) => {
+  console.log('Easy as 1, 2, 3');
+  debugger;
+};
+
+baz();
+```
 
 To run the transformation, simply run the command
 
-    $ jscodeshift -t remove-debugger.js my-file.js
+```bash
+$ jscodeshift -t remove-debugger.js my-file.js
+```
 
 After:
 
-    const foo = 'Hello';
-    const bar = 'World';
-    
-    const baz = (a, b, c) => {
-      console.log('Easy as 1, 2, 3');
-    };
-    
-    baz();
+```javascript
+const foo = 'Hello';
+const bar = 'World';
+
+const baz = (a, b, c) => {
+  console.log('Easy as 1, 2, 3');
+};
+
+baz();
+```
 
 
 ## Refining the results from .find()
@@ -99,31 +106,33 @@ After:
 **Second parameter of .find()**
 To further refine the results from a `.find()` query, the second parameter of `.find()` can be used. The second parameter is an optional partial AST tree match. Here is a small example to update references from `react-addons-test-utils`  to `react-dom/test-utils`, per the React 15 to 16 migration docs. 
 
-
-    // Use the second parameter of .find()
-    return j(file.source)
-      .find(j.ImportDeclaration, {
-        source: {
-          value: 'react-addons-test-utils'
-        }
-      })
-      .forEach(path => {
-        path.value.source.value = 'react-dom/test-utils';
-      })
-      .toSource();
+```javascript
+// Use the second parameter of .find()
+return j(file.source)
+  .find(j.ImportDeclaration, {
+    source: {
+      value: 'react-addons-test-utils'
+    }
+  })
+  .forEach(path => {
+    path.value.source.value = 'react-dom/test-utils';
+  })
+  .toSource();
+```
 
 **Functional filtering through .filter()**
 For more advanced filtering, the `.filter()` function can be chained after the `.find()`. It works identically to other functional callbacks, like `Array.filter()`. Here is the same refactoring step, written with `filter()`.
 
-
-    // Using .filter()
-    return j(file.source)
-      .find(j.ImportDeclaration)
-      .filter(path => path.value.source.value === 'react-addons-test-utils')
-      .forEach(path => {
-        path.value.source.value = 'react-dom/test-utils';
-      })
-      .toSource();
+```javascript
+// Using .filter()
+return j(file.source)
+  .find(j.ImportDeclaration)
+  .filter(path => path.value.source.value === 'react-addons-test-utils')
+  .forEach(path => {
+    path.value.source.value = 'react-dom/test-utils';
+  })
+  .toSource();
+```
 
 
 ## Modifying or replacing code
@@ -141,30 +150,31 @@ Shoving any old object in to the tree will most likely have recast throw errors 
 
 Luckily jscodeshift has helper methods to build new nodes. The documentation for these nodes doesn’t exist directly, but the [AST Types](https://github.com/benjamn/ast-types) repository has a full list of definitions with parameters to explore. To create a new node, use the `camelCase()` of the node name, as opposed to the `PascalCase` version used for finding and filtering.
 
+```javascript
+/**
+ * static-func-to-static-property.js
+ * Converts all `static get funcName()` to `static funcName = {}`
+ */
+const isStaticGet = path => (
+  path.node.static && path.node.kind === 'get'
+);
 
-    /**
-     * static-func-to-static-property.js
-     * Converts all `static get funcName()` to `static funcName = {}`
-     */
-    const isStaticGet = path => (
-      path.node.static && path.node.kind === 'get'
-    );
-    
-    const staticClassProperty = path => {
-      // Create a ClassProperty node with an Identifier child
-      return j.classProperty(
-        j.identifier(path.node.key.name),
-        path.node.value.body.body[0].argument,
-        null,
-        true
-      );
-    };
-    
-    return j(file.source)
-      .find(j.MethodDefinition)
-      .filter(isStaticGet)
-      .replaceWith(staticClassProperty)
-      .toSource();
+const staticClassProperty = path => {
+  // Create a ClassProperty node with an Identifier child
+  return j.classProperty(
+    j.identifier(path.node.key.name),
+    path.node.value.body.body[0].argument,
+    null,
+    true
+  );
+};
+
+return j(file.source)
+  .find(j.MethodDefinition)
+  .filter(isStaticGet)
+  .replaceWith(staticClassProperty)
+  .toSource();
+```
 
 
 ## Testing
@@ -182,19 +192,20 @@ I’ve also created a basic repo with examples used in this post, available at: 
 ## Back to the upgrade task
 
 Going back to the eslint errors from original project. Here is a count of the error types, aggregated by [eslint-stats](https://github.com/ganimomer/eslint-stats): 
-
-    react/destructuring-assignment:    746
-    react/sort-comp:                   106
-    max-len:                            51
-    react/forbid-prop-types:            42
-    react/no-access-state-in-setstate:  26
-    import/named:                        4
-    react/button-has-type:               4
-    react/jsx-closing-tag-location:      3
-    import/no-cycle:                     2
-    react/no-deprecated:                 2
-    react/no-this-in-sfc:                1
-    ✖ 987 problems (987 errors, 0 warnings)
+```bash
+react/destructuring-assignment:    746
+react/sort-comp:                   106
+max-len:                            51
+react/forbid-prop-types:            42
+react/no-access-state-in-setstate:  26
+import/named:                        4
+react/button-has-type:               4
+react/jsx-closing-tag-location:      3
+import/no-cycle:                     2
+react/no-deprecated:                 2
+react/no-this-in-sfc:                1
+✖ 987 problems (987 errors, 0 warnings)
+```
 
 Some observations:
 
@@ -208,22 +219,26 @@ Some observations:
 
 First things first, converting all the `static get propTypes()`, etc. into their `static propTypes =` equivalents. As all files still violate `react/sort-comp`, the number of errors are still be the same. 
 
-
-    ✖ 987 problems (987 errors, 0 warnings)
+```bash
+✖ 987 problems (987 errors, 0 warnings)
+```
 
 Running the `destructuring-assignment.js` codemod. This won’t fix everything, but should get the majority of the issues.
 
-
-    ✖ 301 problems (301 errors, 0 warnings)
+```bash
+✖ 301 problems (301 errors, 0 warnings)
+```
 
 680 less eslint errors. I’m feeling happier already! Next, I ran `sort-comp.js` from react-codemod.
 
-
-    ✖ 210 problems (210 errors, 0 warnings)
+```bash
+✖ 210 problems (210 errors, 0 warnings)
+```
 
 Finally, I ran the a codemod to convert those bad `intl: PropTypes.object` definitions into `intl: intlShape`.
 
-
-    ✖ 160 problems (160 errors, 0 warnings)
+```bash
+✖ 160 problems (160 errors, 0 warnings)
+```
 
 Not bad! Although it took a fair amount of effort to learn jscodeshift (and I’m still stumbling through it sometimes), it would have taken much, MUCH more effort to fix all these eslint errors by hand.
