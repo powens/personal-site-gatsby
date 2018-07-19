@@ -18,7 +18,6 @@ tags: ["javascript", "jscodeshift", "refactoring"]
 * [eslint-stats 1.0.0](https://github.com/ganimomer/eslint-stats)
 * [ast-types 0.11.4](https://github.com/benjamn/ast-types)
 
-# Automate your refactoring with jscodeshift
 
 I was recently tasked with preparing a large, rather messy code base for a React 15 to 16 upgrade. Among the steps along the upgrade path was to upgrade the version of `eslint`, and `eslint-config-airbnb`; their versions having not been touched in over a year. Imagine to my horror when I saw 1000 new un`--fix`able linter errors surfaced due to the new, stricter rules. Regular expressions wouldn’t be able to fix all the issues. Doing this by hand could day several days.
 
