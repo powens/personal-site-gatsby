@@ -127,9 +127,7 @@ For more advanced filtering, the `.filter()` function can be chained after the `
 // Using .filter()
 return j(file.source)
   .find(j.ImportDeclaration)
-  .filter(path => (
-    path.value.source.value === 'react-addons-test-utils'
-   ))
+  .filter(path => path.value.source.value === 'react-addons-test-utils')
   .forEach(path => {
     path.value.source.value = 'react-dom/test-utils';
   })
@@ -188,7 +186,7 @@ jscodemod has some built-in unit testing helpers, [as documented in the readme](
 
 The [jscodeshift readme](https://github.com/facebook/jscodeshift) file is the place to learn more about jscodeshift and recast. There is a section on [prexisting codemods](https://github.com/facebook/jscodeshift#example-codemods) which is an excellent starting place to learn more about rolling your own codemods.
 
-I’ve also created a basic repo with examples used in this post, available at: https://github.com/powens/jscodeshift-examples - these aren’t quite fully baked, and require more testing and handling special cases; but are intended as a place to get more familiar with the jscodeshift API.
+I’ve also created a basic repo with examples used in this post, [available on my github](https://github.com/powens/jscodeshift-examples) - these aren’t quite fully baked, and require more testing and handling special cases; but are intended as a place to get more familiar with the jscodeshift API.
 
 
 ## Back to the upgrade task
@@ -214,7 +212,7 @@ Some observations:
 -  `react/destructuring-assignment`
   - These can be tedious to fix and could be a source of regression errors. A codemod is perfect to handle the trivial cases. Complex ones can be left to a human.
 - `react/sort-comp`
-  - A codemod already exists in the react-codemod repo. It is slightly out-of-date, so I hacked in a few fixes: https://github.com/reactjs/react-codemod/blob/master/transforms/sort-comp.js
+  - A codemod already exists in the [react-codemod repo](https://github.com/reactjs/react-codemod/blob/master/transforms/sort-comp.js). It is slightly out-of-date, so I hacked in a few fixes.
   - `static get propTypes()` was used, rather than the recommended `static propTypes = {}`. This is causing some of the `react/sort-comp` errors. This could be fixed with a regex, but I created a codemod for it, because why not?
 - `react/forbid-prop-types`
   - Most of these are caused by defining `intl: PropTypes.object`. A codemod can be used to add `import { intlShape } from` `'``react-intl``'``;` and swapping the `intl` definition to `intlShape`.
