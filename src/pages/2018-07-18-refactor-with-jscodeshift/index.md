@@ -1,5 +1,5 @@
 ---
-title: Automate your refactoring with jscodeshift
+title: Automate refactoring with jscodeshift
 date: "2018-07-18T20:49:03.284Z"
 path: "/automate-refactoring-jscodeshift/"
 excerpt: A crash course in jscodeshift, a library that lets you write code to automate your Javascript refactoring jobs
@@ -22,9 +22,9 @@ tags: ["javascript", "jscodeshift", "refactoring"]
 
 I was recently tasked with preparing a large, rather messy code base for a React 15 to 16 upgrade. Among the steps along the upgrade path was to upgrade the version of `eslint`, and `eslint-config-airbnb`; their versions having not been touched in over a year. Imagine to my horror when I saw 1000 new un`--fix`able linter errors surfaced due to the new, stricter rules. Regular expressions wouldn’t be able to fix all the issues. Doing this by hand could day several days.
 
-
-    ✖ 1055 problems (1055 errors, 0 warnings)
-      3 errors and 0 warnings potentially fixable with the `--fix` option.
+```
+✖ 1055 problems (1055 errors, 0 warnings)
+```
 
 I wondered if there was a way to automate as much of this refactoring as possible.
 
@@ -153,14 +153,14 @@ Luckily jscodeshift has helper methods to build new nodes. The documentation for
 ```javascript
 /**
  * static-func-to-static-property.js
- * Converts all `static get funcName()` to `static funcName = {}`
+ * Converts all `static get funcName()` 
+ * to `static funcName = {}`
  */
 const isStaticGet = path => (
   path.node.static && path.node.kind === 'get'
 );
 
 const staticClassProperty = path => {
-  // Create a ClassProperty node with an Identifier child
   return j.classProperty(
     j.identifier(path.node.key.name),
     path.node.value.body.body[0].argument,
@@ -186,7 +186,7 @@ jscodemod has some built-in unit testing helpers, [as documented in the readme](
 
 The [jscodeshift readme](https://github.com/facebook/jscodeshift) file is the place to learn more about jscodeshift and recast. There is a section on [prexisting codemods](https://github.com/facebook/jscodeshift#example-codemods) which is an excellent starting place to learn more about rolling your own codemods.
 
-I’ve also created a basic repo with examples used in this post, available at: https://github.com/powens/jscodeshift-examples - these aren’t quite fully baked, and require more testing and handling special cases; but are intended as a place to get more familiar with the jscodeshift API.
+I’ve also created a basic repo with examples used in this post, [available on my github](https://github.com/powens/jscodeshift-examples) - these aren’t quite fully baked, and require more testing and handling special cases; but are intended as a place to get more familiar with the jscodeshift API.
 
 
 ## Back to the upgrade task
@@ -212,7 +212,7 @@ Some observations:
 -  `react/destructuring-assignment`
   - These can be tedious to fix and could be a source of regression errors. A codemod is perfect to handle the trivial cases. Complex ones can be left to a human.
 - `react/sort-comp`
-  - A codemod already exists in the react-codemod repo. It is slightly out-of-date, so I hacked in a few fixes: https://github.com/reactjs/react-codemod/blob/master/transforms/sort-comp.js
+  - A codemod already exists in the [react-codemod repo](https://github.com/reactjs/react-codemod/blob/master/transforms/sort-comp.js). It is slightly out-of-date, so I hacked in a few fixes.
   - `static get propTypes()` was used, rather than the recommended `static propTypes = {}`. This is causing some of the `react/sort-comp` errors. This could be fixed with a regex, but I created a codemod for it, because why not?
 - `react/forbid-prop-types`
   - Most of these are caused by defining `intl: PropTypes.object`. A codemod can be used to add `import { intlShape } from` `'``react-intl``'``;` and swapping the `intl` definition to `intlShape`.
