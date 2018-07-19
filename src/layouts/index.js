@@ -45,13 +45,14 @@ const SiteWrapper = styled.div`
   display: grid;
   grid-gap: 1rem;
   
-  
   grid-template-areas:
     "title"
     "pic"
     "social"
     "blurb"
     "content";
+    
+   min-width: 0;
   
   ${mq.medium(css`
     margin-left: auto;
@@ -67,6 +68,8 @@ const SiteWrapper = styled.div`
 
 const Content = styled.div`
   grid-area: content;
+  min-width: 0;
+  overflow: hidden;
 `;
 
 
