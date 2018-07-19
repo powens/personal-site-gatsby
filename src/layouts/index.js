@@ -26,7 +26,6 @@ injectGlobal`
     padding: 0;
   }
   
-  
   .gatsby-highlight  {
     overflow: auto;
   }
@@ -46,7 +45,6 @@ const SiteWrapper = styled.div`
   display: grid;
   grid-gap: 1rem;
   
-  max-width: 100vw;
   
   grid-template-areas:
     "title"
@@ -54,8 +52,6 @@ const SiteWrapper = styled.div`
     "social"
     "blurb"
     "content";
-   grid-template-rows: repeat(5, 1fr);
-   grid-template-columns: minmax(200px, 1fr);
   
   ${mq.medium(css`
     margin-left: auto;
@@ -71,8 +67,6 @@ const SiteWrapper = styled.div`
 
 const Content = styled.div`
   grid-area: content;
-  display: grid;
-  grid-gap: 2rem;
 `;
 
 
