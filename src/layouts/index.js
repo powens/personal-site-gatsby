@@ -11,7 +11,7 @@ import Blurb from '../components/Blurb';
 import mq from '../utils/responsive';
 
 
-require('prismjs/themes/prism-solarizedlight.css');
+require('prismjs/themes/prism-tomorrow.css');
 
 injectGlobal`
   html {
@@ -24,6 +24,17 @@ injectGlobal`
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+  }
+  
+  
+  .gatsby-highlight  {
+    overflow: auto;
+  }
+  
+  .gatsby-highlight pre[class*='language-'] {
+    overflow: initial;
+    float: left;
+    min-width: 100%;
   }
 `;
 

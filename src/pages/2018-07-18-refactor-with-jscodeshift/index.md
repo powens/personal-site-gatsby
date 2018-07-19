@@ -1,5 +1,5 @@
 ---
-title: Automate your refactoring with jscodeshift
+title: Automate refactoring with jscodeshift
 date: "2018-07-18T20:49:03.284Z"
 path: "/automate-refactoring-jscodeshift/"
 excerpt: A crash course in jscodeshift, a library that lets you write code to automate your Javascript refactoring jobs
@@ -22,9 +22,9 @@ tags: ["javascript", "jscodeshift", "refactoring"]
 
 I was recently tasked with preparing a large, rather messy code base for a React 15 to 16 upgrade. Among the steps along the upgrade path was to upgrade the version of `eslint`, and `eslint-config-airbnb`; their versions having not been touched in over a year. Imagine to my horror when I saw 1000 new un`--fix`able linter errors surfaced due to the new, stricter rules. Regular expressions wouldn’t be able to fix all the issues. Doing this by hand could day several days.
 
-
-    ✖ 1055 problems (1055 errors, 0 warnings)
-      3 errors and 0 warnings potentially fixable with the `--fix` option.
+```
+✖ 1055 problems (1055 errors, 0 warnings)
+```
 
 I wondered if there was a way to automate as much of this refactoring as possible.
 
@@ -127,7 +127,9 @@ For more advanced filtering, the `.filter()` function can be chained after the `
 // Using .filter()
 return j(file.source)
   .find(j.ImportDeclaration)
-  .filter(path => path.value.source.value === 'react-addons-test-utils')
+  .filter(path => (
+    path.value.source.value === 'react-addons-test-utils'
+   ))
   .forEach(path => {
     path.value.source.value = 'react-dom/test-utils';
   })
@@ -153,14 +155,14 @@ Luckily jscodeshift has helper methods to build new nodes. The documentation for
 ```javascript
 /**
  * static-func-to-static-property.js
- * Converts all `static get funcName()` to `static funcName = {}`
+ * Converts all `static get funcName()` 
+ * to `static funcName = {}`
  */
 const isStaticGet = path => (
   path.node.static && path.node.kind === 'get'
 );
 
 const staticClassProperty = path => {
-  // Create a ClassProperty node with an Identifier child
   return j.classProperty(
     j.identifier(path.node.key.name),
     path.node.value.body.body[0].argument,
