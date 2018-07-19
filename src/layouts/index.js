@@ -46,12 +46,16 @@ const SiteWrapper = styled.div`
   display: grid;
   grid-gap: 1rem;
   
+  max-width: 100vw;
+  
   grid-template-areas:
     "title"
     "pic"
     "social"
     "blurb"
     "content";
+   grid-template-rows: repeat(5, 1fr);
+   grid-template-columns: minmax(200px, 1fr);
   
   ${mq.medium(css`
     margin-left: auto;
