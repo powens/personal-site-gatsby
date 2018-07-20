@@ -4,22 +4,12 @@ date: "2018-07-18T20:49:03.284Z"
 path: "/automate-refactoring-jscodeshift/"
 excerpt: A crash course in jscodeshift, a library that lets you write code to automate your Javascript refactoring jobs
 titleImage: "./jscodeshift.png"
-tags: ["javascript", "jscodeshift", "refactoring"]
+tags: ["javascript", "jscodeshift", "refactoring", "ast"]
 ---
 
-## Libraries mentioned in this post
+Refactoring is an integral aspect of development. Numerous tools exist to assist with it. From basic functions like find-and-replace, and regular expression replacements to more complex refactoring tools available in most IDEs. 
 
-* [jscodeshift 0.5.1](https://github.com/facebook/jscodeshift) 
-* [recast 0.15.2](https://github.com/benjamn/recast/) 
-* [jscodeshift-helper 1.1.0](https://github.com/reergymerej/jscodeshift-helper)
-* [react-codemod 4.0.0](https://github.com/reactjs/react-codemod)
-* [eslint 5.1.0](https://github.com/eslint/eslint) 
-* [eslint-config-airbnb 17.0.0](https://github.com/airbnb/javascript) 
-* [eslint-stats 1.0.0](https://github.com/ganimomer/eslint-stats)
-* [ast-types 0.11.4](https://github.com/benjamn/ast-types)
-
-
-I was recently tasked with preparing a large, rather messy code base for a React 15 to 16 upgrade. Among the steps along the upgrade path was to upgrade the version of `eslint`, and `eslint-config-airbnb`; their versions having not been touched in over a year. Imagine to my horror when I saw 1000 new un`--fix`able linter errors surfaced due to the new, stricter rules. Regular expressions wouldn’t be able to fix all the issues. Doing this by hand could day several days.
+I was recently tasked with preparing a large, rather messy code base for a non-trivial `eslint`, and `eslint-config-airbnb` upgrade; their versions having not been touched in over a year. Imagine to my horror when I saw 1000 new un`--fix`able linter errors surfaced due to the new, stricter rules. Regular expressions wouldn’t be able to fix all the issues. Doing this by hand could day several days.
 
 ```
 ✖ 1055 problems (1055 errors, 0 warnings)
@@ -241,3 +231,15 @@ Finally, I ran the a codemod to convert those bad `intl: PropTypes.object` defin
 ```
 
 Not bad! Although it took a fair amount of effort to learn jscodeshift (and I’m still stumbling through it sometimes), it would have taken much, MUCH more effort to fix all these eslint errors by hand.
+
+
+## Libraries mentioned in this post
+
+* [jscodeshift 0.5.1](https://github.com/facebook/jscodeshift) 
+* [recast 0.15.2](https://github.com/benjamn/recast/) 
+* [jscodeshift-helper 1.1.0](https://github.com/reergymerej/jscodeshift-helper)
+* [react-codemod 4.0.0](https://github.com/reactjs/react-codemod)
+* [eslint 5.1.0](https://github.com/eslint/eslint) 
+* [eslint-config-airbnb 17.0.0](https://github.com/airbnb/javascript) 
+* [eslint-stats 1.0.0](https://github.com/ganimomer/eslint-stats)
+* [ast-types 0.11.4](https://github.com/benjamn/ast-types)
