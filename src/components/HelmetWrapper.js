@@ -6,23 +6,23 @@ import favicon16 from './favicon/favicon-16x16.png';
 // import manifest from './favicon/site.webmanifest';
 import appleTouchIcon from './favicon/apple-touch-icon.png';
 import safariPinnedTab from './favicon/safari-pinned-tab.svg';
-import colors from '../utils/colors';
+import { defaultColors } from '../utils/colors';
 
 
 const HelmetWrapper = ({ title, description }) => (
-  <Helmet title={title} >
+  <Helmet title={title}>
     <html lang="en" />
     <meta charSet="utf-8" />
     <meta name="description" content={description} />
 
     {/* favicon stuff */}
     <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
-    <link rel="mask-icon" href={safariPinnedTab} color={colors.primary} />
+    <link rel="mask-icon" href={safariPinnedTab} color={defaultColors.primary} />
     <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
     <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-    <meta name="theme-color" content={colors.primary} />
+    <meta name="theme-color" content={defaultColors.primary} />
     {/* <link rel="manifest" href={manifest} /> */}
-    <meta name="msapplication-TileColor" content={colors.primary} />
+    <meta name="msapplication-TileColor" content={defaultColors.primary} />
     {/* OpenGraph tags */}
     {/* <meta property="og:url" content={url} /> */}
     {/* <meta property="og:title" content={title} /> */}

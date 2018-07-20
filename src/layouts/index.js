@@ -85,6 +85,10 @@ class Template extends React.Component {
     };
   }
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const {
       location: {

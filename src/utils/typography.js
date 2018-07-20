@@ -3,7 +3,7 @@ import Typography from 'typography';
 
 import gray from 'gray-percentage';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
-import colors from './colors';
+import getColorScheme from './colors';
 
 const nativeStack = [
   '-apple-system',
@@ -25,14 +25,17 @@ const theme = {
   headerFontFamily: nativeStack,
   bodyFontFamily: nativeStack,
   scaleRatio: 2,
-  headerColor: 'hsla(0,0%,0%,1)',
-  bodyColor: 'hsla(0,0%,0%,0.8)',
+  headerColor: getColorScheme().headerColor,
+  bodyColor: getColorScheme().bodyColor,
   headerWeight: 500,
   bodyWeight: 'normal',
   boldWeight: 600,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
+    body: {
+      backgroundColor: getColorScheme().background,
+    },
     a: {
-      color: colors.primary,
+      color: getColorScheme().primary,
       textDecoration: 'none',
     },
     'a:hover,a:active': {
