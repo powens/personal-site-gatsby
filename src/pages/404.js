@@ -42,7 +42,7 @@ class PageNotFound extends React.Component {
 export default PageNotFound;
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query NotFoundQuery {
     site {
       siteMetadata {
         title
