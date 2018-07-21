@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 
 const Card = styled.div`
   display: grid;
+  margin-bottom: 2rem;
 `;
 
 const BlogTitle = styled.h3`
@@ -22,7 +23,7 @@ const BlogCard = ({
       </Link>
     </BlogTitle>
     <small>{date}</small>
-    {/* <p dangerouslySetInnerHTML={{ __html: excerpt }} /> */}
+    <span dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
 );
 

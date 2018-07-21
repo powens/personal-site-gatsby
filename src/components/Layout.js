@@ -11,7 +11,7 @@ import Blurb from '../components/Blurb';
 import mq from '../utils/responsive';
 
 
-require('prismjs/themes/prism-solarizedlight.css');
+require('prismjs/themes/prism-tomorrow.css');
 
 injectGlobal`
   html {
@@ -24,6 +24,16 @@ injectGlobal`
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+  }
+  
+  .gatsby-highlight  {
+    overflow: auto;
+  }
+  
+  .gatsby-highlight pre[class*='language-'] {
+    overflow: initial;
+    float: left;
+    min-width: 100%;
   }
 `;
 
@@ -41,6 +51,8 @@ const SiteWrapper = styled.div`
     "social"
     "blurb"
     "content";
+    
+   min-width: 0;
   
   ${mq.medium(css`
     margin-left: auto;
@@ -56,8 +68,8 @@ const SiteWrapper = styled.div`
 
 const Content = styled.div`
   grid-area: content;
-  display: grid;
-  grid-gap: 2rem;
+  min-width: 0;
+  overflow: hidden;
 `;
 
 
