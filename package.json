@@ -5,9 +5,9 @@
   "author": "Patrick <me@padraig.io>",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.8",
-    "@fortawesome/fontawesome-free-brands": "^5.0.13",
-    "@fortawesome/react-fontawesome": "^0.0.20",
+    "@fortawesome/fontawesome-svg-core": "^1.2.1",
+    "@fortawesome/free-brands-svg-icons": "^5.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.0",
     "emotion": "^9.1.0",
     "emotion-server": "^9.1.1",
     "gatsby": "^1.8.12",

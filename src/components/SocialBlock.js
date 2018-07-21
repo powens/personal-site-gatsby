@@ -1,9 +1,7 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
-import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
-import faMastodon from '@fortawesome/fontawesome-free-brands/faMastodon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faTwitter, faMastodon } from '@fortawesome/free-brands-svg-icons';
 
 import mq from '../utils/responsive';
 
