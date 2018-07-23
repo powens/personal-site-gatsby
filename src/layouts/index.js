@@ -79,9 +79,6 @@ class Template extends React.Component {
       children: PropTypes.func,
       location: PropTypes.object,
       route: PropTypes.object,
-      data: PropTypes.shape({
-        profilePicture: PropTypes.object,
-      }),
     };
   }
 
@@ -91,11 +88,6 @@ class Template extends React.Component {
         pathname = null,
       } = {},
       children,
-      data: {
-        profilePicture: {
-          childImageSharp,
-        },
-      },
     } = this.props;
 
     const isLandingPage = (pathname === '/');
@@ -103,7 +95,7 @@ class Template extends React.Component {
     return (
       <SiteWrapper>
         <Header />
-        <ProfilePicture pic={childImageSharp} />
+        <ProfilePicture />
         <SocialBlock />
         {isLandingPage && <Blurb />}
         <Content>
@@ -117,15 +109,3 @@ class Template extends React.Component {
 
 export default Template;
 
-
-export const query = graphql`
-  query ProfilePicQuery {
-    profilePicture:file(relativePath: { eq: "profile-pic.jpg" }) {
-      childImageSharp {
-        resolutions(width: 139, quality: 100) {
-          ...GatsbyImageSharpResolutions_withWebp
-        }
-      }
-    }
-  }
-`;
