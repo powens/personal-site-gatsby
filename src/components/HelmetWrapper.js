@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import favicon32 from './favicon/favicon-32x32.png';
 import favicon16 from './favicon/favicon-16x16.png';
-// import manifest from './favicon/site.webmanifest';
 import appleTouchIcon from './favicon/apple-touch-icon.png';
 import safariPinnedTab from './favicon/safari-pinned-tab.svg';
 import colors from '../utils/colors';
 
 
 const HelmetWrapper = ({ title, description }) => (
-  <Helmet title={title} >
+  <Helmet title={title}>
     <html lang="en" />
     <meta charSet="utf-8" />
     <meta name="description" content={description} />
