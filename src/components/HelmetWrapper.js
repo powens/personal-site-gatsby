@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import favicon32 from './favicon/favicon-32x32.png';
-import favicon16 from './favicon/favicon-16x16.png';
-import appleTouchIcon from './favicon/apple-touch-icon.png';
-import safariPinnedTab from './favicon/safari-pinned-tab.svg';
+import favicon32 from '../assets/favicon-32x32.png';
+import favicon16 from '../assets/favicon-16x16.png';
+import appleTouchIcon from '../assets/apple-touch-icon.png';
+import safariPinnedTab from '../assets/safari-pinned-tab.svg';
 import colors from '../utils/colors';
 
 
