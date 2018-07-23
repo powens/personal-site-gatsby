@@ -60,6 +60,7 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography.js',
       },
     },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-next',
   ],
