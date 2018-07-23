@@ -52,6 +52,18 @@ module.exports = {
         trackingId: 'UA-116902845-1',
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Patrick Owens',
+        short_name: 'Padraig',
+        start_url: '/',
+        background_color: '#e8e8e8',
+        theme_color: '#1f56a7',
+        display: 'minimal-ui',
+        icon: 'src/assets/favicon.svg', // This path is relative to the root of the site.
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
