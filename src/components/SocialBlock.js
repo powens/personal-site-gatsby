@@ -38,7 +38,7 @@ const SocialBlock = () => (
     <SocialLink href="https://twitter.com/torokokill" aria-label="Link to Twitter">
       <FontAwesomeIcon icon={faTwitter} className={PreloadedImage} />
     </SocialLink>
-    <SocialLink href="https://mastodon.social/powens" aria-label="Link to Mastodon">
+    <SocialLink href="https://mastodon.technology/@powens" aria-label="Link to Mastodon">
       <FontAwesomeIcon icon={faMastodon} className={PreloadedImage} />
     </SocialLink>
   </IconWrapper>
