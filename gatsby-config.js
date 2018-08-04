@@ -77,6 +77,5 @@ module.exports = {
       resolve: 'gatsby-plugin-emotion',
       options: {},
     },
-    'gatsby-plugin-react-next',
   ],
 };
