@@ -14,11 +14,15 @@ class PageNotFound extends React.Component {
   }
 
   render() {
-    // const siteTitle = get(this, 'props.data.site.siteMetadata.title');
-    // const description = get(this, 'props.data.site.siteMetadata.description');
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+    const description = get(this, 'props.data.site.siteMetadata.description');
 
     return (
       <React.Fragment>
+        <HelmetWrapper
+          title={siteTitle}
+          description={description}
+        />
         <h1>
           Page not found!
         </h1>
@@ -26,9 +30,9 @@ class PageNotFound extends React.Component {
           Looks like you've followed a broken link, or entered a URL that doesn't exist on the site!
         </p>
         <p>
-          <a href="/">
+          <Link to="/">
             ← Back to my site
-          </a>
+          </Link>
         </p>
       </React.Fragment>
     );
@@ -36,3 +40,14 @@ class PageNotFound extends React.Component {
 }
 
 export default PageNotFound;
+
+export const pageQuery = graphql`
+  query NotFoundQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`;

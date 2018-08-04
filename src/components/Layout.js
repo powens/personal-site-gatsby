@@ -79,9 +79,6 @@ class Template extends React.Component {
       children: PropTypes.func,
       location: PropTypes.object,
       route: PropTypes.object,
-      data: PropTypes.shape({
-        profilePicture: PropTypes.object,
-      }),
     };
   }
 

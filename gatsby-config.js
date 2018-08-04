@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Patrick Owens',
     author: 'Patrick Owens',
-    description: 'Patrick Owens is a full-stack software developer, infosec enthusiast and HAM operator',
+    description: 'I\'m a full-stack software developer, infosec enthusiast and HAM operator.',
   },
   plugins: [
     {
@@ -52,6 +52,18 @@ module.exports = {
         trackingId: 'UA-116902845-1',
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Patrick Owens',
+        short_name: 'Padraig',
+        start_url: '/',
+        background_color: '#e8e8e8',
+        theme_color: '#1f56a7',
+        display: 'minimal-ui',
+        icon: 'src/assets/favicon.svg', // This path is relative to the root of the site.
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
@@ -60,9 +72,11 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography.js',
       },
     },
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-emotion',
       options: {},
     },
+    'gatsby-plugin-react-next',
   ],
 };
