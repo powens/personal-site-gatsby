@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import get from 'lodash/get';
-import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
 import HelmetWrapper from '../components/HelmetWrapper';
+import Layout from '../components/Layout';
 
 class BlogIndex extends React.Component {
   static get propTypes() {
     return {
       route: PropTypes.object,
+      location: PropTypes.object,
     };
   }
 
@@ -19,7 +20,7 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <React.Fragment>
+      <Layout location={this.props.location}>
         <HelmetWrapper
           title={siteTitle}
           description={description}
@@ -39,7 +40,7 @@ class BlogIndex extends React.Component {
           }
           return null;
         })}
-      </React.Fragment>
+      </Layout>
     );
   }
 }

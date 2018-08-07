@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
+import { StaticQuery } from 'gatsby';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Header from '../components/Header';
 import ProfilePicture from '../components/ProfilePicture';
@@ -99,7 +99,7 @@ class Template extends React.Component {
         <SocialBlock />
         {isLandingPage && <Blurb />}
         <Content>
-          {children()}
+          {children}
         </Content>
       </SiteWrapper>
     );
@@ -108,4 +108,3 @@ class Template extends React.Component {
 
 
 export default Template;
-

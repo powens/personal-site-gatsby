@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import HelmetWrapper from '../components/HelmetWrapper';
 import mq from '../utils/responsive';
 import TagList from '../components/TagList';
+import Layout from '../components/Layout';
 
 const ImageWrapper = styled.div`
   margin-bottom: 1rem;
@@ -41,7 +43,7 @@ class BlogPostTemplate extends React.Component {
     const tags = post.frontmatter.tags;
 
     return (
-      <div>
+      <Layout>
         <HelmetWrapper
           title={`${post.frontmatter.title} | ${siteTitle}`}
           description={description}
@@ -60,7 +62,7 @@ class BlogPostTemplate extends React.Component {
           <TagList tags={tags} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </Layout>
     );
   }
 }

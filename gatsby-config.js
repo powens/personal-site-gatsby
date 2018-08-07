@@ -73,7 +73,9 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-react-next',
+    {
+      resolve: 'gatsby-plugin-emotion',
+      options: {},
+    },
   ],
 };

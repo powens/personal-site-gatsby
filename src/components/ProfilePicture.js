@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import Link from 'gatsby-link';
+import { StaticQuery, Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import mq from '../utils/responsive';
 import ProfilePic from './profile-pic.jpg';
 
