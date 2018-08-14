@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import styled, { css } from 'react-emotion';
-import colors from '../utils/colors';
-import mq from '../utils/responsive';
+import styled from 'react-emotion';
 
 const Title = styled.h1`
   grid-area: title;
@@ -12,7 +9,6 @@ const Title = styled.h1`
   margin-bottom: 0;
 `;
 
-
 const Header = () => (
   <Title>
     <Link to="/">
@@ -20,4 +16,5 @@ const Header = () => (
     </Link>
   </Title>
 );
+
 export default Header;

@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { StaticQuery, Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import mq from '../utils/responsive';
 import ProfilePic from './profile-pic.jpg';
 
@@ -30,7 +28,7 @@ const Picture = styled.img`
 const ProfilePicture = () => (
   <PictureWrapper>
     <Link to="/" className={PictureLink}>
-      <Picture src={ProfilePic} />
+      <Picture src={ProfilePic} alt="Patrick Owens" />
     </Link>
   </PictureWrapper>
 );
