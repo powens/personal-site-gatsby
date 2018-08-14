@@ -4807,9 +4807,9 @@ gatsby-plugin-google-analytics@next:
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
-gatsby-plugin-manifest@^2.0.2-beta.4:
-  version "2.0.2-beta.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.2-beta.4.tgz#afdca8b9357a7c1fa092a1d1d3abe6a37d94718b"
+gatsby-plugin-manifest@next:
+  version "2.0.2-beta.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.2-beta.5.tgz#2ec07dc8609de34fba31aee7819b580008f7482e"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
     bluebird "^3.5.0"
@@ -4825,7 +4825,7 @@ gatsby-plugin-netlify@next:
     lodash "^4.17.4"
     webpack-assets-manifest "^1.0.0"
 
-gatsby-plugin-offline@^2.0.0-beta.9:
+gatsby-plugin-offline@next:
   version "2.0.0-beta.9"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.0-beta.9.tgz#411d204d65d55e9c2194d8709628ed1a55382d8e"
   dependencies:
