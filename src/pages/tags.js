@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import kebabCase from 'lodash/kebabCase';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import Link from 'gatsby-link';
+import { graphql, Link } from 'gatsby';
 
 const TagsPage = ({
   data: {
@@ -19,12 +18,18 @@ const TagsPage = ({
       description={description}
     />
     <div>
-      <h1>Tags</h1>
+      <h1>
+        Tags
+      </h1>
       <ul>
         {group.map(tag => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
+              {tag.fieldValue}
+              {' '}
+              (
+              {tag.totalCount}
+              )
             </Link>
           </li>
         ))}

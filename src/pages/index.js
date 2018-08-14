@@ -7,12 +7,10 @@ import HelmetWrapper from '../components/HelmetWrapper';
 import Layout from '../components/Layout';
 
 class BlogIndex extends React.Component {
-  static get propTypes() {
-    return {
-      route: PropTypes.object,
-      location: PropTypes.object,
-    };
-  }
+  static propTypes = {
+    route: PropTypes.object,
+    location: PropTypes.object,
+  };
 
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');

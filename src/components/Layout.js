@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
-import { StaticQuery } from 'gatsby';
 import HelmetWrapper from '../components/HelmetWrapper';
 import Header from '../components/Header';
 import ProfilePicture from '../components/ProfilePicture';

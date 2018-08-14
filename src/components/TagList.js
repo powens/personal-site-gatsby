@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import Link from 'gatsby-link';
+import styled from 'react-emotion';
+import { Link } from 'gatsby';
 
 const Tags = styled.ul`
   list-style-type: none;
