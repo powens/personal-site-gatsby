@@ -17,7 +17,7 @@ const TagList = ({ tags }) => (
   <Tags>
     {tags.map((d) => (
       <li>
-         <Link to={`/tags/${d}/`}>{d}</Link>
+        <Link to={`/tags/${d}/`} key={d}>{d}</Link>
       </li>
     ))}
   </Tags>
