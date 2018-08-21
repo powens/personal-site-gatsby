@@ -80,5 +80,6 @@ const theme = {
 
 
 const typography = new Typography(theme);
+const { rhythm, scale } = typography;
 
-export default typography;
+export { rhythm, scale, typography as default };
