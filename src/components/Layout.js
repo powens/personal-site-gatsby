@@ -89,7 +89,7 @@ class Template extends React.Component {
       children,
     } = this.props;
 
-    const isLandingPage = (window.location.pathname === '/');
+    const isLandingPage = (pathname === '/');
 
     return (
       <SiteWrapper>
