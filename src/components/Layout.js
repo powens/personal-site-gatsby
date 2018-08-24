@@ -78,6 +78,13 @@ class Template extends React.Component {
       children: PropTypes.node,
       location: PropTypes.object,
       route: PropTypes.object,
+      isLandingPage: PropTypes.bool,
+    };
+  }
+
+  static get defaultProps() {
+    return {
+      isLandingPage: false,
     };
   }
 
@@ -87,9 +94,10 @@ class Template extends React.Component {
         pathname = null,
       } = {},
       children,
+      isLandingPage,
     } = this.props;
 
-    const isLandingPage = (pathname === '/');
+    // const isLandingPage = (pathname === '/');
 
     return (
       <SiteWrapper>

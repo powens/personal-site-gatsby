@@ -18,7 +18,7 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} isLandingPage={true}>
         <HelmetWrapper
           title={siteTitle}
           description={description}
@@ -63,8 +63,8 @@ export const pageQuery = graphql`
             excerpt
             titleImage {
               childImageSharp {
-                sizes(maxWidth: 700) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

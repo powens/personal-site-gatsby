@@ -73,8 +73,8 @@ export const pageQuery = graphql`
             excerpt
             titleImage {
               childImageSharp {
-                sizes(maxWidth: 700) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

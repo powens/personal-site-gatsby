@@ -49,7 +49,7 @@ class BlogPostTemplate extends React.Component {
           description={description}
         />
         <ImageWrapper>
-          <Img sizes={titleImage.sizes} />
+          <Img fluid={titleImage.fluid} />
         </ImageWrapper>
         <h1>{post.frontmatter.title}</h1>
         <div>
@@ -88,8 +88,8 @@ export const pageQuery = graphql`
         excerpt
         titleImage {
           childImageSharp {
-            sizes(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
