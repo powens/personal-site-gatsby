@@ -75,7 +75,7 @@ const Content = styled.div`
 class Template extends React.Component {
   static get propTypes() {
     return {
-      children: PropTypes.func,
+      children: PropTypes.node,
       location: PropTypes.object,
       route: PropTypes.object,
     };

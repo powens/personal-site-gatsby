@@ -27,7 +27,7 @@ const Picture = styled.img`
 
 const ProfilePicture = () => (
   <PictureWrapper>
-    <Link to="/" className={PictureLink}>
+    <Link to="/">
       <Picture src={ProfilePic} alt="Patrick Owens" />
     </Link>
   </PictureWrapper>
