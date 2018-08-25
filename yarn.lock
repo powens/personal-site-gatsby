@@ -4826,12 +4826,6 @@ gatsby-plugin-page-creator@^2.0.0-rc.0:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-preact@^2.0.0-rc.0:
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-2.0.0-rc.0.tgz#6f8d01013cbf9a8a874bfca5ffe4bd92a98473ad"
-  dependencies:
-    "@babel/runtime" "7.0.0-beta.52"
-
 gatsby-plugin-react-helmet@^3.0.0-rc.0:
   version "3.0.0-rc.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.0-rc.0.tgz#0b7bd136d5569732a643c5a3f02e14f770543e27"
