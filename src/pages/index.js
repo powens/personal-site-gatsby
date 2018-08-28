@@ -23,21 +23,16 @@ class BlogIndex extends React.Component {
           title={siteTitle}
           description={description}
         />
-        {posts.map((post) => {
-          if (post.node.path !== '/404/') {
-            return (
-              <BlogCard
-                key={post.node.frontmatter.path}
-                path={post.node.frontmatter.path}
-                title={post.node.frontmatter.title}
-                date={post.node.frontmatter.date}
-                excerpt={post.node.frontmatter.excerpt}
-                titleImage={post.node.frontmatter.titleImage.childImageSharp}
-              />
-            );
-          }
-          return null;
-        })}
+        {posts.map((post) => (
+          <BlogCard
+            key={post.node.frontmatter.path}
+            path={post.node.frontmatter.path}
+            title={post.node.frontmatter.title}
+            date={post.node.frontmatter.date}
+            excerpt={post.node.frontmatter.excerpt}
+            titleImage={post.node.frontmatter.titleImage.childImageSharp}
+          />
+        ))}
       </Layout>
     );
   }
