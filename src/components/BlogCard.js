@@ -12,18 +12,12 @@ const BlogTitle = styled.h3`
   margin-bottom: 0;
 `;
 
-const BlogCard = ({
-  path, title, date, excerpt,
-}) => (
+const BlogCard = ({ path, title, date, excerpt }) => (
   <Card>
     <BlogTitle>
-      <Link to={path}>
-        {title}
-      </Link>
+      <Link to={path}>{title}</Link>
     </BlogTitle>
-    <small>
-      {date}
-    </small>
+    <small>{date}</small>
     <span dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
 );

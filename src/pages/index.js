@@ -19,11 +19,8 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout isLandingPage={true}>
-        <HelmetWrapper
-          title={siteTitle}
-          description={description}
-        />
-        {posts.map(({node: { frontmatter }}) => (
+        <HelmetWrapper title={siteTitle} description={description} />
+        {posts.map(({ node: { frontmatter } }) => (
           <BlogCard
             key={frontmatter.path}
             path={frontmatter.path}

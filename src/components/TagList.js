@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 const Tags = styled.ul`
   list-style-type: none;
   margin-left: 0;
-  
+
   li {
     display: inline;
     margin-right: 1rem;
@@ -15,7 +15,7 @@ const Tags = styled.ul`
 
 const TagList = ({ tags }) => (
   <Tags>
-    {tags.map((d) => (
+    {tags.map(d => (
       <li key={d}>
         <Link to={`/tags/${d}/`}>{d}</Link>
       </li>
@@ -24,7 +24,7 @@ const TagList = ({ tags }) => (
 );
 
 TagList.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default TagList;

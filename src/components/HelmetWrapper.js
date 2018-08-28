@@ -7,12 +7,8 @@ import appleTouchIcon from '../assets/apple-touch-icon.png';
 import safariPinnedTab from '../assets/safari-pinned-tab.svg';
 import colors from '../utils/colors';
 
-
 const HelmetWrapper = ({ title, description }) => (
-  <Helmet
-    title={title}
-    htmlAttributes={{ lang: 'en' }}
-  >
+  <Helmet title={title} htmlAttributes={{ lang: 'en' }}>
     <meta charSet="utf-8" />
     <meta name="description" content={description} />
 

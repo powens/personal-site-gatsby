@@ -7,14 +7,10 @@ import ProfilePic from './profile-pic.jpg';
 const PictureWrapper = styled.div`
   grid-area: pic;
   justify-self: center;
-  
+
   ${mq.medium(css`
     justify-self: left;
-  `)}
-`;
-
-const PictureLink = styled.css`
-  display: inline-block;
+  `)};
 `;
 
 const Picture = styled.img`
@@ -33,7 +29,6 @@ const ProfilePicture = () => (
   </PictureWrapper>
 );
 
-ProfilePicture.propTypes = {
-};
+ProfilePicture.propTypes = {};
 
 export default ProfilePicture;

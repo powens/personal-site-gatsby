@@ -10,20 +10,15 @@ class PageNotFound extends React.Component {
 
     return (
       <React.Fragment>
-        <HelmetWrapper
-          title={siteTitle}
-          description={description}
-        />
-        <h1>
-          Page not found!
-        </h1>
+        <HelmetWrapper title={siteTitle} description={description} />
+        <h1>Page not found!</h1>
         <p>
-          {"Looks like you've followed a broken link, or entered a URL that doesn't exist on the site!"}
+          {
+            "Looks like you've followed a broken link, or entered a URL that doesn't exist on the site!"
+          }
         </p>
         <p>
-          <Link to="/">
-            ← Back to my site
-          </Link>
+          <Link to="/">← Back to my site</Link>
         </p>
       </React.Fragment>
     );

@@ -13,23 +13,14 @@ const TagsPage = ({
   },
 }) => (
   <div>
-    <Helmet
-      title={title}
-      description={description}
-    />
+    <Helmet title={title} description={description} />
     <div>
-      <h1>
-        Tags
-      </h1>
+      <h1>Tags</h1>
       <ul>
         {group.map(tag => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue}
-              {' '}
-              (
-              {tag.totalCount}
-              )
+              {tag.fieldValue} ({tag.totalCount})
             </Link>
           </li>
         ))}
@@ -40,10 +31,12 @@ const TagsPage = ({
 TagsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      group: PropTypes.arrayOf(PropTypes.shape({
-        fieldValue: PropTypes.string.isRequired,
-        totalCount: PropTypes.number.isRequired,
-      }).isRequired),
+      group: PropTypes.arrayOf(
+        PropTypes.shape({
+          fieldValue: PropTypes.string.isRequired,
+          totalCount: PropTypes.number.isRequired,
+        }).isRequired
+      ),
     }),
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -63,9 +56,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-    ) {
+    allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
