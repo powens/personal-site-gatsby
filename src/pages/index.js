@@ -18,7 +18,7 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <Layout location={this.props.location} isLandingPage={true}>
+      <Layout isLandingPage={true}>
         <HelmetWrapper
           title={siteTitle}
           description={description}
