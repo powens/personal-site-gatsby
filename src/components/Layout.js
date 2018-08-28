@@ -75,21 +75,22 @@ const Content = styled.div`
 class Template extends React.Component {
   static get propTypes() {
     return {
-      children: PropTypes.func,
-      location: PropTypes.object,
-      route: PropTypes.object,
+      children: PropTypes.node,
+      isLandingPage: PropTypes.bool,
+    };
+  }
+
+  static get defaultProps() {
+    return {
+      isLandingPage: false,
     };
   }
 
   render() {
     const {
-      location: {
-        pathname = null,
-      } = {},
       children,
+      isLandingPage,
     } = this.props;
-
-    const isLandingPage = (pathname === '/');
 
     return (
       <SiteWrapper>

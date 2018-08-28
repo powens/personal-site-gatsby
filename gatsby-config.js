@@ -72,10 +72,10 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography.js',
       },
     },
-    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-emotion',
       options: {},
     },
+    'gatsby-plugin-netlify',
   ],
 };

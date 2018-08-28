@@ -18,26 +18,21 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <Layout location={this.props.location}>
+      <Layout isLandingPage={true}>
         <HelmetWrapper
           title={siteTitle}
           description={description}
         />
-        {posts.map((post) => {
-          if (post.node.path !== '/404/') {
-            return (
-              <BlogCard
-                key={post.node.frontmatter.path}
-                path={post.node.frontmatter.path}
-                title={post.node.frontmatter.title}
-                date={post.node.frontmatter.date}
-                excerpt={post.node.frontmatter.excerpt}
-                titleImage={post.node.frontmatter.titleImage.childImageSharp}
-              />
-            );
-          }
-          return null;
-        })}
+        {posts.map(({node: { frontmatter }}) => (
+          <BlogCard
+            key={frontmatter.path}
+            path={frontmatter.path}
+            title={frontmatter.title}
+            date={frontmatter.date}
+            excerpt={frontmatter.excerpt}
+            titleImage={frontmatter.titleImage.childImageSharp}
+          />
+        ))}
       </Layout>
     );
   }
@@ -63,8 +58,8 @@ export const pageQuery = graphql`
             excerpt
             titleImage {
               childImageSharp {
-                sizes(maxWidth: 700) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

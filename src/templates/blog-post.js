@@ -29,7 +29,7 @@ class BlogPostTemplate extends React.Component {
             tags: PropTypes.arrayOf(PropTypes.string),
           }),
           timeToRead: PropTypes.number,
-          html: PropTypes.object,
+          html: PropTypes.string,
         }),
       }).isRequired,
     };
@@ -38,7 +38,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
-    const description = get(this.props, 'post.frontmatter.excerpt');
+    const description = get(post, 'frontmatter.excerpt');
     const titleImage = post.frontmatter.titleImage.childImageSharp;
     const tags = post.frontmatter.tags;
 
@@ -49,7 +49,7 @@ class BlogPostTemplate extends React.Component {
           description={description}
         />
         <ImageWrapper>
-          <Img sizes={titleImage.sizes} />
+          <Img fluid={titleImage.fluid} />
         </ImageWrapper>
         <h1>{post.frontmatter.title}</h1>
         <div>
@@ -88,8 +88,8 @@ export const pageQuery = graphql`
         excerpt
         titleImage {
           childImageSharp {
-            sizes(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

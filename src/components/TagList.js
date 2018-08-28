@@ -16,8 +16,8 @@ const Tags = styled.ul`
 const TagList = ({ tags }) => (
   <Tags>
     {tags.map((d) => (
-      <li>
-         <Link to={`/tags/${d}/`}>{d}</Link>
+      <li key={d}>
+        <Link to={`/tags/${d}/`}>{d}</Link>
       </li>
     ))}
   </Tags>

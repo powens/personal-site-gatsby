@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const path = require('path');
 const _ = require('lodash');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -10,7 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
     const tagTemplate = path.resolve('src/templates/tags.js');
     resolve(graphql(`
       {
-        allMarkdownRemark(limit: 1000) {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
           edges {
             node {
               frontmatter {
@@ -59,4 +60,17 @@ exports.createPages = ({ graphql, actions }) => {
       });
     }));
   });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const {createNodeField} = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({node, getNode});
+    createNodeField({
+      name: 'path',
+      node,
+      value,
+    });
+  }
 };
