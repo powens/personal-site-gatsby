@@ -23,14 +23,14 @@ class BlogIndex extends React.Component {
           title={siteTitle}
           description={description}
         />
-        {posts.map((post) => (
+        {posts.map(({node: { frontmatter }}) => (
           <BlogCard
-            key={post.node.frontmatter.path}
-            path={post.node.frontmatter.path}
-            title={post.node.frontmatter.title}
-            date={post.node.frontmatter.date}
-            excerpt={post.node.frontmatter.excerpt}
-            titleImage={post.node.frontmatter.titleImage.childImageSharp}
+            key={frontmatter.path}
+            path={frontmatter.path}
+            title={frontmatter.title}
+            date={frontmatter.date}
+            excerpt={frontmatter.excerpt}
+            titleImage={frontmatter.titleImage.childImageSharp}
           />
         ))}
       </Layout>
