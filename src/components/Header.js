@@ -11,9 +11,7 @@ const Title = styled.h1`
 
 const Header = () => (
   <Title>
-    <Link to="/">
-        Patrick Owens
-    </Link>
+    <Link to="/">Patrick Owens</Link>
   </Title>
 );
 

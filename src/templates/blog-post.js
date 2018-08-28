@@ -17,7 +17,6 @@ const Label = styled.span`
   margin-right: 2rem;
 `;
 
-
 class BlogPostTemplate extends React.Component {
   static get propTypes() {
     return {

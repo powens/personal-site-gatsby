@@ -9,7 +9,6 @@ import SocialBlock from '../components/SocialBlock';
 import Blurb from '../components/Blurb';
 import mq from '../utils/responsive';
 
-
 require('prismjs/themes/prism-tomorrow.css');
 
 injectGlobal`
@@ -40,29 +39,29 @@ const SiteWrapper = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 1rem;
-  
+
   display: grid;
   grid-gap: 1rem;
-  
+
   grid-template-areas:
-    "title"
-    "pic"
-    "social"
-    "blurb"
-    "content";
-    
-   min-width: 0;
-  
+    'title'
+    'pic'
+    'social'
+    'blurb'
+    'content';
+
+  min-width: 0;
+
   ${mq.medium(css`
     margin-left: auto;
     margin-right: auto;
     max-width: 50rem;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-      "pic title social"
-      "blurb blurb blurb"
-      "content content content";
-  `)}
+    grid-template-areas:
+      'pic title social'
+      'blurb blurb blurb'
+      'content content content';
+  `)};
 `;
 
 const Content = styled.div`
@@ -71,26 +70,18 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-
 class Template extends React.Component {
-  static get propTypes() {
-    return {
-      children: PropTypes.node,
-      isLandingPage: PropTypes.bool,
-    };
-  }
+  static propTypes = {
+    children: PropTypes.node,
+    isLandingPage: PropTypes.bool,
+  };
 
-  static get defaultProps() {
-    return {
-      isLandingPage: false,
-    };
-  }
+  static defaultProps = {
+    isLandingPage: false,
+  };
 
   render() {
-    const {
-      children,
-      isLandingPage,
-    } = this.props;
+    const { children, isLandingPage } = this.props;
 
     return (
       <SiteWrapper>
@@ -98,13 +89,10 @@ class Template extends React.Component {
         <ProfilePicture />
         <SocialBlock />
         {isLandingPage && <Blurb />}
-        <Content>
-          {children}
-        </Content>
+        <Content>{children}</Content>
       </SiteWrapper>
     );
   }
 }
-
 
 export default Template;

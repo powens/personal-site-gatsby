@@ -78,16 +78,12 @@ const theme = {
   }),
 };
 
-
-
-
 const typography = new Typography(theme);
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {
-  typography.injectStyles()
+  typography.injectStyles();
 }
-
 
 const { rhythm, scale } = typography;
 

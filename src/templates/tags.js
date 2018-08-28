@@ -16,9 +16,7 @@ const Tags = ({ pageContext, data }) => {
       <h2>{tagHeader}</h2>
       <div>
         {edges.map(({ node }) => {
-          const {
-            path, title, date, excerpt, titleImage,
-          } = node.frontmatter;
+          const { path, title, date, excerpt, titleImage } = node.frontmatter;
           return (
             <BlogCard
               key={path}
@@ -42,14 +40,16 @@ Tags.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(PropTypes.shape({
-        node: PropTypes.shape({
-          frontmatter: PropTypes.shape({
-            path: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              path: PropTypes.string.isRequired,
+              title: PropTypes.string.isRequired,
+            }),
           }),
-        }),
-      }).isRequired),
+        }).isRequired
+      ),
     }),
   }).isRequired,
 };
