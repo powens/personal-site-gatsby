@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Patrick Owens',
     author: 'Patrick Owens',
-    description: 'I\'m a full-stack software developer, infosec enthusiast and HAM operator.',
+    description:
+      "I'm a full-stack software developer, infosec enthusiast and HAM operator.",
   },
   plugins: [
     {
