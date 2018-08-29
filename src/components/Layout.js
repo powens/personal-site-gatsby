@@ -78,6 +78,7 @@ class Template extends React.Component {
 
   static defaultProps = {
     isLandingPage: false,
+    children: null,
   };
 
   render() {

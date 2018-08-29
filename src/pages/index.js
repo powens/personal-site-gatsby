@@ -7,18 +7,13 @@ import HelmetWrapper from '../components/HelmetWrapper';
 import Layout from '../components/Layout';
 
 class BlogIndex extends React.Component {
-  static propTypes = {
-    route: PropTypes.object,
-    location: PropTypes.object,
-  };
-
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');
     const description = get(this, 'props.data.site.siteMetadata.description');
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
     return (
-      <Layout isLandingPage={true}>
+      <Layout isLandingPage>
         <HelmetWrapper title={siteTitle} description={description} />
         {posts.map(({ node: { frontmatter } }) => (
           <BlogCard
