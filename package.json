@@ -31,6 +31,7 @@
     "gatsby-transformer-sharp": "^2.1.1-rc.0",
     "lodash": "^4.15.0",
     "prismjs": "^1.14.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.3",
@@ -50,8 +51,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
     "husky": "^0.14.3",
-    "prettier": "^1.14.2",
-    "prop-types": "^15.6.2"
+    "prettier": "^1.14.2"
   },
   "homepage": "https://padraig.io",
   "keywords": [
