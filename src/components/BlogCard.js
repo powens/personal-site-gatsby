@@ -18,6 +18,7 @@ const BlogCard = ({ path, title, date, excerpt }) => (
       <Link to={path}>{title}</Link>
     </BlogTitle>
     <small>{date}</small>
+    {/* eslint-disable-next-line react/no-danger */}
     <span dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
 );

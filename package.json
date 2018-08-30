@@ -29,14 +29,17 @@
     "gatsby-source-filesystem": "^2.0.1-rc.0",
     "gatsby-transformer-remark": "^2.1.1-beta.7",
     "gatsby-transformer-sharp": "^2.1.1-rc.0",
+    "gray-percentage": "^2.0.0",
     "lodash": "^4.15.0",
     "prismjs": "^1.14.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.3",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17",
+    "typography-breakpoint-constants": "^0.15.10",
     "typography-theme-judah": "^0.15.10"
   },
   "devDependencies": {

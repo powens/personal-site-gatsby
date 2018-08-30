@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import { Link } from 'gatsby';
 import mq from '../utils/responsive';
-import ProfilePic from './profile-pic.jpg';
+import ProfilePic from '../assets/profile-pic.jpg';
 
 const PictureWrapper = styled.div`
   grid-area: pic;
