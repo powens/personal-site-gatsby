@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import kebabCase from 'lodash/kebabCase';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { graphql, Link } from 'gatsby';
 
 const TagsPage = ({
   data: {
@@ -13,16 +13,14 @@ const TagsPage = ({
   },
 }) => (
   <div>
-    <Helmet
-      title={title}
-      description={description}
-    />
+    <Helmet title={title} description={description} />
     <div>
       <h1>Tags</h1>
       <ul>
         {group.map(tag => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
               {tag.fieldValue} ({tag.totalCount})
             </Link>
           </li>
@@ -34,10 +32,12 @@ const TagsPage = ({
 TagsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      group: PropTypes.arrayOf(PropTypes.shape({
-        fieldValue: PropTypes.string.isRequired,
-        totalCount: PropTypes.number.isRequired,
-      }).isRequired),
+      group: PropTypes.arrayOf(
+        PropTypes.shape({
+          fieldValue: PropTypes.string.isRequired,
+          totalCount: PropTypes.number.isRequired,
+        }).isRequired
+      ),
     }),
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -57,9 +57,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-    ) {
+    allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

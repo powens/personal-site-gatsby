@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import Link from 'gatsby-link';
+import styled from 'react-emotion';
+import { Link } from 'gatsby';
 
 const Tags = styled.ul`
   list-style-type: none;
   margin-left: 0;
-  
+
   li {
     display: inline;
     margin-right: 1rem;
@@ -15,16 +15,16 @@ const Tags = styled.ul`
 
 const TagList = ({ tags }) => (
   <Tags>
-    {tags.map((d) => (
-      <li>
-         <Link to={`/tags/${d}/`}>{d}</Link>
+    {tags.map(d => (
+      <li key={d}>
+        <Link to={`/tags/${d}/`}>{d}</Link>
       </li>
     ))}
   </Tags>
 );
 
 TagList.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default TagList;

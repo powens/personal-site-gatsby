@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
+import Layout from '../components/Layout';
 
-const Tags = ({ pathContext, data }) => {
-  const { tag } = pathContext;
+const Tags = ({ pageContext, data }) => {
+  const { tag } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
 
   return (
-    <div>
+    <Layout>
       <h2>{tagHeader}</h2>
       <div>
         {edges.map(({ node }) => {
-          const {
-            path, title, date, excerpt, titleImage,
-          } = node.frontmatter;
+          const { path, title, date, excerpt, titleImage } = node.frontmatter;
           return (
             <BlogCard
               key={path}
@@ -30,25 +29,27 @@ const Tags = ({ pathContext, data }) => {
           );
         })}
       </div>
-    </div>
+    </Layout>
   );
 };
 
 Tags.propTypes = {
-  pathContext: PropTypes.shape({
+  pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
   }).isRequired,
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(PropTypes.shape({
-        node: PropTypes.shape({
-          frontmatter: PropTypes.shape({
-            path: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              path: PropTypes.string.isRequired,
+              title: PropTypes.string.isRequired,
+            }),
           }),
-        }),
-      }).isRequired),
+        }).isRequired
+      ),
     }),
   }).isRequired,
 };
@@ -72,8 +73,8 @@ export const pageQuery = graphql`
             excerpt
             titleImage {
               childImageSharp {
-                sizes(maxWidth: 700) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
