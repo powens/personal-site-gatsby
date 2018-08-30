@@ -20,6 +20,7 @@ const TagsPage = ({
         {group.map(tag => (
           <li key={tag.fieldValue}>
             <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+              {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
               {tag.fieldValue} ({tag.totalCount})
             </Link>
           </li>

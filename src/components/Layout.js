@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
-import HelmetWrapper from '../components/HelmetWrapper';
-import Header from '../components/Header';
-import ProfilePicture from '../components/ProfilePicture';
-import SocialBlock from '../components/SocialBlock';
-import Blurb from '../components/Blurb';
+import Header from './Header';
+import ProfilePicture from './ProfilePicture';
+import SocialBlock from './SocialBlock';
+import Blurb from './Blurb';
 import mq from '../utils/responsive';
 
 require('prismjs/themes/prism-tomorrow.css');
 
+// eslint-disable-next-line no-unused-expressions
 injectGlobal`
   html {
     box-sizing: border-box;
@@ -70,30 +70,24 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-class Template extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
-    isLandingPage: PropTypes.bool,
-  };
+const Template = ({ children, isLandingPage }) => (
+  <SiteWrapper>
+    <Header />
+    <ProfilePicture />
+    <SocialBlock />
+    {isLandingPage && <Blurb />}
+    <Content>{children}</Content>
+  </SiteWrapper>
+);
 
-  static defaultProps = {
-    isLandingPage: false,
-    children: null,
-  };
+Template.propTypes = {
+  children: PropTypes.node,
+  isLandingPage: PropTypes.bool,
+};
 
-  render() {
-    const { children, isLandingPage } = this.props;
-
-    return (
-      <SiteWrapper>
-        <Header />
-        <ProfilePicture />
-        <SocialBlock />
-        {isLandingPage && <Blurb />}
-        <Content>{children}</Content>
-      </SiteWrapper>
-    );
-  }
-}
+Template.defaultProps = {
+  isLandingPage: false,
+  children: null,
+};
 
 export default Template;
