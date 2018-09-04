@@ -22,18 +22,22 @@ const colorSchemes = {
 const SCHEME_KEY = 'colorScheme';
 
 const getColorScheme = () => {
-  const storedScheme = localStorage.getItem(SCHEME_KEY);
-  if (colorSchemes.hasOwnProperty(storedScheme)) {
-    return colorSchemes[storedScheme];
+  if (typeof window !== 'undefined') {
+    const storedScheme = localStorage.getItem(SCHEME_KEY);
+    if (colorSchemes.hasOwnProperty(storedScheme)) {
+      return colorSchemes[storedScheme];
+    }
   }
   return colorSchemes.default;
 };
 
-const setColorScheme = (name) => {
-  if (!colorSchemes.hasOwnProperty(name)) {
-    throw new Error(`Color scheme ${name} doesn't exist`);
-  } else {
-    localStorage.setItem(SCHEME_KEY, name);
+const setColorScheme = name => {
+  if (typeof window !== 'undefined') {
+    if (!colorSchemes.hasOwnProperty(name)) {
+      throw new Error(`Color scheme ${name} doesn't exist`);
+    } else {
+      localStorage.setItem(SCHEME_KEY, name);
+    }
   }
 };
 
