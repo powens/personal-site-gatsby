@@ -1,5 +1,4 @@
 import Typography from 'typography';
-// import theme from 'typography-theme-judah';
 
 import gray from 'gray-percentage';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
