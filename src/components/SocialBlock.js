@@ -40,7 +40,7 @@ const SocialBlock = () => (
       <FontAwesomeIcon icon={faGithub} className={PreloadedImage} />
     </SocialLink>
     <SocialLink
-      href="https://twitter.com/torokokill"
+      href="https://twitter.com/padraigcodes"
       aria-label="Link to Twitter"
     >
       <FontAwesomeIcon icon={faTwitter} className={PreloadedImage} />
