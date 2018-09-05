@@ -2,7 +2,7 @@
 title: Automate refactoring with jscodeshift
 date: "2018-07-18T20:49:03.284Z"
 path: "/automate-refactoring-jscodeshift/"
-excerpt: A crash course in jscodeshift, a library that lets you write code to automate your Javascript refactoring jobs
+excerpt: A crash course in jscodeshift, a tool that lets you write code to automate your Javascript refactoring work
 titleImage: "./jscodeshift.png"
 tags: ["javascript", "jscodeshift", "refactoring", "ast"]
 ---
