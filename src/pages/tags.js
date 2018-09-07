@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import kebabCase from 'lodash/kebabCase';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
 
 const TagsPage = ({
   data: {
@@ -12,7 +13,7 @@ const TagsPage = ({
     },
   },
 }) => (
-  <div>
+  <Layout>
     <Helmet title={title} description={description} />
     <div>
       <h1>Tags</h1>
@@ -27,7 +28,7 @@ const TagsPage = ({
         ))}
       </ul>
     </div>
-  </div>
+  </Layout>
 );
 TagsPage.propTypes = {
   data: PropTypes.shape({
