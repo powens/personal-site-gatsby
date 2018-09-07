@@ -42,18 +42,16 @@ const BlogPostTemplate = props => {
         <Img fluid={titleImage.fluid} />
       </ImageWrapper>
       <h1>{title}</h1>
-      <div>
-        <p>
-          <Label>{date}</Label>
-          {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-          <Label>{timeToRead} min read</Label>
-        </p>
-      </div>
+      <p>
+        <Label>{date}</Label>
+        {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+        <Label>{timeToRead} min read</Label>
+      </p>
       <div>
         <TagList tags={tags} />
       </div>
       {/* eslint-disable-next-line react/no-danger */}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <article dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
 };
