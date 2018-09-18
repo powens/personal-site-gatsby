@@ -1,24 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import Link from 'gatsby-link';
-import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import mq from '../utils/responsive';
+import ProfilePic from '../assets/profile-pic.jpg';
 
 const PictureWrapper = styled.div`
   grid-area: pic;
   justify-self: center;
-  
+
   ${mq.medium(css`
     justify-self: left;
-  `)}
+  `)};
 `;
 
-const PictureLink = styled.css`
-  display: inline-block;
-`;
-
-const Picture = styled.css`
+const Picture = styled.img`
   border-radius: 50%;
   width: 100%;
   min-width: 100%;
@@ -26,18 +21,14 @@ const Picture = styled.css`
   margin-bottom: 0;
 `;
 
-const ProfilePicture = ({ pic }) => (
+const ProfilePicture = () => (
   <PictureWrapper>
-    <Link to="/" className={PictureLink}>
-      <Img resolutions={pic.resolutions} className={Picture} style={{ borderRadius: '50%' }} alt="Picture of me" />
+    <Link to="/">
+      <Picture src={ProfilePic} alt="Patrick Owens" />
     </Link>
   </PictureWrapper>
 );
 
-ProfilePicture.propTypes = {
-  pic: PropTypes.shape({
-    resolutions: PropTypes.object,
-  }).isRequired,
-};
+ProfilePicture.propTypes = {};
 
 export default ProfilePicture;

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import Img from 'gatsby-image';
-import Link from 'gatsby-link';
+import styled from 'react-emotion';
+import { Link } from 'gatsby';
 
 const Card = styled.div`
   display: grid;
@@ -13,16 +12,13 @@ const BlogTitle = styled.h3`
   margin-bottom: 0;
 `;
 
-const BlogCard = ({
-  path, title, date, excerpt, titleImage,
-}) => (
+const BlogCard = ({ path, title, date, excerpt }) => (
   <Card>
     <BlogTitle>
-      <Link to={path}>
-        {title}
-      </Link>
+      <Link to={path}>{title}</Link>
     </BlogTitle>
     <small>{date}</small>
+    {/* eslint-disable-next-line react/no-danger */}
     <span dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
 );
@@ -32,10 +28,6 @@ BlogCard.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
-  titleImage: PropTypes.shape({
-    resolutions: PropTypes.object,
-    sizes: PropTypes.object,
-  }).isRequired,
 };
 
 export default BlogCard;
