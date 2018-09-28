@@ -22,17 +22,16 @@ const colorSchemes = {
 const SCHEME_KEY = 'colorScheme';
 
 const getColorScheme = () => {
-  if (typeof window === 'undefined') {
-    return colorSchemes.default;
-  }
-  const storedScheme = localStorage.getItem(SCHEME_KEY);
-  if (colorSchemes.hasOwnProperty(storedScheme)) {
-    return colorSchemes[storedScheme];
+  if (typeof window !== 'undefined') {
+    const storedScheme = localStorage.getItem(SCHEME_KEY);
+    if (colorSchemes.hasOwnProperty(storedScheme)) {
+      return colorSchemes[storedScheme];
+    }
   }
   return colorSchemes.default;
 };
 
-const setColorScheme = (name) => {
+const setColorScheme = name => {
   if (typeof window !== 'undefined') {
     if (!colorSchemes.hasOwnProperty(name)) {
       throw new Error(`Color scheme ${name} doesn't exist`);
