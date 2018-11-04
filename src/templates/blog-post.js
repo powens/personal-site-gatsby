@@ -25,9 +25,9 @@ const BlogPostTemplate = props => {
           excerpt,
           title,
           date,
-          timeToRead,
         },
         html,
+        timeToRead,
       },
       site: {
         siteMetadata: { title: siteTitle },
