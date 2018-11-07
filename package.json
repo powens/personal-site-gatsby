@@ -49,9 +49,10 @@
     "eslint-plugin-emotion": "^9.2.5",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.10.0",
-    "husky": "^0.14.3",
+    "husky": "^1.1.0",
+    "lint-staged": "^8.0.4",
     "prettier": "^1.14.2"
   },
   "homepage": "https://padraig.io",
@@ -61,12 +62,11 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "dev": "gatsby develop",
+    "start": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths"
   },
   "husky": {
     "hooks": {
