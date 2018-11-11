@@ -7,11 +7,23 @@ import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import Blurb from './Blurb';
 import mq from '../utils/responsive';
+import getColorScheme from '../utils/colors';
 
 require('prismjs/themes/prism-tomorrow.css');
 
+const colors = getColorScheme();
+
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
+  :root {
+    --background: ${colors.background};
+    --border: ${colors.border};
+    --bg: ${colors.backgroundColor};
+    --primary: ${colors.primary};
+    --bodyColor: ${colors.bodyColor};
+    --headerColor: ${colors.headerColor};
+  }
+  
   html {
     box-sizing: border-box;
   }
