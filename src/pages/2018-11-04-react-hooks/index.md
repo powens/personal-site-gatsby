@@ -7,7 +7,6 @@ titleImage: "./hooks.png"
 tags: ["javascript", "react", "hooks"]
 ---
 
-# React Hooks
 [Hooks](https://reactjs.org/docs/hooks-intro.html) are an interesting new concept that has just landed in the React 16.7 alpha. They offer an intriguing new set of methods of interacting with React, and solving some of the pain-points that React developers have to deal with.
 
 As React components get more and more complex, we tend to need to generate a lot of boilerplate code. This boilerplate code can exponentially bloat the line-length of a component and expose many edge cases when needing to handle the component’s life cycle. The traditional method of mitigating that complexity has always been to introduce more wrappers, leading to deeply nested component or higher order component trees.

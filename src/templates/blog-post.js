@@ -25,9 +25,9 @@ const BlogPostTemplate = props => {
           excerpt,
           title,
           date,
-          timeToRead,
         },
         html,
+        timeToRead,
       },
       site: {
         siteMetadata: { title: siteTitle },
@@ -92,7 +92,7 @@ export const pageQuery = graphql`
         titleImage {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
