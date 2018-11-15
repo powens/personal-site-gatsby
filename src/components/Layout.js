@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
@@ -82,15 +82,67 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-const Template = ({ children, isLandingPage }) => (
-  <SiteWrapper>
-    <Header />
-    <ProfilePicture />
-    <SocialBlock />
-    {isLandingPage && <Blurb />}
-    <Content>{children}</Content>
-  </SiteWrapper>
-);
+function updateColorScheme() {
+  const colors = getColorScheme();
+  if (document) {
+    document.documentElement.style.setProperty(
+      '--background',
+      colors.background
+    );
+    document.documentElement.style.setProperty('--border', colors.border);
+    document.documentElement.style.setProperty('--bg', colors.backgroundColor);
+    document.documentElement.style.setProperty('--primary', colors.primary);
+    document.documentElement.style.setProperty('--bodyColor', colors.bodyColor);
+    document.documentElement.style.setProperty(
+      '--headerColor',
+      colors.headerColor
+    );
+  }
+  // injectGlobal`
+  //   :root {
+  //     --background: ${colors.background};
+  //     --border: ${colors.border};
+  //     --bg: ${colors.backgroundColor};
+  //     --primary: ${colors.primary};
+  //     --bodyColor: ${colors.bodyColor};
+  //     --headerColor: ${colors.headerColor};
+  //   }`;
+}
+
+function onToggleTheme() {
+  updateColorScheme();
+}
+
+class Template extends React.Component {
+  componentDidMount() {
+    updateColorScheme();
+    // window.addEventListener('storage', updateColorScheme);
+  }
+
+  componentWillUnmount() {
+    // window.removeEventListener('storage', updateColorScheme);
+  }
+
+  render() {
+    const { children, isLandingPage } = this.props;
+    // useEffect(() => {
+    //   if (window) {
+    //     console.log('adf');
+
+    //   }
+    // });
+
+    return (
+      <SiteWrapper>
+        <Header />
+        <ProfilePicture />
+        <SocialBlock onToggleTheme={onToggleTheme} />
+        {isLandingPage && <Blurb />}
+        <Content>{children}</Content>
+      </SiteWrapper>
+    );
+  }
+}
 
 Template.propTypes = {
   children: PropTypes.node,

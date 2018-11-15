@@ -22,17 +22,24 @@ const colorSchemes = {
 
 const SCHEME_KEY = 'colorScheme';
 
-const getColorScheme = () => {
+function getColorSchemeName() {
   if (typeof window !== 'undefined') {
-    const storedScheme = localStorage.getItem(SCHEME_KEY);
+    return localStorage.getItem(SCHEME_KEY);
+  }
+  return null;
+}
+
+function getColorScheme() {
+  if (typeof window !== 'undefined') {
+    const storedScheme = getColorSchemeName();
     if (colorSchemes.hasOwnProperty(storedScheme)) {
       return colorSchemes[storedScheme];
     }
   }
   return colorSchemes.default;
-};
+}
 
-const setColorScheme = name => {
+function setColorScheme(name) {
   if (typeof window !== 'undefined') {
     if (!colorSchemes.hasOwnProperty(name)) {
       throw new Error(`Color scheme ${name} doesn't exist`);
@@ -40,7 +47,16 @@ const setColorScheme = name => {
       localStorage.setItem(SCHEME_KEY, name);
     }
   }
-};
+}
+
+function toggleColorScheme() {
+  const currentScheme = getColorSchemeName();
+  if (currentScheme === 'default') {
+    setColorScheme('dark');
+  } else {
+    setColorScheme('default');
+  }
+}
 
 export default getColorScheme;
-export { defaultColors, darkColors, setColorScheme };
+export { defaultColors, darkColors, setColorScheme, toggleColorScheme };
