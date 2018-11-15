@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
@@ -82,15 +82,50 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-const Template = ({ children, isLandingPage }) => (
-  <SiteWrapper>
-    <Header />
-    <ProfilePicture />
-    <SocialBlock />
-    {isLandingPage && <Blurb />}
-    <Content>{children}</Content>
-  </SiteWrapper>
-);
+function updateColorScheme() {
+  console.log('Update');
+  const colors = getColorScheme();
+  injectGlobal`
+        :root {
+          --background: ${colors.background};
+          --border: ${colors.border};
+          --bg: ${colors.backgroundColor};
+          --primary: ${colors.primary};
+          --bodyColor: ${colors.bodyColor};
+          --headerColor: ${colors.headerColor};
+        }`;
+}
+
+class Template extends React.Component {
+  componentDidMount() {
+    updateColorScheme();
+    window.addEventListener('storage', updateColorScheme);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('storage', updateColorScheme);
+  }
+
+  render() {
+    const { children, isLandingPage } = this.props;
+    // useEffect(() => {
+    //   if (window) {
+    //     console.log('adf');
+
+    //   }
+    // });
+
+    return (
+      <SiteWrapper>
+        <Header />
+        <ProfilePicture />
+        <SocialBlock />
+        {isLandingPage && <Blurb />}
+        <Content>{children}</Content>
+      </SiteWrapper>
+    );
+  }
+}
 
 Template.propTypes = {
   children: PropTypes.node,
