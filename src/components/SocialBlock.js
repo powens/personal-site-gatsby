@@ -22,7 +22,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
-const SocialBlock = () => (
+const SocialBlock = ({ onToggleTheme }) => (
   <IconWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
       <FaGithub />
@@ -39,7 +39,7 @@ const SocialBlock = () => (
     >
       <FaMastodon />
     </SocialLink>
-    <DarkButton />
+    <DarkButton onToggleTheme={onToggleTheme} />
   </IconWrapper>
 );
 

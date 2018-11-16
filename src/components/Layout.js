@@ -83,27 +83,44 @@ const Content = styled.div`
 `;
 
 function updateColorScheme() {
-  console.log('Update');
   const colors = getColorScheme();
-  injectGlobal`
-        :root {
-          --background: ${colors.background};
-          --border: ${colors.border};
-          --bg: ${colors.backgroundColor};
-          --primary: ${colors.primary};
-          --bodyColor: ${colors.bodyColor};
-          --headerColor: ${colors.headerColor};
-        }`;
+  if (document) {
+    document.documentElement.style.setProperty(
+      '--background',
+      colors.background
+    );
+    document.documentElement.style.setProperty('--border', colors.border);
+    document.documentElement.style.setProperty('--bg', colors.backgroundColor);
+    document.documentElement.style.setProperty('--primary', colors.primary);
+    document.documentElement.style.setProperty('--bodyColor', colors.bodyColor);
+    document.documentElement.style.setProperty(
+      '--headerColor',
+      colors.headerColor
+    );
+  }
+  // injectGlobal`
+  //   :root {
+  //     --background: ${colors.background};
+  //     --border: ${colors.border};
+  //     --bg: ${colors.backgroundColor};
+  //     --primary: ${colors.primary};
+  //     --bodyColor: ${colors.bodyColor};
+  //     --headerColor: ${colors.headerColor};
+  //   }`;
+}
+
+function onToggleTheme() {
+  updateColorScheme();
 }
 
 class Template extends React.Component {
   componentDidMount() {
     updateColorScheme();
-    window.addEventListener('storage', updateColorScheme);
+    // window.addEventListener('storage', updateColorScheme);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('storage', updateColorScheme);
+    // window.removeEventListener('storage', updateColorScheme);
   }
 
   render() {
@@ -119,7 +136,7 @@ class Template extends React.Component {
       <SiteWrapper>
         <Header />
         <ProfilePicture />
-        <SocialBlock />
+        <SocialBlock onToggleTheme={onToggleTheme} />
         {isLandingPage && <Blurb />}
         <Content>{children}</Content>
       </SiteWrapper>
