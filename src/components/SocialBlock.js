@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
-import { toggleColorScheme } from '../utils/colors';
 import mq from '../utils/responsive';
 import DarkButton from './DarkButton';
 
@@ -22,7 +22,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
-const SocialBlock = ({ onToggleTheme }) => (
+const SocialBlock = ({ onToggleColorScheme }) => (
   <IconWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
       <FaGithub />
@@ -39,8 +39,12 @@ const SocialBlock = ({ onToggleTheme }) => (
     >
       <FaMastodon />
     </SocialLink>
-    <DarkButton onToggleTheme={onToggleTheme} />
+    <DarkButton onToggleColorScheme={onToggleColorScheme} />
   </IconWrapper>
 );
+
+SocialBlock.propTypes = {
+  onToggleColorScheme: PropTypes.func.isRequired,
+};
 
 export default SocialBlock;

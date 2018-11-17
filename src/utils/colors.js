@@ -59,4 +59,10 @@ function toggleColorScheme() {
 }
 
 export default getColorScheme;
-export { defaultColors, darkColors, setColorScheme, toggleColorScheme };
+export {
+  defaultColors,
+  darkColors,
+  setColorScheme,
+  toggleColorScheme,
+  getColorSchemeName,
+};

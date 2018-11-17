@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaMoon } from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import styled from 'react-emotion';
-import { toggleColorScheme } from '../utils/colors';
+import { toggleColorScheme, getColorSchemeName } from '../utils/colors';
 
 const StyledButton = styled.button`
   font-size: 1.5rem;
-  background: none !important;
+  background: none;
   color: var(--primary);
   border: none;
-  padding: 0 !important;
+  padding: 0;
   font: inherit;
   cursor: pointer;
 
@@ -18,21 +18,25 @@ const StyledButton = styled.button`
   }
 `;
 
-function DarkButton({ onToggleTheme }) {
+function DarkButton({ onToggleColorScheme }) {
   const onClick = () => {
     toggleColorScheme();
-    onToggleTheme();
+    onToggleColorScheme();
   };
+
+  const schemeName = getColorSchemeName();
+
+  const Icon = schemeName === 'dark' ? FaSun : FaMoon;
 
   return (
     <StyledButton type="button" onClick={onClick} title="Dark Mode">
-      <FaMoon />
+      <Icon />
     </StyledButton>
   );
 }
 
 DarkButton.propTypes = {
-  onToggleTheme: PropTypes.func.isRequired,
+  onToggleColorScheme: PropTypes.func.isRequired,
 };
 
 export default DarkButton;

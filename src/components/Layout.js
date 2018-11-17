@@ -7,25 +7,36 @@ import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import Blurb from './Blurb';
 import mq from '../utils/responsive';
-import getColorScheme from '../utils/colors';
+import { defaultColors, darkColors, getColorSchemeName } from '../utils/colors';
 
 require('prismjs/themes/prism-tomorrow.css');
-
-const colors = getColorScheme();
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
   :root {
-    --background: ${colors.background};
-    --border: ${colors.border};
-    --bg: ${colors.backgroundColor};
-    --primary: ${colors.primary};
-    --bodyColor: ${colors.bodyColor};
-    --headerColor: ${colors.headerColor};
+    --background: ${defaultColors.background};
+    --border: ${defaultColors.border};
+    --bg: ${defaultColors.backgroundColor};
+    --primary: ${defaultColors.primary};
+    --bodyColor: ${defaultColors.bodyColor};
+    --headerColor: ${defaultColors.headerColor};
+  }
+  
+  .dark {
+    --background: ${darkColors.background};
+    --border: ${darkColors.border};
+    --bg: ${darkColors.backgroundColor};
+    --primary: ${darkColors.primary};
+    --bodyColor: ${darkColors.bodyColor};
+    --headerColor: ${darkColors.headerColor};
   }
   
   html {
     box-sizing: border-box;
+  }
+  
+  body {
+    transition: color 0.5s, border-color 0.5s, background-color 0.5s;
   }
   
   *,
@@ -82,40 +93,18 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-function updateColorScheme() {
-  const colors = getColorScheme();
-  if (document) {
-    document.documentElement.style.setProperty(
-      '--background',
-      colors.background
-    );
-    document.documentElement.style.setProperty('--border', colors.border);
-    document.documentElement.style.setProperty('--bg', colors.backgroundColor);
-    document.documentElement.style.setProperty('--primary', colors.primary);
-    document.documentElement.style.setProperty('--bodyColor', colors.bodyColor);
-    document.documentElement.style.setProperty(
-      '--headerColor',
-      colors.headerColor
-    );
-  }
-  // injectGlobal`
-  //   :root {
-  //     --background: ${colors.background};
-  //     --border: ${colors.border};
-  //     --bg: ${colors.backgroundColor};
-  //     --primary: ${colors.primary};
-  //     --bodyColor: ${colors.bodyColor};
-  //     --headerColor: ${colors.headerColor};
-  //   }`;
-}
-
-function onToggleTheme() {
-  updateColorScheme();
-}
-
 class Template extends React.Component {
+  state = {
+    currentColorScheme: getColorSchemeName(),
+  };
+
+  constructor(props) {
+    super(props);
+    this.onToggleColorScheme = this.onToggleColorScheme.bind(this);
+  }
+
   componentDidMount() {
-    updateColorScheme();
+    // TODO: Need to figure out why the storage event listener isnt working
     // window.addEventListener('storage', updateColorScheme);
   }
 
@@ -123,20 +112,30 @@ class Template extends React.Component {
     // window.removeEventListener('storage', updateColorScheme);
   }
 
+  onToggleColorScheme() {
+    this.setState({
+      currentColorScheme: getColorSchemeName(),
+    });
+  }
+
   render() {
     const { children, isLandingPage } = this.props;
-    // useEffect(() => {
-    //   if (window) {
-    //     console.log('adf');
+    const { currentColorScheme } = this.state;
 
-    //   }
-    // });
+    if (document) {
+      const body = document.querySelector('body');
+      if (currentColorScheme === 'dark') {
+        body.classList.add('dark');
+      } else {
+        body.classList.remove('dark');
+      }
+    }
 
     return (
       <SiteWrapper>
         <Header />
         <ProfilePicture />
-        <SocialBlock onToggleTheme={onToggleTheme} />
+        <SocialBlock onToggleColorScheme={this.onToggleColorScheme} />
         {isLandingPage && <Blurb />}
         <Content>{children}</Content>
       </SiteWrapper>
