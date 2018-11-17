@@ -36,7 +36,7 @@ injectGlobal`
   }
   
   body {
-    transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+    // transition: color 0.5s, border-color 0.5s, background-color 0.5s;
   }
   
   *,
