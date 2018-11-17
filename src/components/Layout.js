@@ -122,7 +122,7 @@ class Template extends React.Component {
     const { children, isLandingPage } = this.props;
     const { currentColorScheme } = this.state;
 
-    if (document) {
+    if (typeof window !== 'undefined') {
       const body = document.querySelector('body');
       if (currentColorScheme === 'dark') {
         body.classList.add('dark');
