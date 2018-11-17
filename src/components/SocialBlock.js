@@ -28,7 +28,7 @@ const SocialBlock = ({ onToggleColorScheme }) => (
       <FaGithub />
     </SocialLink>
     <SocialLink
-      href="https://twitter.com/padraigcodes"
+      href="https://twitter.com/padraaig"
       aria-label="Link to Twitter"
     >
       <FaTwitter />
