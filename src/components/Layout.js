@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { injectGlobal } from 'emotion';
@@ -7,13 +7,36 @@ import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import Blurb from './Blurb';
 import mq from '../utils/responsive';
+import { defaultColors, darkColors, getColorSchemeName } from '../utils/colors';
 
 require('prismjs/themes/prism-tomorrow.css');
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
+  :root {
+    --background: ${defaultColors.background};
+    --border: ${defaultColors.border};
+    --bg: ${defaultColors.backgroundColor};
+    --primary: ${defaultColors.primary};
+    --bodyColor: ${defaultColors.bodyColor};
+    --headerColor: ${defaultColors.headerColor};
+  }
+  
+  .dark {
+    --background: ${darkColors.background};
+    --border: ${darkColors.border};
+    --bg: ${darkColors.backgroundColor};
+    --primary: ${darkColors.primary};
+    --bodyColor: ${darkColors.bodyColor};
+    --headerColor: ${darkColors.headerColor};
+  }
+  
   html {
     box-sizing: border-box;
+  }
+  
+  body {
+    // transition: color 0.5s, border-color 0.5s, background-color 0.5s;
   }
   
   *,
@@ -70,15 +93,55 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-const Template = ({ children, isLandingPage }) => (
-  <SiteWrapper>
-    <Header />
-    <ProfilePicture />
-    <SocialBlock />
-    {isLandingPage && <Blurb />}
-    <Content>{children}</Content>
-  </SiteWrapper>
-);
+class Template extends React.Component {
+  state = {
+    currentColorScheme: getColorSchemeName(),
+  };
+
+  constructor(props) {
+    super(props);
+    this.onToggleColorScheme = this.onToggleColorScheme.bind(this);
+  }
+
+  componentDidMount() {
+    // TODO: Need to figure out why the storage event listener isnt working
+    // window.addEventListener('storage', updateColorScheme);
+  }
+
+  componentWillUnmount() {
+    // window.removeEventListener('storage', updateColorScheme);
+  }
+
+  onToggleColorScheme() {
+    this.setState({
+      currentColorScheme: getColorSchemeName(),
+    });
+  }
+
+  render() {
+    const { children, isLandingPage } = this.props;
+    const { currentColorScheme } = this.state;
+
+    if (typeof window !== 'undefined') {
+      const body = document.querySelector('body');
+      if (currentColorScheme === 'dark') {
+        body.classList.add('dark');
+      } else {
+        body.classList.remove('dark');
+      }
+    }
+
+    return (
+      <SiteWrapper>
+        <Header />
+        <ProfilePicture />
+        <SocialBlock onToggleColorScheme={this.onToggleColorScheme} />
+        {isLandingPage && <Blurb />}
+        <Content>{children}</Content>
+      </SiteWrapper>
+    );
+  }
+}
 
 Template.propTypes = {
   children: PropTypes.node,

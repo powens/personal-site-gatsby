@@ -1,9 +1,7 @@
 import Typography from 'typography';
-// import theme from 'typography-theme-judah';
 
 import gray from 'gray-percentage';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
-import colors from './colors';
 
 const nativeStack = [
   '-apple-system',
@@ -25,14 +23,17 @@ const theme = {
   headerFontFamily: nativeStack,
   bodyFontFamily: nativeStack,
   scaleRatio: 2,
-  headerColor: 'hsla(0,0%,0%,1)',
-  bodyColor: 'hsla(0,0%,0%,0.8)',
+  headerColor: 'var(--headerColor)',
+  bodyColor: 'var(--bodyColor)',
   headerWeight: 500,
   bodyWeight: 'normal',
   boldWeight: 600,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
+    body: {
+      backgroundColor: 'var(--background)',
+    },
     a: {
-      color: colors.primary,
+      color: 'var(--primary)',
       textDecoration: 'none',
     },
     'a:hover,a:active': {

@@ -1,18 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGithub,
-  faTwitter,
-  faMastodon,
-} from '@fortawesome/free-brands-svg-icons';
-
+import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
 import mq from '../utils/responsive';
+import DarkButton from './DarkButton';
 
 const IconWrapper = styled.div`
   grid-area: social;
   justify-self: center;
   align-self: center;
+
+  display: flex;
 
   ${mq.medium(css`
     justify-self: right;
@@ -20,38 +18,33 @@ const IconWrapper = styled.div`
 `;
 
 const SocialLink = styled.a`
-  margin-left: 0.2rem;
+  // margin-left: 1rem;
+  font-size: 1.5rem;
 `;
 
-// Hack overwriting the Font-awesome styles to prevent pop-in
-const PreloadedImage = css`
-  display: inline-block;
-  font-size: inherit;
-  height: 1em;
-  vertical-align: -0.125em;
-  width: 0.875em !important;
-  overflow: visible;
-  font-size: 1.75rem;
-`;
-
-const SocialBlock = () => (
+const SocialBlock = ({ onToggleColorScheme }) => (
   <IconWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
-      <FontAwesomeIcon icon={faGithub} className={PreloadedImage} />
+      <FaGithub />
     </SocialLink>
     <SocialLink
       href="https://twitter.com/padraigcodes"
       aria-label="Link to Twitter"
     >
-      <FontAwesomeIcon icon={faTwitter} className={PreloadedImage} />
+      <FaTwitter />
     </SocialLink>
     <SocialLink
       href="https://mastodon.technology/@powens"
       aria-label="Link to Mastodon"
     >
-      <FontAwesomeIcon icon={faMastodon} className={PreloadedImage} />
+      <FaMastodon />
     </SocialLink>
+    <DarkButton onToggleColorScheme={onToggleColorScheme} />
   </IconWrapper>
 );
+
+SocialBlock.propTypes = {
+  onToggleColorScheme: PropTypes.func.isRequired,
+};
 
 export default SocialBlock;
