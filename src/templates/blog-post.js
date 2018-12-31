@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import HelmetWrapper from '../components/HelmetWrapper';
 import TagList from '../components/TagList';
 import Layout from '../components/Layout';

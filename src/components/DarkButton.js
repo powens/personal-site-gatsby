@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import { toggleColorScheme, getColorSchemeName } from '../utils/colors';
 
 const StyledButton = styled.button`
