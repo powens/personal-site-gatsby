@@ -1,62 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import { injectGlobal } from 'emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import Blurb from './Blurb';
 import mq from '../utils/responsive';
-import { defaultColors, darkColors, getColorSchemeName } from '../utils/colors';
+import { getColorSchemeName } from '../utils/colors';
+import GlobalStyles from '../components/GlobalStyles';
 
 require('prismjs/themes/prism-tomorrow.css');
-
-// eslint-disable-next-line no-unused-expressions
-injectGlobal`
-  :root {
-    --background: ${defaultColors.background};
-    --border: ${defaultColors.border};
-    --bg: ${defaultColors.backgroundColor};
-    --primary: ${defaultColors.primary};
-    --bodyColor: ${defaultColors.bodyColor};
-    --headerColor: ${defaultColors.headerColor};
-  }
-  
-  .dark {
-    --background: ${darkColors.background};
-    --border: ${darkColors.border};
-    --bg: ${darkColors.backgroundColor};
-    --primary: ${darkColors.primary};
-    --bodyColor: ${darkColors.bodyColor};
-    --headerColor: ${darkColors.headerColor};
-  }
-  
-  html {
-    box-sizing: border-box;
-  }
-  
-  body {
-    // transition: color 0.5s, border-color 0.5s, background-color 0.5s;
-  }
-  
-  *,
-  *:after,
-  *:before {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .gatsby-highlight  {
-    overflow: auto;
-  }
-  
-  .gatsby-highlight pre[class*='language-'] {
-    overflow: initial;
-    float: left;
-    min-width: 100%;
-  }
-`;
 
 const SiteWrapper = styled.div`
   margin-left: 1rem;
@@ -133,6 +87,7 @@ class Template extends React.Component {
 
     return (
       <SiteWrapper>
+        <GlobalStyles />
         <Header />
         <ProfilePicture />
         <SocialBlock onToggleColorScheme={this.onToggleColorScheme} />
