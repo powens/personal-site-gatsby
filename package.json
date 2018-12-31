@@ -38,7 +38,7 @@
     "react-icons": "^3.2.2",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17",
-    "typography-breakpoint-constants": "^0.15.10"
+    "typography-breakpoint-constants": "^0.16.18"
   },
   "devDependencies": {
     "babel-plugin-emotion": "^10.0.5",
