@@ -4,7 +4,7 @@ date: "2019-01-13"
 path: "/reversing-flatmap-stream/"
 excerpt: Taking a belated look at the backdoor flatmap-stream package 
 titleImage: "./whattosay.png"
-tags: ["javascript", "flatmap-stream", "reversing"]
+tags: ["javascript", "flatmap-stream", "reversing", "security"]
 ---
 
 flatmap-stream was included as a dependency in a widely used NPM library event-stream as a nested*.* It was discovered that [the minified version of flatmap-stream had some extra, obfuscated code](https://github.com/dominictarr/event-stream/issues/116). Let’s reverse the code to try to figure out what exactly what it is doing.
