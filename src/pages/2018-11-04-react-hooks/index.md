@@ -3,9 +3,10 @@ title: React Hooks
 date: "2018-11-04"
 path: "/react-hooks/"
 excerpt: React Hooks is a quirky proposed API available in the 16.7 alpha, allowing developers to more easily separate concerns and reuse logic related to component lifecycle. Let's have a quick look at how to use them. 
-titleImage: "./hooks.png"
 tags: ["javascript", "react", "hooks"]
 ---
+
+![Example hook](./hooks.png)
 
 [Hooks](https://reactjs.org/docs/hooks-intro.html) are an interesting new concept that has just landed in the React 16.7 alpha. They offer an intriguing new set of methods of interacting with React, and solving some of the pain-points that React developers have to deal with.
 

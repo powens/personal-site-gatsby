@@ -3,9 +3,10 @@ title: Automate refactoring with jscodeshift
 date: "2018-07-18T20:49:03.284Z"
 path: "/automate-refactoring-jscodeshift/"
 excerpt: A crash course in jscodeshift, a tool that lets you write code to automate your Javascript refactoring work
-titleImage: "./jscodeshift.png"
 tags: ["javascript", "jscodeshift", "refactoring", "ast"]
 ---
+
+![ESLint output with lots of errors](./jscodeshift.png)
 
 Refactoring is an integral aspect of development. Numerous tools exist to assist with it. From basic functions like find-and-replace, and regular expression replacements to more complex refactoring tools available in most IDEs. 
 

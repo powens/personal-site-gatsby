@@ -3,7 +3,6 @@ title: How I accidentally hacked into a business running on Google docs
 date: "2019-01-20"
 path: "/google-docs-permissions/"
 excerpt: How a poorly linked set of Google documents paired with some missing privacy/permission controls allowed me to gain access to the internal docs of an entire company... on accident.
-titleImage: "./title.png"
 tags: ["security"]
 ---
 
