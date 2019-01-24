@@ -18,7 +18,7 @@ This business maintains a Google spreadsheet to inform customers when their drie
 While checking to see if my clay items were ready to be painted, I noticed that intriguing `=importrange(…)` in the first cell of the document. I was curious what was in this other Google spreadsheet. So like most curious people, I just **had** to open this new spreadsheet.
 
 
-## Click… I’m in
+## and… I’m in
 
 Imagine to my surprise, that not only did this spreadsheet have more information about the clay drying process, but also contained a treasure trove of sensitive information about this company. There were no privacy controls set on the document. Anyone with a Google account could view the spreadsheet.
 
@@ -35,12 +35,22 @@ Some of the sensitive information available in this new spreadsheet:
 
 Through this document, one could access their POS system, generate new gift cards, and cause all sorts of other havoc. There were also links to more, unprotected Google docs that contained more information about the company. The passwords within the spreadsheet were current and valid.
 
-Having seen enough, the company was notified via e-mail, and the Google docs spreadsheet had the correct privacy settings applied to it. 
+Having seen enough, the company was notified via e-mail, and the Google docs spreadsheet had the correct privacy settings applied to it.
+
+It appears that each location of the company has their own spreadsheet like the one above. I attempted to access a couple others and the permissions were set correctly. 
 
 
-## Follow-ups
+## Takeaways
 
-It appears that each location of the company has their own spreadsheet like the one above. I attempted to access a couple others and the permissions were set correctly. I understand that running your business on Google docs is an inexpensive and easy. However, individually managing the permissions for what must be 50-odd documents is hard.
+### Permission management is hard
+
+Individually managing the permissions for what must be 50-odd documents is hard. I've never used Google docs at such a scale for information, but I have yet to see any sort of tool for managing permissions for large sets of documents. 
+
+### Compartmentalization
+
+Having a single source of information for all data for a business, while convenient, lead to a zero-effort full information disclosure. Storing critical business information, like passwords, in a separate document that isn't linked to any other document would have stopped this attack cold. 
+
+### Insecure passwords
 
 Finally, the passwords in the spreadsheet were also very insecure, but that’s a topic for another discussion.
 
