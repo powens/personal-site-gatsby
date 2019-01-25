@@ -16,7 +16,7 @@ const Tags = ({ pageContext, data }) => {
       <h2>{tagHeader}</h2>
       <div>
         {edges.map(({ node }) => {
-          const { path, title, date, excerpt, titleImage } = node.frontmatter;
+          const { path, title, date, excerpt } = node.frontmatter;
           return (
             <BlogCard
               key={path}
@@ -24,7 +24,6 @@ const Tags = ({ pageContext, data }) => {
               title={title}
               date={date}
               excerpt={excerpt}
-              titleImage={titleImage.childImageSharp}
             />
           );
         })}
@@ -71,13 +70,6 @@ export const pageQuery = graphql`
             path
             date(formatString: "DD MMMM, YYYY")
             excerpt
-            titleImage {
-              childImageSharp {
-                fluid(maxWidth: 700) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }

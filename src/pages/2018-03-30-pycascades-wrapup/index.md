@@ -3,10 +3,10 @@ title: PyCascades 2018 Recap
 date: "2018-03-30T15:14:03.284Z"
 path: "/pycascades-2018/"
 excerpt: I attended PyCascades 2018 in Vancouver. Here are my top 3 (4 actually) talks.
-titleImage: "./pycascades.jpg"
 tags: ["pycascades", "conference", "python"]
 ---
 
+![PyCascades banner](./pycascades.jpg)
 
 On January 22-23, I attended and volunteered at PyCascades in Vancouver, Canada. The inaugural pacific-northwest regional Python convention. It was held in a theatre in Granville island; a small tourist-focused niche of the city. While conventions in the city are typically held at the convention center in the downtown core, the smaller somewhat isolated venue allowed for a much more intimate event. This was perfect as the single-track conference was small and attendees did not have to venture far for food.
 

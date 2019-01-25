@@ -21,7 +21,6 @@ const BlogIndex = props => {
           title={frontmatter.title}
           date={frontmatter.date}
           excerpt={frontmatter.excerpt}
-          titleImage={frontmatter.titleImage.childImageSharp}
         />
       ))}
     </Layout>
@@ -71,13 +70,6 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM, YYYY")
             title
             excerpt
-            titleImage {
-              childImageSharp {
-                fluid(maxWidth: 700) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }

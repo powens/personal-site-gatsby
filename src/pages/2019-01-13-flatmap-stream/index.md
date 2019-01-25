@@ -3,7 +3,6 @@ title: Reversing flatmap-stream
 date: "2019-01-13"
 path: "/reversing-flatmap-stream/"
 excerpt: Taking a belated look at the backdoor flatmap-stream package 
-titleImage: "./whattosay.png"
 tags: ["javascript", "flatmap-stream", "reversing", "security"]
 ---
 

@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import HelmetWrapper from '../components/HelmetWrapper';
 import TagList from '../components/TagList';
 import Layout from '../components/Layout';
-
-const ImageWrapper = styled.div`
-  margin-bottom: 1rem;
-`;
 
 const Label = styled.span`
   margin-right: 2rem;
@@ -19,13 +14,7 @@ const BlogPostTemplate = props => {
   const {
     data: {
       markdownRemark: {
-        frontmatter: {
-          titleImage: { childImageSharp: titleImage },
-          tags,
-          excerpt,
-          title,
-          date,
-        },
+        frontmatter: { tags, excerpt, title, date },
         html,
         timeToRead,
       },
@@ -38,9 +27,6 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       <HelmetWrapper title={`${title} | ${siteTitle}`} description={excerpt} />
-      <ImageWrapper>
-        <Img fluid={titleImage.fluid} />
-      </ImageWrapper>
       <h1>{title}</h1>
       <p>
         <Label>{date}</Label>
@@ -89,13 +75,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         excerpt
-        titleImage {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     }
   }
