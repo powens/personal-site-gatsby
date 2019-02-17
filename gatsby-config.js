@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Patrick Owens',
     author: 'Patrick Owens',
+    twitter: '@padraaig',
     description:
       "I'm a full-stack software developer, infosec enthusiast and HAM operator.",
   },

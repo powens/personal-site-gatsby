@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
-import HelmetWrapper from '../components/HelmetWrapper';
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 
 const BlogIndex = props => {
@@ -13,7 +13,7 @@ const BlogIndex = props => {
 
   return (
     <Layout isLandingPage>
-      <HelmetWrapper title={siteTitle} description={description} />
+      <SEO title={siteTitle} description={description} />
       {posts.map(({ node: { frontmatter } }) => (
         <BlogCard
           key={frontmatter.path}

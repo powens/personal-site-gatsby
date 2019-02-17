@@ -1,16 +1,12 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import get from 'lodash/get';
+import { Link } from 'gatsby';
 import Layout from '../components/Layout';
-import HelmetWrapper from '../components/HelmetWrapper';
+import SEO from '../components/SEO';
 
-const PageNotFound = props => {
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  const description = get(props, 'data.site.siteMetadata.description');
-
+const PageNotFound = () => {
   return (
     <Layout>
-      <HelmetWrapper title={siteTitle} description={description} />
+      <SEO />
       <h1>Page not found!</h1>
       <p>
         {
@@ -25,14 +21,3 @@ const PageNotFound = props => {
 };
 
 export default PageNotFound;
-
-export const pageQuery = graphql`
-  query NotFoundQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`;

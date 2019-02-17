@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
-import HelmetWrapper from '../components/HelmetWrapper';
+import SEO from '../components/SEO';
 import TagList from '../components/TagList';
 import Layout from '../components/Layout';
 
@@ -18,15 +18,12 @@ const BlogPostTemplate = props => {
         html,
         timeToRead,
       },
-      site: {
-        siteMetadata: { title: siteTitle },
-      },
     },
   } = props;
 
   return (
     <Layout>
-      <HelmetWrapper title={`${title} | ${siteTitle}`} description={excerpt} />
+      <SEO title={title} description={excerpt} />
       <h1>{title}</h1>
       <p>
         <Label>{date}</Label>
@@ -62,7 +59,6 @@ export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     site {
       siteMetadata {
-        title
         author
       }
     }
