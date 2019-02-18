@@ -58,8 +58,10 @@ class Template extends React.Component {
   }
 
   componentDidMount() {
-    // TODO: Need to figure out why the storage event listener isnt working
-    // window.addEventListener('storage', updateColorScheme);
+    if (document) {
+      document.querySelector('body').style.transition =
+        'color 0.2s ease-out, background 0.2s ease-out';
+    }
   }
 
   componentWillUnmount() {
