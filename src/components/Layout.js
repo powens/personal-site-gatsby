@@ -5,10 +5,9 @@ import { css } from '@emotion/core';
 import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
-import Blurb from './Blurb';
 import mq from '../utils/responsive';
 import { getColorSchemeName } from '../utils/colors';
-import GlobalStyles from '../components/GlobalStyles';
+import GlobalStyles from './GlobalStyles';
 
 require('prismjs/themes/prism-tomorrow.css');
 
@@ -75,7 +74,7 @@ class Template extends React.Component {
   }
 
   render() {
-    const { children, isLandingPage } = this.props;
+    const { children } = this.props;
     const { currentColorScheme } = this.state;
 
     if (typeof window !== 'undefined') {
@@ -93,7 +92,6 @@ class Template extends React.Component {
         <Header />
         <ProfilePicture />
         <SocialBlock onToggleColorScheme={this.onToggleColorScheme} />
-        {isLandingPage && <Blurb />}
         <Content>{children}</Content>
       </SiteWrapper>
     );
@@ -102,11 +100,9 @@ class Template extends React.Component {
 
 Template.propTypes = {
   children: PropTypes.node,
-  isLandingPage: PropTypes.bool,
 };
 
 Template.defaultProps = {
-  isLandingPage: false,
   children: null,
 };
 

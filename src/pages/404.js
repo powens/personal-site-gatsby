@@ -14,7 +14,7 @@ const PageNotFound = () => {
         }
       </p>
       <p>
-        <Link to="/">← Back to my site</Link>
+        <Link to="/">← Back to the site</Link>
       </p>
     </Layout>
   );
