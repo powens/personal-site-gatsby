@@ -6,7 +6,7 @@ import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import mq from '../utils/responsive';
-import { getColorSchemeName } from '../utils/colors';
+import { getColorSchemeName, toggleColorScheme } from '../utils/colors';
 import GlobalStyles from './GlobalStyles';
 
 require('prismjs/themes/prism-tomorrow.css');
@@ -46,6 +46,17 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
+function updateColorScheme(schemeName) {
+  if (typeof window !== 'undefined') {
+    const body = document.querySelector('body');
+    if (schemeName === 'dark') {
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+    }
+  }
+}
+
 class Template extends React.Component {
   state = {
     currentColorScheme: getColorSchemeName(),
@@ -58,18 +69,22 @@ class Template extends React.Component {
 
   componentDidMount() {
     if (document) {
+      updateColorScheme(getColorSchemeName());
       document.querySelector('body').style.transition =
         'color 0.2s ease-out, background 0.2s ease-out';
     }
   }
 
-  componentWillUnmount() {
-    // window.removeEventListener('storage', updateColorScheme);
-  }
-
   onToggleColorScheme() {
-    this.setState({
-      currentColorScheme: getColorSchemeName(),
+    this.setState(() => {
+      toggleColorScheme();
+      const toggledScheme = getColorSchemeName();
+
+      updateColorScheme(toggledScheme);
+
+      return {
+        currentColorScheme: toggledScheme,
+      };
     });
   }
 
@@ -77,21 +92,15 @@ class Template extends React.Component {
     const { children } = this.props;
     const { currentColorScheme } = this.state;
 
-    if (typeof window !== 'undefined') {
-      const body = document.querySelector('body');
-      if (currentColorScheme === 'dark') {
-        body.classList.add('dark');
-      } else {
-        body.classList.remove('dark');
-      }
-    }
-
     return (
       <SiteWrapper>
         <GlobalStyles />
         <Header />
         <ProfilePicture />
-        <SocialBlock onToggleColorScheme={this.onToggleColorScheme} />
+        <SocialBlock
+          onToggleColorScheme={this.onToggleColorScheme}
+          colorScheme={currentColorScheme}
+        />
         <Content>{children}</Content>
       </SiteWrapper>
     );

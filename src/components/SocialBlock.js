@@ -4,12 +4,13 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
 import mq from '../utils/responsive';
-import DarkButton from './DarkButton';
+import DarkToggle from './DarkToggle';
 
 const IconWrapper = styled.div`
   grid-area: social;
   justify-self: center;
   align-self: center;
+  align-items: center;
 
   display: flex;
 
@@ -23,7 +24,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
-const SocialBlock = ({ onToggleColorScheme }) => (
+const SocialBlock = ({ onToggleColorScheme, colorScheme }) => (
   <IconWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
       <FaGithub />
@@ -40,12 +41,16 @@ const SocialBlock = ({ onToggleColorScheme }) => (
     >
       <FaMastodon />
     </SocialLink>
-    <DarkButton onToggleColorScheme={onToggleColorScheme} />
+    <DarkToggle
+      onToggleColorScheme={onToggleColorScheme}
+      colorScheme={colorScheme}
+    />
   </IconWrapper>
 );
 
 SocialBlock.propTypes = {
   onToggleColorScheme: PropTypes.func.isRequired,
+  colorScheme: PropTypes.string.isRequired,
 };
 
 export default SocialBlock;
