@@ -16,6 +16,7 @@ const BlogIndex = props => {
     <Layout>
       <SEO title={siteTitle} description={description} />
       <Blurb />
+      <h2>Latest articles</h2>
       {posts.map(({ node: { frontmatter } }) => (
         <BlogCard
           key={frontmatter.path}
