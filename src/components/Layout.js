@@ -5,10 +5,9 @@ import { css } from '@emotion/core';
 import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
-import Blurb from './Blurb';
 import mq from '../utils/responsive';
-import { getColorSchemeName } from '../utils/colors';
-import GlobalStyles from '../components/GlobalStyles';
+import { getColorSchemeName, toggleColorScheme } from '../utils/colors';
+import GlobalStyles from './GlobalStyles';
 
 require('prismjs/themes/prism-tomorrow.css');
 
@@ -47,6 +46,17 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
+function updateColorScheme(schemeName) {
+  if (typeof window !== 'undefined') {
+    const body = document.querySelector('body');
+    if (schemeName === 'dark') {
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+    }
+  }
+}
+
 class Template extends React.Component {
   state = {
     currentColorScheme: getColorSchemeName(),
@@ -58,40 +68,42 @@ class Template extends React.Component {
   }
 
   componentDidMount() {
-    // TODO: Need to figure out why the storage event listener isnt working
-    // window.addEventListener('storage', updateColorScheme);
-  }
-
-  componentWillUnmount() {
-    // window.removeEventListener('storage', updateColorScheme);
+    if (document) {
+      updateColorScheme(getColorSchemeName());
+      // TODO: A hack for now - make sure that the dark theme has been applied before the transition style has been added
+      window.setTimeout(() => {
+        document.querySelector('body').style.transition =
+          'color 0.2s ease-out, background 0.2s ease-out';
+      }, 1);
+    }
   }
 
   onToggleColorScheme() {
-    this.setState({
-      currentColorScheme: getColorSchemeName(),
+    this.setState(() => {
+      toggleColorScheme();
+      const toggledScheme = getColorSchemeName();
+
+      updateColorScheme(toggledScheme);
+
+      return {
+        currentColorScheme: toggledScheme,
+      };
     });
   }
 
   render() {
-    const { children, isLandingPage } = this.props;
+    const { children } = this.props;
     const { currentColorScheme } = this.state;
-
-    if (typeof window !== 'undefined') {
-      const body = document.querySelector('body');
-      if (currentColorScheme === 'dark') {
-        body.classList.add('dark');
-      } else {
-        body.classList.remove('dark');
-      }
-    }
 
     return (
       <SiteWrapper>
         <GlobalStyles />
         <Header />
         <ProfilePicture />
-        <SocialBlock onToggleColorScheme={this.onToggleColorScheme} />
-        {isLandingPage && <Blurb />}
+        <SocialBlock
+          onToggleColorScheme={this.onToggleColorScheme}
+          colorScheme={currentColorScheme}
+        />
         <Content>{children}</Content>
       </SiteWrapper>
     );
@@ -100,11 +112,9 @@ class Template extends React.Component {
 
 Template.propTypes = {
   children: PropTypes.node,
-  isLandingPage: PropTypes.bool,
 };
 
 Template.defaultProps = {
-  isLandingPage: false,
   children: null,
 };
 

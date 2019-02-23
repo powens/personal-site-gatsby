@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
+import Blurb from '../components/Blurb';
 
 const BlogIndex = props => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
@@ -12,8 +13,10 @@ const BlogIndex = props => {
   const posts = get(props, 'data.allMarkdownRemark.edges');
 
   return (
-    <Layout isLandingPage>
+    <Layout>
       <SEO title={siteTitle} description={description} />
+      <Blurb />
+      <h2>Latest articles</h2>
       {posts.map(({ node: { frontmatter } }) => (
         <BlogCard
           key={frontmatter.path}
