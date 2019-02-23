@@ -70,8 +70,11 @@ class Template extends React.Component {
   componentDidMount() {
     if (document) {
       updateColorScheme(getColorSchemeName());
-      document.querySelector('body').style.transition =
-        'color 0.2s ease-out, background 0.2s ease-out';
+      // TODO: A hack for now - make sure that the dark theme has been applied before the transition style has been added
+      window.setTimeout(() => {
+        document.querySelector('body').style.transition =
+          'color 0.2s ease-out, background 0.2s ease-out';
+      }, 1);
     }
   }
 
