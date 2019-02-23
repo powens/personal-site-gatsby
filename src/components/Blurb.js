@@ -14,8 +14,9 @@ const Blurb = () => (
     <a href="https://twitter.com/planetside2/status/500821423091630081">
       occasional competitive game player
     </a>
-    . I am a contributor to open source projects, a volunteer mentor for Canada
-    Learning Code, and a volunteer radio operator for VECTOR.
+    . I am a contributor to open source projects, a volunteer mentor for{' '}
+    <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a>, and a
+    volunteer radio operator for <a href="https://vectorradio.ca/">VECTOR</a>.
   </BlurbWrapper>
 );
 
