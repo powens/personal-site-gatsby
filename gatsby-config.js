@@ -4,7 +4,7 @@ module.exports = {
     author: 'Patrick Owens',
     twitter: '@padraigcodes',
     description:
-      "I'm a full-stack software developer, infosec enthusiast and HAM operator.",
+      'I’m a full stack developer, infosec enthusiast, licensed HAM radio operator - VA7ORO, and occasional competitive game player.',
   },
   plugins: [
     {
