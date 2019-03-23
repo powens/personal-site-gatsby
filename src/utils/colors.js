@@ -24,7 +24,8 @@ const SCHEME_KEY = 'colorScheme';
 
 function getColorSchemeName() {
   if (typeof window !== 'undefined') {
-    return localStorage.getItem(SCHEME_KEY);
+    const schemeName = localStorage.getItem(SCHEME_KEY);
+    return schemeName || 'default';
   }
   return null;
 }
