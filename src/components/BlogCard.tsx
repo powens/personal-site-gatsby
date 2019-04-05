@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -12,7 +12,14 @@ const BlogTitle = styled.h3`
   margin-bottom: 0;
 `;
 
-const BlogCard = ({ path, title, date, excerpt }) => (
+interface Props {
+  path: string;
+  title: string;
+  date: string;
+  excerpt: string;
+}
+
+const BlogCard = ({ path, title, date, excerpt }: Props) => (
   <Card>
     <BlogTitle>
       <Link to={path}>{title}</Link>

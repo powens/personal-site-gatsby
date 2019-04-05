@@ -1670,7 +1670,12 @@ babel-plugin-macros@^2.0.0, babel-plugin-macros@^2.4.2:
     cosmiconfig "^5.2.0"
     resolve "^1.10.0"
 
-babel-plugin-remove-graphql-queries@^2.5.5, babel-plugin-remove-graphql-queries@^2.6.3:
+babel-plugin-remove-graphql-queries@^2.5.5:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.6.2.tgz#8ee167324befa6579858fcaf1dbd75a84766d555"
+  integrity sha512-JrYM0ACSMmt27PeMtwp+5N5c8S1pJkCYWI+Jt+12ERqW3bYKWGCJsdEky2lQRLezLFCiJE7+mXANc91yMGf+HQ==
+
+babel-plugin-remove-graphql-queries@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.6.3.tgz#f106bc38229789c62e27a3a32d04deb7342bf15d"
   integrity sha512-vZEuO4kpPJsPex63BIMn5bBZGIDO42FQtzSD9UsDHjoWHfCB9/EQDnimtggI3Eyv4L3hwxsGNvVbS4IfFDJrlQ==
