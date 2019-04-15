@@ -6,16 +6,18 @@ function GlobalStyles() {
   return (
     <Global
       styles={css`
-        :root {
+        body {
           --background: ${defaultColors.background};
           --border: ${defaultColors.border};
           --bg: ${defaultColors.backgroundColor};
           --primary: ${defaultColors.primary};
           --bodyColor: ${defaultColors.bodyColor};
           --headerColor: ${defaultColors.headerColor};
+
+          background-color: var(--background);
         }
 
-        .dark {
+        body.dark {
           --background: ${darkColors.background};
           --border: ${darkColors.border};
           --bg: ${darkColors.backgroundColor};
@@ -26,10 +28,6 @@ function GlobalStyles() {
 
         html {
           box-sizing: border-box;
-        }
-
-        body {
-          // transition: color 0.5s, border-color 0.5s, background-color 0.5s;
         }
 
         *,

@@ -24,7 +24,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
-const SocialBlock = ({ onToggleColorScheme, colorScheme }) => (
+const SocialBlock = () => (
   <IconWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
       <FaGithub />
@@ -41,16 +41,10 @@ const SocialBlock = ({ onToggleColorScheme, colorScheme }) => (
     >
       <FaMastodon />
     </SocialLink>
-    <DarkToggle
-      onToggleColorScheme={onToggleColorScheme}
-      colorScheme={colorScheme}
-    />
+    <DarkToggle />
   </IconWrapper>
 );
 
-SocialBlock.propTypes = {
-  onToggleColorScheme: PropTypes.func.isRequired,
-  colorScheme: PropTypes.string.isRequired,
-};
+SocialBlock.propTypes = {};
 
 export default SocialBlock;

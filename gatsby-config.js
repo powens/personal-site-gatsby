@@ -79,5 +79,6 @@ module.exports = {
       options: {},
     },
     'gatsby-plugin-netlify',
+    'gatsby-plugin-dark-mode',
   ],
 };
