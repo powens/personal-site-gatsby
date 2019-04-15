@@ -6,7 +6,6 @@ import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import mq from '../utils/responsive';
-import { getColorSchemeName, toggleColorScheme } from '../utils/colors';
 import GlobalStyles from './GlobalStyles';
 
 require('prismjs/themes/prism-tomorrow.css');
@@ -28,6 +27,8 @@ const SiteWrapper = styled.div`
 
   min-width: 0;
 
+  transition: color 0.2s ease-out, background 0.2s ease-out;
+
   ${mq.medium(css`
     margin-left: auto;
     margin-right: auto;
@@ -46,64 +47,16 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-function updateColorScheme(schemeName) {
-  if (typeof window !== 'undefined') {
-    const body = document.querySelector('body');
-    if (schemeName === 'dark') {
-      body.classList.add('dark');
-    } else {
-      body.classList.remove('dark');
-    }
-  }
-}
-
 class Template extends React.Component {
-  state = {
-    currentColorScheme: getColorSchemeName(),
-  };
-
-  constructor(props) {
-    super(props);
-    this.onToggleColorScheme = this.onToggleColorScheme.bind(this);
-  }
-
-  componentDidMount() {
-    if (document) {
-      updateColorScheme(getColorSchemeName());
-      // TODO: A hack for now - make sure that the dark theme has been applied before the transition style has been added
-      window.setTimeout(() => {
-        document.querySelector('body').style.transition =
-          'color 0.2s ease-out, background 0.2s ease-out';
-      }, 1);
-    }
-  }
-
-  onToggleColorScheme() {
-    this.setState(() => {
-      toggleColorScheme();
-      const toggledScheme = getColorSchemeName();
-
-      updateColorScheme(toggledScheme);
-
-      return {
-        currentColorScheme: toggledScheme,
-      };
-    });
-  }
-
   render() {
     const { children } = this.props;
-    const { currentColorScheme } = this.state;
 
     return (
       <SiteWrapper>
         <GlobalStyles />
         <Header />
         <ProfilePicture />
-        <SocialBlock
-          onToggleColorScheme={this.onToggleColorScheme}
-          colorScheme={currentColorScheme}
-        />
+        <SocialBlock />
         <Content>{children}</Content>
       </SiteWrapper>
     );

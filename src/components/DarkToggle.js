@@ -1,41 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ClassNames } from '@emotion/core';
+import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import Toggle from 'react-toggle';
 import './DarkToggle.css';
 import { darkColors } from '../utils/colors';
 
-function DarkToggle({ onToggleColorScheme, colorScheme }) {
+function DarkToggle() {
   return (
-    <ClassNames>
-      {({ css }) => (
-        <Toggle
-          checked={colorScheme === 'dark'}
-          className={css`
-            margin-top: auto;
-            margin-bottom: auto;
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
+        <ClassNames>
+          {({ css }) => (
+            <Toggle
+              checked={theme === 'dark'}
+              className={css`
+                margin-top: auto;
+                margin-bottom: auto;
 
-            & svg {
-              color: ${darkColors.bodyColor};
-              width: 10px;
-              height: 10px;
-            }
-          `}
-          icons={{
-            checked: <FaMoon />,
-            unchecked: <FaSun />,
-          }}
-          onChange={onToggleColorScheme}
-        />
+                & svg {
+                  color: ${darkColors.bodyColor};
+                  width: 10px;
+                  height: 10px;
+                }
+              `}
+              icons={{
+                checked: <FaMoon />,
+                unchecked: <FaSun />,
+              }}
+              onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+            />
+          )}
+        </ClassNames>
       )}
-    </ClassNames>
+    </ThemeToggler>
   );
 }
 
-DarkToggle.propTypes = {
-  onToggleColorScheme: PropTypes.func.isRequired,
-  colorScheme: PropTypes.string.isRequired,
-};
+DarkToggle.propTypes = {};
 
 export default DarkToggle;
