@@ -26,7 +26,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
-const SocialBlock = ({ onToggleColorScheme, colorScheme }) => (
+const SocialBlock = ({}) => (
   <BlockWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
       <FaGithub />
@@ -43,10 +43,7 @@ const SocialBlock = ({ onToggleColorScheme, colorScheme }) => (
     >
       <FaMastodon />
     </SocialLink>
-    <DarkToggle
-      onToggleColorScheme={onToggleColorScheme}
-      colorScheme={colorScheme}
-    />
+    <DarkToggle />
   </BlockWrapper>
 );
 
