@@ -30,7 +30,7 @@ const SocialBlock = () => (
       <FaGithub />
     </SocialLink>
     <SocialLink
-      href="https://twitter.com/padraaig"
+      href="https://twitter.com/padraigcodes"
       aria-label="Link to Twitter"
     >
       <FaTwitter />
