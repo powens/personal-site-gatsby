@@ -1,6 +1,7 @@
 import Typography from 'typography';
-
+// @ts-ignore
 import gray from 'gray-percentage';
+// @ts-ignore
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
 
 const nativeStack = [

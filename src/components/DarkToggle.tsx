@@ -1,15 +1,22 @@
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ClassNames } from '@emotion/core';
+// @ts-ignore
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
+// @ts-ignore
 import Toggle from 'react-toggle';
 import './DarkToggle.css';
 import { darkColors } from '../utils/colors';
 
+interface ThemeTogglerProps {
+  theme: string;
+  toggleTheme(themeName: string): null;
+}
+
 function DarkToggle() {
   return (
     <ThemeToggler>
-      {({ theme, toggleTheme }) => (
+      {({ theme, toggleTheme }: ThemeTogglerProps) => (
         <ClassNames>
           {({ css }) => (
             <Toggle
@@ -28,7 +35,9 @@ function DarkToggle() {
                 checked: <FaMoon />,
                 unchecked: <FaSun />,
               }}
-              onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+              onChange={(e: any) =>
+                toggleTheme(e.target.checked ? 'dark' : 'light')
+              }
             />
           )}
         </ClassNames>

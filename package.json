@@ -46,15 +46,9 @@
     "typography-breakpoint-constants": "^0.16.18"
   },
   "devDependencies": {
+    "@types/react-toggle": "^4.0.2",
+    "@types/typography": "^0.16.2",
     "babel-plugin-emotion": "^10.0.5",
-    "eslint": "^5.1.0",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-emotion": "^10.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.1.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-react": "^7.10.0",
     "husky": "^1.1.0",
     "lint-staged": "^8.0.4",
     "prettier": "^1.14.2",
