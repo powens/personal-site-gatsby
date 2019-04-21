@@ -13,7 +13,7 @@ interface ThemeTogglerProps {
   toggleTheme(themeName: string): null;
 }
 
-function DarkToggle() {
+function DarkToggle(): JSX.Element {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }: ThemeTogglerProps) => (
@@ -45,7 +45,5 @@ function DarkToggle() {
     </ThemeToggler>
   );
 }
-
-DarkToggle.propTypes = {};
 
 export default DarkToggle;

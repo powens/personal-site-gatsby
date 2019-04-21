@@ -9,7 +9,6 @@ function GlobalStyles() {
         body {
           --background: ${defaultColors.background};
           --border: ${defaultColors.border};
-          --bg: ${defaultColors.backgroundColor};
           --primary: ${defaultColors.primary};
           --bodyColor: ${defaultColors.bodyColor};
           --headerColor: ${defaultColors.headerColor};
@@ -20,7 +19,6 @@ function GlobalStyles() {
         body.dark {
           --background: ${darkColors.background};
           --border: ${darkColors.border};
-          --bg: ${darkColors.backgroundColor};
           --primary: ${darkColors.primary};
           --bodyColor: ${darkColors.bodyColor};
           --headerColor: ${darkColors.headerColor};

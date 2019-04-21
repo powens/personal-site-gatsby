@@ -1,4 +1,4 @@
-import Typography from 'typography';
+import Typography, { TypographyOptions, VerticalRhythm } from 'typography';
 // @ts-ignore
 import gray from 'gray-percentage';
 // @ts-ignore
@@ -29,7 +29,10 @@ const theme = {
   headerWeight: 500,
   bodyWeight: 'normal',
   boldWeight: 600,
-  overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
+  overrideStyles: (
+    { adjustFontSizeTo, scale, rhythm }: VerticalRhythm,
+    options: TypographyOptions
+  ) => ({
     body: {
       backgroundColor: 'var(--background)',
     },
