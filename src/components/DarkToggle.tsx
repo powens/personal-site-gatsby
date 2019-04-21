@@ -2,7 +2,8 @@ import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ClassNames } from '@emotion/core';
 // @ts-ignore
-import { ThemeToggler } from 'gatsby-plugin-dark-mode';
+// import { ThemeToggler } from 'gatsby-plugin-dark-mode';
+import ThemeToggler from './ThemeToggler';
 // @ts-ignore
 import Toggle from 'react-toggle';
 import './DarkToggle.css';
