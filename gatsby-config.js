@@ -17,6 +17,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
         excerpt_separator: '<!-- end -->',
         plugins: [
           {
@@ -58,9 +59,13 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Patrick Owens',
+        // eslint-disable-next-line @typescript-eslint/camelcase
         short_name: 'Padraig',
+        // eslint-disable-next-line @typescript-eslint/camelcase
         start_url: '/',
+        // eslint-disable-next-line @typescript-eslint/camelcase
         background_color: '#e8e8e8',
+        // eslint-disable-next-line @typescript-eslint/camelcase
         theme_color: '#1f56a7',
         display: 'minimal-ui',
         icon: 'src/assets/favicon.svg', // This path is relative to the root of the site.
@@ -71,7 +76,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography.js',
+        pathToConfigModule: 'src/utils/typography.ts',
       },
     },
     {
@@ -80,5 +85,6 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
     'gatsby-plugin-dark-mode',
+    'gatsby-plugin-typescript',
   ],
 };
