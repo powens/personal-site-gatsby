@@ -8,7 +8,24 @@ import appleTouchIcon from '../assets/apple-touch-icon.png';
 import safariPinnedTab from '../assets/safari-pinned-tab.svg';
 import { defaultColors } from '../utils/colors';
 
-const SEO = ({ title, description }) => (
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        twitter
+      }
+    }
+  }
+`;
+
+interface SEOQuery {
+  title: string;
+  description: string;
+}
+
+const SEO = ({ title, description }: SEOQuery) => (
   <StaticQuery
     query={detailsQuery}
     render={data => (
@@ -56,15 +73,3 @@ SEO.propTypes = {
 };
 
 export default SEO;
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        twitter
-      }
-    }
-  }
-`;

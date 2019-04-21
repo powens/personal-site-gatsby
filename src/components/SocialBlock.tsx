@@ -26,7 +26,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
-const SocialBlock = ({}) => (
+const SocialBlock = () => (
   <BlockWrapper>
     <SocialLink href="https://github.com/powens" aria-label="Link to Github">
       <FaGithub />

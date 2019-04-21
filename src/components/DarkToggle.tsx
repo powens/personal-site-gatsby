@@ -35,7 +35,7 @@ function DarkToggle(): JSX.Element {
                 checked: <FaMoon />,
                 unchecked: <FaSun />,
               }}
-              onChange={(e: any) =>
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 toggleTheme(e.target.checked ? 'dark' : 'light')
               }
             />

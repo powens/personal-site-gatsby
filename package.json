@@ -48,14 +48,16 @@
   "devDependencies": {
     "@types/react-toggle": "^4.0.2",
     "@types/typography": "^0.16.2",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
     "babel-plugin-emotion": "^10.0.5",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
     "husky": "^1.1.0",
     "lint-staged": "^8.0.4",
     "prettier": "^1.14.2",
-    "tslint": "^5.16.0",
-    "tslint-config-blvd": "^1.2.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.4.3"
   },
   "homepage": "https://padraig.io",
@@ -67,7 +69,8 @@
   "scripts": {
     "start": "gatsby develop",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project .",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "yarn lint --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths"
