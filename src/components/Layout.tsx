@@ -7,6 +7,7 @@ import ProfilePicture from './ProfilePicture';
 import SocialBlock from './SocialBlock';
 import mq from '../utils/responsive';
 import GlobalStyles from './GlobalStyles';
+import Header2 from './Header2';
 
 require('prismjs/themes/prism-tomorrow.css');
 
@@ -52,13 +53,16 @@ class Template extends React.Component {
     const { children } = this.props;
 
     return (
-      <SiteWrapper>
-        <GlobalStyles />
-        <Header />
-        <ProfilePicture />
-        <SocialBlock />
-        <Content>{children}</Content>
-      </SiteWrapper>
+      <div>
+        <Header2 />
+        <SiteWrapper>
+          <GlobalStyles />
+          <Header />
+          <ProfilePicture />
+          <SocialBlock />
+          <Content>{children}</Content>
+        </SiteWrapper>
+      </div>
     );
   }
 }

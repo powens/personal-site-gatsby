@@ -6,7 +6,7 @@ import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
 import mq from '../utils/responsive';
 import DarkToggle from './DarkToggle';
 
-const BlockWrapper = styled.div`
+const BlockWrapper = styled.section`
   grid-area: social;
   justify-self: center;
   align-self: center;
