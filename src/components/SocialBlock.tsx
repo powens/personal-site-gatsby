@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
 import mq from '../utils/responsive';
-import DarkToggle from './DarkToggle';
 
-const BlockWrapper = styled.section`
+const BlockWrapper = styled.span`
   grid-area: social;
   justify-self: center;
   align-self: center;
@@ -37,16 +35,13 @@ const SocialBlock = () => (
     >
       <FaTwitter />
     </SocialLink>
-    <SocialLink
+    {/* <SocialLink
       href="https://mastodon.technology/@powens"
       aria-label="Link to Mastodon"
     >
       <FaMastodon />
-    </SocialLink>
-    <DarkToggle />
+    </SocialLink> */}
   </BlockWrapper>
 );
-
-SocialBlock.propTypes = {};
 
 export default SocialBlock;

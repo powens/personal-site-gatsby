@@ -12,6 +12,7 @@ function GlobalStyles() {
           --primary: ${defaultColors.primary};
           --bodyColor: ${defaultColors.bodyColor};
           --headerColor: ${defaultColors.headerColor};
+          --highlight: ${defaultColors.highlight};
 
           background-color: var(--background);
         }
@@ -22,6 +23,7 @@ function GlobalStyles() {
           --primary: ${darkColors.primary};
           --bodyColor: ${darkColors.bodyColor};
           --headerColor: ${darkColors.headerColor};
+          --highlight: ${darkColors.highlight};
         }
 
         html {

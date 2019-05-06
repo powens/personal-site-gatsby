@@ -1,56 +1,51 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
 import BlogCard from '../components/BlogCard';
 import Layout from '../components/Layout';
 
-const Tags = ({ pageContext, data }) => {
+export interface Props {
+  pageContext: object;
+  data: object;
+}
+
+const PostList = styled.ul`
+  list-style: none;
+`;
+
+const Tags = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with "${tag}"`;
+
+  const postCount = `${totalCount} post${totalCount === 1 ? '' : 's'}`;
+
+  const tagHeader = `${tag} - ${postCount}`;
 
   return (
     <Layout>
-      <h2>{tagHeader}</h2>
-      <div>
-        {edges.map(({ node }) => {
-          const { path, title, date, excerpt } = node.frontmatter;
-          return (
-            <BlogCard
-              key={path}
-              path={path}
-              title={title}
-              date={date}
-              excerpt={excerpt}
-            />
-          );
-        })}
-      </div>
+      <h1>{tagHeader}</h1>
+      <section>
+        <PostList>
+          {edges.map(({ node }) => {
+            const { path, title, date, excerpt } = node.frontmatter;
+            const timeToRead = node.timeToRead;
+            return (
+              <li>
+                <BlogCard
+                  key={path}
+                  path={path}
+                  title={title}
+                  date={date}
+                  excerpt={excerpt}
+                  timeToRead={timeToRead}
+                />
+              </li>
+            );
+          })}
+        </PostList>
+      </section>
     </Layout>
   );
-};
-
-Tags.propTypes = {
-  pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
-  }).isRequired,
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }).isRequired,
 };
 
 export default Tags;
@@ -71,6 +66,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM, YYYY")
             excerpt
           }
+          timeToRead
         }
       }
     }
