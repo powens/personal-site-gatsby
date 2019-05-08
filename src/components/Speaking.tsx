@@ -4,6 +4,7 @@ import SpeakingCard from './SpeakingCard';
 
 const SpeakingList = styled.ul`
   list-style: none;
+  margin-left: 0;
 `;
 
 const SpeakingItem = styled.li``;
@@ -17,7 +18,7 @@ function Speaking() {
           <SpeakingCard
             title="Intro to CSS Grid"
             slidesUrl="https://powens.github.io/cssgrid/#/"
-            description="My first technical talk. A 10-minute presentation about the history of CSS layouts, and a
+            description="A 10-minute presentation about the history of CSS layouts, and a
             dive into CSS grid."
             presentedAt="Internal company training"
           />

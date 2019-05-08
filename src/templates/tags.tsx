@@ -1,17 +1,20 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import BlogCard from '../components/BlogCard';
 import Layout from '../components/Layout';
+import PostList from '../components/PostList';
+import { PostProps } from '../utils/types';
 
 export interface Props {
-  pageContext: object;
-  data: object;
+  pageContext: {
+    tag: string;
+  };
+  data: {
+    allMarkdownRemark: {
+      edges: Array<PostProps>;
+      totalCount: number;
+    };
+  };
 }
-
-const PostList = styled.ul`
-  list-style: none;
-`;
 
 const Tags = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
@@ -25,24 +28,7 @@ const Tags = ({ pageContext, data }: Props) => {
     <Layout>
       <h1>{tagHeader}</h1>
       <section>
-        <PostList>
-          {edges.map(({ node }) => {
-            const { path, title, date, excerpt } = node.frontmatter;
-            const timeToRead = node.timeToRead;
-            return (
-              <li>
-                <BlogCard
-                  key={path}
-                  path={path}
-                  title={title}
-                  date={date}
-                  excerpt={excerpt}
-                  timeToRead={timeToRead}
-                />
-              </li>
-            );
-          })}
-        </PostList>
+        <PostList posts={edges} />
       </section>
     </Layout>
   );
@@ -64,6 +50,7 @@ export const pageQuery = graphql`
             title
             path
             date(formatString: "DD MMMM, YYYY")
+            computerDate: date(formatString: "YYYY-MM-DD")
             excerpt
           }
           timeToRead

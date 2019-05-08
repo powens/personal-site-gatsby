@@ -6,3 +6,7 @@ export interface PostProps {
   excerpt: string;
   tags?: Array<string>;
 }
+
+export interface PostQuery {
+  node: PostProps;
+}

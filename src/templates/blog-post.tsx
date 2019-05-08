@@ -9,6 +9,7 @@ import { PostProps } from '../utils/types';
 
 const Label = styled.span`
   margin-right: 2rem;
+  color: var(--secondaryBodyColor);
 `;
 
 const PostGrid = styled.section`

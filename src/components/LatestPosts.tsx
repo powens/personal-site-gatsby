@@ -1,8 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import styled from '@emotion/styled';
-import BlogCard from './BlogCard';
 import { PostProps } from '../utils/types';
+import PostList from './PostList';
 
 export interface Props {
   node: {
@@ -11,20 +10,7 @@ export interface Props {
   };
 }
 
-const PostList = styled.ul`
-  list-style: none;
-  margin-left: 0;
-`;
-
-const PostItem = styled.li`
-  margin-bottom: 1.75rem;
-`;
-
-export interface Props {
-  limit: number;
-}
-
-function LatestPosts({ limit = 5 }: Props) {
+function LatestPosts() {
   const postQuery = graphql`
     query IndexQuery {
       allMarkdownRemark(
@@ -49,29 +35,12 @@ function LatestPosts({ limit = 5 }: Props) {
 
   return (
     <section>
-      <h2>
-        <Link to="/posts">Latest Posts</Link>
-      </h2>
+      <h2>Latest Posts</h2>
       <StaticQuery
         query={postQuery}
         render={data => {
           const posts = data.allMarkdownRemark.edges;
-          return (
-            <PostList>
-              {posts.map(({ node: { frontmatter, timeToRead } }: Props) => (
-                <PostItem key={frontmatter.path}>
-                  <BlogCard
-                    path={frontmatter.path}
-                    title={frontmatter.title}
-                    date={frontmatter.date}
-                    computerDate={frontmatter.computerDate}
-                    excerpt={frontmatter.excerpt}
-                    timeToRead={timeToRead}
-                  />
-                </PostItem>
-              ))}
-            </PostList>
-          );
+          return <PostList posts={posts} />;
         }}
       />
     </section>

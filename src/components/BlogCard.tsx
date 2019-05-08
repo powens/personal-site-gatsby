@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { FiMinus } from 'react-icons/fi';
+import PostIcon from './PostIcon';
 import { Link } from 'gatsby';
 import { PostProps } from '../utils/types';
 
@@ -9,14 +9,11 @@ const Card = styled.div`
   margin-bottom: 2rem;
   grid-gap: 0.4rem;
 
-  grid-template-columns: 0.2fr 1fr;
+  grid-template-columns: minmax(5rem, 1fr) auto;
   grid-template-areas:
     'title title'
     'date ttr'
     'excerpt excerpt';
-
-  border: 1px solid var(--highlight);
-  padding: 1rem;
 `;
 
 const BlogTitle = styled.h3`
@@ -26,10 +23,17 @@ const BlogTitle = styled.h3`
 
 const PostDate = styled.time`
   grid-area: date;
+  color: var(--secondaryBodyColor);
 `;
 
 const Ttr = styled.span`
   grid-area: ttr;
+  color: var(--secondaryBodyColor);
+`;
+
+const TimeTtr = styled.span`
+  color: var(--bodyColor);
+  font-weight: 600;
 `;
 
 const Excerpt = styled.summary`
@@ -43,18 +47,20 @@ const BlogCard = ({
   computerDate,
   excerpt,
   timeToRead,
+  icon,
 }: PostProps) => (
   <Card>
     <BlogTitle>
-      <Link to={path}>{title}</Link>
+      <Link to={path}>
+        {/* <PostIcon icon={icon} /> */}
+        {title}
+      </Link>
     </BlogTitle>
     <PostDate>
-      <time dateTime={computerDate}>
-        <small>{date}</small>
-      </time>
+      <time dateTime={computerDate}>{date}</time>
     </PostDate>
     <Ttr>
-      <small>{timeToRead} mins to read</small>
+      <TimeTtr>{timeToRead}</TimeTtr> mins to read
     </Ttr>
     {/* eslint-disable-next-line react/no-danger */}
     <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
