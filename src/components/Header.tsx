@@ -24,8 +24,7 @@ const HeaderWrapper = styled.header`
 
 const Title = styled.span`
   font-size: 2rem;
-  font-weight: bold;
-  // color: var(--bodyColor);
+  color: var(--bodyColor);
 `;
 
 function Header() {
@@ -50,7 +49,7 @@ function Header() {
   return (
     <HeaderWrapper atTop={minified}>
       <Link to="/">
-        <Title>Patrick Owens</Title>
+        <Title>padraig</Title>
       </Link>
       {/* <SocialBlock /> */}
       <DarkToggle />

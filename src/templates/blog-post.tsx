@@ -1,11 +1,12 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
-import { FaArrowLeft } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import TagList from '../components/tags/TagList';
 import Layout from '../components/Layout';
 import { PostProps } from '../utils/types';
+import BlogFooter from '../components/BlogFooter';
+import EmphasisDescription from '../components/EmphasisDescription';
 
 const Label = styled.span`
   margin-right: 2rem;
@@ -47,16 +48,17 @@ const BlogPostTemplate = (props: Props) => {
           <Label>
             <time dateTime={computerDate}>{date}</time>
           </Label>
-          <Label>{timeToRead} min read</Label>
+          <Label>
+            <EmphasisDescription
+              number={timeToRead}
+              description="mins to read"
+            />
+          </Label>
           <TagList tags={tags} />
         </div>
         {/* eslint-disable-next-line react/no-danger */}
         <article dangerouslySetInnerHTML={{ __html: html }} />
-        <footer>
-          <Link to="/posts">
-            <FaArrowLeft /> Back to posts
-          </Link>
-        </footer>
+        <BlogFooter />
       </PostGrid>
     </Layout>
   );

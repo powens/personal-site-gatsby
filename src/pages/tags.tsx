@@ -9,6 +9,11 @@ function TagsPage({
     allMarkdownRemark: { group },
   },
 }) {
+  const numberCount = group.reduce(
+    (accum, { totalCount }) => accum + totalCount,
+    0
+  );
+
   return (
     <Layout>
       <div>
@@ -17,7 +22,8 @@ function TagsPage({
           {group.map(tag => (
             <li key={tag.fieldValue}>
               <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                <Tag tag={tag.fieldValue} /> ({tag.totalCount})
+                <Tag tag={tag.fieldValue} />
+                {/* ({tag.totalCount}) */}
               </Link>
             </li>
           ))}

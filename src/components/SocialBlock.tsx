@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaMastodon, FaInstagram } from 'react-icons/fa';
 import mq from '../utils/responsive';
 
 const BlockWrapper = styled.span`
@@ -13,14 +12,9 @@ const BlockWrapper = styled.span`
   display: flex;
   width: 8rem;
   justify-content: space-between;
-
-  ${mq.medium(css`
-    justify-self: right;
-  `)};
 `;
 
 const SocialLink = styled.a`
-  // margin-left: 1rem;
   font-size: 1.5rem;
 `;
 
@@ -35,12 +29,18 @@ const SocialBlock = () => (
     >
       <FaTwitter />
     </SocialLink>
-    {/* <SocialLink
+    <SocialLink
       href="https://mastodon.technology/@powens"
       aria-label="Link to Mastodon"
     >
       <FaMastodon />
-    </SocialLink> */}
+    </SocialLink>
+    <SocialLink
+      href="https://instagram.com/padraig"
+      aria-label="Link to Instagram"
+    >
+      <FaInstagram />
+    </SocialLink>
   </BlockWrapper>
 );
 

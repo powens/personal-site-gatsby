@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import PostIcon from './PostIcon';
 import { Link } from 'gatsby';
 import { PostProps } from '../utils/types';
+import EmphasisDescription from './EmphasisDescription';
 
 const Card = styled.div`
   display: grid;
@@ -28,12 +29,6 @@ const PostDate = styled.time`
 
 const Ttr = styled.span`
   grid-area: ttr;
-  color: var(--secondaryBodyColor);
-`;
-
-const TimeTtr = styled.span`
-  color: var(--bodyColor);
-  font-weight: 600;
 `;
 
 const Excerpt = styled.summary`
@@ -60,7 +55,7 @@ const BlogCard = ({
       <time dateTime={computerDate}>{date}</time>
     </PostDate>
     <Ttr>
-      <TimeTtr>{timeToRead}</TimeTtr> mins to read
+      <EmphasisDescription number={timeToRead} description="mins to read" />
     </Ttr>
     {/* eslint-disable-next-line react/no-danger */}
     <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />

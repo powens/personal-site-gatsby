@@ -29,6 +29,7 @@ const defaultColors = {
   tagBg: primary[3],
   tagBgHover: primary[2],
   tagFg: primary[0],
+  footerBg: grey[4],
 };
 
 const darkColors = {

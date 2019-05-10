@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import { PostProps } from '../utils/types';
+import Tag from '../components/tags/Tag';
 
 export interface Props {
   pageContext: {
@@ -22,11 +23,13 @@ const Tags = ({ pageContext, data }: Props) => {
 
   const postCount = `${totalCount} post${totalCount === 1 ? '' : 's'}`;
 
-  const tagHeader = `${tag} - ${postCount}`;
+  const tagHeader = `${postCount}`;
 
   return (
     <Layout>
-      <h1>{tagHeader}</h1>
+      <h1>
+        <Tag tag={tag} />
+      </h1>
       <section>
         <PostList posts={edges} />
       </section>

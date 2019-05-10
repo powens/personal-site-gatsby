@@ -12,13 +12,17 @@ const Title = styled.h3`
   margin-bottom: 0.2rem;
 `;
 
+const SecondaryText = styled.span`
+  color: var(--secondaryBodyColor);
+`;
+
 function SpeakingCard({ title, slidesUrl, description, presentedAt }: Props) {
   return (
     <React.Fragment>
       <Title>
         <a href={slidesUrl}>{title}</a>
       </Title>
-      <small>Presented at: {presentedAt}</small>
+      <SecondaryText>Presented at: {presentedAt}</SecondaryText>
       <summary>{description}</summary>
     </React.Fragment>
   );
