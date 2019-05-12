@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { FaGithub, FaTwitter, FaMastodon } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaMastodon, FaInstagram } from 'react-icons/fa';
 import mq from '../utils/responsive';
-import DarkToggle from './DarkToggle';
 
 const BlockWrapper = styled.div`
   grid-area: social;
@@ -14,15 +11,10 @@ const BlockWrapper = styled.div`
 
   display: flex;
   width: 8rem;
-  justify-content: space-between;
-
-  ${mq.medium(css`
-    justify-self: right;
-  `)};
+  justify-content: space-around;
 `;
 
 const SocialLink = styled.a`
-  // margin-left: 1rem;
   font-size: 1.5rem;
 `;
 
@@ -43,10 +35,13 @@ const SocialBlock = () => (
     >
       <FaMastodon />
     </SocialLink>
-    <DarkToggle />
+    <SocialLink
+      href="https://instagram.com/padraig"
+      aria-label="Link to Instagram"
+    >
+      <FaInstagram />
+    </SocialLink>
   </BlockWrapper>
 );
-
-SocialBlock.propTypes = {};
 
 export default SocialBlock;

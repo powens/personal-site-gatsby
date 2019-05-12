@@ -1,9 +1,9 @@
 ---
 title: React Hooks
-date: "2018-11-04"
-path: "/react-hooks/"
-excerpt: React Hooks is a quirky proposed API available in the 16.7 alpha, allowing developers to more easily separate concerns and reuse logic related to component lifecycle. Let's have a quick look at how to use them. 
-tags: ["javascript", "react", "hooks"]
+date: '2018-11-04'
+path: '/react-hooks/'
+excerpt: React Hooks is a new API available in the 16.8, allowing developers to more easily separate concerns and reuse logic related to component lifecycle. Let's have a quick look at how to use them.
+tags: ['javascript', 'react', 'hooks']
 ---
 
 ![Example hook](./hooks.png)
@@ -14,11 +14,9 @@ As React components get more and more complex, we tend to need to generate a lot
 
 Hooks are functions that allow developers to hook into the React state and lifecycle features from functional components.
 
-
 ## How do hooks work?
 
 As it was mentioned during [the reactconf talk on hooks](https://www.youtube.com/watch?v=dpw9EHDh2bM), component state for a stateful component isn’t actually stored within that class. React actually keeps track of each component’s state. That is to say, state can exist non-class (functional) components. Appropriately named, hooks allow for the developer to hook inside the React local state and lifecycle while using functional components.
-
 
 ## Examples
 
@@ -41,7 +39,9 @@ function YourName() {
     <div>
       <input type="text" value={firstName} onChange={onFirstNameChange} />
       <input type="text" value={lastName} onChange={onLastNameChange} />
-      <div>Your name is: {firstName} {lastName}</div>
+      <div>
+        Your name is: {firstName} {lastName}
+      </div>
     </div>
   );
 }
@@ -52,9 +52,15 @@ The hook API is a bit esoteric at first. Each hook returns an array of items tha
 Looking at another hook, the `useEffect` hook is used for side-effects. For example, data fetching, manually changing the DOM.
 
 ```javascript
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-const colors = ['slategray', 'rosybrown', 'darksalmon', 'coral', 'darkseagreen'];
+const colors = [
+  'slategray',
+  'rosybrown',
+  'darksalmon',
+  'coral',
+  'darkseagreen',
+];
 
 function ColorShifter() {
   const [count, setCount] = useState(0);
@@ -66,9 +72,7 @@ function ColorShifter() {
   return (
     <div>
       <h1>Current color is: {colors[count % colors.length]}</h1>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
   );
 }
@@ -82,7 +86,7 @@ useEffect(() => {
   html.style.backgroundColor = colors[count % colors.length];
   return () => {
     html.style.backgroundColor = null;
-  }
+  };
 });
 ```
 
@@ -94,12 +98,11 @@ useEffect(() => {
   html.style.backgroundColor = colors[count % colors.length];
   return () => {
     html.style.backgroundColor = null;
-  }
+  };
 }, [count]);
 ```
 
 Certainly an interesting concept. When rolled into a large component, these hooks can significantly cut down on the visual complexity of large components.
-
 
 ## All the other hooks
 
@@ -114,11 +117,9 @@ There are a small handful of hooks currently available within React. The full do
 - `useMutationEffect` - Similar to useEffect, but it fires synchronously rather than asynchronously
 - `useLayoutEffect` - Similar to useEffect, but fires synchronously after all DOM mutations
 
-
 ## Writing your own hooks
 
 One of the most interesting things about hooks, is that we are able to write our own. This allows us to abstract reused logic in our components into helper functions; cutting down on more boilerplate, and reused code. The full documentation is available at the [React Hooks documentation](https://reactjs.org/docs/hooks-custom.html).
-
 
 ## Hook rules
 
@@ -127,7 +128,6 @@ Hooks do have two somewhat quirky rules that must be followed:
 - Hooks can only be used in functional components, or other hook
 - Hooks can only be used at the top level of a component or function
   - Hooks must always be called in the same order, as React depends on the order in which hooks are called to preserve between updates.
-
 
 ## Try them out
 

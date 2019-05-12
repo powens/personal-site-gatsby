@@ -1,13 +1,12 @@
 ---
 title: PyCascades 2019 Recap
-date: "2019-02-23"
-path: "/pycascades-2019/"
+date: '2019-02-23'
+path: '/pycascades-2019/'
 excerpt: My report of attended PyCascades 2019 in Seattle.
-tags: ["pycascades", "conference", "python"]
+tags: ['pycascades', 'conference', 'python']
 ---
 
 Once again, I attended and volunteered at PyCascades! This year it was hosted in Seattle at the University of Washington. In 2018, I watched every talk. This year, I only watched about half of the talks, and spent the rest of my time in the hallway track.
-
 
 ## Travel
 
@@ -15,20 +14,17 @@ I rode the Amtrak train from Vancouver to Seattle. Originally, I had planned to 
 
 The Amtrak ride down was pleasant. The tickets were cheap, but the coffee and food available on-board was rather overpriced. I was able to leverage the WiFi on the train to get some work done, and even attend my sprint demo. I would definitely ride the Amtrak again. It may not be the fastest option, but it was cheap and stress free.
 
-
 ## The Conference
 
-As always the talks at PyCascades were high quality. My favourites included [Turning](https://2019.pycascades.com/talks/turning-wat-into-why/) ‘[wat](https://2019.pycascades.com/talks/turning-wat-into-why/)’ [into](https://2019.pycascades.com/talks/turning-wat-into-why/) ‘[why](https://2019.pycascades.com/talks/turning-wat-into-why/)’ talk by Katie McLaughlin, as well as [Meaningful Mentoring Moments](https://2019.pycascades.com/talks/meaningful-mentoring-moments/) by Trey Hunner. The mentoring talk was quite useful for me, as I’ve been mentoring for [Canada Learning Code](https://www.canadalearningcode.ca/) lately.
+As always the talks at PyCascades were high quality. My favourites included [Turning 'wat’ into ‘why'](https://2019.pycascades.com/talks/turning-wat-into-why/) talk by Katie McLaughlin, as well as [Meaningful Mentoring Moments](https://2019.pycascades.com/talks/meaningful-mentoring-moments/) by Trey Hunner. The mentoring talk was quite relevant for me, as I’ve been mentoring for [Canada Learning Code](https://www.canadalearningcode.ca/) lately.
 
 I spent about half the conference in the hallway track; socialising and catching up with old friends. The previous PyCascades I attended every talk, and ended up missing out on all the social activities during and after the conference on each day. I’m happy that I was able to strike a balance between the talks and the hallway-track this year. As an added bonus, all the talks are [available on YouTube anyway](https://www.youtube.com/channel/UCtWI06j1EADmEOGj2iJhSyA).
 
 Oh, I was also able to attend a live taping of [Python Bytes](https://pythonbytes.fm/)!
 
-
 ## Volunteering
 
 I was a stage runner through the morning on Sunday. It was uneventful, but rewarding! I also jumped in and helped out during the initial registration rush on Saturday.
-
 
 ## Sprints
 

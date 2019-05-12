@@ -1,35 +1,28 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 import mq from '../utils/responsive';
 import ProfilePic from '../assets/profile-pic.jpg';
 
 const PictureWrapper = styled.div`
   grid-area: pic;
-  justify-self: center;
-
-  ${mq.medium(css`
-    justify-self: left;
-  `)};
+  display: grid;
+  justify-content: center;
+  align-content: center;
 `;
 
 const Picture = styled.img`
   border-radius: 50%;
-  width: 100%;
-  min-width: 100%;
+  width: 10rem;
   vertical-align: middle;
+  justify-content: center;
   margin-bottom: 0;
+  transition: width 0.2s ease-in;
 `;
 
 const ProfilePicture = () => (
   <PictureWrapper>
-    <Link to="/">
-      <Picture src={ProfilePic} alt="Patrick Owens" />
-    </Link>
+    <Picture src={ProfilePic} alt="Patrick Owens" />
   </PictureWrapper>
 );
-
-ProfilePicture.propTypes = {};
 
 export default ProfilePicture;

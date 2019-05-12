@@ -17,12 +17,25 @@ const nativeStack = [
   'sans-serif',
 ];
 
+const headerFont = 'Rubik';
+const bodyFont = 'Open Sans';
+
 const theme = {
   title: 'Boop',
   baseFontSize: '16px',
-  baseLineHeight: 5 / 3,
-  headerFontFamily: nativeStack,
-  bodyFontFamily: nativeStack,
+  baseLineHeight: 5 / 2.5,
+  googleFonts: [
+    {
+      name: headerFont,
+      styles: ['400'],
+    },
+    {
+      name: bodyFont,
+      styles: ['400', '400i', '700'],
+    },
+  ],
+  headerFontFamily: [headerFont, 'sans-serif'],
+  bodyFontFamily: [bodyFont, 'sans-serif'],
   scaleRatio: 2,
   headerColor: 'var(--headerColor)',
   bodyColor: 'var(--bodyColor)',

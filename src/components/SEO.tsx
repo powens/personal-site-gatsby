@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import favicon32 from '../assets/favicon-32x32.png';
@@ -66,10 +65,5 @@ const SEO = ({ title, description }: SEOQuery) => (
     )}
   />
 );
-
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
 
 export default SEO;

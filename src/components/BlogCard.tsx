@@ -1,40 +1,65 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import PostIcon from './PostIcon';
 import { Link } from 'gatsby';
+import { PostProps } from '../utils/types';
+import EmphasisDescription from './EmphasisDescription';
 
 const Card = styled.div`
   display: grid;
   margin-bottom: 2rem;
+  grid-gap: 0.4rem;
+
+  grid-template-columns: minmax(5rem, 1fr) auto;
+  grid-template-areas:
+    'title title'
+    'date ttr'
+    'excerpt excerpt';
 `;
 
 const BlogTitle = styled.h3`
-  margin-bottom: 0;
+  grid-area: title;
+  margin-bottom: 0.5rem;
 `;
 
-interface Props {
-  path: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
+const PostDate = styled.time`
+  grid-area: date;
+  color: var(--secondaryBodyColor);
+`;
 
-const BlogCard = ({ path, title, date, excerpt }: Props) => (
+const Ttr = styled.span`
+  grid-area: ttr;
+`;
+
+const Excerpt = styled.summary`
+  grid-area: excerpt;
+`;
+
+const BlogCard = ({
+  path,
+  title,
+  date,
+  computerDate,
+  excerpt,
+  timeToRead,
+  icon,
+}: PostProps) => (
   <Card>
     <BlogTitle>
-      <Link to={path}>{title}</Link>
+      <Link to={path}>
+        {/* <PostIcon icon={icon} /> */}
+        {title}
+      </Link>
     </BlogTitle>
-    <small>{date}</small>
+    <PostDate>
+      <time dateTime={computerDate}>{date}</time>
+    </PostDate>
+    <Ttr>
+      <EmphasisDescription number={timeToRead} description="mins to read" />
+    </Ttr>
     {/* eslint-disable-next-line react/no-danger */}
-    <span dangerouslySetInnerHTML={{ __html: excerpt }} />
+    <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Card>
 );
-
-BlogCard.propTypes = {
-  path: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  excerpt: PropTypes.string.isRequired,
-};
 
 export default BlogCard;

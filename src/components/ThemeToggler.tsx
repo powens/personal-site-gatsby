@@ -1,7 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-class ThemeToggler extends React.Component {
+export interface Props {
+  children: func;
+}
+
+class ThemeToggler extends React.Component<Props> {
   state = {
     theme: typeof window !== 'undefined' ? window.__theme : null,
   };
@@ -26,9 +29,5 @@ class ThemeToggler extends React.Component {
     );
   }
 }
-
-ThemeToggler.propTypes = {
-  children: PropTypes.func.isRequired,
-};
 
 export default ThemeToggler;
