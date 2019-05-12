@@ -31,5 +31,3 @@ That said, I’ve spent more time than I care to admit on this next redesign of 
 - https://wongmjane.com
 
 Thank-you to all the above sites for serving as inspiration!
-
-Some of
