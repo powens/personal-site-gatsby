@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { FaGithub, FaTwitter, FaMastodon, FaInstagram } from 'react-icons/fa';
 import mq from '../utils/responsive';
 
-const BlockWrapper = styled.span`
+const BlockWrapper = styled.div`
   grid-area: social;
   justify-self: center;
   align-self: center;
@@ -11,7 +11,7 @@ const BlockWrapper = styled.span`
 
   display: flex;
   width: 8rem;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const SocialLink = styled.a`

@@ -20,6 +20,11 @@ const HeaderWrapper = styled.header`
   border-bottom: ${({ atTop }) => (atTop ? '1px solid var(--border)' : '')};
   height: ${({ atTop }) => (atTop ? '4rem' : '5rem')};
   transition: height 0.2s ease-in, border 0.2s ease-in;
+
+  // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
+  z-index: 1000;
+
+  // box-shadow: 0 4px 2px -2px var(--border);
 `;
 
 const Title = styled.span`

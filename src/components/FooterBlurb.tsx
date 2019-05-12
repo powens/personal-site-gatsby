@@ -14,8 +14,10 @@ const Wrapper = styled.section`
 
   padding: 1rem;
 
-  border: 1px solid var(--border);
+  // border: 1px solid var(--border);
   border-radius: 0.3rem;
+  margin: 0.5rem;
+  box-shadow: var(--shadow);
 `;
 
 const Blurb = styled.div`

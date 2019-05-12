@@ -19,6 +19,12 @@ const grey = [
 
 const defaultBodyColor = 'hlsa(207, 66%, 20%, 0.8)';
 
+function shadowColor(colorByte: string, shadow: string) {
+  return `rgba(${colorByte}, ${colorByte}, ${colorByte}, ${shadow})`;
+}
+
+const darkShadowColor = '0';
+
 const defaultColors = {
   background: '#fff',
   border: grey[5],
@@ -30,6 +36,10 @@ const defaultColors = {
   tagBgHover: primary[2],
   tagFg: primary[0],
   footerBg: grey[4],
+  shadow: `0 10px 20px ${shadowColor('0', '0.15')}, 0 3px 6px ${shadowColor(
+    '0',
+    '0.1'
+  )}`,
 };
 
 const darkColors = {
@@ -40,6 +50,10 @@ const darkColors = {
   secondaryBodyColor: grey[4],
   headerColor: grey[0],
   tagBg: primary[3],
+  shadow: `0 10px 20px ${shadowColor(
+    darkShadowColor,
+    '0.5'
+  )}, 0 3px 6px ${shadowColor(darkShadowColor, '0.45')}`,
 };
 
 export { defaultColors, darkColors };
