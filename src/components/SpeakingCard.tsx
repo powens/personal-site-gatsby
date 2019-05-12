@@ -22,7 +22,7 @@ function SpeakingCard({ title, slidesUrl, description, presentedAt }: Props) {
       <Title>
         <a href={slidesUrl}>{title}</a>
       </Title>
-      <SecondaryText>Presented at: {presentedAt}</SecondaryText>
+      <SecondaryText>{presentedAt}</SecondaryText>
       <summary>{description}</summary>
     </React.Fragment>
   );

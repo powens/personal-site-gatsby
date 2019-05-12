@@ -34,7 +34,7 @@ const Title = styled.span`
 
 function Header() {
   function scrollEvent() {
-    const isAtTop = window.scrollY === 0;
+    const isAtTop = window.scrollY <= 0;
     setMinified(!isAtTop);
   }
 

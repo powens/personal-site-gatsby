@@ -15,9 +15,10 @@ function GlobalStyles() {
     <Global
       styles={css`
         body {
-          ${generateColors(defaultColors)}
-
           background-color: var(--background);
+        }
+        body.light {
+          ${generateColors(defaultColors)}
         }
 
         body.dark {

@@ -51,9 +51,7 @@ const BlogCard = ({
         {title}
       </Link>
     </BlogTitle>
-    <PostDate>
-      <time dateTime={computerDate}>{date}</time>
-    </PostDate>
+    <PostDate dateTime={computerDate}>{date}</PostDate>
     <Ttr>
       <EmphasisDescription number={timeToRead} description="mins to read" />
     </Ttr>

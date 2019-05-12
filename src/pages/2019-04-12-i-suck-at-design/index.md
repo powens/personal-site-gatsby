@@ -1,6 +1,6 @@
 ---
 title: I suck at design
-date: '2019-04-12'
+date: '2019-05-12'
 path: '/i-suck-at-design/'
 excerpt: Acknowledging that I suck at a certain skill, and my plan to get better.
 tags: ['design']
@@ -15,7 +15,8 @@ For the longest time, I’ve just accepted this as a limitation, and tried to wo
 I would no longer like this to be the case. I would like to improve my ability to design. How am I going to accomplish this? To quote fatal1ty:
 
 `youtube:https://www.youtube.com/watch?v=SlCRfTmBSGs`
-“Practice... The only way you’re going to get better. The only way you’re going to be number 1... at anything”
+
+> “Practice... The only way you’re going to get better. It's the only way you’re going to be number one... number one at anything”
 
 I’ve been studying other sites and literature, like [Steve Schoger's Refactoring UI](https://refactoringui.com/), and [dev.to](https://dev.to). This is part of the reason why I started my own site, as opposed to hosting posts on dev.to or medium. I’ve been experimenting with design tools like [figma](https://www.figma.com). Finally, rather than just looking at websites, I am trying to approach them with a critical eye.
 
@@ -30,3 +31,5 @@ That said, I’ve spent more time than I care to admit on this next redesign of 
 - https://wongmjane.com
 
 Thank-you to all the above sites for serving as inspiration!
+
+Some of
