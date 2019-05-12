@@ -13,10 +13,7 @@ const Label = styled.span`
   color: var(--secondaryBodyColor);
 `;
 
-const PostGrid = styled.section`
-  display: grid;
-  grid-gap: 1.5rem;
-`;
+const PostGrid = styled.section``;
 
 export interface Props {
   data: {
