@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { FaGithub, FaTwitter, FaMastodon, FaInstagram } from 'react-icons/fa';
-import mq from '../utils/responsive';
 
 const BlockWrapper = styled.div`
   grid-area: social;
@@ -30,13 +29,7 @@ const SocialBlock = () => (
       <FaTwitter />
     </SocialLink>
     <SocialLink
-      href="https://mastodon.technology/@powens"
-      aria-label="Link to Mastodon"
-    >
-      <FaMastodon />
-    </SocialLink>
-    <SocialLink
-      href="https://instagram.com/padraig"
+      href="https://instagram.com/padraig.owens"
       aria-label="Link to Instagram"
     >
       <FaInstagram />

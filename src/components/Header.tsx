@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import DarkToggle from './DarkToggle';
-import SocialBlock from './SocialBlock';
 
 const HeaderWrapper = styled.header`
   position: sticky;
@@ -18,7 +17,7 @@ const HeaderWrapper = styled.header`
   grid-area: header;
 
   border-bottom: ${({ atTop }) => (atTop ? '1px solid var(--border)' : '')};
-  height: ${({ atTop }) => (atTop ? '4rem' : '5rem')};
+  height: ${({ atTop }) => (atTop ? '3rem' : '5rem')};
   transition: height 0.2s ease-in, border 0.2s ease-in;
 
   // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
@@ -28,7 +27,7 @@ const HeaderWrapper = styled.header`
 `;
 
 const Title = styled.span`
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--bodyColor);
 `;
 

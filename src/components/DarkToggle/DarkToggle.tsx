@@ -38,6 +38,7 @@ function DarkToggle(): JSX.Element {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 toggleTheme(e.target.checked ? 'dark' : 'light')
               }
+              label="Toggle dark mode"
             />
           )}
         </ClassNames>

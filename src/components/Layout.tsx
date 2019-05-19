@@ -4,6 +4,7 @@ import { css } from '@emotion/core';
 import mq from '../utils/responsive';
 import GlobalStyles from './GlobalStyles';
 import Header from './Header';
+import SEO from './SEO';
 
 require('prismjs/themes/prism-tomorrow.css');
 
@@ -49,6 +50,7 @@ class Template extends React.Component<Props, {}> {
 
     return (
       <SiteWrapper>
+        <SEO />
         <GlobalStyles />
         <Header />
         <Content>{children}</Content>

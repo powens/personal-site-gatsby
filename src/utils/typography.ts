@@ -48,6 +48,7 @@ const theme = {
   ) => ({
     body: {
       backgroundColor: 'var(--background)',
+      fontDisplay: 'fallback',
     },
     a: {
       color: 'var(--primary)',
@@ -59,11 +60,11 @@ const theme = {
     },
     blockquote: {
       ...scale(1 / 5),
-      color: gray(0),
+      color: 'var(--secondaryBodyColor)',
       fontStyle: 'italic',
       paddingLeft: rhythm(13 / 16),
       marginLeft: 0,
-      borderLeft: `${rhythm(3 / 16)} solid ${gray(80)}`,
+      borderLeft: `${rhythm(3 / 16)} solid var(--primary)`,
     },
     'blockquote > :last-child': {
       marginBottom: 0,

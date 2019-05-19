@@ -31,7 +31,9 @@ const SEO = ({ title, description }: SEOQuery) => (
       <Helmet
         htmlAttributes={{ lang: 'en' }}
         title={title}
+        defaultTitle={data.site.siteMetadata.title}
         titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+        lang="en"
       >
         <meta charSet="utf-8" />
         <meta
