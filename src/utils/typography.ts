@@ -22,7 +22,7 @@ const bodyFont = 'Open Sans';
 
 const theme = {
   title: 'Boop',
-  baseFontSize: '16px',
+  baseFontSize: '14px',
   baseLineHeight: 5 / 2.5,
   googleFonts: [
     {
