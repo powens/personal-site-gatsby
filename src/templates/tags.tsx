@@ -27,9 +27,7 @@ const Tags = ({ pageContext, data }: Props) => {
 
   return (
     <Layout>
-      <h1>
-        <Tag tag={tag} />
-      </h1>
+      <h1>All posts for {tag}</h1>
       <section>
         <PostList posts={edges} />
       </section>
