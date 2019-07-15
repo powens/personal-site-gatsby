@@ -11,10 +11,7 @@ const Card = styled.div`
   grid-gap: 0.4rem;
 
   grid-template-columns: minmax(5rem, 1fr) auto;
-  grid-template-areas:
-    'title title'
-    'date ttr'
-    'excerpt excerpt';
+  grid-template-areas: 'title date';
 `;
 
 const BlogTitle = styled.h3`
@@ -31,10 +28,6 @@ const Ttr = styled.span`
   grid-area: ttr;
 `;
 
-const Excerpt = styled.summary`
-  grid-area: excerpt;
-`;
-
 const BlogCard = ({
   path,
   title,
@@ -42,21 +35,15 @@ const BlogCard = ({
   computerDate,
   excerpt,
   timeToRead,
-  icon,
 }: PostProps) => (
   <Card>
     <BlogTitle>
-      <Link to={path}>
-        {/* <PostIcon icon={icon} /> */}
-        {title}
-      </Link>
+      <Link to={path}>{title}</Link>
     </BlogTitle>
     <PostDate dateTime={computerDate}>{date}</PostDate>
-    <Ttr>
+    {/* <Ttr>
       <EmphasisDescription number={timeToRead} description="mins to read" />
-    </Ttr>
-    {/* eslint-disable-next-line react/no-danger */}
-    <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
+    </Ttr> */}
   </Card>
 );
 

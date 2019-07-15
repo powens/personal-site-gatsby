@@ -16,7 +16,7 @@ const Blurb = () => (
       <a href="https://twitter.com/planetside2/status/500821423091630081">
         occasional competitive game player
       </a>
-      . I like to write about all these topics, and more.
+      .
     </p>
     <p>
       I am a contributor to random open source projects, a volunteer technical
@@ -25,6 +25,7 @@ const Blurb = () => (
       a volunteer radio operator for{' '}
       <a href="https://vectorradio.ca/">VECTOR</a>.
     </p>
+    <p>My hobbies</p>
   </BlurbWrapper>
 );
 

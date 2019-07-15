@@ -24,10 +24,9 @@ I hope that some day I’ll be able to look back at the progression of layouts o
 
 That said, I’ve spent more time than I care to admit on this next redesign of my site, and I’m still not happy with it. I expect I’ll be tweaking it non-stop over time. I’ve drawn inspiration from several other portfolios and blogs for this iteration of the design. Some sites include:
 
-- https://overreacted.io
-- https://taniarascia.com
-- https://heronebag.com/
-- https://victoria.dev/
-- https://wongmjane.com
+- [Overreacted](https://overreacted.io)
+- [Tania Rascia](https://taniarascia.com)
+- [herOneBag](https://heronebag.com/)
+- [wongmjane](https://wongmjane.com)
 
 Thank-you to all the above sites for serving as inspiration!
