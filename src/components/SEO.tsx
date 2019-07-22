@@ -53,6 +53,9 @@ const SEO = ({ title, description }: SEOQuery) => (
         <meta name="theme-color" content={defaultColors.primary} />
         <meta name="msapplication-TileColor" content={defaultColors.primary} />
 
+        {/* RSS Feed */}
+        <link rel="alternative" type="application/rss+xml" href="/rss.xml" />
+
         {/* OpenGraph tags */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
