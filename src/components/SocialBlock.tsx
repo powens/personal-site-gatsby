@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { FaGithub, FaTwitter, FaMastodon, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const BlockWrapper = styled.div`
   grid-area: social;
@@ -33,6 +33,12 @@ const SocialBlock = () => (
       aria-label="Link to Instagram"
     >
       <FaInstagram />
+    </SocialLink>
+    <SocialLink
+      href="https://www.linkedin.com/in/pmowens/"
+      area-label="Link to LinkedIn"
+    >
+      <FaLinkedin />
     </SocialLink>
   </BlockWrapper>
 );

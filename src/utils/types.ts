@@ -5,6 +5,7 @@ export interface PostProps {
   computerDate: string;
   excerpt: string;
   tags?: Array<string>;
+  timeToRead: number;
 }
 
 export interface PostQuery {

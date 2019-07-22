@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import mq from '../utils/responsive';
@@ -14,7 +14,6 @@ const SiteWrapper = styled.div`
 
   grid-template-areas:
     'header'
-    'blurb'
     'content';
 
   min-width: 0;
@@ -42,21 +41,20 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-export interface Props {}
-
-class Template extends React.Component<Props, {}> {
-  render() {
-    const { children } = this.props;
-
-    return (
-      <SiteWrapper>
-        <SEO />
-        <GlobalStyles />
-        <Header />
-        <Content>{children}</Content>
-      </SiteWrapper>
-    );
-  }
+export interface Props {
+  header?: boolean;
+  children: ReactNode;
 }
 
-export default Template;
+function Layout({ header = true, children }: Props) {
+  return (
+    <SiteWrapper>
+      <SEO />
+      <GlobalStyles />
+      {header ? <Header /> : null}
+      <Content>{children}</Content>
+    </SiteWrapper>
+  );
+}
+
+export default Layout;

@@ -9,7 +9,7 @@ const List = styled.ul`
 `;
 
 const PostItem = styled.li`
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 `;
 
 export interface Props {

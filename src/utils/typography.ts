@@ -94,6 +94,9 @@ const theme = {
       textTransform: 'uppercase',
       fontStyle: 'italic',
     },
+    hr: {
+      background: 'var(--border)',
+    },
   }),
 };
 

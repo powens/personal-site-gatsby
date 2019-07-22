@@ -16,8 +16,9 @@ const HeaderWrapper = styled.header`
 
   grid-area: header;
 
-  border-bottom: ${({ atTop }) => (atTop ? '1px solid var(--border)' : '')};
-  height: ${({ atTop }) => (atTop ? '3rem' : '5rem')};
+  border-bottom: ${({ atTop }) =>
+    atTop ? '1px solid var(--border)' : '1px solid var(--background)'};
+  height: ${({ atTop }) => (atTop ? '3rem' : '3rem')};
   transition: height 0.2s ease-in, border 0.2s ease-in;
 
   // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
@@ -53,9 +54,8 @@ function Header() {
   return (
     <HeaderWrapper atTop={minified}>
       <Link to="/">
-        <Title>padraig</Title>
+        <Title>Patrick Owens</Title>
       </Link>
-      {/* <SocialBlock /> */}
       <DarkToggle />
     </HeaderWrapper>
   );

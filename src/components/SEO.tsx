@@ -20,8 +20,8 @@ const detailsQuery = graphql`
 `;
 
 interface SEOQuery {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 const SEO = ({ title, description }: SEOQuery) => (
