@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+  FaRss,
+} from 'react-icons/fa';
 
 const BlockWrapper = styled.div`
   grid-area: social;
@@ -9,7 +15,7 @@ const BlockWrapper = styled.div`
   align-items: center;
 
   display: flex;
-  width: 8rem;
+  width: 10rem;
   justify-content: space-around;
 `;
 
@@ -36,9 +42,12 @@ const SocialBlock = () => (
     </SocialLink>
     <SocialLink
       href="https://www.linkedin.com/in/pmowens/"
-      area-label="Link to LinkedIn"
+      aria-label="Link to LinkedIn"
     >
       <FaLinkedin />
+    </SocialLink>
+    <SocialLink href="/rss.xml" aira-label="RSS Feed">
+      <FaRss />
     </SocialLink>
   </BlockWrapper>
 );

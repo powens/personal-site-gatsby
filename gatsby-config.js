@@ -5,6 +5,7 @@ module.exports = {
     twitter: '@padraigcodes',
     description:
       'I’m a full stack developer, infosec enthusiast, licensed HAM radio operator - VA7ORO, and occasional competitive game player.',
+    siteUrl: 'https://padraig.io',
   },
   plugins: [
     {
@@ -87,5 +88,58 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
     'gatsby-mdx',
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.frontmatter.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.path,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                });
+              });
+            },
+            query: `
+          {
+            allMarkdownRemark(
+              sort: { order: DESC, fields: [frontmatter___date] },
+            ) {
+              edges {
+                node {
+                  html
+                  fields { path }
+                  frontmatter {
+                    title
+                    date
+                    excerpt
+                  }
+                }
+              }
+            }
+          }
+        `,
+            output: '/rss.xml',
+            // title: "Your Site's RSS Feed",
+          },
+        ],
+      },
+    },
   ],
 };
