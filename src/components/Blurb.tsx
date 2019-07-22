@@ -25,7 +25,6 @@ const Blurb = () => (
       a volunteer radio operator for{' '}
       <a href="https://vectorradio.ca/">VECTOR</a>.
     </p>
-    <p>My hobbies</p>
   </BlurbWrapper>
 );
 

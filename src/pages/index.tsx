@@ -16,7 +16,7 @@ const Header = styled.h1`
 const Divider = styled.hr`
   margin-top: 1rem;
   margin-bottom: 1rem;
-  height: 0.2rem;
+  height: 0.15rem;
 `;
 
 const Large = styled.div`
