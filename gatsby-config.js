@@ -87,7 +87,7 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
-    'gatsby-mdx',
+    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-plugin-feed',
       options: {

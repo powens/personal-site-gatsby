@@ -12,8 +12,11 @@ const tags = [
   'Infosec enthusiast',
   'HAM radio operator',
   'UI architecture specialist',
+  'React developer',
   'Webpack wrangler',
+  'Pythonista',
   'Dog person',
+  'Bicyclist',
   'Trumpet player',
 ];
 
