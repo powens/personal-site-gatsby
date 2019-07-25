@@ -21,7 +21,7 @@ const Divider = styled.hr`
 
 const Large = styled.div`
   margin-top: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   fontweight: 800;
   line-height: 80px;
 `;
