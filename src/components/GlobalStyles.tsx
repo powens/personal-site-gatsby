@@ -46,6 +46,24 @@ function GlobalStyles() {
           float: left;
           min-width: 100%;
         }
+
+        // Lines in code
+        .gatsby-highlight pre[class*='language-'].line-numbers {
+          padding-left: 2.8em;
+        }
+
+        .gatsby-highlight {
+          border-radius: 3em;
+          margin: 0.5em 0;
+          padding: 1em;
+          overflow: auto;
+        }
+
+        .gatsby-highlight pre[class*='language-'].line-numbers {
+          padding: 0;
+          padding-left: 2.8em;
+          overflow: initial;
+        }
       `}
     />
   );
