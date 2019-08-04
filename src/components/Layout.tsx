@@ -7,6 +7,7 @@ import Header from './Header';
 import SEO from './SEO';
 
 require('prismjs/themes/prism-tomorrow.css');
+require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 
 const SiteWrapper = styled.div`
   display: grid;
