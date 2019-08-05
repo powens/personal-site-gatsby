@@ -53,7 +53,7 @@ function GlobalStyles() {
         }
 
         .gatsby-highlight {
-          border-radius: 3em;
+          border-radius: 0.3em;
           margin: 0.5em 0;
           padding: 1em;
           overflow: auto;

@@ -6,9 +6,9 @@ excerpt: Spy on network traffic by writing an ARP spoofer in Python using the sc
 tags: ['python', 'security']
 ---
 
-ARP (Address Resolution Protocol) is a protocol used on networks to establish a device’s physical hardware address (MAC address), and their network address (IP address). ARP spoofing is a method of positioning yourself between a target and the gateway (eg. router) on local network traffic. From there you can do naughty things like snooping on traffic, modify packets as they pass by, or outright performing a denial of service attack.
-
 ![](./cartoon.gif)
+
+ARP (Address Resolution Protocol) is a protocol used on networks to establish a device’s physical hardware address (MAC address), and their network address (IP address). ARP spoofing is a method of positioning yourself between a target and the gateway (eg. router) on local network traffic. From there you can do naughty things like snooping on traffic, modify packets as they pass by, or outright performing a denial of service attack.
 
 ## Tech used
 
