@@ -1,8 +1,8 @@
 ---
-title: Spy on network traffic with Python, scapy, and Linux
+title: Build an ARP spoofer with Python and scapy
 date: '2019-08-03'
 path: '/arp-spoofer-0/'
-excerpt: Spy on network traffic by writing an ARP spoofer in Python using the scapy library
+excerpt: Man-in-the-middle network traffic to spy on it, and play with it. In this post, we'll go through the steps of creating our own basic ARP spoofer using Python, and the scapy library.
 tags: ['python', 'security']
 ---
 
