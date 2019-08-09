@@ -41,7 +41,7 @@
     "lodash": "^4.17.14",
     "prismjs": "^1.17.1",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0-alpha.0",
+    "react": "^16.9.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",
