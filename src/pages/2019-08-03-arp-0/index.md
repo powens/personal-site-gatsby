@@ -281,7 +281,7 @@ We can verify that it works through Wireshark. Initiate the script. From the tar
 
 Now that we’ve positioned ourselves in between our target and and the gateway, we are now able to intercept all traffic. We could just snoop, intercept all DNS requests and change the response on the fly to our own domain, flip all unecrypted images upside down.
 
-In the next blog post, we’ll modify incoming DNS requests to redirect targets to our own domain.
+[In the next blog post, we’ll modify incoming DNS requests to redirect targets to our own domain.](/arp-spoofer-1)
 
 ## All the code!
 
