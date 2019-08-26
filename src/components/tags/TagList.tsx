@@ -20,8 +20,8 @@ export interface Props {
 const TagList = ({ tags }: Props) => (
   <Tags>
     {tags.map(tag => (
-      <li>
-        <Tag key={tag} tag={tag} />
+      <li key={tag}>
+        <Tag tag={tag} />
       </li>
     ))}
   </Tags>
