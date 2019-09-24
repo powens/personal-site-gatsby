@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import mq from '../utils/responsive';
 import ProfilePic from '../assets/profile-pic.jpg';
 
 const PictureWrapper = styled.div`
