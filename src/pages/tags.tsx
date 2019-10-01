@@ -4,11 +4,20 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Tag from '../components/tags/Tag';
 
-function TagsPage({
+interface Tag {
+  fieldValue: String;
+  totalCount: Number;
+}
+export interface Props {
   data: {
-    allMarkdownRemark: { group },
-  },
-}) {
+    allMarkdownRemark: {
+      group: Array<Tag>;
+    };
+  };
+}
+
+function TagsPage(props: Props) {
+  const group = props.data.allMarkdownRemark.group;
   const numberCount = group.reduce(
     (accum, { totalCount }) => accum + totalCount,
     0
