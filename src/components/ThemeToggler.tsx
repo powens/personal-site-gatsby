@@ -1,33 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-export interface Props {
-  children: func;
+interface Props {
+  children: JSX.Element;
+}
+declare global {
+  interface Window {
+    __onThemeChange: () => void;
+    __setPreferredTheme: (theme: string) => void;
+    __theme: string;
+  }
 }
 
-class ThemeToggler extends React.Component<Props> {
-  state = {
-    theme: typeof window !== 'undefined' ? window.__theme : null,
-  };
-
-  componentDidMount() {
-    this.setState({ theme: window.__theme });
+function ThemeToggler({ children: ChildComponent }: Props) {
+  const [theme, setTheme] = useState(
+    typeof window !== 'undefined' ? window.__theme : null
+  );
+  useEffect(() => {
+    setTheme(window.__theme);
     window.__onThemeChange = () => {
-      this.setState({ theme: window.__theme });
+      setTheme(window.__theme);
     };
-  }
 
-  toggleTheme(theme) {
-    window.__setPreferredTheme(theme);
-  }
+    return () => {
+      window.__onThemeChange = () => {};
+    };
+  }, []);
+  const toggleTheme = useCallback(
+    (theme: string) => {
+      window.__setPreferredTheme(theme);
+    },
+    [theme]
+  );
 
-  render() {
-    return (
-      <this.props.children
-        theme={this.state.theme}
-        toggleTheme={this.toggleTheme}
-      />
-    );
-  }
+  return <ChildComponent theme={theme} toggleTheme={toggleTheme} />;
 }
 
 export default ThemeToggler;
