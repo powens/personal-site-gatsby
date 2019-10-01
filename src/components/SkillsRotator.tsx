@@ -50,16 +50,20 @@ function SkillsRotator() {
     // update: { color: '#28b4d7' },
   });
 
-  const reset = useCallback(() => {
+  const clearAll = useCallback(() => {
     ref.current.map(clearTimeout);
     ref.current = [];
+  });
+
+  const reset = useCallback(() => {
+    clearAll();
     tags.forEach((tag, index) => {
       ref.current.push(setTimeout(() => set([tag]), itemWaitMs * index));
     });
     ref.current.push(setTimeout(() => reset(), itemWaitMs * tags.length));
   }, []);
 
-  useEffect(() => void reset(), []);
+  useEffect(() => reset(), []);
 
   return (
     <div style={{ height: '80px' }}>
