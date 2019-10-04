@@ -182,10 +182,6 @@ The question now becomes, what should `filter` and `lfilter` be set to? We can a
 Next up is the functional filter. For this, we just want to check to see if the packet has the `DNSQR`, or DNS Query packet layer in it. We wouldn’t want to response to a response, after all!
 `lfilter = lambda p: p.haslayer(DNSQR)`
 
-Running this now, we should see output similar to:
-
-    Console output from running
-
 **Crafting the response**
 What should our response look like? We need to inform our target, that their gateway has returned them the DNS query. Here is a very basic example:
 
