@@ -6,7 +6,7 @@ const iconTypes = {
 };
 const defaultIcon = DiJsBadge;
 
-function getIcon(category) {
+function getIcon(category: string): JSX.Node {
   if (category in iconTypes) {
     return iconTypes[category];
   }
