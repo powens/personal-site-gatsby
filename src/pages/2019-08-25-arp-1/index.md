@@ -326,7 +326,7 @@ It works! We can verify our results in Wireshark:
 
 ![Wireshark capture of the correct forged response](./wireshark_dns_2.png)
 
-Lets set up a basic evil webpage for our unsuspecting target:
+Setting up a basic evil webpage for our unsuspecting target, and running the basic python http server:
 
 ```bash
 sudo python3 -m http.server 80

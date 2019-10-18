@@ -4,7 +4,7 @@ import SkillCategory from './SkillCategory';
 const skills = [
   {
     name: 'Languages',
-    skills: ['Javascript', 'Typescript', 'Python', 'C++', 'C'],
+    skills: ['Javascript', 'Typescript', 'Python', 'Ruby', 'C++', 'C'],
   },
   {
     name: 'Libraries',

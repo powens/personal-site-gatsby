@@ -27,7 +27,7 @@ const SiteWrapper = styled.div`
   ${mq.medium(css`
     margin-left: auto;
     margin-right: auto;
-    max-width: 40rem;
+    max-width: 50rem;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'header header header'
