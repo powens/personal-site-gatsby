@@ -23,32 +23,22 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
 `;
 
+// prettier-ignore
+const socials = [
+  { url: "https://github.com/powens", label: "Github", Icon: FaGithub },
+  { url: "https://twitter.com/padraigcodes", label: "Twitter", Icon: FaTwitter },
+  { url: "https://instagram.com/padraig.owens", label: "Instagram", Icon: FaInstagram },
+  { url: "https://www.linkedin.com/in/pmowens/", label: "LinkedIn", Icon: FaLinkedin },
+  { url: "/rss.xml", label: "RSS Feed", Icon: FaRss }
+]
+
 const SocialBlock = () => (
   <BlockWrapper>
-    <SocialLink href="https://github.com/powens" aria-label="Link to Github">
-      <FaGithub />
-    </SocialLink>
-    <SocialLink
-      href="https://twitter.com/padraigcodes"
-      aria-label="Link to Twitter"
-    >
-      <FaTwitter />
-    </SocialLink>
-    <SocialLink
-      href="https://instagram.com/padraig.owens"
-      aria-label="Link to Instagram"
-    >
-      <FaInstagram />
-    </SocialLink>
-    <SocialLink
-      href="https://www.linkedin.com/in/pmowens/"
-      aria-label="Link to LinkedIn"
-    >
-      <FaLinkedin />
-    </SocialLink>
-    <SocialLink href="/rss.xml" aira-label="RSS Feed">
-      <FaRss />
-    </SocialLink>
+    {socials.map(({ label, url, Icon }) => (
+      <SocialLink key={label} href={url} aria-label={label}>
+        <Icon />
+      </SocialLink>
+    ))}
   </BlockWrapper>
 );
 
