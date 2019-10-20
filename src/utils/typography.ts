@@ -1,7 +1,4 @@
 import Typography, { TypographyOptions, VerticalRhythm } from 'typography';
-// @ts-ignore
-import gray from 'gray-percentage';
-// @ts-ignore
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
 
 const nativeStack = [
@@ -17,8 +14,10 @@ const nativeStack = [
   'sans-serif',
 ];
 
-const headerFont = 'Rubik';
-const bodyFont = 'Open Sans';
+const baseHeaderFont = 'Rubik';
+const baseBodyFont = 'Open Sans';
+const headerFont = [baseHeaderFont, ...nativeStack];
+const bodyFont = [baseBodyFont, ...nativeStack];
 
 const theme = {
   title: 'Boop',
@@ -26,16 +25,16 @@ const theme = {
   baseLineHeight: 5 / 2.5,
   googleFonts: [
     {
-      name: headerFont,
+      name: baseHeaderFont,
       styles: ['400'],
     },
     {
-      name: bodyFont,
+      name: baseBodyFont,
       styles: ['400', '400i', '700'],
     },
   ],
-  headerFontFamily: [headerFont, 'sans-serif'],
-  bodyFontFamily: [bodyFont, 'sans-serif'],
+  headerFontFamily: headerFont,
+  bodyFontFamily: bodyFont,
   scaleRatio: 2,
   headerColor: 'var(--headerColor)',
   bodyColor: 'var(--bodyColor)',

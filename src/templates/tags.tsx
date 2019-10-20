@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import { PostProps } from '../utils/types';
-import Tag from '../components/tags/Tag';
 
 export interface Props {
   pageContext: {

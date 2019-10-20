@@ -25,7 +25,9 @@ function shadowColor(colorByte: string, shadow: string) {
   return `rgba(${colorByte}, ${colorByte}, ${colorByte}, ${shadow})`;
 }
 
-const defaultColors = {
+export type PaletteType = { [key: string]: string };
+
+const defaultColors: PaletteType = {
   background: '#fff',
   border: grey[5],
   primary: primary4,
@@ -40,7 +42,7 @@ const defaultColors = {
     0 3px 6px ${shadowColor('0', '0.1')}`,
 };
 
-const darkColors = {
+const darkColors: PaletteType = {
   background: '#2b2b2b',
   border: grey[2],
   primary: primary3,

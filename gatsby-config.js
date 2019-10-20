@@ -4,7 +4,7 @@ module.exports = {
     author: 'Patrick Owens',
     twitter: '@padraigcodes',
     description:
-      'I’m a full stack developer, infosec enthusiast, licensed HAM radio operator - VA7ORO, and occasional competitive game player.',
+      'I’m a full stack developer, infosec enthusiast, HAM radio operator - VA7ORO, and occasional competitive game player.',
     siteUrl: 'https://padraig.io',
   },
   plugins: [
@@ -111,6 +111,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.path,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.path,
+                  // eslint-disable-next-line @typescript-eslint/camelcase
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });

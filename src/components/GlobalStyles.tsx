@@ -1,8 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import { darkColors, defaultColors } from '../utils/colors';
+import { darkColors, defaultColors, PaletteType } from '../utils/colors';
 
-function generateColors(palette: any) {
+function generateColors(palette: PaletteType) {
   return Object.entries(palette)
     .map(([key, value]) => {
       return `--${key}: ${value};`;

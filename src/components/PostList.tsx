@@ -13,13 +13,13 @@ const PostItem = styled.li`
 `;
 
 export interface Props {
-  posts: Array<PostProps>;
+  posts: Array<PostQuery>;
 }
 
 export default function PostList({ posts }: Props) {
   return (
     <List>
-      {posts.map(({ node: { frontmatter, timeToRead } }: Props) => (
+      {posts.map(({ node: { frontmatter, timeToRead } }) => (
         <PostItem key={frontmatter.path}>
           <BlogCard
             path={frontmatter.path}
