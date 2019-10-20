@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 interface Props {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 declare global {
   interface Window {
@@ -25,12 +25,9 @@ function ThemeToggler({ children: ChildComponent }: Props) {
       window.__onThemeChange = () => {};
     };
   }, []);
-  const toggleTheme = useCallback(
-    (theme: string) => {
-      window.__setPreferredTheme(theme);
-    },
-    [theme]
-  );
+  const toggleTheme = useCallback((theme: string) => {
+    window.__setPreferredTheme(theme);
+  }, []);
 
   return <ChildComponent theme={theme} toggleTheme={toggleTheme} />;
 }

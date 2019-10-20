@@ -5,8 +5,8 @@ import Layout from '../components/Layout';
 import Tag from '../components/tags/Tag';
 
 interface Tag {
-  fieldValue: String;
-  totalCount: Number;
+  fieldValue: string;
+  totalCount: number;
 }
 export interface Props {
   data: {
@@ -18,10 +18,10 @@ export interface Props {
 
 function TagsPage(props: Props) {
   const group = props.data.allMarkdownRemark.group;
-  const numberCount = group.reduce(
-    (accum, { totalCount }) => accum + totalCount,
-    0
-  );
+  // const numberCount = group.reduce(
+  //   (accum, { totalCount }) => accum + totalCount,
+  //   0
+  // );
 
   return (
     <Layout>

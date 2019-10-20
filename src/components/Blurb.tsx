@@ -10,10 +10,9 @@ const BlurbWrapper = styled.section`
 const Blurb = () => (
   <BlurbWrapper>
     <p>
-      I{"'"}m a senior full-stack software engineer for a Canadian-based
-      security company. I am a UI architecture specialist, mentor, webpack
-      config wrangler, infosec enthusiast, licensed HAM radio operator - VA7ORO,
-      and{' '}
+      I{"'"}m a senior full-stack software engineer for a security company. I am
+      a UI architecture specialist, mentor, webpack config wrangler, infosec
+      enthusiast, HAM radio operator - VA7ORO, and{' '}
       <a href="https://twitter.com/planetside2/status/500821423091630081">
         occasional competitive game player
       </a>

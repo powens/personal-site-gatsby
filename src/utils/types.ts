@@ -9,5 +9,8 @@ export interface PostProps {
 }
 
 export interface PostQuery {
-  node: PostProps;
+  node: {
+    frontmatter: PostProps;
+    timeToRead: number;
+  };
 }

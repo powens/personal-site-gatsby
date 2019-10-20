@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTransition, animated } from 'react-spring';
 
 const itemWaitMs = 5000;
@@ -53,7 +53,7 @@ function SkillsRotator() {
   const clearAll = useCallback(() => {
     ref.current.map(clearTimeout);
     ref.current = [];
-  });
+  }, []);
 
   const reset = useCallback(() => {
     clearAll();
@@ -61,9 +61,9 @@ function SkillsRotator() {
       ref.current.push(setTimeout(() => set([tag]), itemWaitMs * index));
     });
     ref.current.push(setTimeout(() => reset(), itemWaitMs * tags.length));
-  }, []);
+  }, [clearAll]);
 
-  useEffect(() => reset(), []);
+  useEffect(() => reset(), [reset]);
 
   return (
     <div style={{ height: '80px' }}>

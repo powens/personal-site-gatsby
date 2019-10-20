@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import DarkToggle from './DarkToggle';
 
-const HeaderWrapper = styled.header`
+interface StyleProps {
+  atTop: boolean;
+}
+
+const HeaderWrapper = styled.header<StyleProps>`
   position: sticky;
   top: 0;
   padding: 0.4rem 0;
@@ -16,9 +20,9 @@ const HeaderWrapper = styled.header`
 
   grid-area: header;
 
-  border-bottom: ${({ atTop }) =>
+  border-bottom: ${({ atTop }: StyleProps) =>
     atTop ? '1px solid var(--border)' : '1px solid var(--background)'};
-  height: ${({ atTop }) => (atTop ? '3rem' : '3rem')};
+  height: ${({ atTop }: StyleProps) => (atTop ? '3rem' : '3rem')};
   transition: height 0.2s ease-in, border 0.2s ease-in;
 
   // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
@@ -33,12 +37,11 @@ const Title = styled.span`
 `;
 
 function Header() {
-  function scrollEvent() {
+  const [minified, setMinified] = useState(false);
+  const scrollEvent = useCallback(() => {
     const isAtTop = window.scrollY <= 0;
     setMinified(!isAtTop);
-  }
-
-  const [minified, setMinified] = useState(false);
+  }, []);
   useEffect(() => {
     if (window) {
       window.addEventListener('scroll', scrollEvent);
@@ -49,7 +52,7 @@ function Header() {
         window.removeEventListener('scroll', scrollEvent);
       }
     };
-  }, []);
+  }, [scrollEvent]);
 
   return (
     <HeaderWrapper atTop={minified}>
