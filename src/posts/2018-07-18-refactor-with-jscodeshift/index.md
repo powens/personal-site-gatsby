@@ -1,7 +1,7 @@
 ---
 title: Automate refactoring with jscodeshift
 date: '2018-07-18T20:49:03.284Z'
-path: '/automate-refactoring-jscodeshift/'
+slug: '/automate-refactoring-jscodeshift/'
 excerpt: A crash course in jscodeshift, a tool that lets you write code to automate your Javascript refactoring work
 tags: ['javascript', 'jscodeshift', 'refactoring', 'ast']
 ---

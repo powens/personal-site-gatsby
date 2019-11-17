@@ -1,7 +1,7 @@
 ---
 title: PyCascades 2019 Recap
 date: '2019-02-23'
-path: '/pycascades-2019/'
+slug: '/pycascades-2019/'
 excerpt: My report of attended PyCascades 2019 in Seattle.
 tags: ['pycascades', 'conference', 'python']
 ---

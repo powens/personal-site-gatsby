@@ -1,7 +1,7 @@
 ---
 title: React Hooks
 date: '2018-11-04'
-path: '/react-hooks/'
+slug: '/react-hooks/'
 excerpt: React Hooks is a new API available in the 16.8, allowing developers to more easily separate concerns and reuse logic related to component lifecycle. Let's have a quick look at how to use them.
 tags: ['javascript', 'react', 'hooks']
 ---

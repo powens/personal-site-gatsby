@@ -16,35 +16,26 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-theme-blog',
       options: {
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        excerpt_separator: '<!-- end -->',
-        plugins: [
+        contentPath: 'src/posts',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 650,
-              backgroundColor: 'black',
+              maxWidth: 1380,
+              linkImagesToOriginal: true,
             },
           },
-          {
-            resolve: 'gatsby-remark-embed-video',
-            options: {
-              width: 800,
-              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-              height: 400, // Optional: Overrides optional.ratio
-              related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
-            },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
+          { resolve: 'gatsby-remark-copy-linked-files' },
+          { resolve: 'gatsby-remark-smartypants' },
+          { resolve: 'gatsby-remark-prismjs' },
         ],
       },
     },
@@ -80,13 +71,9 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography.ts',
       },
     },
-    {
-      resolve: 'gatsby-plugin-emotion',
-      options: {},
-    },
+    'gatsby-plugin-emotion',
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-plugin-feed',
       options: {

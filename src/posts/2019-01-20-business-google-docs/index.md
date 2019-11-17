@@ -1,7 +1,7 @@
 ---
 title: Accidentally hacking into a business through Google docs
 date: '2019-01-20'
-path: '/google-docs-permissions/'
+slug: '/google-docs-permissions/'
 excerpt: A poorly secured set of linked Google documents allowed me to accidentally gain access to the internal docs of an entire company.
 tags: ['security']
 ---

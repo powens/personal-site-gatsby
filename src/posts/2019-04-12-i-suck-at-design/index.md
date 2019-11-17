@@ -1,7 +1,7 @@
 ---
 title: I suck at design
 date: '2019-05-12'
-path: '/i-suck-at-design/'
+slug: '/i-suck-at-design/'
 excerpt: Acknowledging that I suck at a certain skill, and my plan to get better.
 tags: ['design']
 ---

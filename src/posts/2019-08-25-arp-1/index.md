@@ -1,7 +1,7 @@
 ---
 title: Building a DNS spoofer on top of our ARP spoofer
 date: '2019-08-25'
-path: '/arp-spoofer-1/'
+slug: '/arp-spoofer-1/'
 excerpt: Utilizing the ARP spoofing script we wrote in the previous post, we'll do some quick refactoring and then expand it to also intercept DNS requests so we can redirect the target to our own evil domain.
 tags: ['python', 'security']
 ---
