@@ -27,7 +27,7 @@ As with ARP, basic DNS has no authentication. Although are some solutions to the
 
 ## DNS 101
 
-The DNS protocol is a query/response. A client makes a DNS query to their local DNS server to resolve a hostname. Most (all?) ISPs have their own DNS server. Larger networks found in companies and post-secondary institutions usually have a local DNS server that caches results. Several tech companies also run their own DNS servers; like [Cloudflare’s 1.1.1.1](https://1.1.1.1/) and [Google’s 8.8.8.8.](https://developers.google.com/speed/public-dns/)
+The DNS protocol is a query/response. A client makes a DNS query to their local DNS server to resolve a hostname. Most (all?) ISPs have their own DNS server. Larger networks found in companies and post-secondary institutions usually have a local DNS server that caches results. Several tech companies also run their own DNS servers; like [Cloudflare’s 1.1.1.1](https://1.1.1.1/) and [Google’s 8.8.8.8](https://developers.google.com/speed/public-dns/).
 
 It should also be noted that typically only the first response to any DNS query is used. Subsequent responses will be ignored.
 
