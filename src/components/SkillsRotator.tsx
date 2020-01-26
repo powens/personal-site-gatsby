@@ -15,9 +15,9 @@ const tags = [
   'React developer',
   'Webpack wrangler',
   'Pythonista',
-  'Dog person',
-  'Bicyclist',
-  'Trumpet player',
+  'Dog devotee',
+  'Bicycle buff',
+  'Trumpet trouper',
 ];
 
 const transitionItem = {
