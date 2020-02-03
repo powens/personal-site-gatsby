@@ -13,7 +13,6 @@ const detailsQuery = graphql`
       siteMetadata {
         title
         description
-        twitter
       }
     }
   }
@@ -63,7 +62,7 @@ const SEO = ({ title, description }: SEOQuery) => (
 
         {/* /!* Twitter Card tags *!/ */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content={data.site.siteMetadata.twitter} />
+        <meta name="twitter:creator" content={'@padraigcodes'} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
       </Helmet>

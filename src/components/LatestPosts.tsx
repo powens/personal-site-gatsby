@@ -13,20 +13,14 @@ export interface Props {
 function LatestPosts() {
   const postQuery = graphql`
     query IndexQuery {
-      allMarkdownRemark(
-        limit: 10
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      allMdxBlogPost(limit: 10, sort: { fields: [date], order: DESC }) {
         edges {
           node {
-            frontmatter {
-              path
-              date(formatString: "DD MMMM, YYYY")
-              computerDate: date(formatString: "YYYY-MM-DD")
-              title
-              excerpt
-            }
-            timeToRead
+            slug
+            date(formatString: "DD MMMM, YYYY")
+            computerDate: date(formatString: "YYYY-MM-DD")
+            title
+            excerpt
           }
         }
       }
@@ -39,7 +33,7 @@ function LatestPosts() {
       <StaticQuery
         query={postQuery}
         render={data => {
-          const posts = data.allMarkdownRemark.edges;
+          const posts = data.allMdxBlogPost.edges;
           return <PostList posts={posts} />;
         }}
       />

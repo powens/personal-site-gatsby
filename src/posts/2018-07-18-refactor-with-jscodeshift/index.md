@@ -57,7 +57,7 @@ Note that the object returned from `j(file.source)` is a **mutable object**, and
 
 **Example**
 
-```javascript
+```js
 const foo = 'Hello';
 debugger;
 const bar = 'World';
@@ -72,13 +72,13 @@ baz();
 
 To run the transformation, simply run the command
 
-```bash
+```
 $ jscodeshift -t remove-debugger.js my-file.js
 ```
 
 After:
 
-```javascript
+```js
 const foo = 'Hello';
 const bar = 'World';
 
@@ -91,10 +91,11 @@ baz();
 
 ## Refining the results from .find()
 
-**Second parameter of .find()**
+### Second parameter of .find()
+
 To further refine the results from a `.find()` query, the second parameter of `.find()` can be used. The second parameter is an optional partial AST tree match. Here is a small example to update references from `react-addons-test-utils` to `react-dom/test-utils`, per the React 15 to 16 migration docs.
 
-```javascript
+```js
 // Use the second parameter of .find()
 return j(file.source)
   .find(j.ImportDeclaration, {
@@ -108,10 +109,11 @@ return j(file.source)
   .toSource();
 ```
 
-**Functional filtering through .filter()**
+### Functional filtering through .filter()
+
 For more advanced filtering, the `.filter()` function can be chained after the `.find()`. It works identically to other functional callbacks, like `Array.filter()`. Here is the same refactoring step, written with `filter()`.
 
-```javascript
+```js
 // Using .filter()
 return j(file.source)
   .find(j.ImportDeclaration)
@@ -136,7 +138,7 @@ Shoving any old object in to the tree will most likely have recast throw errors 
 
 Luckily jscodeshift has helper methods to build new nodes. The documentation for these nodes doesn’t exist directly, but the [AST Types](https://github.com/benjamn/ast-types) repository has a full list of definitions with parameters to explore. To create a new node, use the `camelCase()` of the node name, as opposed to the `PascalCase` version used for finding and filtering.
 
-```javascript
+```js
 /**
  * static-func-to-static-property.js
  * Converts all `static get funcName()`
@@ -174,7 +176,7 @@ I’ve also created a basic repo with examples used in this post, [available on 
 
 Going back to the eslint errors from original project. Here is a count of the error types, aggregated by [eslint-stats](https://github.com/ganimomer/eslint-stats):
 
-```bash
+```
 react/destructuring-assignment:    746
 react/sort-comp:                   106
 max-len:                            51
@@ -201,25 +203,25 @@ Some observations:
 
 First things first, converting all the `static get propTypes()`, etc. into their `static propTypes =` equivalents. As all files still violate `react/sort-comp`, the number of errors are still be the same.
 
-```bash
+```
 ✖ 987 problems (987 errors, 0 warnings)
 ```
 
 Running the `destructuring-assignment.js` codemod. This won’t fix everything, but should get the majority of the issues.
 
-```bash
+```
 ✖ 301 problems (301 errors, 0 warnings)
 ```
 
 680 less eslint errors. I’m feeling happier already! Next, I ran `sort-comp.js` from react-codemod.
 
-```bash
+```
 ✖ 210 problems (210 errors, 0 warnings)
 ```
 
 Finally, I ran the a codemod to convert those bad `intl: PropTypes.object` definitions into `intl: intlShape`.
 
-```bash
+```
 ✖ 160 problems (160 errors, 0 warnings)
 ```
 

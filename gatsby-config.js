@@ -2,41 +2,28 @@ module.exports = {
   siteMetadata: {
     title: 'Patrick Owens',
     author: 'Patrick Owens',
-    twitter: '@padraigcodes',
+    titter: '@padraigcodes',
+    social: [
+      { name: 'Twitter', url: 'https://twitter.com/padraigcodes' },
+      { name: 'GitHub', url: 'https://github.com/powens' },
+    ],
     description:
       'I’m a full stack developer, infosec enthusiast, HAM radio operator - VA7ORO, and occasional competitive game player.',
     siteUrl: 'https://padraig.io',
   },
   plugins: [
     {
+      resolve: 'gatsby-theme-blog-core',
+      options: {
+        contentPath: 'src/posts',
+        assetPath: 'src/assets',
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-theme-blog',
-      options: {
-        contentPath: 'src/posts',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1380,
-              linkImagesToOriginal: true,
-            },
-          },
-          { resolve: 'gatsby-remark-copy-linked-files' },
-          { resolve: 'gatsby-remark-smartypants' },
-          { resolve: 'gatsby-remark-prismjs' },
-        ],
       },
     },
     'gatsby-transformer-sharp',
@@ -74,60 +61,60 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              site_url: siteUrl
-            }
-          }
-        }
-      `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.frontmatter.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.path,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.path,
-                  // eslint-disable-next-line @typescript-eslint/camelcase
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
-              });
-            },
-            query: `
-          {
-            allMarkdownRemark(
-              sort: { order: DESC, fields: [frontmatter___date] },
-            ) {
-              edges {
-                node {
-                  html
-                  fields { path }
-                  frontmatter {
-                    title
-                    date
-                    excerpt
-                  }
-                }
-              }
-            }
-          }
-        `,
-            output: '/rss.xml',
-            title: 'Patrick Owens',
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-feed',
+    //   options: {
+    //     query: `
+    //     {
+    //       site {
+    //         siteMetadata {
+    //           title
+    //           description
+    //           siteUrl
+    //           site_url: siteUrl
+    //         }
+    //       }
+    //     }
+    //   `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allMarkdownRemark } }) => {
+    //           return allMarkdownRemark.edges.map(edge => {
+    //             return Object.assign({}, edge.node.frontmatter, {
+    //               description: edge.node.frontmatter.excerpt,
+    //               date: edge.node.frontmatter.date,
+    //               url: site.siteMetadata.siteUrl + edge.node.fields.path,
+    //               guid: site.siteMetadata.siteUrl + edge.node.fields.path,
+    //               // eslint-disable-next-line @typescript-eslint/camelcase
+    //               custom_elements: [{ 'content:encoded': edge.node.html }],
+    //             });
+    //           });
+    //         },
+    //         query: `
+    //       {
+    //         allMarkdownRemark(
+    //           sort: { order: DESC, fields: [frontmatter___date] },
+    //         ) {
+    //           edges {
+    //             node {
+    //               html
+    //               fields { path }
+    //               frontmatter {
+    //                 title
+    //                 date
+    //                 excerpt
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }
+    //     `,
+    //         output: '/rss.xml',
+    //         title: 'Patrick Owens',
+    //       },
+    //     ],
+    //   },
+    // },
     'gatsby-plugin-sitemap',
   ],
 };

@@ -20,7 +20,7 @@ As it was mentioned during [the reactconf talk on hooks](https://www.youtube.com
 
 ## Examples
 
-```javascript
+```js
 import React, { useState } from 'react';
 
 function YourName() {
@@ -51,7 +51,7 @@ The hook API is a bit esoteric at first. Each hook returns an array of items tha
 
 Looking at another hook, the `useEffect` hook is used for side-effects. For example, data fetching, manually changing the DOM.
 
-```javascript
+```js
 import React, { useState, useEffect } from 'react';
 
 const colors = [
@@ -80,7 +80,7 @@ function ColorShifter() {
 
 We wouldn’t be very good programmers if we didn’t clean up after ourselves. The return value of the `useEffect` hook can be such a clean up function.
 
-```javascript
+```js
 useEffect(() => {
   const html = document.querySelector('html');
   html.style.backgroundColor = colors[count % colors.length];
@@ -92,7 +92,7 @@ useEffect(() => {
 
 Note that `useEffect` is called after every component update. An optional third argument is available that will make the `useEffect` callback to only be called when the values change:
 
-```javascript
+```js
 useEffect(() => {
   const html = document.querySelector('html');
   html.style.backgroundColor = colors[count % colors.length];

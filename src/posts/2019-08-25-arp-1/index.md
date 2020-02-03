@@ -45,7 +45,7 @@ First things first, our `arp_spoof.py` script could use a bit of clean up. Feel 
 
 First we’re adding a new parameter `interface`, which tells scapy which network interface we want to perform the operation on. Next, we’ll move the ARP spoofing code into a thread, so it can run continuously:
 
-```python{numberLines: true}
+```python
 import threading
 
 # ...

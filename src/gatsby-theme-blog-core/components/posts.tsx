@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Layout from '../components/Layout';
-import Blurb from '../components/Blurb';
-import LatestPosts from '../components/LatestPosts';
-import SkillsRotator from '../components/SkillsRotator';
-import SocialBlock from '../components/SocialBlock';
+import Layout from '../../components/Layout';
+import Blurb from '../../components/Blurb';
+import LatestPosts from '../../components/LatestPosts';
+import SkillsRotator from '../../components/SkillsRotator';
+import SocialBlock from '../../components/SocialBlock';
 
 const Header = styled.h1`
   font-size: 3.5rem;

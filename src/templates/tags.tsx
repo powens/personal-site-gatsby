@@ -18,7 +18,7 @@ export interface Props {
 
 const Tags = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const { edges, totalCount } = data.allMdxBlogPost;
 
   const postCount = `${totalCount} post${totalCount === 1 ? '' : 's'}`;
 
@@ -38,22 +38,19 @@ export default Tags;
 
 export const pageQuery = graphql`
   query TagPage($tag: String) {
-    allMarkdownRemark(
+    allMdxBlogPost(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: { fields: [date], order: DESC }
+      filter: { tags: { in: [$tag] } }
     ) {
       totalCount
       edges {
         node {
-          frontmatter {
-            title
-            path
-            date(formatString: "DD MMMM, YYYY")
-            computerDate: date(formatString: "YYYY-MM-DD")
-            excerpt
-          }
-          timeToRead
+          title
+          slug
+          date(formatString: "DD MMMM, YYYY")
+          computerDate: date(formatString: "YYYY-MM-DD")
+          excerpt
         }
       }
     }

@@ -19,15 +19,14 @@ export interface Props {
 export default function PostList({ posts }: Props) {
   return (
     <List>
-      {posts.map(({ node: { frontmatter, timeToRead } }) => (
-        <PostItem key={frontmatter.path}>
+      {posts.map(({ node }) => (
+        <PostItem key={node.slug}>
           <BlogCard
-            path={frontmatter.path}
-            title={frontmatter.title}
-            date={frontmatter.date}
-            computerDate={frontmatter.computerDate}
-            excerpt={frontmatter.excerpt}
-            timeToRead={timeToRead}
+            path={node.slug}
+            title={node.title}
+            date={node.date}
+            computerDate={node.computerDate}
+            excerpt={node.excerpt}
           />
         </PostItem>
       ))}
