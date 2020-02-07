@@ -82,6 +82,7 @@
     "lint:fix": "yarn lint --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "deploy": "gatsby build --prefix-paths"
   },
   "husky": {

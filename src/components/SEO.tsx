@@ -60,9 +60,9 @@ const SEO = ({ title, description }: SEOQuery) => (
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
 
-        {/* /!* Twitter Card tags *!/ */}
+        {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content={'@padraigcodes'} />
+        <meta name="twitter:creator" content="@padraigcodes" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
       </Helmet>

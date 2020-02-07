@@ -2,7 +2,6 @@ module.exports = {
   siteMetadata: {
     title: 'Patrick Owens',
     author: 'Patrick Owens',
-    titter: '@padraigcodes',
     social: [
       { name: 'Twitter', url: 'https://twitter.com/padraigcodes' },
       { name: 'GitHub', url: 'https://github.com/powens' },
@@ -61,60 +60,57 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
-    // {
-    //   resolve: 'gatsby-plugin-feed',
-    //   options: {
-    //     query: `
-    //     {
-    //       site {
-    //         siteMetadata {
-    //           title
-    //           description
-    //           siteUrl
-    //           site_url: siteUrl
-    //         }
-    //       }
-    //     }
-    //   `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, allMarkdownRemark } }) => {
-    //           return allMarkdownRemark.edges.map(edge => {
-    //             return Object.assign({}, edge.node.frontmatter, {
-    //               description: edge.node.frontmatter.excerpt,
-    //               date: edge.node.frontmatter.date,
-    //               url: site.siteMetadata.siteUrl + edge.node.fields.path,
-    //               guid: site.siteMetadata.siteUrl + edge.node.fields.path,
-    //               // eslint-disable-next-line @typescript-eslint/camelcase
-    //               custom_elements: [{ 'content:encoded': edge.node.html }],
-    //             });
-    //           });
-    //         },
-    //         query: `
-    //       {
-    //         allMarkdownRemark(
-    //           sort: { order: DESC, fields: [frontmatter___date] },
-    //         ) {
-    //           edges {
-    //             node {
-    //               html
-    //               fields { path }
-    //               frontmatter {
-    //                 title
-    //                 date
-    //                 excerpt
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `,
-    //         output: '/rss.xml',
-    //         title: 'Patrick Owens',
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdxBlogPost } }) => {
+              return allMdxBlogPost.edges.map(edge => {
+                return Object.assign({}, edge.node, {
+                  description: edge.node.excerpt,
+                  date: edge.node.date,
+                  url: site.siteMetadata.siteUrl + edge.node.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.slug,
+                  // eslint-disable-next-line @typescript-eslint/camelcase
+                  // custom_elements: [{ 'content:encoded': edge.node.html }],
+                });
+              });
+            },
+            query: `
+          {
+            allMdxBlogPost(
+              sort: { order: DESC, fields: [date] },
+            ) {
+              edges {
+                node {
+                  slug
+                  title
+                  date
+                  excerpt
+                }
+              }
+            }
+          }
+        `,
+            output: '/rss.xml',
+            title: 'Patrick Owens',
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sitemap',
   ],
 };
