@@ -1,7 +1,7 @@
 ---
 title: My 2019 Goal Post-mortem
 date: '2019-12-08'
-path: '/2019-post-mortem/'
+slug: '/2019-post-mortem/'
 excerpt: Analyzing my goals for the 2019 year.
 tags: ['personal']
 ---

@@ -1,7 +1,7 @@
 ---
 title: Create a distraction-blocking add-on for Firefox and Chrome
 date: '2020-01-25'
-path: '/build-a-browser-addon/'
+slug: '/build-a-browser-addon/'
 excerpt: Walking through the steps of building a basic add-on in both Firefox, and Chrome
 tags: ['javascript']
 ---
