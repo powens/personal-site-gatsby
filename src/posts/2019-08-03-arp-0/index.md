@@ -132,7 +132,7 @@ Basic ARP spoofing works by claiming to be the MAC address of your victim louder
 
 **Constructing our basic ARP spoof packets**
 
-```python{numberLines: true}
+```python
 from scapy.all import Ether, ARP
 
 gateway_mac = '0c:8d:db:71:c0:87'
@@ -178,7 +178,7 @@ We can suppress the noisy output of scapy by setting `verbose=0` on the `sendp` 
 
 The full script is as follows:
 
-```python{numberLines: true}
+```python
 import time
 from typing import List
 from threading import Thread
@@ -208,7 +208,7 @@ while True:
 
 Now that we have the basics in place, it’s kind of annoying to manually set MAC addresses. Considering we already have the ability to issue ARP requests, we can leverage that to resolve the MAC address for the IP addresses we want!
 
-```python{numberLines: true}
+```python
 def get_mac_from_ip(ip_address: str):
     # dst="ff:ff:ff:ff:ff:ff" broadcasts the request to the whole network
     ans = srp1(
@@ -252,7 +252,7 @@ net.ipv4.ip_forward = 0
 
 We can add this to our spoofer script by utilizing the `os` module:
 
-```python{numberLines: true}
+```python
 import os
 
 # ...
@@ -285,7 +285,7 @@ Now that we’ve positioned ourselves in between our target and and the gateway,
 
 ## All the code!
 
-```python{numberLines: true}
+```python
 import time
 from scapy.all import Ether, ARP, sendp, srp1
 import os

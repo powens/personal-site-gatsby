@@ -25,7 +25,7 @@ cd distractify
 
 As the filename indicates, the manifest.json describes the extension:
 
-```json{numberLines: true}
+```json
 {
   "manifest_version": 2,
 
@@ -59,7 +59,7 @@ As you can see above, we’ve defined two files that are currently not used: `ic
 
 In our case, this is the logic that defines the behaviour of the extension.
 
-```javascript{numberLines: true}
+```javascript
 // In Chrome, the browser object is `chrome`
 // In Firefox, the browser object is `browser`
 const isChrome = typeof chrome === 'object';
@@ -114,7 +114,7 @@ Wouldn’t it be cool if we could count the number of times we’ve mindlessly t
 
 Extensions get some storage set aside for this sort of thing. The first thing we’ll do is add the `storage` permission to the `manifest.json` file.:
 
-```json{numberLines: true}
+```json
 "permissions": [
   "storage", // We now need the storage permission
   "webRequest",
@@ -125,7 +125,7 @@ Extensions get some storage set aside for this sort of thing. The first thing we
 
 Next, we’ll add a bit more functionality to the `handleRequest` function:
 
-```javascript{numberLines: true}
+```javascript
 function incrementNumBlocked() {
   const storageKey = 'numBlocked';
   chrome.storage.local.get(storageKey, storage => {
@@ -162,7 +162,7 @@ A toolbar button can either do something when clicked, or render a popup of HTML
 
 First things first, we need to update the `manifest.json` file to add references to the popup:
 
-```json{numberLines: true}
+```json
 "browser_action": {
   "default_icon": "icons/distract-48.png",
   "default_title": "Distractify",
@@ -173,7 +173,7 @@ First things first, we need to update the `manifest.json` file to add references
 
 Next, we’ll need to define the `popup/popup.html` file:
 
-```html{numberLines: true}
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -188,7 +188,7 @@ Next, we’ll need to define the `popup/popup.html` file:
 
 Note that there is a reference to an external script: `popup.js`. We’ll use that to retrieve the count from the browser extension storage, by copy/pasting a chunk from the `distractify.js` script:
 
-```javascript{numberLines: true}
+```javascript
 // popup/popup.js
 // Little bit of copy/paste code from the distractify.js script
 const storageKey = 'numBlocked';
@@ -210,7 +210,7 @@ It would be nice to have the ability to turn off the add-on. We’ll accomplish 
 
 Let’s first add that checkbox to our `popup/popup.html` file:
 
-```html{numberLines: true}
+```html
 <section>
   <input type="checkbox" id="enabled" />
   <label for="enabled">
@@ -221,7 +221,7 @@ Let’s first add that checkbox to our `popup/popup.html` file:
 
 Next, we’ll need to hook up the checkbox in `popup/popup.js` to storage
 
-```javascript{numberLines: true}
+```javascript
 // Init checkbox
 const enabledCheckbox = document.getElementById('enabled');
 const enabledStorageKey = 'isEnabled';
@@ -240,7 +240,7 @@ enabledCheckbox.addEventListener('change', () => {
 
 Finally, we need to update the `distractify.js` script to support the `isEnabled` flag. However, things aren’t quite so simple. The APIs to retrieve data from the browser storage are asynchronous, and could potentially be hosted remotely. As we’re blocking an HTTP request, we are unable (and can’t really) wait for the extension to get the value of `isEnabled` every time a new web request ocmes in. Because of this, we’re going to keep a local cache of the flag, and hook the event that is dispatched when the flag is updated:
 
-```javascript{numberLines: true}
+```javascript
 // isEnabled handling
 // First thing we do is get the initial value on load
 let isEnabled = undefined;
@@ -268,7 +268,7 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
 
 Finally. we update the `handleRequest` function to support the `isEnabled` flag:
 
-```javascript{numberLines: true}
+```javascript
 function handleRequest(details) {
   if (!isEnabled) {
     return;

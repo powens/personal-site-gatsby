@@ -67,7 +67,7 @@ def arp_spoof(
 
 Also, we’re going to move the initialization part of the script into it’s own function:
 
-```python{numberLines: true}
+```python
 def main(target_ip: str, gateway_ip: str, interface: str):
     # Resolve the MAC addresses
     target_mac = resolve_ip("target", target_ip)
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
 While we’re at it, we might as well leverage `argparse` to pass in our target and gateway IP address as parameters:
 
-```python{numberLines: true}
+```python
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", dest="target", help="Target IP")
@@ -125,7 +125,7 @@ With a packet structure like this:
 
 We start out by initializing the DNS thread the same as we initialized the ARP spoof thread:
 
-```python{numberLines: true}
+```python
 hostnames = ['padraig.io']
 evil_ip = '192.168.1.100'
 dns_spoof_thread = threading.Thread(
@@ -139,7 +139,7 @@ dns_spoof_thread.join()
 
 Next, we leverage scapy’s `sniff` function to look for the packets we want:
 
-```python{numberLines: true}
+```python
 def dns_spoof(
     interface: str,
     hostnames: List[str],
@@ -185,7 +185,7 @@ Next up is the functional filter. For this, we just want to check to see if the 
 **Crafting the response**
 What should our response look like? We need to inform our target, that their gateway has returned them the DNS query. Here is a very basic example:
 
-```python{numberLines: true}
+```python
 response_packet = (
     IP(dst=target_ip)
     / UDP(sport=packet.dport, dport=packet.sport)
@@ -234,7 +234,7 @@ python3 setup.py install
 
 Creating a netfilter queue in python is straightforward:
 
-```python{numberLines: true}
+```python
 from netfilterqueue import NetfilterQueue
 
 def print_and_accept(packet):
@@ -257,7 +257,7 @@ nfqueue.unbind()
 
 To get packets into our nfqueue filter, we’ll need to make some modifications to iptables:
 
-```python{numberLines: true}
+```python
 # All UDP packets destined for port 53 on our desired interface get put into the NFQUEUE number 1
 os.system(f"iptables -t nat -A PREROUTING -p udp --dport 53 -j NFQUEUE --queue-num 1 -i {interface}")
 
@@ -283,7 +283,7 @@ Got DNS request for b'padraig.io.'
 
 Let’s merge the two functions together to get our final function:
 
-```python{numberLines: true}
+```python
 def dns_spoof(packet):
     # Convert the raw payload into a scapy packet
     data = packet.get_payload()
@@ -348,7 +348,7 @@ In the next post, we are going to build a transparent HTTP proxy which will flip
 
 ## Full script
 
-```python{numberLines: true}
+```python
 import time
 from scapy.all import *
 from typing import List
