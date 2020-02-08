@@ -1,4 +1,6 @@
+/** @jsx jsx **/
 import React from 'react';
+import { Styled, css, jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import PostIcon from './PostIcon';
 import { Link } from 'gatsby';
@@ -14,36 +16,21 @@ const Card = styled.div`
   grid-template-areas: 'title date';
 `;
 
-const BlogTitle = styled.h3`
-  grid-area: title;
-  margin-bottom: 0.5rem;
-`;
-
-const PostDate = styled.time`
-  grid-area: date;
-  color: var(--secondaryBodyColor);
-`;
-
-const Ttr = styled.span`
-  grid-area: ttr;
-`;
-
-const BlogCard = ({
-  path,
-  title,
-  date,
-  computerDate,
-  excerpt,
-  timeToRead,
-}: PostProps) => (
+const BlogCard = ({ slug, title, date, computerDate, excerpt }: PostProps) => (
   <Card>
-    <BlogTitle>
-      <Link to={path}>{title}</Link>
-    </BlogTitle>
-    <PostDate dateTime={computerDate}>{date}</PostDate>
-    {/* <Ttr>
-      <EmphasisDescription number={timeToRead} description="mins to read" />
-    </Ttr> */}
+    <Styled.h3
+      css={css({
+        gridArea: 'title',
+        marginBottom: '0.5rem',
+      })}
+    >
+      <Styled.a as={Link} to={slug}>
+        {title}
+      </Styled.a>
+    </Styled.h3>
+    <time dateTime={computerDate} sx={{ gridArea: 'date', text: 'muted' }}>
+      {date}
+    </time>
   </Card>
 );
 

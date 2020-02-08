@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Styled, css } from 'theme-ui';
 import {
   FaGithub,
   FaTwitter,
@@ -19,10 +20,6 @@ const BlockWrapper = styled.div`
   justify-content: space-around;
 `;
 
-const SocialLink = styled.a`
-  font-size: 1.5rem;
-`;
-
 // prettier-ignore
 const socials = [
   { url: "https://github.com/powens", label: "Github", Icon: FaGithub },
@@ -35,9 +32,14 @@ const socials = [
 const SocialBlock = () => (
   <BlockWrapper>
     {socials.map(({ label, url, Icon }) => (
-      <SocialLink key={label} href={url} aria-label={label}>
+      <Styled.a
+        css={css({ fontSize: '1.5rem' })}
+        key={label}
+        href={url}
+        aria-label={label}
+      >
         <Icon />
-      </SocialLink>
+      </Styled.a>
     ))}
   </BlockWrapper>
 );

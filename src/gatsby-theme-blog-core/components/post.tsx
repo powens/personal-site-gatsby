@@ -1,19 +1,13 @@
+/** @jsx jsx **/
+
 import React from 'react';
-import styled from '@emotion/styled';
+import { Styled, jsx } from 'theme-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import SEO from '../../components/SEO';
 import TagList from '../../components/tags/TagList';
 import Layout from '../../components/Layout';
 import { PostProps } from '../../utils/types';
 import BlogFooter from '../../components/BlogFooter';
-import EmphasisDescription from '../../components/EmphasisDescription';
-
-const Label = styled.span`
-  margin-right: 2rem;
-  color: var(--secondaryBodyColor);
-`;
-
-const PostGrid = styled.section``;
 
 export interface Props {
   data: {
@@ -31,17 +25,22 @@ const Post = (props: Props) => {
   return (
     <Layout>
       <SEO title={title} description={excerpt} />
-      <PostGrid>
-        <h1>{title}</h1>
-        <div>
-          <Label>
+      <main>
+        <Styled.h1>{title}</Styled.h1>
+        <Styled.p>
+          <span
+            sx={{
+              marginRight: '2rem',
+              color: 'muted',
+            }}
+          >
             <time dateTime={date}>{date}</time>
-          </Label>
+          </span>
           <TagList tags={tags} />
-        </div>
+        </Styled.p>
         <MDXRenderer>{body}</MDXRenderer>
-        <BlogFooter />
-      </PostGrid>
+      </main>
+      <BlogFooter />
     </Layout>
   );
 };

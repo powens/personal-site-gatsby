@@ -41,7 +41,7 @@ module.exports = {
       options: {
         name: 'Patrick Owens',
         // eslint-disable-next-line @typescript-eslint/camelcase
-        short_name: 'Padraig',
+        short_name: 'padraig',
         // eslint-disable-next-line @typescript-eslint/camelcase
         start_url: '/',
         // eslint-disable-next-line @typescript-eslint/camelcase
@@ -54,12 +54,6 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography.ts',
-      },
-    },
     'gatsby-plugin-emotion',
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',

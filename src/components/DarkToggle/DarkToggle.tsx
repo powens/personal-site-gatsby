@@ -1,47 +1,42 @@
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ClassNames } from '@emotion/core';
-import ThemeToggler from '../ThemeToggler';
+import { useColorMode } from 'theme-ui';
 import Toggle from 'react-toggle';
 import './DarkToggle.css';
 import { darkColors } from '../../utils/colors';
 
-interface ThemeTogglerProps {
-  theme: string;
-  toggleTheme(themeName: string): null;
-}
-
 function DarkToggle(): JSX.Element {
-  return (
-    <ThemeToggler>
-      {({ theme, toggleTheme }: ThemeTogglerProps) => (
-        <ClassNames>
-          {({ css }) => (
-            <Toggle
-              checked={theme === 'dark'}
-              className={css`
-                margin-top: auto;
-                margin-bottom: auto;
+  const [colorMode, setColorMode] = useColorMode();
+  const isDark = colorMode == 'dark';
+  const toggleColorMode = () => {
+    setColorMode(isDark ? 'light' : 'dark');
+  };
 
-                & svg {
-                  color: ${darkColors.bodyColor};
-                  width: 10px;
-                  height: 10px;
-                }
-              `}
-              icons={{
-                checked: <FaMoon />,
-                unchecked: <FaSun />,
-              }}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                toggleTheme(e.target.checked ? 'dark' : 'light')
-              }
-              aria-label="Toggle dark mode"
-            />
-          )}
-        </ClassNames>
+  return (
+    <ClassNames>
+      {({ css }) => (
+        <Toggle
+          checked={isDark}
+          className={css`
+            margin-top: auto;
+            margin-bottom: auto;
+
+            & svg {
+              color: ${darkColors.bodyColor};
+              width: 10px;
+              height: 10px;
+            }
+          `}
+          icons={{
+            checked: <FaMoon />,
+            unchecked: <FaSun />,
+          }}
+          onChange={toggleColorMode}
+          aria-label="Toggle dark mode"
+        />
       )}
-    </ThemeToggler>
+    </ClassNames>
   );
 }
 

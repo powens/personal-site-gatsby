@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { Styled } from 'theme-ui';
 import { FaArrowLeft } from 'react-icons/fa';
 import styled from '@emotion/styled';
 import FooterBlurb from './FooterBlurb';
@@ -12,9 +13,9 @@ const Footer = styled.footer`
 export default function BlogFooter() {
   return (
     <Footer>
-      <Link to="/posts">
+      <Styled.a to="/" as={Link}>
         <FaArrowLeft /> Back to posts
-      </Link>
+      </Styled.a>
       <FooterBlurb />
     </Footer>
   );

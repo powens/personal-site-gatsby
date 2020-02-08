@@ -22,7 +22,7 @@ export default function PostList({ posts }: Props) {
       {posts.map(({ node }) => (
         <PostItem key={node.slug}>
           <BlogCard
-            path={node.slug}
+            slug={node.slug}
             title={node.title}
             date={node.date}
             computerDate={node.computerDate}

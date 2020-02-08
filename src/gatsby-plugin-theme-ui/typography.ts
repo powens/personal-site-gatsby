@@ -1,5 +1,6 @@
-import Typography, { TypographyOptions, VerticalRhythm } from 'typography';
+import { TypographyOptions, VerticalRhythm } from 'typography';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
+import { toTheme } from '@theme-ui/typography';
 
 const nativeStack = [
   '-apple-system',
@@ -99,13 +100,4 @@ const theme = {
   }),
 };
 
-const typography = new Typography(theme);
-
-// Hot reload typography in development.
-if (process.env.NODE_ENV !== 'production') {
-  typography.injectStyles();
-}
-
-const { rhythm, scale } = typography;
-
-export { rhythm, scale, typography as default };
+export default toTheme(theme);

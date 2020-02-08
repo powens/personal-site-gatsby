@@ -1,4 +1,5 @@
 import React from 'react';
+import { Styled } from 'theme-ui';
 import styled from '@emotion/styled';
 import Layout from '../../components/Layout';
 import Blurb from '../../components/Blurb';
@@ -11,12 +12,6 @@ const Header = styled.h1`
   grid-area: header;
 
   justify-self: center;
-`;
-
-const Divider = styled.hr`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  height: 0.15rem;
 `;
 
 const Large = styled.div`
@@ -40,7 +35,7 @@ const BlogIndex = () => {
       <Centered>
         <Header>Patrick Owens</Header>
         <SocialBlock />
-        <Divider />
+        <Styled.hr />
       </Centered>
       <Large>
         <SkillsRotator />

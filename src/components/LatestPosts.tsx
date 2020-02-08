@@ -1,4 +1,5 @@
 import React from 'react';
+import { Styled } from 'theme-ui';
 import { StaticQuery, graphql } from 'gatsby';
 import { PostProps } from '../utils/types';
 import PostList from './PostList';
@@ -29,7 +30,7 @@ function LatestPosts() {
 
   return (
     <section>
-      <h2>Latest Posts</h2>
+      <Styled.h2>Latest Posts</Styled.h2>
       <StaticQuery
         query={postQuery}
         render={data => {
