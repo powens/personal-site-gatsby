@@ -1,6 +1,4 @@
 /** @jsx jsx **/
-
-import React from 'react';
 import { Styled, jsx } from 'theme-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import SEO from '../../components/SEO';
@@ -12,6 +10,8 @@ import BlogFooter from '../../components/BlogFooter';
 export interface Props {
   data: {
     blogPost: PostProps;
+    previous: PostProps;
+    next: PostProps;
   };
 }
 
@@ -19,6 +19,8 @@ const Post = (props: Props) => {
   const {
     data: {
       blogPost: { body, title, tags, date, excerpt },
+      previous,
+      next,
     },
   } = props;
 
@@ -44,7 +46,7 @@ const Post = (props: Props) => {
         </Styled.div>
         <MDXRenderer>{body}</MDXRenderer>
       </main>
-      <BlogFooter />
+      <BlogFooter previous={previous} next={next} />
     </Layout>
   );
 };

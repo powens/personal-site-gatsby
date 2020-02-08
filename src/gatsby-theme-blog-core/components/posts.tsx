@@ -16,7 +16,7 @@ const Header = styled.h1`
 
 const Large = styled.div`
   margin-top: 1rem;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   fontweight: 800;
   line-height: 80px;
 `;

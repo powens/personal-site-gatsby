@@ -10,24 +10,33 @@ const Card = styled.div`
   grid-gap: 0.4rem;
 
   grid-template-columns: minmax(5rem, 1fr) auto;
-  grid-template-areas: 'title date';
+  grid-template-areas:
+    'title date'
+    'excerpt excerpt';
 `;
 
-const BlogCard = ({ slug, title, date, computerDate }: PostProps) => (
+const BlogCard = ({ slug, title, date, computerDate, excerpt }: PostProps) => (
   <Card>
     <Styled.h3
-      css={css({
+      sx={{
         gridArea: 'title',
-        marginBottom: '0.5rem',
-      })}
+        marginBottom: '0',
+      }}
     >
       <Styled.a as={Link} to={slug}>
         {title}
       </Styled.a>
     </Styled.h3>
-    <time dateTime={computerDate} sx={{ gridArea: 'date', text: 'muted' }}>
+    <time dateTime={computerDate} sx={{ gridArea: 'date', color: 'muted' }}>
       {date}
     </time>
+    {/* <Styled.p
+      sx={{
+        gridArea: 'excerpt',
+      }}
+    >
+      {excerpt}
+    </Styled.p> */}
   </Card>
 );
 

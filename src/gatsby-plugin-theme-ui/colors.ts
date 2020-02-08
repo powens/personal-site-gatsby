@@ -8,6 +8,17 @@ const primary5 = 'hsl(216, 69%, 39%)';
 const primary6 = 'hsl(216, 69%, 29%)';
 const opaqueLightYellow = `rgba(255, 229, 100, 0.2)`;
 
+const grey = [
+  'rgb(238, 238, 238)',
+  'rgb(218, 218, 218)',
+  'rgb(198, 198, 198)',
+  'rgb(179, 179, 179)',
+  'rgb(159, 159, 159)',
+  'rgb(119, 119, 119)',
+  'rgb(99, 99, 99)',
+  'rgb(60, 60, 60)',
+];
+
 export default {
   background: '#fff',
   text: 'hlsa(207, 66%, 20%, 0.8)',

@@ -6,6 +6,7 @@ import { PostQuery } from '../utils/types';
 const List = styled.ul`
   list-style: none;
   margin-left: 0;
+  padding-left: 0;
 `;
 
 const PostItem = styled.li`

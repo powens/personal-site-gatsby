@@ -33,7 +33,7 @@ const SocialBlock = () => (
   <BlockWrapper>
     {socials.map(({ label, url, Icon }) => (
       <Styled.a
-        css={css({ fontSize: '1.5rem' })}
+        css={css({ fontSize: '1.5rem', marginLeft: '1rem' })}
         key={label}
         href={url}
         aria-label={label}
