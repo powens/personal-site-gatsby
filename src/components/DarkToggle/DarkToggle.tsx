@@ -4,7 +4,6 @@ import { ClassNames } from '@emotion/core';
 import { useColorMode } from 'theme-ui';
 import Toggle from 'react-toggle';
 import './DarkToggle.css';
-import { darkColors } from '../../utils/colors';
 
 function DarkToggle(): JSX.Element {
   const [colorMode, setColorMode] = useColorMode();
@@ -23,7 +22,7 @@ function DarkToggle(): JSX.Element {
             margin-bottom: auto;
 
             & svg {
-              color: ${darkColors.bodyColor};
+              color: rgb(238, 238, 238);
               width: 10px;
               height: 10px;
             }

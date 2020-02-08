@@ -5,7 +5,6 @@ import favicon32 from '../assets/favicon-32x32.png';
 import favicon16 from '../assets/favicon-16x16.png';
 import appleTouchIcon from '../assets/apple-touch-icon.png';
 import safariPinnedTab from '../assets/safari-pinned-tab.svg';
-import { defaultColors } from '../utils/colors';
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -45,15 +44,11 @@ function SEO({ title, description, keywords }: Props) {
 
       {/* favicon stuff */}
       <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
-      <link
-        rel="mask-icon"
-        href={safariPinnedTab}
-        color={defaultColors.primary}
-      />
+      <link rel="mask-icon" href={safariPinnedTab} color="hsl(216, 69%, 49%)" />
       <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
       <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-      <meta name="theme-color" content={defaultColors.primary} />
-      <meta name="msapplication-TileColor" content={defaultColors.primary} />
+      <meta name="theme-color" content="hsl(216, 69%, 49%)" />
+      <meta name="msapplication-TileColor" content="hsl(216, 69%, 49%)" />
 
       {/* RSS Feed */}
       <link rel="alternative" type="application/rss+xml" href="/rss.xml" />
