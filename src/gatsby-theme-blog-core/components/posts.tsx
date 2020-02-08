@@ -3,7 +3,7 @@ import { Styled } from 'theme-ui';
 import styled from '@emotion/styled';
 import Layout from '../../components/Layout';
 import Blurb from '../../components/Blurb';
-import LatestPosts from '../../components/LatestPosts';
+import Posts from '../../components/Posts';
 import SkillsRotator from '../../components/SkillsRotator';
 import SocialBlock from '../../components/SocialBlock';
 
@@ -29,7 +29,9 @@ const Centered = styled.div`
     'social';
 `;
 
-const BlogIndex = () => {
+const BlogIndex = ({ location, data }) => {
+  const { allBlogPost } = data;
+
   return (
     <Layout header={false}>
       <Centered>
@@ -41,7 +43,7 @@ const BlogIndex = () => {
         <SkillsRotator />
       </Large>
       <Blurb />
-      <LatestPosts />
+      <Posts posts={allBlogPost.edges} />
     </Layout>
   );
 };
