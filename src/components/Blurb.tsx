@@ -9,7 +9,7 @@ const Blurb = () => (
       marginTop: '1rem',
     }}
   >
-    <Styled.div>
+    <Styled.p>
       I{"'"}m a senior full-stack software engineer for a security company. I am
       a UI architecture specialist, mentor, webpack config wrangler, infosec
       enthusiast, HAM radio operator - VA7ORO, and{' '}
@@ -17,8 +17,8 @@ const Blurb = () => (
         occasional competitive game player
       </Styled.a>
       .
-    </Styled.div>
-    <Styled.div>
+    </Styled.p>
+    <Styled.p>
       I am a contributor to random open source projects, a volunteer technical
       mentor for{' '}
       <Styled.a href="https://www.canadalearningcode.ca/">
@@ -26,7 +26,7 @@ const Blurb = () => (
       </Styled.a>
       , and a volunteer radio operator for{' '}
       <Styled.a href="https://vectorradio.ca/">VECTOR</Styled.a>.
-    </Styled.div>
+    </Styled.p>
   </section>
 );
 
