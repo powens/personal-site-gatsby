@@ -27,7 +27,11 @@ const Post = (props: Props) => {
       <SEO title={title} description={excerpt} />
       <main>
         <Styled.h1>{title}</Styled.h1>
-        <Styled.p>
+        <Styled.div
+          sx={{
+            marginBottom: '2rem',
+          }}
+        >
           <span
             sx={{
               marginRight: '2rem',
@@ -37,7 +41,7 @@ const Post = (props: Props) => {
             <time dateTime={date}>{date}</time>
           </span>
           <TagList tags={tags} />
-        </Styled.p>
+        </Styled.div>
         <MDXRenderer>{body}</MDXRenderer>
       </main>
       <BlogFooter />

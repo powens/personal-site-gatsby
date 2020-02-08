@@ -42,7 +42,7 @@ function Header() {
         gridArea: 'header',
 
         borderBottom: minified ? 'border' : 'backgrond',
-        height: '3rem',
+        height: '4rem',
         transition: 'height 0.2s ease-in, border 0.2s ease-in',
 
         // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
@@ -56,7 +56,9 @@ function Header() {
         as={Link}
         sx={{
           color: 'text',
-          fontSize: '2rem',
+          fontSize: '2.8rem',
+          fontWeight: 'bold',
+          font: 'heading',
           textDecoration: 'none',
         }}
       >

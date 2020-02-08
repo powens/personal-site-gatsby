@@ -49,8 +49,11 @@
     "react-typography": "^0.16.13",
     "remark-slug": "^5.1.2",
     "theme-ui": "^0.3.1",
+    "typeface-quattrocento-sans": "^0.0.72",
+    "typeface-work-sans": "^0.0.72",
     "typography": "^0.16.17",
-    "typography-breakpoint-constants": "^0.16.18"
+    "typography-breakpoint-constants": "^0.16.18",
+    "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.149",
