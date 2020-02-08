@@ -10,7 +10,7 @@ interface Props {
 function Posts({ posts }: Props) {
   return (
     <section>
-      <Styled.h2>Latest Posts</Styled.h2>
+      <Styled.h2>Posts</Styled.h2>
       <PostList posts={posts} />
     </section>
   );
