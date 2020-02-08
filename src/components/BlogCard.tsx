@@ -1,5 +1,5 @@
 /** @jsx jsx **/
-import { Styled, css, jsx } from 'theme-ui';
+import { Styled, jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { PostProps } from '../utils/types';

@@ -1,15 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Styled, Flex, css } from 'theme-ui';
-import { FaArrowLeft } from 'react-icons/fa';
-import styled from '@emotion/styled';
 import FooterBlurb from './FooterBlurb';
 import { PostProps } from '../utils/types';
-
-const Footer = styled.footer`
-  display: flex:
-  flex-direction: row;
-`;
 
 interface Props {
   previous: PostProps;
@@ -18,7 +11,12 @@ interface Props {
 
 export default function BlogFooter({ next, previous }: Props) {
   return (
-    <Footer>
+    <footer
+      css={css({
+        display: 'flex',
+        flexDirection: 'column',
+      })}
+    >
       {(previous || next) && (
         <Flex
           as="ul"
@@ -46,6 +44,6 @@ export default function BlogFooter({ next, previous }: Props) {
         </Flex>
       )}
       <FooterBlurb />
-    </Footer>
+    </footer>
   );
 }

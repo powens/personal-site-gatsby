@@ -178,7 +178,7 @@ The question now becomes, what should `filter` and `lfilter` be set to? We can a
 - Destination MAC address: the attacker
 
 [Berkley Packet Filter](http://biot.com/capstats/bpf.html) strings are slightly different than Wireshark filter strings. After referencing the documentation, we can convert most of the above bullet points into a string:
-` filter = f"udp port 53 and ether dst {attacker_mac} and ether src {target_mac}``" `
+`filter = f"udp port 53 and ether dst {attacker_mac} and ether src {target_mac}"`
 
 Next up is the functional filter. For this, we just want to check to see if the packet has the `DNSQR`, or DNS Query packet layer in it. We wouldn’t want to response to a response, after all!
 `lfilter = lambda p: p.haslayer(DNSQR)`

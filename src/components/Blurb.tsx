@@ -1,15 +1,14 @@
-import React from 'react';
-import { Styled } from 'theme-ui';
-import styled from '@emotion/styled';
-
-const BlurbWrapper = styled.section`
-  grid-area: blurb;
-  margin-bottom: 4rem;
-  margin-top: 1rem;
-`;
+/** @jsx jsx */
+import { Styled, jsx } from 'theme-ui';
 
 const Blurb = () => (
-  <BlurbWrapper>
+  <section
+    sx={{
+      gridArea: 'blurb',
+      marginBottom: '4rem',
+      marginTop: '1rem',
+    }}
+  >
     <Styled.div>
       I{"'"}m a senior full-stack software engineer for a security company. I am
       a UI architecture specialist, mentor, webpack config wrangler, infosec
@@ -28,7 +27,7 @@ const Blurb = () => (
       , and a volunteer radio operator for{' '}
       <Styled.a href="https://vectorradio.ca/">VECTOR</Styled.a>.
     </Styled.div>
-  </BlurbWrapper>
+  </section>
 );
 
 export default Blurb;

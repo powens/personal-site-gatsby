@@ -61,8 +61,8 @@ One thing you might notice when examining ARP packets, is that there is no form 
 
 ### scapy
 
-[scapy](https://scapy.net) is a python package for building and manipulating packets. It provides a fairly nice abstraction over raw packet. Rather than having to memorize a raw packet raw byte structure, you can simply state `foo.ip_src =` ` '``123.0.0.1``' `. The full docs of scapy are available at https://scapy.net.
-[](https://scapy.net)
+[scapy](https://scapy.net) is a python package for building and manipulating packets. It provides a fairly nice abstraction over raw packet. Rather than having to memorize a raw packet raw byte structure, you can simply state `foo.ip_src = '123.0.0.1'`.
+The full docs of scapy are available at [https://scapy.net](https://scapy.net).
 
 ## Our first scapy packet
 
@@ -162,7 +162,7 @@ while True:
 Now you should see something like this when run:
 
 ```bash
-~/s/b/a/src  sudo python3 arp_intro.py
+> sudo python3 arp_intro.py
 ..
 Sent 2 packets.
 ..

@@ -57,7 +57,7 @@ export default {
       primary: primary3,
       secondary: 'rgb(159, 159, 159)',
       muted: 'rgb(198, 198, 198)',
-      highlight: primary4,
+      highlight: primary6,
 
       tagBg: primary5,
       tagBgHover: primary4,
