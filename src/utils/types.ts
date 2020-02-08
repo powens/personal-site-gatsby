@@ -4,7 +4,7 @@ export interface PostProps {
   date: string;
   computerDate: string;
   excerpt: string;
-  tags?: Array<string>;
+  tags: Array<string>;
   body: string;
 }
 

@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 const path = require('path');
 const _ = require('lodash');
-const { createFilePath } = require('gatsby-source-filesystem');
 
 const allPagesQuery = `
 {

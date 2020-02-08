@@ -1,11 +1,8 @@
 /** @jsx jsx **/
-import React from 'react';
 import { Styled, css, jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import PostIcon from './PostIcon';
 import { Link } from 'gatsby';
 import { PostProps } from '../utils/types';
-import EmphasisDescription from './EmphasisDescription';
 
 const Card = styled.div`
   display: grid;
@@ -16,7 +13,7 @@ const Card = styled.div`
   grid-template-areas: 'title date';
 `;
 
-const BlogCard = ({ slug, title, date, computerDate, excerpt }: PostProps) => (
+const BlogCard = ({ slug, title, date, computerDate }: PostProps) => (
   <Card>
     <Styled.h3
       css={css({

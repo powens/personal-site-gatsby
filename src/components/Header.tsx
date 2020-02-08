@@ -1,6 +1,6 @@
 /** @jsx jsx **/
-import React, { useState, useEffect, useCallback } from 'react';
-import { Styled, jsx, css } from 'theme-ui';
+import { useState, useEffect, useCallback } from 'react';
+import { Styled, jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import DarkToggle from './DarkToggle';
 
