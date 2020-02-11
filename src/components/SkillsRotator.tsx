@@ -7,12 +7,12 @@ import { useTransition, animated } from 'react-spring';
 const itemWaitMs = 5000;
 
 const tags = [
-  'Full-stack developer',
-  'Technical mentor',
+  'Full-stack fanatic',
+  'Technical tutor',
   'Infosec enthusiast',
-  'HAM radio operator',
-  'UI architecture specialist',
-  'React developer',
+  'HAM radio resider',
+  'Web architecture ace',
+  'React rocker',
   'Webpack wrangler',
   'Pythonista',
   'Dog devotee',

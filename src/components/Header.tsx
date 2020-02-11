@@ -1,40 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+/** @jsx jsx **/
+import { useState, useEffect, useCallback } from 'react';
+import { Styled, jsx } from 'theme-ui';
 import { Link } from 'gatsby';
-import styled from '@emotion/styled';
 import DarkToggle from './DarkToggle';
 
 interface StyleProps {
   atTop: boolean;
 }
-
-const HeaderWrapper = styled.header<StyleProps>`
-  position: sticky;
-  top: 0;
-  padding: 0.4rem 0;
-  background-color: var(--background);
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  grid-area: header;
-
-  border-bottom: ${({ atTop }: StyleProps) =>
-    atTop ? '1px solid var(--border)' : '1px solid var(--background)'};
-  height: ${({ atTop }: StyleProps) => (atTop ? '3rem' : '3rem')};
-  transition: height 0.2s ease-in, border 0.2s ease-in;
-
-  // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
-  z-index: 1000;
-
-  // box-shadow: 0 4px 2px -2px var(--border);
-`;
-
-const Title = styled.span`
-  font-size: 1.8rem;
-  color: var(--bodyColor);
-`;
 
 function Header() {
   const [minified, setMinified] = useState(false);
@@ -55,12 +27,45 @@ function Header() {
   }, [scrollEvent]);
 
   return (
-    <HeaderWrapper atTop={minified}>
-      <Link to="/">
-        <Title>Patrick Owens</Title>
-      </Link>
+    <header
+      sx={{
+        position: 'sticky',
+        top: 0,
+        padding: '0.4rem 0',
+        backgroundColor: 'background',
+
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+
+        gridArea: 'header',
+
+        borderBottom: minified ? 'border' : 'backgrond',
+        height: '4rem',
+        transition: 'height 0.2s ease-in, border 0.2s ease-in',
+
+        // This is here for now as there is some z-index on codeblocks causing it to render ontop of the header
+        zIndex: '1000',
+
+        // box-shadow: 0 4px 2px -2px var(--theme-ui-colors-border);
+      }}
+    >
+      <Styled.a
+        to="/"
+        as={Link}
+        sx={{
+          color: 'text',
+          fontSize: '2.8rem',
+          fontWeight: 'bold',
+          font: 'heading',
+          textDecoration: 'none',
+        }}
+      >
+        Patrick Owens
+      </Styled.a>
       <DarkToggle />
-    </HeaderWrapper>
+    </header>
   );
 }
 

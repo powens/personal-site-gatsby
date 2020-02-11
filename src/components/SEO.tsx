@@ -1,11 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import favicon32 from '../assets/favicon-32x32.png';
 import favicon16 from '../assets/favicon-16x16.png';
 import appleTouchIcon from '../assets/apple-touch-icon.png';
 import safariPinnedTab from '../assets/safari-pinned-tab.svg';
-import { defaultColors } from '../utils/colors';
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -13,62 +12,59 @@ const detailsQuery = graphql`
       siteMetadata {
         title
         description
-        twitter
       }
     }
   }
 `;
 
-interface SEOQuery {
+interface Props {
   title?: string;
   description?: string;
+  keywords?: Array<string>;
 }
 
-const SEO = ({ title, description }: SEOQuery) => (
-  <StaticQuery
-    query={detailsQuery}
-    render={data => (
-      <Helmet
-        htmlAttributes={{ lang: 'en' }}
-        title={title}
-        defaultTitle={data.site.siteMetadata.title}
-        titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-        lang="en"
-      >
-        <meta charSet="utf-8" />
-        <meta
-          name="description"
-          content={description || data.site.siteMetadata.description}
-        />
+function SEO({ title, description, keywords }: Props) {
+  const { site } = useStaticQuery(detailsQuery);
 
-        {/* favicon stuff */}
-        <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
-        <link
-          rel="mask-icon"
-          href={safariPinnedTab}
-          color={defaultColors.primary}
-        />
-        <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
-        <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-        <meta name="theme-color" content={defaultColors.primary} />
-        <meta name="msapplication-TileColor" content={defaultColors.primary} />
+  return (
+    <Helmet
+      htmlAttributes={{ lang: 'en' }}
+      title={title}
+      defaultTitle={site.siteMetadata.title}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
+    >
+      <meta charSet="utf-8" />
+      <meta
+        name="description"
+        content={description || site.siteMetadata.description}
+      />
 
-        {/* RSS Feed */}
-        <link rel="alternative" type="application/rss+xml" href="/rss.xml" />
+      {/* Keywords */}
+      {keywords && <meta name="keywords" content={keywords.join(',')} />}
 
-        {/* OpenGraph tags */}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
+      {/* favicon stuff */}
+      <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+      <link rel="mask-icon" href={safariPinnedTab} color="hsl(216, 69%, 49%)" />
+      <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+      <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+      <meta name="theme-color" content="hsl(216, 69%, 49%)" />
+      <meta name="msapplication-TileColor" content="hsl(216, 69%, 49%)" />
 
-        {/* /!* Twitter Card tags *!/ */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content={data.site.siteMetadata.twitter} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-      </Helmet>
-    )}
-  />
-);
+      {/* RSS Feed */}
+      <link rel="alternative" type="application/rss+xml" href="/rss.xml" />
+
+      {/* OpenGraph tags */}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
+
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content="@padraigcodes" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+    </Helmet>
+  );
+}
 
 export default SEO;

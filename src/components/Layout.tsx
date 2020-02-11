@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { Styled } from 'theme-ui';
 import mq from '../utils/responsive';
-import GlobalStyles from './GlobalStyles';
 import Header from './Header';
 import SEO from './SEO';
 
@@ -17,7 +17,7 @@ const SiteWrapper = styled.div`
     'header'
     'content';
 
-  min-width: 0;
+  min-width: 420px;
 
   margin-left: 2rem;
   margin-right: 2rem;
@@ -49,12 +49,13 @@ export interface Props {
 
 function Layout({ header = true, children }: Props) {
   return (
-    <SiteWrapper>
-      <SEO />
-      <GlobalStyles />
-      {header ? <Header /> : null}
-      <Content>{children}</Content>
-    </SiteWrapper>
+    <Styled.root>
+      <SiteWrapper>
+        <SEO />
+        {header ? <Header /> : null}
+        <Content>{children}</Content>
+      </SiteWrapper>
+    </Styled.root>
   );
 }
 

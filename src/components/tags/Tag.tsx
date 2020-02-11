@@ -1,18 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 import { Link } from 'gatsby';
-import styled from '@emotion/styled';
-
-const TagWrapper = styled.span`
-  background: var(--tagBg);
-  color: var(--tagFg);
-  border-radius: 0.3rem;
-  padding: 0.4rem;
-
-  transition: background 0.1s ease-in;
-  &:hover {
-    background: var(--tagBgHover);
-  }
-`;
+import { Styled, jsx } from 'theme-ui';
 
 export interface Props {
   tag: string;
@@ -20,8 +8,23 @@ export interface Props {
 
 export default function Tag({ tag }: Props) {
   return (
-    <Link to={`/tags/${tag}/`}>
-      <TagWrapper>{tag}</TagWrapper>
-    </Link>
+    <Styled.a
+      to={`/tags/${tag}/`}
+      as={Link}
+      sx={{
+        bg: 'tagBg',
+        color: 'tagFg',
+        borderRadius: '0.3rem',
+        padding: '0.4rem',
+
+        transition: 'background 0.1s ease-in',
+
+        '&:hover': {
+          bg: 'tagBgHover',
+        },
+      }}
+    >
+      {tag}
+    </Styled.a>
   );
 }

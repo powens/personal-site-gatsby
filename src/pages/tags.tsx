@@ -10,18 +10,18 @@ interface Tag {
 }
 export interface Props {
   data: {
-    allMarkdownRemark: {
+    allMdxBlogPost: {
       group: Array<Tag>;
     };
   };
 }
 
 function TagsPage(props: Props) {
-  const group = props.data.allMarkdownRemark.group;
-  // const numberCount = group.reduce(
-  //   (accum, { totalCount }) => accum + totalCount,
-  //   0
-  // );
+  const group = props.data.allMdxBlogPost.group;
+  const numberCount = group.reduce(
+    (accum, { totalCount }) => accum + totalCount,
+    0
+  );
 
   return (
     <Layout>
@@ -46,8 +46,8 @@ export default TagsPage;
 
 export const pageQuery = graphql`
   query TagsQuery {
-    allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
+    allMdxBlogPost(limit: 2000) {
+      group(field: tags) {
         fieldValue
         totalCount
       }

@@ -1,16 +1,13 @@
 export interface PostProps {
-  path: string;
+  slug: string;
   title: string;
   date: string;
   computerDate: string;
   excerpt: string;
-  tags?: Array<string>;
-  timeToRead: number;
+  tags: Array<string>;
+  body: string;
 }
 
 export interface PostQuery {
-  node: {
-    frontmatter: PostProps;
-    timeToRead: number;
-  };
+  node: PostProps;
 }

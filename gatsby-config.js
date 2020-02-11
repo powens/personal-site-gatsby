@@ -2,50 +2,30 @@ module.exports = {
   siteMetadata: {
     title: 'Patrick Owens',
     author: 'Patrick Owens',
-    twitter: '@padraigcodes',
+    social: [
+      { name: 'Twitter', url: 'https://twitter.com/padraigcodes' },
+      { name: 'GitHub', url: 'https://github.com/powens' },
+    ],
     description:
       'I’m a full stack developer, infosec enthusiast, HAM radio operator - VA7ORO, and occasional competitive game player.',
     siteUrl: 'https://padraig.io',
   },
   plugins: [
     {
+      resolve: 'gatsby-theme-blog-core',
+      options: {
+        contentPath: 'src/posts',
+        assetPath: 'src/assets',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-theme-ui',
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        excerpt_separator: '<!-- end -->',
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 650,
-              backgroundColor: 'black',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-embed-video',
-            options: {
-              width: 800,
-              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-              height: 400, // Optional: Overrides optional.ratio
-              related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
-            },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-        ],
       },
     },
     'gatsby-transformer-sharp',
@@ -61,7 +41,7 @@ module.exports = {
       options: {
         name: 'Patrick Owens',
         // eslint-disable-next-line @typescript-eslint/camelcase
-        short_name: 'Padraig',
+        short_name: 'padraig',
         // eslint-disable-next-line @typescript-eslint/camelcase
         start_url: '/',
         // eslint-disable-next-line @typescript-eslint/camelcase
@@ -74,19 +54,9 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography.ts',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-emotion',
-      options: {},
-    },
+    'gatsby-plugin-emotion',
     'gatsby-plugin-netlify',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -104,32 +74,29 @@ module.exports = {
       `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.frontmatter.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.path,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.path,
+            serialize: ({ query: { site, allMdxBlogPost } }) => {
+              return allMdxBlogPost.edges.map(edge => {
+                return Object.assign({}, edge.node, {
+                  description: edge.node.excerpt,
+                  date: edge.node.date,
+                  url: site.siteMetadata.siteUrl + edge.node.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.slug,
                   // eslint-disable-next-line @typescript-eslint/camelcase
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  // custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });
             },
             query: `
           {
-            allMarkdownRemark(
-              sort: { order: DESC, fields: [frontmatter___date] },
+            allMdxBlogPost(
+              sort: { order: DESC, fields: [date] },
             ) {
               edges {
                 node {
-                  html
-                  fields { path }
-                  frontmatter {
-                    title
-                    date
-                    excerpt
-                  }
+                  slug
+                  title
+                  date
+                  excerpt
                 }
               }
             }

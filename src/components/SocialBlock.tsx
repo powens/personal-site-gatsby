@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Styled, css } from 'theme-ui';
 import {
-  FaGithub,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-  FaRss,
-} from 'react-icons/fa';
+  FiGithub as GithubIcon,
+  FiTwitter as TwitterIcon,
+  FiInstagram as InstagramIcon,
+  FiLinkedin as LinkedinIcon,
+  FiRss as RssIcon,
+} from 'react-icons/fi';
 
 const BlockWrapper = styled.div`
   grid-area: social;
@@ -19,25 +20,26 @@ const BlockWrapper = styled.div`
   justify-content: space-around;
 `;
 
-const SocialLink = styled.a`
-  font-size: 1.5rem;
-`;
-
 // prettier-ignore
 const socials = [
-  { url: "https://github.com/powens", label: "Github", Icon: FaGithub },
-  { url: "https://twitter.com/padraigcodes", label: "Twitter", Icon: FaTwitter },
-  { url: "https://instagram.com/padraig.owens", label: "Instagram", Icon: FaInstagram },
-  { url: "https://www.linkedin.com/in/pmowens/", label: "LinkedIn", Icon: FaLinkedin },
-  { url: "/rss.xml", label: "RSS Feed", Icon: FaRss }
+  { url: "https://github.com/powens", label: "Github", Icon: GithubIcon },
+  { url: "https://twitter.com/padraigcodes", label: "Twitter", Icon: TwitterIcon },
+  { url: "https://instagram.com/padraig.owens", label: "Instagram", Icon: InstagramIcon },
+  { url: "https://www.linkedin.com/in/pmowens/", label: "LinkedIn", Icon: LinkedinIcon },
+  { url: "/rss.xml", label: "RSS Feed", Icon: RssIcon }
 ]
 
 const SocialBlock = () => (
   <BlockWrapper>
     {socials.map(({ label, url, Icon }) => (
-      <SocialLink key={label} href={url} aria-label={label}>
+      <Styled.a
+        css={css({ fontSize: '1.5rem', marginLeft: '1rem' })}
+        key={label}
+        href={url}
+        aria-label={label}
+      >
         <Icon />
-      </SocialLink>
+      </Styled.a>
     ))}
   </BlockWrapper>
 );
