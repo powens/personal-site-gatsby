@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import favicon32 from '../assets/favicon-32x32.png';
 import favicon16 from '../assets/favicon-16x16.png';
