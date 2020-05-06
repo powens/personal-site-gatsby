@@ -3,8 +3,9 @@ title: Automate refactoring with jscodeshift
 date: '2018-07-18T20:49:03.284Z'
 slug: '/automate-refactoring-jscodeshift/'
 excerpt: A crash course in jscodeshift, a tool that lets you write code to automate your Javascript refactoring work
-tags: ['javascript', 'jscodeshift', 'refactoring', 'ast']
-keywords: ['javascript', 'jscodeshift', 'refactoring']
+tags: ['javascript', 'jscodeshift', 'ast']
+keywords:
+  ['javascript', 'jscodeshift', 'refactoring', 'ast', 'abstract syntax tree']
 ---
 
 ![ESLint output with lots of errors](./jscodeshift.png)
@@ -37,18 +38,15 @@ Some useful tools for examining ASTs are:
 
 Here is a look at a basic jscodemod transform that removes all `debugger` statements:
 
-```javascript
+```js
 /**
  * remove-debugger.js
  * Removes all debugger statements
  */
-module.exports = function(file, api) {
+module.exports = (file, api) => {
   const j = api.jscodeshift;
 
-  return j(file.source)
-    .find(j.DebuggerStatement)
-    .remove()
-    .toSource();
+  return j(file.source).find(j.DebuggerStatement).remove().toSource();
 };
 ```
 
@@ -104,7 +102,7 @@ return j(file.source)
       value: 'react-addons-test-utils',
     },
   })
-  .forEach(path => {
+  .forEach((path) => {
     path.value.source.value = 'react-dom/test-utils';
   })
   .toSource();
@@ -118,8 +116,8 @@ For more advanced filtering, the `.filter()` function can be chained after the `
 // Using .filter()
 return j(file.source)
   .find(j.ImportDeclaration)
-  .filter(path => path.value.source.value === 'react-addons-test-utils')
-  .forEach(path => {
+  .filter((path) => path.value.source.value === 'react-addons-test-utils')
+  .forEach((path) => {
     path.value.source.value = 'react-dom/test-utils';
   })
   .toSource();
@@ -145,9 +143,9 @@ Luckily jscodeshift has helper methods to build new nodes. The documentation for
  * Converts all `static get funcName()`
  * to `static funcName = {}`
  */
-const isStaticGet = path => path.node.static && path.node.kind === 'get';
+const isStaticGet = (path) => path.node.static && path.node.kind === 'get';
 
-const staticClassProperty = path => {
+const staticClassProperty = (path) => {
   return j.classProperty(
     j.identifier(path.node.key.name),
     path.node.value.body.body[0].argument,
@@ -200,7 +198,7 @@ Some observations:
   - A codemod already exists in the [react-codemod repo](https://github.com/reactjs/react-codemod/blob/master/transforms/sort-comp.js). It is slightly out-of-date, so I hacked in a few fixes.
   - `static get propTypes()` was used, rather than the recommended `static propTypes = {}`. This is causing some of the `react/sort-comp` errors. This could be fixed with a regex, but I created a codemod for it, because why not?
 - `react/forbid-prop-types`
-  - Most of these are caused by defining `intl: PropTypes.object`. A codemod can be used to add `import { intlShape } from` ` '``react-intl``'``; ` and swapping the `intl` definition to `intlShape`.
+  - Most of these are caused by defining `intl: PropTypes.object`. A codemod can be used to add `import { intlShape } from 'react-intl';` and swapping the `intl` definition to `intlShape`.
 
 First things first, converting all the `static get propTypes()`, etc. into their `static propTypes =` equivalents. As all files still violate `react/sort-comp`, the number of errors are still be the same.
 

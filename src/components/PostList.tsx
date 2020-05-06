@@ -28,6 +28,7 @@ export default function PostList({ posts }: Props) {
             date={node.date}
             computerDate={node.computerDate}
             excerpt={node.excerpt}
+            tags={node.tags}
           />
         </PostItem>
       ))}

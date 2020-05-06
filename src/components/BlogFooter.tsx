@@ -15,6 +15,7 @@ export default function BlogFooter({ next, previous }: Props) {
       css={css({
         display: 'flex',
         flexDirection: 'column',
+        marginTop: '5rem',
       })}
     >
       {(previous || next) && (
