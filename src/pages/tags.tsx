@@ -1,6 +1,7 @@
 import React from 'react';
 import kebabCase from 'lodash/kebabCase';
 import { graphql, Link } from 'gatsby';
+import styled from '@emotion/styled';
 import Layout from '../components/Layout';
 import Tag from '../components/tags/Tag';
 
@@ -16,6 +17,14 @@ export interface Props {
   };
 }
 
+const TagList = styled.ul`
+  list-style-type: none;
+`;
+
+const TagListItem = styled.li`
+  padding: 0.5rem;
+`;
+
 function TagsPage(props: Props) {
   const group = props.data.allMdxBlogPost.group;
   const numberCount = group.reduce(
@@ -27,16 +36,14 @@ function TagsPage(props: Props) {
     <Layout>
       <div>
         <h1>Tags</h1>
-        <ul>
-          {group.map(tag => (
-            <li key={tag.fieldValue}>
-              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                <Tag tag={tag.fieldValue} />
-                {/* ({tag.totalCount}) */}
-              </Link>
-            </li>
+        <TagList>
+          {group.map((tag) => (
+            <TagListItem key={tag.fieldValue}>
+              <Tag tag={tag.fieldValue} />
+              {/* ({tag.totalCount}) */}
+            </TagListItem>
           ))}
-        </ul>
+        </TagList>
       </div>
     </Layout>
   );
