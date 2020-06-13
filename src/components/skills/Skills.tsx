@@ -16,7 +16,7 @@ export default function Skills() {
   return (
     <section>
       <h2>Skills</h2>
-      {skills.map(d => (
+      {skills.map((d) => (
         <SkillCategory key={d.name} {...d} />
       ))}
     </section>

@@ -23,7 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const tagTemplate = path.resolve('src/templates/tags.tsx');
     resolve(
-      graphql(allPagesQuery).then(result => {
+      graphql(allPagesQuery).then((result) => {
         if (result.errors) {
           console.log(result.errors);
           reject(result.errors);
@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create the tag pages
         let tags = [];
-        _.each(posts, edge => {
+        _.each(posts, (edge) => {
           if (_.get(edge, 'node.tags')) {
             tags = tags.concat(edge.node.tags);
           }
@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
         tags = _.uniq(tags);
 
         // Make tag pages
-        tags.forEach(tag => {
+        tags.forEach((tag) => {
           createPage({
             path: `/tags/${_.kebabCase(tag)}/`,
             component: tagTemplate,
