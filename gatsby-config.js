@@ -31,12 +31,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-116902845-1',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Patrick Owens',
@@ -75,7 +69,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdxBlogPost } }) => {
-              return allMdxBlogPost.edges.map(edge => {
+              return allMdxBlogPost.edges.map((edge) => {
                 return Object.assign({}, edge.node, {
                   description: edge.node.excerpt,
                   date: edge.node.date,
