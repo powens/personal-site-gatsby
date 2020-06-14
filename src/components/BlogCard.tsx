@@ -3,19 +3,28 @@ import { Styled, jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { PostProps } from '../utils/types';
+import TagList from './tags/TagList';
 
 const Card = styled.div`
   display: grid;
   margin-bottom: 2rem;
-  grid-gap: 0.4rem;
+  grid-gap: 0.8rem;
 
   grid-template-columns: minmax(5rem, 1fr) auto;
   grid-template-areas:
-    'title date'
+    'title title'
+    'tags date'
     'excerpt excerpt';
 `;
 
-const BlogCard = ({ slug, title, date, computerDate, excerpt }: PostProps) => (
+const BlogCard = ({
+  slug,
+  title,
+  date,
+  computerDate,
+  excerpt,
+  tags,
+}: PostProps) => (
   <Card>
     <Styled.h3
       sx={{
@@ -30,13 +39,16 @@ const BlogCard = ({ slug, title, date, computerDate, excerpt }: PostProps) => (
     <time dateTime={computerDate} sx={{ gridArea: 'date', color: 'muted' }}>
       {date}
     </time>
-    {/* <Styled.p
+    <div sx={{ gridArea: 'tags' }}>
+      <TagList tags={tags} />
+    </div>
+    <Styled.p
       sx={{
         gridArea: 'excerpt',
       }}
     >
       {excerpt}
-    </Styled.p> */}
+    </Styled.p>
   </Card>
 );
 

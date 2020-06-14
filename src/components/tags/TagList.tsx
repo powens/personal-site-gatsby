@@ -6,6 +6,7 @@ const Tags = styled.ul`
   display: inline-block;
   list-style-type: none;
   margin-left: 0;
+  padding-left: 0;
 
   li {
     display: inline;
@@ -19,7 +20,7 @@ export interface Props {
 
 const TagList = ({ tags }: Props) => (
   <Tags>
-    {tags.map(tag => (
+    {tags.map((tag) => (
       <li key={tag}>
         <Tag tag={tag} />
       </li>

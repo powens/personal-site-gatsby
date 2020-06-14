@@ -10,7 +10,7 @@ export default function SkillCategory({ name, skills }: Props) {
     <section>
       <h3>{name}</h3>
       <ul>
-        {skills.map(d => (
+        {skills.map((d) => (
           <li key={d}>{d}</li>
         ))}
       </ul>

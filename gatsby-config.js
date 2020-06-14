@@ -34,13 +34,9 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Patrick Owens',
-        // eslint-disable-next-line @typescript-eslint/camelcase
         short_name: 'padraig',
-        // eslint-disable-next-line @typescript-eslint/camelcase
         start_url: '/',
-        // eslint-disable-next-line @typescript-eslint/camelcase
         background_color: '#e8e8e8',
-        // eslint-disable-next-line @typescript-eslint/camelcase
         theme_color: '#1f56a7',
         display: 'minimal-ui',
         icon: 'src/assets/favicon.svg', // This path is relative to the root of the site.
@@ -75,7 +71,6 @@ module.exports = {
                   date: edge.node.date,
                   url: site.siteMetadata.siteUrl + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.slug,
-                  // eslint-disable-next-line @typescript-eslint/camelcase
                   // custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });
