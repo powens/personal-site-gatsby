@@ -51,6 +51,7 @@ export const pageQuery = graphql`
           date(formatString: "DD MMMM, YYYY")
           computerDate: date(formatString: "YYYY-MM-DD")
           excerpt
+          tags
         }
       }
     }
