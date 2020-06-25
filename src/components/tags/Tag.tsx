@@ -6,7 +6,7 @@ export interface Props {
   tag: string;
 }
 
-export default function Tag({ tag }: Props) {
+export default function Tag({ tag }: Props): JSX.Element {
   return (
     <Styled.a
       to={`/tags/${tag}/`}
