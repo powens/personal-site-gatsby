@@ -1,31 +1,38 @@
 import React, { useMemo } from 'react';
 import { Styled } from 'theme-ui';
-import TotalProgress from '../components/40k-log/TotalProgress';
+import Layout from '../components/Layout';
+import ProjectProgress from '../components/40k-log/ProjectProgress';
 import { ProgressStep } from '../components/40k-log/types';
 
 const allSteps = [
-  '13/13 Fire warriors',
-  '0/2 Fire warrior leaders',
-  '0/4 Strip and repaint fire warriors',
-  '8/21 Drone tops',
-  '8/21 drone bottoms (special, shield and markerlight bottoms)',
-  '0/7 Pathfinders',
-  '0/3 Pathfinders magnetized (rail rifle + carbine)',
-  '0/6 Crisis suits (suit + drill barrels magnetized weapons)',
-  '0/1 Broadside (suit + magnetized weapons)',
-  '0/1 Ethereal',
-  '0/1 Crisis commander (finish magnets, paint, and assembled)',
-  '0/1 Cadre Fireblade (assemble and paint)',
-  '0/1 Riptide (assemble and paint)',
-  '0/2 Turrets',
-  '0/??? Extra flamers, shield gens, ion rifles',
+  '13/13 Fire Warriors [done]',
+  '0/2 Fire Warrior leaders [assembled]',
+  '0/3 Fire Warriors [assembled]',
+  '8/21 Drone tops [paint]',
+  '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
+  '0/7 Pathfinders [paint]',
+  '0/3 Pathfinders magnetized (rail rifle) [paint]',
+  '0/6 Crisis suits [assembled]',
+  '0/1 Broadside (suit + rail rifle + missile pods) [assembled]',
+  '0/1 Ethereal [assembled]',
+  '0/1 Crisis commander (finish magnets, subassembly) [assembled]',
+  '0/1 Cadre Fireblade [start]',
+  '0/1 Riptide (magnetize weapons) [start]',
+  '0/1 Dahyak Grekh [start]',
+  '0/2 Turrets [assembled]',
+  '0/??? Extra magnetized weapons (3 carbines, crisis suit weapons, gun drone bottoms) [start]',
 ];
 
-function parseStep(stepStr: string): ProgressStep {
-  const regexp = /^(\d+)\/([\d?]+) ([\w ,]+)(\([\w ,+]+\))?/g;
+function parseStep(stepStr: string): ProgressStep | null {
+  const regexp = /^(\d+)\/([\d?]+) ([\w ,/]+)(\([\w ,+]+\))? \[(\w+)\]/g;
   const match = regexp.exec(stepStr);
 
-  if (!match || match.length < 5) {
+  if (!match) {
+    console.error('Match is unexpectedly null');
+    return null;
+  }
+
+  if (match.length < 5) {
     console.error(`Unexpected match length: ${match.length}`);
     return null;
   }
@@ -34,36 +41,37 @@ function parseStep(stepStr: string): ProgressStep {
   const numTotal = parseInt(match[2]) || -1;
   const name = match[3].trim();
   const notes = match[4] ? match[4].substr(1, match[4].length - 2) : undefined;
+  const status = match[5];
   return {
     numDone,
     numTotal,
     name,
     notes,
+    status,
   };
 }
 
-function parseSteps(steps: Array<string>) {
-  return steps.map((d) => parseStep(d));
+function parseSteps(steps: Array<string>): Array<ProgressStep> {
+  return steps.map((d) => parseStep(d)).filter(Boolean);
 }
 
 const updates = [
   {
-    date: Date.parse('23 Jun 2020 00:00:00 GMT'),
-    notes: ['Started work on Pathfinders'],
-  },
-  {
-    date: Date.parse('22 Jun 2020 00:00:00 GMT'),
-    notes: ['Finished up 4 drone bottoms'],
-  },
-  {
-    date: Date.parse('21 Jun 2020 00:00:00 GMT'),
+    date: Date.parse('8 Jul 2020 00:00:00 GMT'),
     notes: [
-      'Worked on 4 drone bottoms. Just have to edge highlight and dry brush',
+      'Finished first 6 pathfinders',
+      'Stripped the 4 fire warriors',
+      'Finished 3 magnetized pathfinders with rail rifles',
+      'Finished remaining pathfinder',
     ],
   },
   {
+    date: Date.parse('27 Jun 2020 00:00:00 GMT'),
+    notes: ['Started work on Pathfinders', 'Finished 8 drones'],
+  },
+  {
     date: Date.parse('20 Jun 2020 00:00:00 GMT'),
-    notes: ['Painted up 4 drone tops'],
+    notes: ['Finished 13 Fire warriors'],
   },
 ];
 
@@ -71,7 +79,7 @@ function ProjectLog(): JSX.Element {
   const steps = useMemo(() => parseSteps(allSteps), []);
 
   return (
-    <>
+    <Layout>
       <section>
         <Styled.h2>40k Project log</Styled.h2>
         <Styled.p>
@@ -82,24 +90,24 @@ function ProjectLog(): JSX.Element {
         </Styled.p>
       </section>
 
-      <TotalProgress steps={steps} />
+      <ProjectProgress steps={steps} />
 
       <section>
         <Styled.h3>Updates</Styled.h3>
         <section>
           {updates.map((d) => (
-            <>
-              <Styled.h4>{d.date}</Styled.h4>
+            <React.Fragment key={d.date}>
+              <Styled.h4>{new Date(d.date).toDateString()}</Styled.h4>
               <Styled.ul>
                 {d.notes.map((j) => (
                   <Styled.li key={j}>{j}</Styled.li>
                 ))}
               </Styled.ul>
-            </>
+            </React.Fragment>
           ))}
         </section>
       </section>
-    </>
+    </Layout>
   );
 }
 

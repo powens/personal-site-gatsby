@@ -16,7 +16,12 @@ const SecondaryText = styled.span`
   color: var(--secondaryBodyColor);
 `;
 
-function SpeakingCard({ title, slidesUrl, description, presentedAt }: Props) {
+function SpeakingCard({
+  title,
+  slidesUrl,
+  description,
+  presentedAt,
+}: Props): JSX.Element {
   return (
     <React.Fragment>
       <Title>
