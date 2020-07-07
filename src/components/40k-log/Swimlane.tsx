@@ -10,20 +10,20 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  border: 1px solid grey;
+  background-color: var(--theme-ui-colors-primary);
 `;
 
 function Swimlane(props: Props): ReactElement {
   const { steps, title } = props;
   return (
-    <div>
+    <Wrapper>
       <Heading as="h3" sx={{ paddingBottom: '1rem' }}>
         {title}
       </Heading>
       {steps.map((d) => (
         <SwimlaneEntry step={d} key={d.name} />
       ))}
-    </div>
+    </Wrapper>
   );
 }
 
