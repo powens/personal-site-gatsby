@@ -17,7 +17,7 @@ const NumberDisplay = styled.div``;
 
 const Wrapper = styled.div`
   border: 1px solid var(--border);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 const Number = styled.span`
