@@ -11,6 +11,7 @@ interface Props {
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.1rem;
 `;
 
 const NumberDisplay = styled.div``;
@@ -24,6 +25,7 @@ const Number = styled.span`
 `;
 
 const Notes = styled.div`
+  margin-top: 0.4rem;
   font-size: 0.8rem;
 `;
 
@@ -38,8 +40,8 @@ function SwimlaneEntry(props: Props): JSX.Element {
           <Number>{numTotal === -1 ? '???' : numTotal}</Number>
         </NumberDisplay>
       </Header>
-      <Notes sx={{ color: 'secondary' }}>{notes}</Notes>
       <Progress max={numTotal} value={numDone} style={{ height: '1rem' }} />
+      {/* <Notes sx={{ color: 'secondary' }}>{notes}</Notes> */}
     </Wrapper>
   );
 }

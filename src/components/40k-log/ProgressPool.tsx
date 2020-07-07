@@ -6,7 +6,7 @@ import Swimlane from './Swimlane';
 const Pool = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
 `;
 
 function collateSteps(steps: Array<ProgressStep>) {

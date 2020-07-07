@@ -57,7 +57,7 @@ function ImageCarousel({ path }: Props): ReactElement {
             name
             id
             childImageSharp {
-              fluid(maxWidth: 800) {
+              fluid(maxWidth: 1024) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

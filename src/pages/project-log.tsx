@@ -13,8 +13,7 @@ const allSteps = [
   '0/4 Fire Warriors [paint]',
   '8/21 Drone tops [paint]',
   '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
-  '7/7 Pathfinders [done]',
-  '3/3 Pathfinders magnetized (rail rifle) [done]',
+  '10/10 Pathfinders [done]',
   "0/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [assembled]",
   '0/1 Broadside (rail rifle, missile pods, smart missiles) [assembled]',
   '0/1 Ethereal [assembled]',
@@ -23,8 +22,8 @@ const allSteps = [
   '0/1 Riptide (magnetize weapons) [start]',
   '0/1 Dahyak Grekh [start]',
   '0/2 Turrets [assembled]',
-  '0/??? Decide on sept marking scheme [start]',
-  '0/??? Extra magnetized weapons (3 carbines, crisis suit weapons, gun drone bottoms) [start]',
+  '0/??? Sept markings [start]',
+  '0/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [start]',
 ];
 
 function parseStep(stepStr: string): ProgressStep | null {
