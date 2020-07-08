@@ -7,6 +7,8 @@ import styled from '@emotion/styled';
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 80px 1fr 80px;
+  max-height: 500px;
+  margin-bottom: 3rem;
 `;
 
 const CommonButton = `
@@ -16,6 +18,8 @@ const CommonButton = `
   transition: opacity 0.1s ease-in;
   background-color: rgb(159,159,159);
   border: 0;
+
+  max-height: 500px;
 
   &:hover {
     opacity: 0.7;
@@ -40,17 +44,13 @@ const ImageWraper = styled.div`
   z-index: 900;
 `;
 
-interface Props {
-  path: string;
-}
-
-function ImageCarousel({ path }: Props): ReactElement {
+function ImageCarousel(): ReactElement {
   const [index, setIndex] = useState(0);
   const { allFile } = useStaticQuery(graphql`
     query {
       allFile(
         sort: { fields: name, order: DESC }
-        filter: { relativeDirectory: { eq: "40k/start" } }
+        filter: { relativeDirectory: { regex: "/40k/" } }
       ) {
         edges {
           node {
@@ -82,6 +82,10 @@ function ImageCarousel({ path }: Props): ReactElement {
       </RightButton>
       <ImageWraper>
         <Img
+          imgStyle={{
+            maxHeight: 500,
+            objectPosition: 'center',
+          }}
           fluid={node.childImageSharp.fluid}
           key={node.id}
           alt={node.name.replace(/-/g, ' ').substring(2)}

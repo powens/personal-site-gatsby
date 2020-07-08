@@ -3,14 +3,14 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { Styled } from 'theme-ui';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import ProjectProgress from '../components/40k-log/ProjectProgress';
 import { ProgressStep } from '../components/40k-log/types';
 import ImageCarousel from '../components/ImageCarousel';
 
 const allSteps = [
   '13/13 Fire Warriors [done]',
-  "0/2 Fire Warrior Shas'ui [paint]",
-  '0/4 Fire Warriors [paint]',
+  "0/6 Fire Warriors (strip, Shas'ui) [paint]",
   '8/21 Drone tops [paint]',
   '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done]',
@@ -77,16 +77,25 @@ const updates = [
     notes: ['Started work on Pathfinders', 'Finished 8 drones'],
   },
   {
-    date: Date.parse('20 Jun 2020 00:00:00 GMT'),
+    date: Date.parse('21 Jun 2020 00:00:00 UTC'),
     notes: ['Finished 13 Fire warriors'],
   },
 ];
 
-function ProjectLog({ data }): JSX.Element {
+interface Props {
+  data: any;
+}
+
+function ProjectLog({ data }: Props): JSX.Element {
   const steps = useMemo(() => parseSteps(allSteps), []);
 
   return (
     <Layout>
+      <SEO
+        title="Warhammer 40k project log"
+        description="A page tracking my progress through the Warhammer 40k hobby"
+        keywords={['warhammer', '40k', 'hobby', 'log', 'Tau']}
+      />
       <section style={{ marginBottom: '3rem' }}>
         <Styled.h2>Warhammer 40k Project log</Styled.h2>
         <Styled.p>
@@ -101,10 +110,11 @@ function ProjectLog({ data }): JSX.Element {
           fluid={data.file.childImageSharp.fluid}
           alt="Unpainted, mostly assembled T'au army"
         />
-        {/* <ImageCarousel /> */}
       </section>
 
       <ProjectProgress steps={steps} />
+
+      <ImageCarousel />
 
       <section>
         <Styled.h3>Updates</Styled.h3>

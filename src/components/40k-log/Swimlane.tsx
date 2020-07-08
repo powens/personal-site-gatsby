@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  background-color: var(--theme-ui-colors-primary);
+  // background-color: var(--theme-ui-colors-primary);
 `;
 
 function Swimlane(props: Props): ReactElement {
