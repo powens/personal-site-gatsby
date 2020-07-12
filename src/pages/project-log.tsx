@@ -9,6 +9,10 @@ import { ProgressStep } from '../components/40k-log/types';
 import ImageCarousel from '../components/ImageCarousel';
 import EmblaCarousel from '../components/EmblaCarousel';
 
+/**
+ * jhead -purejpg *.jpeg
+ */
+
 const allSteps = [
   '13/13 Fire Warriors [done]',
   "0/6 Fire Warriors (strip, 2x Shas'ui) [paint]",
