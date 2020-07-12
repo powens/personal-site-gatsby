@@ -15,6 +15,7 @@
     "@types/react-dom": "^16.9.7",
     "change-case": "^4.1.1",
     "deepmerge": "^4.2.2",
+    "embla-carousel": "^3.0.15",
     "emotion-server": "^10.0.27",
     "eslint-plugin-react-hooks": "^4.0.4",
     "gatsby": "^2.20.17",

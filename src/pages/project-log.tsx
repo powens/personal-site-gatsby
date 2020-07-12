@@ -7,15 +7,16 @@ import SEO from '../components/SEO';
 import ProjectProgress from '../components/40k-log/ProjectProgress';
 import { ProgressStep } from '../components/40k-log/types';
 import ImageCarousel from '../components/ImageCarousel';
+import EmblaCarousel from '../components/EmblaCarousel';
 
 const allSteps = [
   '13/13 Fire Warriors [done]',
-  "0/6 Fire Warriors (strip, Shas'ui) [paint]",
+  "0/6 Fire Warriors (strip, 2x Shas'ui) [paint]",
   '8/21 Drone tops [paint]',
   '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done]',
   "0/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [assembled]",
-  '0/1 Broadside (rail rifle, missile pods, smart missiles) [assembled]',
+  '0/1 Broadside (missile pods, smart missiles) [assembled]',
   '0/1 Ethereal [assembled]',
   '0/1 Crisis commander (magnetize jets, armor, weapons; paint in subassembly) [assembled]',
   '0/1 Cadre Fireblade [start]',
@@ -114,7 +115,7 @@ function ProjectLog({ data }: Props): JSX.Element {
 
       <ProjectProgress steps={steps} />
 
-      <ImageCarousel />
+      <EmblaCarousel />
 
       <section>
         <Styled.h3>Updates</Styled.h3>

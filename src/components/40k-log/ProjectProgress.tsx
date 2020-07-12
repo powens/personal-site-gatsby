@@ -29,14 +29,15 @@ function ProjectProgress(props: Props): JSX.Element {
 
   return (
     <section>
-      <Heading as="h3">
+      <Heading as="h2" style={{ marginBottom: '1rem' }}>
         Total Progress: {totals.done} / {totals.total} ({totals.percent}%)
-        <Progress
-          max={totals.total}
-          value={totals.done}
-          style={{ height: '1rem' }}
-        />
       </Heading>
+      <Progress
+        max={totals.total}
+        value={totals.done}
+        style={{ height: '1rem' }}
+      />
+
       <div style={{ marginBottom: '2rem', marginTop: '2rem' }}>
         <ProgressPool steps={steps} />
       </div>
