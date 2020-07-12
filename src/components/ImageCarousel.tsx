@@ -38,6 +38,11 @@ const RightButton = styled.button`
   ${CommonButton}
 `;
 
+const ImageStatus = styled.div`
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+`;
+
 const ImageWraper = styled.div`
   grid-column: 1 / 4;
   grid-row: 1 / 1;
@@ -74,10 +79,10 @@ function ImageCarousel(): ReactElement {
   const { node } = allFile.edges[index];
   return (
     <Wrapper>
-      <LeftButton onClick={() => handlePrevious()}>
+      <LeftButton onClick={() => handlePrevious()} aria-label="Previous image">
         <FiChevronLeft />
       </LeftButton>
-      <RightButton onClick={() => handleNext()}>
+      <RightButton onClick={() => handleNext()} aria-label="Next image">
         <FiChevronRight />
       </RightButton>
       <ImageWraper>
@@ -91,6 +96,9 @@ function ImageCarousel(): ReactElement {
           alt={node.name.replace(/-/g, ' ').substring(2)}
         />
       </ImageWraper>
+      <ImageStatus>
+        {index} / {length}
+      </ImageStatus>
     </Wrapper>
   );
 }

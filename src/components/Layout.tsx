@@ -17,7 +17,7 @@ const SiteWrapper = styled.div`
     'header'
     'content';
 
-  min-width: 420px;
+  // min-width: 420px;
 
   margin-left: 2rem;
   margin-right: 2rem;
