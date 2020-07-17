@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import ProjectProgress from '../components/40k-log/ProjectProgress';
 import { ProgressStep } from '../components/40k-log/types';
-import ImageCarousel from '../components/ImageCarousel';
 import EmblaCarousel from '../components/EmblaCarousel';
 
 /**
@@ -14,12 +13,11 @@ import EmblaCarousel from '../components/EmblaCarousel';
  */
 
 const allSteps = [
-  '13/13 Fire Warriors [done]',
-  "0/6 Fire Warriors (strip, 2x Shas'ui) [paint]",
+  '19/19 Fire Warriors [done]',
   '8/21 Drone tops [paint]',
   '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done]',
-  "0/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [assembled]",
+  "0/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [paint]",
   '0/1 Broadside (missile pods, smart missiles) [assembled]',
   '0/1 Ethereal [assembled]',
   '0/1 Crisis commander (magnetize jets, armor, weapons; paint in subassembly) [assembled]',
@@ -64,6 +62,10 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('18 Jul 2020 00:00:00 GMT'),
+    notes: ['Finished the 6 Fire Warriors', 'Started the first Crisis suit'],
+  },
   {
     date: Date.parse('11 Jul 2020 00:00:00 GMT'),
     notes: ['Started remaining 6 Fire Warriors'],
