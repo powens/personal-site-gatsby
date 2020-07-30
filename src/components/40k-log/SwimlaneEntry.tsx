@@ -40,7 +40,11 @@ function SwimlaneEntry(props: Props): JSX.Element {
           <Number>{numTotal === -1 ? '???' : numTotal}</Number>
         </NumberDisplay>
       </Header>
-      <Progress max={numTotal} value={numDone} style={{ height: '1rem' }} />
+      <Progress
+        max={numTotal === -1 ? 100 : numTotal}
+        value={numDone}
+        style={{ height: '1rem' }}
+      />
       {/* <Notes sx={{ color: 'secondary' }}>{notes}</Notes> */}
     </Wrapper>
   );
