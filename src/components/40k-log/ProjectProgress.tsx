@@ -8,6 +8,11 @@ function totalStepCount(steps: Array<ProgressStep>) {
   let total = 0;
 
   steps.forEach((step) => {
+    console.log(step);
+    if (step.numTotal === -1) {
+      return;
+    }
+
     if (typeof step.numDone === 'number') {
       done += step.numDone;
     }

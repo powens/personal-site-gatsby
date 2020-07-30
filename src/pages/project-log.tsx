@@ -17,7 +17,7 @@ const allSteps = [
   '8/21 Drone tops [paint]',
   '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done]',
-  "0/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [paint]",
+  "3/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [paint]",
   '0/1 Broadside (missile pods, smart missiles) [assembled]',
   '0/1 Ethereal [assembled]',
   '0/1 Crisis commander (magnetize jets, armor, weapons; paint in subassembly) [assembled]',
@@ -26,7 +26,7 @@ const allSteps = [
   '0/1 Dahyak Grekh [start]',
   '0/2 Turrets [assembled]',
   '0/??? Sept markings [start]',
-  '0/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [start]',
+  '6/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [start]',
 ];
 
 function parseStep(stepStr: string): ProgressStep | null {
@@ -62,6 +62,10 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('30 Jul 2020 00:00:00 GMT'),
+    notes: ['Finished the first 3 Crisis suits with 2 weapons each'],
+  },
   {
     date: Date.parse('18 Jul 2020 00:00:00 GMT'),
     notes: ['Finished the 6 Fire Warriors', 'Started the first Crisis suit'],
