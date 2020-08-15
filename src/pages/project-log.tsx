@@ -12,21 +12,47 @@ import EmblaCarousel from '../components/EmblaCarousel';
  * jhead -purejpg *.jpeg
  */
 
-const allSteps = [
+const EXPECTED_STEPS = ['start', 'assembled', 'paint', 'done'];
+
+const tauSteps = [
   '19/19 Fire Warriors [done]',
-  '8/21 Drone tops [paint]',
+  '13/21 Drone tops [paint]',
   '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done]',
   "3/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [paint]",
   '0/1 Broadside (missile pods, smart missiles) [assembled]',
   '0/1 Ethereal [assembled]',
-  '0/1 Crisis commander (magnetize jets, armor, weapons; paint in subassembly) [assembled]',
+  '0/1 Crisis commander [start]',
   '0/1 Cadre Fireblade [start]',
   '0/1 Riptide (magnetize weapons) [start]',
   '0/1 Dahyak Grekh [start]',
-  '0/2 Turrets [assembled]',
+  '0/2 DS8 Turrets [assembled]',
   '0/??? Sept markings [start]',
-  '6/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [start]',
+  '6/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
+];
+
+const restSteps = [
+  '0/4 MDF ruins [assembled]',
+  '0/1 MDF building [assembled]',
+  '0/3 MDF crates [assembled]',
+  '0/1 Primaris Captain [start]',
+  '0/1 Primaris Lieutenant [assembled]',
+  '0/1 Primaris Chaplain [start]',
+  '0/1 Judiciar [start]',
+  '0/3 Bladeguard Veterans [assembled]',
+  '0/1 Bladeguard Ancient [assembled]',
+  '0/10 Assault Intercessors [start]',
+  '0/3 Outriders [assembled]',
+  '0/3 Eradicators [start]',
+  '0/1 Overlord [start]',
+  '0/1 Royal Warden [start]',
+  '0/1 Plasmancer [start]',
+  '0/1 Skorpekh Lord [assembled]',
+  '0/3 Skorpekh Destroyers [assembled]',
+  '0/2 Cryptothralls [start]',
+  '0/1 Canoptek Reanimator [start]',
+  '0/20 Necron Warriors [assembled]',
+  '0/6 Canoptek Scarab Swarms [assembled]',
 ];
 
 function parseStep(stepStr: string): ProgressStep | null {
@@ -48,6 +74,11 @@ function parseStep(stepStr: string): ProgressStep | null {
   const name = match[3].trim();
   const notes = match[4] ? match[4].substr(1, match[4].length - 2) : undefined;
   const status = match[5];
+
+  if (!EXPECTED_STEPS.includes(status)) {
+    console.error(`Step ${stepStr} unknown status ${status}`);
+  }
+
   return {
     numDone,
     numTotal,
@@ -58,13 +89,24 @@ function parseStep(stepStr: string): ProgressStep | null {
 }
 
 function parseSteps(steps: Array<string>): Array<ProgressStep> {
-  return steps.map((d) => parseStep(d)).filter(Boolean);
+  return steps.map((d) => parseStep(d)).filter(Boolean) as Array<ProgressStep>;
 }
 
 const updates = [
   {
-    date: Date.parse('30 Jul 2020 00:00:00 GMT'),
-    notes: ['Finished the first 3 Crisis suits with 2 weapons each'],
+    date: Date.parse('8 Aug 2020 00:00:00 GMT'),
+    notes: [
+      'Finished the first 500 points of Marines, and Necrons in the Indomitus box',
+      'Started, and finished the MDF terrain I bought from Northern Lights Terrain',
+      'Started 5 more drones',
+    ],
+  },
+  {
+    date: Date.parse('1 Aug 2020 00:00:00 GMT'),
+    notes: [
+      'Finished the first 3 Crisis suits with 2 weapons each',
+      'Started assembling the Indomtius box x.x',
+    ],
   },
   {
     date: Date.parse('18 Jul 2020 00:00:00 GMT'),
@@ -98,7 +140,7 @@ interface Props {
 }
 
 function ProjectLog({ data }: Props): JSX.Element {
-  const steps = useMemo(() => parseSteps(allSteps), []);
+  const steps = useMemo(() => parseSteps(tauSteps), []);
 
   return (
     <Layout>
