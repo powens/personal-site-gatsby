@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react';
 import styled from '@emotion/styled';
-import { Heading, Text, Progress, Divider, jsx } from 'theme-ui';
+import { Heading, Progress, jsx } from 'theme-ui';
 import { ProgressStep } from './types';
 
 interface Props {
@@ -18,15 +18,15 @@ const NumberDisplay = styled.div``;
 
 const Wrapper = styled.div`
   margin-bottom: 2rem;
+
+  // cursor: pointer;
+  // &: hover {
+  //   border: 1px solid red;
+  // }
 `;
 
 const Number = styled.span`
   font-weight: bold;
-`;
-
-const Notes = styled.div`
-  margin-top: 0.4rem;
-  font-size: 0.8rem;
 `;
 
 function SwimlaneEntry(props: Props): JSX.Element {

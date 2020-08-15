@@ -7,10 +7,11 @@ const Pool = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5rem;
+  overflow-x: auto;
 `;
 
 function collateSteps(steps: Array<ProgressStep>) {
-  const out = {
+  const out: Record<string, Array<ProgressStep>> = {
     start: [],
     assembled: [],
     paint: [],

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Styled, Progress, Heading } from 'theme-ui';
+import { Progress, Heading } from 'theme-ui';
 import { ProgressStep } from './types';
 import ProgressPool from './ProgressPool';
 
@@ -8,7 +8,6 @@ function totalStepCount(steps: Array<ProgressStep>) {
   let total = 0;
 
   steps.forEach((step) => {
-    console.log(step);
     if (step.numTotal === -1) {
       return;
     }

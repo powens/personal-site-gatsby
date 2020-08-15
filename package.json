@@ -44,6 +44,7 @@
     "react-emotion": "^10.0.0",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.9.0",
+    "react-modal": "^3.11.2",
     "react-spring": "^8.0.27",
     "react-toggle": "^4.0.2",
     "react-typography": "^0.16.13",
