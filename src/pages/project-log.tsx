@@ -16,12 +16,12 @@ const EXPECTED_STEPS = ['start', 'assembled', 'paint', 'done'];
 
 const tauSteps = [
   '19/19 Fire Warriors [done]',
-  '13/21 Drone tops [paint]',
-  '8/21 Drone bottoms (special, shield and markerlight bottoms) [paint]',
+  '13/22 Drone tops [paint]',
+  '13/22 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done]',
   "3/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [paint]",
   '0/1 Broadside (missile pods, smart missiles) [assembled]',
-  '0/1 Ethereal [assembled]',
+  '0/1 Ethereal [paint]',
   '0/1 Crisis commander [start]',
   '0/1 Cadre Fireblade [start]',
   '0/1 Riptide (magnetize weapons) [start]',
@@ -93,6 +93,13 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('15 Aug 2020 00:00:00 GMT'),
+    notes: [
+      'Finished 5 drones with bottoms',
+      'Started Ethereal, and 3 remaining Crisis suits',
+    ],
+  },
   {
     date: Date.parse('8 Aug 2020 00:00:00 GMT'),
     notes: [
