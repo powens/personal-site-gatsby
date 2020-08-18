@@ -29,7 +29,7 @@ function Header() {
   return (
     <header
       sx={{
-        position: 'sticky',
+        // position: 'sticky',
         top: 0,
         padding: '0.4rem 0',
         backgroundColor: 'background',
