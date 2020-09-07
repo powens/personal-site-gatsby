@@ -27,6 +27,12 @@ const tauSteps = [
   '0/1 Riptide (magnetize weapons) [start]',
   '0/1 Dahyak Grekh [start]',
   '0/2 DS8 Turrets [assembled]',
+  '0/3 Stealth Suits [start]',
+  '0/2 Stealth Suit drones [start]',
+  '0/1 Shadowsun [start]',
+  '0/2 Shadowsun drones [start]',
+  '0/1 Commander 2 [start]',
+  '0/2 Commander 2 drones [start]',
   '0/??? Sept markings [start]',
   '6/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
 ];
@@ -93,6 +99,15 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('05 Sept 2020 00:00:00 GMT'),
+    notes: [
+      'Slowed down work due to playing more 40k... Whoops!',
+      'Finished Ethereal',
+      'Continuing work on 3 remaining Crisis suits',
+      'Added some more items to the pile of shame',
+    ],
+  },
   {
     date: Date.parse('15 Aug 2020 00:00:00 GMT'),
     notes: [
