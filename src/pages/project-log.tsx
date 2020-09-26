@@ -100,6 +100,13 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 
 const updates = [
   {
+    date: Date.parse('26 Sept 2020 00:00:00 GMT'),
+    notes: [
+      'Finished last 3 Crisis suits, and their 6 weapons',
+      'Started work on the Broadside',
+    ],
+  },
+  {
     date: Date.parse('05 Sept 2020 00:00:00 GMT'),
     notes: [
       'Slowed down work due to playing more 40k... Whoops!',
