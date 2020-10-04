@@ -14,7 +14,7 @@ import EmblaCarousel from '../components/EmblaCarousel';
 
 const EXPECTED_STEPS = ['start', 'assembled', 'paint', 'done'];
 
-const tauSteps = [
+const tauRawSteps = [
   '19/19 Fire Warriors [done]',
   '13/22 Drone tops [paint]',
   '13/22 Drone bottoms (special, shield and markerlight bottoms) [paint]',
@@ -37,10 +37,10 @@ const tauSteps = [
   '12/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
 ];
 
-const restSteps = [
+const indomitusRawSteps = [
   '0/4 MDF ruins [assembled]',
   '0/1 MDF building [assembled]',
-  '0/3 MDF crates [assembled]',
+  '0/3 MDF crates [paint]',
   '0/1 Primaris Captain [start]',
   '0/1 Primaris Lieutenant [assembled]',
   '0/1 Primaris Chaplain [start]',
@@ -99,6 +99,13 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('3 Oct 2020 00:00:00 GMT'),
+    notes: [
+      'Painting progress has been slowed by IRL factors',
+      'Work on the Broadside continues',
+    ],
+  },
   {
     date: Date.parse('26 Sept 2020 00:00:00 GMT'),
     notes: [
@@ -169,7 +176,8 @@ interface Props {
 }
 
 function ProjectLog({ data }: Props): JSX.Element {
-  const steps = useMemo(() => parseSteps(tauSteps), []);
+  const tauSteps = useMemo(() => parseSteps(tauRawSteps), []);
+  const indomitusSteps = useMemo(() => parseSteps(indomitusRawSteps), []);
 
   return (
     <Layout>
@@ -194,9 +202,12 @@ function ProjectLog({ data }: Props): JSX.Element {
         />
       </section>
 
-      <ProjectProgress steps={steps} />
-
+      <Styled.h2>T&apos;au army progress</Styled.h2>
+      <ProjectProgress steps={tauSteps} />
       <EmblaCarousel />
+
+      <Styled.h2>Indomitus army progress</Styled.h2>
+      <ProjectProgress steps={indomitusSteps} />
 
       <section>
         <Styled.h3>Updates</Styled.h3>
