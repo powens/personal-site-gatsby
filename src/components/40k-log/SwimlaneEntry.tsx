@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { Heading, Progress, jsx } from 'theme-ui';
+import ReactModal from 'react-modal';
 import { ProgressStep } from './types';
 
 interface Props {
@@ -19,10 +20,10 @@ const NumberDisplay = styled.div``;
 const Wrapper = styled.div`
   margin-bottom: 2rem;
 
-  // cursor: pointer;
-  // &: hover {
-  //   border: 1px solid red;
-  // }
+  cursor: pointer;
+  &: hover {
+    border: 1px solid var(--tagFg);
+  }
 `;
 
 const Number = styled.span`
@@ -31,8 +32,17 @@ const Number = styled.span`
 
 function SwimlaneEntry(props: Props): JSX.Element {
   const { name, numTotal, numDone, notes } = props.step;
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const onModalOpen = useCallback(() => {
+    setModalOpen(true);
+  }, [setModalOpen]);
+  const onModalClose = useCallback(() => {
+    setModalOpen(false);
+  }, [setModalOpen]);
+
   return (
-    <Wrapper>
+    <Wrapper onClick={onModalOpen}>
       <Header>
         <Heading as="h4">{name}</Heading>
         <NumberDisplay>
@@ -46,6 +56,14 @@ function SwimlaneEntry(props: Props): JSX.Element {
         style={{ height: '1rem' }}
       />
       {/* <Notes sx={{ color: 'secondary' }}>{notes}</Notes> */}
+      <ReactModal isOpen={modalOpen} onRequestClose={onModalClose}>
+        <h3>{name}</h3>
+        <p>
+          <Number>{numDone}</Number>/
+          <Number>{numTotal === -1 ? '???' : numTotal}</Number>
+        </p>
+        <p>{notes}</p>
+      </ReactModal>
     </Wrapper>
   );
 }
