@@ -104,6 +104,13 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 
 const updates = [
   {
+    date: Date.parse('7 Nov 2020 00:00:00 GMT'),
+    notes: [
+      'Finished the Broadside (finally)',
+      'Started work on the first commander',
+    ],
+  },
+  {
     date: Date.parse('3 Oct 2020 00:00:00 GMT'),
     notes: [
       'Painting progress has been slowed by IRL factors',
