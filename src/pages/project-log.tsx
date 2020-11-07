@@ -50,6 +50,7 @@ const indomitusRawSteps = [
   '0/3 Outriders [assembled]',
   '0/3 Eradicators [start]',
   '0/1 Venerable Dreadnought [start]',
+  '0/1 Ragnar Blackmane [start]',
   '0/1 Overlord [start]',
   '0/1 Royal Warden [start]',
   '0/1 Plasmancer [start]',
@@ -209,7 +210,7 @@ function ProjectLog({ data }: Props): JSX.Element {
       <Styled.h2>T&apos;au army progress</Styled.h2>
       <ProjectProgress steps={tauSteps} />
 
-      <Styled.h2>Indomitus army progress</Styled.h2>
+      <Styled.h2>Pile of shame progress</Styled.h2>
       <ProjectProgress steps={indomitusSteps} />
 
       <section>
