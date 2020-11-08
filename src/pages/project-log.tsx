@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import ProjectProgress from '../components/40k-log/ProjectProgress';
 import { ProgressStep } from '../components/40k-log/types';
-import EmblaCarousel from '../components/EmblaCarousel';
 
 /**
  * jhead -purejpg *.jpeg
@@ -15,11 +14,11 @@ import EmblaCarousel from '../components/EmblaCarousel';
 const EXPECTED_STEPS = ['start', 'assembled', 'paint', 'done'];
 
 const tauRawSteps = [
-  '19/19 Fire Warriors [done]',
+  '19/19 Fire Warriors [done] [fwall]',
   '13/22 Drone tops [paint]',
   '13/22 Drone bottoms (special, shield and markerlight bottoms) [paint]',
-  '10/10 Pathfinders [done]',
-  "6/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [done]",
+  '10/10 Pathfinders [done] [pall]',
+  "6/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [done] [c3]",
   '0/1 Broadside (missile pods, smart missiles, seeker missile) [paint]',
   '1/1 Ethereal [done]',
   '0/1 Commander 1 [assembled]',
@@ -50,6 +49,11 @@ const indomitusRawSteps = [
   '0/10 Assault Intercessors [start]',
   '0/3 Outriders [assembled]',
   '0/3 Eradicators [start]',
+  '0/1 Venerable Dreadnought [start]',
+  '0/1 Terminator Chaplain [start]',
+  '0/1 Wolf Lord on a Thunderwolf [start]',
+  '0/1 Canis Wolfborn [start]',
+  '0/1 Ragnar Blackmane [start]',
   '0/1 Overlord [start]',
   '0/1 Royal Warden [start]',
   '0/1 Plasmancer [start]',
@@ -99,6 +103,13 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('7 Nov 2020 00:00:00 GMT'),
+    notes: [
+      'Finished the Broadside (finally)',
+      'Started work on the first commander',
+    ],
+  },
   {
     date: Date.parse('3 Oct 2020 00:00:00 GMT'),
     notes: [
@@ -200,13 +211,16 @@ function ProjectLog({ data }: Props): JSX.Element {
           fluid={data.file.childImageSharp.fluid}
           alt="Unpainted, mostly assembled T'au army"
         />
+        <Img
+          fluid={data.halfDone.childImageSharp.fluid}
+          alt="About half of my Tau force painted"
+        />
       </section>
 
       <Styled.h2>T&apos;au army progress</Styled.h2>
       <ProjectProgress steps={tauSteps} />
-      <EmblaCarousel />
 
-      <Styled.h2>Indomitus army progress</Styled.h2>
+      <Styled.h2>Pile of shame progress</Styled.h2>
       <ProjectProgress steps={indomitusSteps} />
 
       <section>
@@ -233,6 +247,13 @@ export default ProjectLog;
 export const query = graphql`
   query {
     file(relativePath: { eq: "40k/start/start0.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    halfDone: file(relativePath: { eq: "40k/half-done.jpeg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid

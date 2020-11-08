@@ -9,7 +9,7 @@ const SpeakingList = styled.ul`
 
 const SpeakingItem = styled.li``;
 
-function Speaking() {
+function Speaking(): JSX.Element {
   return (
     <section>
       <h2>Speaking</h2>
