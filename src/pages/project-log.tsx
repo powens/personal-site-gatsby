@@ -19,41 +19,54 @@ const tauRawSteps = [
   '13/22 Drone bottoms (special, shield and markerlight bottoms) [paint]',
   '10/10 Pathfinders [done] [pall]',
   "6/6 Crisis suits (4x Shas'ui, 2x Shas'vre) [done] [c3]",
-  '0/1 Broadside (missile pods, smart missiles, seeker missile) [paint]',
+  '1/1 Broadside (missile pods, smart missiles, seeker missile) [done]',
   '1/1 Ethereal [done]',
-  '0/1 Commander 1 [assembled]',
-  '0/1 Cadre Fireblade [start]',
-  '0/1 Riptide (magnetize weapons) [start]',
-  '0/1 Dahyak Grekh [start]',
+  '1/1 Commander 1 [done]',
+  '0/1 Cadre Fireblade [assembled]',
+  '0/1 Riptide (magnetize weapons) [assembled]',
+  '0/1 Dahyak Grekh [assembled]',
   '0/2 DS8 Turrets [assembled]',
-  '0/3 Stealth Suits [start]',
-  '0/1 Stealth Suit drone [start]',
-  '0/1 Shadowsun [start]',
-  '0/2 Shadowsun drones [start]',
+  '0/3 Stealth Suits [assembled]',
+  '0/1 Stealth Suit drone [assembled]',
+  '0/1 Shadowsun [assembled]',
+  '0/2 Shadowsun drones [assembled]',
   '0/1 Commander 2 [start]',
   '0/1 Commander 2 drone [start]',
   '0/??? Sept markings [start]',
-  '12/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
+  '16/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
 ];
 
-const indomitusRawSteps = [
-  '0/4 MDF ruins [assembled]',
-  '0/1 MDF building [assembled]',
-  '0/3 MDF crates [paint]',
-  '0/1 Primaris Captain [start]',
-  '0/1 Primaris Lieutenant [assembled]',
-  '0/1 Primaris Chaplain [start]',
-  '0/1 Judiciar [start]',
-  '0/3 Bladeguard Veterans [assembled]',
-  '0/1 Bladeguard Ancient [assembled]',
-  '0/10 Assault Intercessors [start]',
-  '0/3 Outriders [assembled]',
-  '0/3 Eradicators [start]',
-  '0/1 Venerable Dreadnought [start]',
+const spaceWolvesRawSteps = [
+  '0/1 Indomitus Captain [start]',
+  '0/1 Indomitus Lieutenant [assembled]',
+  '0/1 Indomitus Chaplain [start]',
+  '0/1 Chaplain on a Bike [start]',
+  '0/1 Judiciar [assembled]',
   '0/1 Terminator Chaplain [start]',
   '0/1 Wolf Lord on a Thunderwolf [start]',
   '0/1 Canis Wolfborn [start]',
-  '0/1 Ragnar Blackmane [start]',
+  '0/1 Ragnar Blackmane [assembled]',
+  '0/1 Phobos Librarian [start]',
+  '0/1 Librarian [start]',
+  '0/3 Thunderwolf Calvary [assembled]',
+  '0/3 Bladeguard Veterans [assembled]',
+  '0/1 Bladeguard Ancient [assembled]',
+  '0/10 Assault Intercessors [paint]',
+  '0/3 Outriders [assembled]',
+  '0/3 Eradicators [assembled]',
+  '0/1 Venerable Dreadnought [assembled]',
+  '0/1 Invictor Warsuit [start]',
+  '0/10 Infiltrators [start]',
+  '0/10 Wolf Guard [start]',
+  '0/10 Interceptors [start]',
+  '0/10 Hounds of Morkai [start]',
+  '0/5 Fenrisian Wolves [assembled]',
+];
+
+const indomitusRawSteps = [
+  '0/4 MDF ruins [paint]',
+  '0/1 MDF building [paint]',
+  '0/3 MDF crates [paint]',
   '0/1 Overlord [start]',
   '0/1 Royal Warden [start]',
   '0/1 Plasmancer [start]',
@@ -103,6 +116,27 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('08 Jan 2021 00:00:00 GMT'),
+    notes: [
+      'Assembled Stealth Suits',
+      'Assembled Shadowsun',
+      'Assembled Ragnar',
+      'Assembled Fenrisian Wolves',
+      'Assembled 5 Assault Ints',
+      'Assembled 3 Eradicators',
+    ],
+  },
+  {
+    date: Date.parse('28 Dec 2020 00:00:00 GMT'),
+    notes: [
+      'Delays due to Cyberpunk',
+      'Started, and finished Coldstar Commander',
+      'Assembled Riptide',
+      'Aseembled 3 Thunderwolf Cavalry',
+      'Assembled Cadre Fireblade',
+    ],
+  },
   {
     date: Date.parse('7 Nov 2020 00:00:00 GMT'),
     notes: [
@@ -189,6 +223,7 @@ interface Props {
 function ProjectLog({ data }: Props): JSX.Element {
   const tauSteps = useMemo(() => parseSteps(tauRawSteps), []);
   const indomitusSteps = useMemo(() => parseSteps(indomitusRawSteps), []);
+  const spaceWolvesSteps = useMemo(() => parseSteps(spaceWolvesRawSteps), []);
 
   return (
     <Layout>
@@ -219,6 +254,9 @@ function ProjectLog({ data }: Props): JSX.Element {
 
       <Styled.h2>T&apos;au army progress</Styled.h2>
       <ProjectProgress steps={tauSteps} />
+
+      <Styled.h2>Space Wolves steps</Styled.h2>
+      <ProjectProgress steps={spaceWolvesSteps} />
 
       <Styled.h2>Pile of shame progress</Styled.h2>
       <ProjectProgress steps={indomitusSteps} />
