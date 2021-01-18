@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { ClassNames } from '@emotion/core';
+import { ClassNames } from '@emotion/react';
 import { useColorMode } from 'theme-ui';
 import Toggle from 'react-toggle';
 import './DarkToggle.css';
