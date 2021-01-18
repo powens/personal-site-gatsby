@@ -17,7 +17,13 @@ module.exports = {
     node: true,
     es6: true,
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', '@emotion'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    '@emotion',
+    'prettier',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -30,10 +36,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    '@emotion/pkg-renaming': 'error',
-    '@emotion/no-vanilla': 'error',
-    '@emotion/import-from-emotion': 'error',
-    '@emotion/styled-import': 'error',
   },
   overrides: [
     // Override some TypeScript rules just for .js files
