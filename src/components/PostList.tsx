@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import BlogCard from './BlogCard';
-import { PostQuery } from '../utils/types';
+import { PostProps } from '../utils/types';
 
 const List = styled.ul`
   list-style: none;
@@ -14,24 +14,28 @@ const PostItem = styled.li`
 `;
 
 export interface Props {
-  posts: Array<PostQuery>;
+  posts: Array<PostProps>;
 }
 
-export default function PostList({ posts }: Props) {
+export default function PostList({ posts }: Props): JSX.Element {
   return (
     <List>
-      {posts.map(({ node }) => (
-        <PostItem key={node.slug}>
-          <BlogCard
-            slug={node.slug}
-            title={node.title}
-            date={node.date}
-            computerDate={node.computerDate}
-            excerpt={node.excerpt}
-            tags={node.tags}
-          />
-        </PostItem>
-      ))}
+      {posts.map((node) => {
+        // TODO: Hack to work for both gatsby-theme-blog-core changes, as well as default changes
+        const post = node.node || node;
+        return (
+          <PostItem key={post.slug}>
+            <BlogCard
+              slug={post.slug}
+              title={post.title}
+              date={post.date}
+              computerDate={post.computerDate}
+              excerpt={post.excerpt}
+              tags={post.tags}
+            />
+          </PostItem>
+        );
+      })}
     </List>
   );
 }

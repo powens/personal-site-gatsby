@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Styled } from 'theme-ui';
 import mq from '../utils/responsive';
 import Header from './Header';

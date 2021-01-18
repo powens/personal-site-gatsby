@@ -19,9 +19,7 @@ export interface Props {
 const Tags = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.allMdxBlogPost;
-
   const postCount = `${totalCount} post${totalCount === 1 ? '' : 's'}`;
-
   const tagHeader = `${postCount}`;
 
   return (

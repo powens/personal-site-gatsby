@@ -17,7 +17,13 @@ module.exports = {
     node: true,
     es6: true,
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    '@emotion',
+    'prettier',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

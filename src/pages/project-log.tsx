@@ -23,7 +23,7 @@ const tauRawSteps = [
   '1/1 Ethereal [done]',
   '1/1 Commander 1 [done]',
   '0/1 Cadre Fireblade [assembled]',
-  '0/1 Riptide (magnetize weapons) [assembled]',
+  '0/1 Riptide (magnetize weapons) [paint]',
   '0/1 Dahyak Grekh [assembled]',
   '0/2 DS8 Turrets [assembled]',
   '0/3 Stealth Suits [assembled]',
@@ -55,12 +55,13 @@ const spaceWolvesRawSteps = [
   '0/3 Outriders [assembled]',
   '0/3 Eradicators [assembled]',
   '0/1 Venerable Dreadnought [assembled]',
-  '0/1 Invictor Warsuit [start]',
+  '0/1 Invictor Warsuit [assembled]',
   '0/10 Infiltrators [start]',
-  '0/10 Wolf Guard [start]',
   '0/10 Interceptors [start]',
-  '0/10 Hounds of Morkai [start]',
+  '0/5 Hounds of Morkai [assembled]',
   '0/5 Fenrisian Wolves [assembled]',
+  '0/10 Grey Hunters [start]',
+  '0/5 Wolf Guard Terminators [start]',
 ];
 
 const indomitusRawSteps = [
@@ -117,14 +118,23 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 
 const updates = [
   {
+    date: Date.parse('15 Jan 2021 00:00:00 GMT'),
+    notes: [
+      'Built Invictor',
+      'Built Hounds of Morkai',
+      'Started painting the Riptide',
+      'Half-built Chaplain on a Bike',
+    ],
+  },
+  {
     date: Date.parse('08 Jan 2021 00:00:00 GMT'),
     notes: [
-      'Assembled Stealth Suits',
-      'Assembled Shadowsun',
-      'Assembled Ragnar',
-      'Assembled Fenrisian Wolves',
-      'Assembled 5 Assault Ints',
-      'Assembled 3 Eradicators',
+      'Built Stealth Suits',
+      'Built Shadowsun',
+      'Built Ragnar',
+      'Built Fenrisian Wolves',
+      'Built 5 Assault Ints',
+      'Built 3 Eradicators',
     ],
   },
   {
@@ -132,9 +142,9 @@ const updates = [
     notes: [
       'Delays due to Cyberpunk',
       'Started, and finished Coldstar Commander',
-      'Assembled Riptide',
-      'Aseembled 3 Thunderwolf Cavalry',
-      'Assembled Cadre Fireblade',
+      'Built Riptide',
+      'Built 3 Thunderwolf Cavalry',
+      'Built Cadre Fireblade',
     ],
   },
   {

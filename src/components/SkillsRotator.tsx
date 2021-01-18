@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTransition, animated } from 'react-spring';

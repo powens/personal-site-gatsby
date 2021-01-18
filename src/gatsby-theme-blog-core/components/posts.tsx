@@ -43,7 +43,7 @@ const BlogIndex = ({ location, data }) => {
         <SkillsRotator />
       </Large>
       <Blurb />
-      <Posts posts={allBlogPost.edges} />
+      <Posts posts={allBlogPost.nodes} />
     </Layout>
   );
 };
