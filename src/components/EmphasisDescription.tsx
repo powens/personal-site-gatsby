@@ -16,7 +16,10 @@ export interface Props {
   description: string;
 }
 
-export default function EmphasisDescription({ number, description }: Props) {
+export default function EmphasisDescription({
+  number,
+  description,
+}: Props): JSX.Element {
   return (
     <Description>
       <Emphasis>{number}</Emphasis> {description}

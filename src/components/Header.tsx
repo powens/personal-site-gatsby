@@ -4,11 +4,7 @@ import { Styled, jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import DarkToggle from './DarkToggle';
 
-interface StyleProps {
-  atTop: boolean;
-}
-
-function Header() {
+function Header(): JSX.Element {
   const [minified, setMinified] = useState(false);
   const scrollEvent = useCallback(() => {
     const isAtTop = window.scrollY <= 0;

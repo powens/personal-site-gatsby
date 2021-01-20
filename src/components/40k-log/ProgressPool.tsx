@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
-import { ProgressStep, ProgressStatus } from './types';
+import { ProgressStep } from './types';
 import Swimlane from './Swimlane';
 
 const Pool = styled.div`

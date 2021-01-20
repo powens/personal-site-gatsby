@@ -18,7 +18,7 @@ const Picture = styled.img`
   transition: width 0.2s ease-in;
 `;
 
-const ProfilePicture = () => (
+const ProfilePicture = (): JSX.Element => (
   <PictureWrapper>
     <Picture src={ProfilePic} alt="Patrick Owens" />
   </PictureWrapper>

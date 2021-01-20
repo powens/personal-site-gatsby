@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Styled, jsx } from 'theme-ui';
 
-const Blurb = () => (
+const Blurb = (): JSX.Element => (
   <section
     sx={{
       gridArea: 'blurb',

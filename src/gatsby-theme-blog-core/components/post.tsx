@@ -15,7 +15,7 @@ export interface Props {
   };
 }
 
-const Post = (props: Props) => {
+const Post = (props: Props): JSX.Element => {
   const {
     data: {
       blogPost: { body, title, tags, date, excerpt },

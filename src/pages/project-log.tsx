@@ -33,7 +33,7 @@ const tauRawSteps = [
   '0/1 Commander 2 [start]',
   '0/1 Commander 2 drone [start]',
   '0/??? Sept markings [start]',
-  '16/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
+  '20/??? Extra weapons (3 carbines, crisis suit weapons, gun drone bottoms) [assembled]',
 ];
 
 const spaceWolvesRawSteps = [
