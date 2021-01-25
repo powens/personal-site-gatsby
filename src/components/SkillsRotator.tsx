@@ -32,7 +32,7 @@ const transitionItem = {
   lineHeight: '80px',
 };
 
-function SkillsRotator() {
+function SkillsRotator(): JSX.Element {
   const ref = useRef([]);
   const [items, set] = useState([[tags[0]]]);
   const transitions = useTransition(items, null, {

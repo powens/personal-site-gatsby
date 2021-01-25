@@ -1,9 +1,7 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
-
-interface Props {}
 
 const GridWrapper = styled.div`
   display: grid;
@@ -12,7 +10,7 @@ const GridWrapper = styled.div`
   grid-templare-rows: 400px 100px;
 `;
 
-function ImageGrid({}: Props): ReactElement {
+function ImageGrid(): JSX.Element {
   const { allFile } = useStaticQuery(graphql`
     query {
       allFile(

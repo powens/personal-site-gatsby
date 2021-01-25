@@ -1,7 +1,7 @@
 import { css, SerializedStyles } from '@emotion/react';
 
 interface Breakpoints {
-  [key: string]: (cls: SerializedStyles) => any;
+  [key: string]: (cls: SerializedStyles) => SerializedStyles;
 }
 
 interface BreakpointValues {

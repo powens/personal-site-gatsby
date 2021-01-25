@@ -1,11 +1,16 @@
 /** @jsx jsx */
+import { HTMLAttributes, DetailedHTMLProps } from 'react';
 import { jsx } from 'theme-ui';
 import { preToCodeBlock } from 'mdx-utils';
 import PrismCodeBlock from '@theme-ui/prism';
 
 // import headings from '../components/headings';
+interface Props {
+  codeString: string;
+  preProps: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
+}
 
-const CodeBlock = (preProps) => {
+const CodeBlock = (preProps: Props): JSX.Element => {
   const props = preToCodeBlock(preProps);
 
   if (props) {

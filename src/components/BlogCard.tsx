@@ -24,7 +24,7 @@ const BlogCard = ({
   computerDate,
   excerpt,
   tags,
-}: PostProps) => (
+}: PostProps): JSX.Element => (
   <Card>
     <Styled.h3
       sx={{

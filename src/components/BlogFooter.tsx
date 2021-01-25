@@ -9,7 +9,7 @@ interface Props {
   next: PostProps;
 }
 
-export default function BlogFooter({ next, previous }: Props) {
+export default function BlogFooter({ next, previous }: Props): JSX.Element {
   return (
     <footer
       css={css({

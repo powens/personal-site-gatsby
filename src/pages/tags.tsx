@@ -1,6 +1,5 @@
 import React from 'react';
-import kebabCase from 'lodash/kebabCase';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
 import Tag from '../components/tags/Tag';
@@ -25,12 +24,12 @@ const TagListItem = styled.li`
   padding: 0.5rem;
 `;
 
-function TagsPage(props: Props) {
+function TagsPage(props: Props): JSX.Element {
   const group = props.data.allMdxBlogPost.group;
-  const numberCount = group.reduce(
-    (accum, { totalCount }) => accum + totalCount,
-    0
-  );
+  // const numberCount = group.reduce(
+  //   (accum, { totalCount }) => accum + totalCount,
+  //   0
+  // );
 
   return (
     <Layout>

@@ -1,11 +1,11 @@
-const primary01 = 'hsl(216, 69%, 90%)';
+// const primary01 = 'hsl(216, 69%, 90%)';
 const primary0 = 'hsl(216, 69%, 90%)';
-const primary1 = 'hsl(216, 69%, 75%)';
-const primary2 = 'hsl(216, 69%, 65%)';
+// const primary1 = 'hsl(216, 69%, 75%)';
+// const primary2 = 'hsl(216, 69%, 65%)';
 const primary3 = 'hsl(216, 69%, 59%)';
 const primary4 = 'hsl(216, 69%, 49%)';
 const primary5 = 'hsl(216, 69%, 39%)';
-const primary6 = 'hsl(216, 69%, 29%)';
+// const primary6 = 'hsl(216, 69%, 29%)';
 const opaqueLightYellow = `rgba(255, 229, 100, 0.2)`;
 
 const grey = [

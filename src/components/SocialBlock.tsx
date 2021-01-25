@@ -29,7 +29,7 @@ const socials = [
   { url: "/rss.xml", label: "RSS Feed", Icon: RssIcon }
 ]
 
-const SocialBlock = () => (
+const SocialBlock = (): JSX.Element => (
   <BlockWrapper>
     {socials.map(({ label, url, Icon }) => (
       <Styled.a

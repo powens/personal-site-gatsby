@@ -47,7 +47,7 @@ export interface Props {
   children: ReactNode;
 }
 
-function Layout({ header = true, children }: Props) {
+function Layout({ header = true, children }: Props): JSX.Element {
   return (
     <Styled.root>
       <SiteWrapper>

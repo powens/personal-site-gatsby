@@ -9,18 +9,16 @@ export interface Props {
     tag: string;
   };
   data: {
-    allMarkdownRemark: {
+    allMdxBlogPost: {
       edges: Array<PostProps>;
       totalCount: number;
     };
   };
 }
 
-const Tags = ({ pageContext, data }: Props) => {
+const Tags = ({ pageContext, data }: Props): JSX.Element => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMdxBlogPost;
-  const postCount = `${totalCount} post${totalCount === 1 ? '' : 's'}`;
-  const tagHeader = `${postCount}`;
+  const { edges } = data.allMdxBlogPost;
 
   return (
     <Layout>

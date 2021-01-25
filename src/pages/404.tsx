@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 
-const PageNotFound = () => {
+const PageNotFound = (): JSX.Element => {
   return (
     <Layout>
       <h1>Page not found!</h1>

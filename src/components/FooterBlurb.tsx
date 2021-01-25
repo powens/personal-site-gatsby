@@ -36,7 +36,7 @@ const Blurb = styled.div`
   grid-area: blurb;
 `;
 
-export default function FooterBlurb() {
+export default function FooterBlurb(): JSX.Element {
   return (
     <Wrapper>
       <ProfilePicture />

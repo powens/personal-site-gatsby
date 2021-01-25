@@ -18,7 +18,7 @@ export interface Props {
   tags: Array<string>;
 }
 
-const TagList = ({ tags }: Props) => (
+const TagList = ({ tags }: Props): JSX.Element => (
   <Tags>
     {tags.map((tag) => (
       <li key={tag}>

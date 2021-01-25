@@ -6,6 +6,7 @@ import Blurb from '../../components/Blurb';
 import Posts from '../../components/Posts';
 import SkillsRotator from '../../components/SkillsRotator';
 import SocialBlock from '../../components/SocialBlock';
+import { PostQuery } from '../../utils/types';
 
 const Header = styled.h1`
   font-size: 3.5rem;
@@ -29,7 +30,16 @@ const Centered = styled.div`
     'social';
 `;
 
-const BlogIndex = ({ location, data }) => {
+interface Props {
+  location: string;
+  data: {
+    allBlogPost: {
+      nodes: Array<PostQuery>;
+    };
+  };
+}
+
+const BlogIndex = ({ data }: Props): JSX.Element => {
   const { allBlogPost } = data;
 
   return (

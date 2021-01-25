@@ -23,7 +23,7 @@ interface Props {
   keywords?: Array<string>;
 }
 
-function SEO({ title, description, keywords }: Props) {
+function SEO({ title, description, keywords }: Props): JSX.Element {
   const { site } = useStaticQuery(detailsQuery);
 
   return (
