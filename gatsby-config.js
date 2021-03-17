@@ -21,6 +21,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-theme-ui',
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
