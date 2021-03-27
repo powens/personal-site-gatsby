@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Styled } from 'theme-ui';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -48,11 +48,11 @@ const spaceWolvesRawSteps = [
   '0/1 Ragnar Blackmane [assembled]',
   '0/1 Phobos Librarian [start]',
   '0/1 Librarian [start]',
-  '0/3 Thunderwolf Cavalry [assembled]',
+  '0/3 Thunderwolf Cavalry [paint]',
   '0/9 Thunderwolf Cavalry [start]',
   '0/3 Bladeguard Veterans [assembled]',
   '0/1 Bladeguard Ancient [assembled]',
-  '0/5 Assault Intercessors [paint]',
+  '5/5 Assault Intercessors [done]',
   '0/5 Assault Intercessors [assembled]',
   '0/3 Outriders [assembled]',
   '0/3 Eradicators [assembled]',
@@ -61,12 +61,12 @@ const spaceWolvesRawSteps = [
   '0/10 Incursors [start]',
   '0/10 Intercessors [start]',
   '0/5 Hounds of Morkai [assembled]',
-  '0/5 Fenrisian Wolves [assembled]',
+  '5/5 Fenrisian Wolves [done]',
   '0/10 Wolf Guard with Jump packs [start]',
   '0/5 Wolf Guard Terminators [start]',
   '0/5 Long Fangs [start]',
   '0/2 Cyberwolves [start]',
-  '0/3 Eradicators [start]',
+  '0/1 Redemptor Dreadnought [start]',
 ];
 
 const indomitusRawSteps = [
@@ -122,6 +122,14 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('27 Mar 2021 00:00:00 GMT'),
+    notes: [
+      'Started painting Riptide',
+      'Painted 5 Assault Intercessors',
+      'Painted 5 Fenrisian Wolves',
+    ],
+  },
   {
     date: Date.parse('15 Jan 2021 00:00:00 GMT'),
     notes: [
@@ -301,12 +309,12 @@ export const query = graphql`
   {
     file(relativePath: { eq: "40k/start/start0.jpeg" }) {
       childImageSharp {
-        gatsbyImageData(width: 800, layout: CONSTRAINED)
+        gatsbyImageData(width: 800, placeholder: BLURRED, layout: CONSTRAINED)
       }
     }
     halfDone: file(relativePath: { eq: "40k/half-done.jpeg" }) {
       childImageSharp {
-        gatsbyImageData(width: 800, layout: CONSTRAINED)
+        gatsbyImageData(width: 800, placeholder: BLURRED, layout: CONSTRAINED)
       }
     }
   }
