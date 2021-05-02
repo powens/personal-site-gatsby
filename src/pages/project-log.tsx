@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Styled } from 'theme-ui';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -39,7 +39,7 @@ const tauRawSteps = [
 const spaceWolvesRawSteps = [
   '0/1 Indomitus Captain [start]',
   '0/1 Indomitus Lieutenant [assembled]',
-  '0/1 Indomitus Chaplain [start]',
+  '0/1 Indomitus Chaplain [assembled]',
   '0/1 Chaplain on a Bike [start]',
   '0/1 Judiciar [assembled]',
   '0/1 Terminator Chaplain [start]',
@@ -48,20 +48,25 @@ const spaceWolvesRawSteps = [
   '0/1 Ragnar Blackmane [assembled]',
   '0/1 Phobos Librarian [start]',
   '0/1 Librarian [start]',
-  '0/3 Thunderwolf Calvary [assembled]',
+  '0/3 Thunderwolf Cavalry [paint]',
+  '0/9 Thunderwolf Cavalry [start]',
   '0/3 Bladeguard Veterans [assembled]',
   '0/1 Bladeguard Ancient [assembled]',
-  '0/10 Assault Intercessors [paint]',
+  '5/5 Assault Intercessors [done]',
+  '0/5 Assault Intercessors [assembled]',
   '0/3 Outriders [assembled]',
   '0/3 Eradicators [assembled]',
-  '0/1 Venerable Dreadnought [assembled]',
+  '0/1 Wolf Dreadnought [assembled]',
   '0/1 Invictor Warsuit [assembled]',
-  '0/10 Infiltrators [start]',
-  '0/10 Interceptors [start]',
+  '0/10 Incursors [start]',
+  '0/10 Intercessors [start]',
   '0/5 Hounds of Morkai [assembled]',
-  '0/5 Fenrisian Wolves [assembled]',
-  '0/10 Grey Hunters [start]',
+  '5/5 Fenrisian Wolves [done]',
+  '0/10 Wolf Guard with Jump packs [start]',
   '0/5 Wolf Guard Terminators [start]',
+  '0/5 Long Fangs [start]',
+  '0/2 Cyberwolves [start]',
+  '0/1 Redemptor Dreadnought [start]',
 ];
 
 const indomitusRawSteps = [
@@ -117,6 +122,14 @@ function parseSteps(steps: Array<string>): Array<ProgressStep> {
 }
 
 const updates = [
+  {
+    date: Date.parse('27 Mar 2021 00:00:00 GMT'),
+    notes: [
+      'Started painting Riptide',
+      'Painted 5 Assault Intercessors',
+      'Painted 5 Fenrisian Wolves',
+    ],
+  },
   {
     date: Date.parse('15 Jan 2021 00:00:00 GMT'),
     notes: [
@@ -252,12 +265,12 @@ function ProjectLog({ data }: Props): JSX.Element {
           work I&apos;ve put in to the hobby. Eventually it will track all my
           40k endeavours.
         </Styled.p>
-        <Img
-          fluid={data.file.childImageSharp.fluid}
+        <GatsbyImage
+          image={data.file.childImageSharp.gatsbyImageData}
           alt="Unpainted, mostly assembled T'au army"
         />
-        <Img
-          fluid={data.halfDone.childImageSharp.fluid}
+        <GatsbyImage
+          image={data.halfDone.childImageSharp.gatsbyImageData}
           alt="About half of my Tau force painted"
         />
       </section>
@@ -293,19 +306,15 @@ function ProjectLog({ data }: Props): JSX.Element {
 export default ProjectLog;
 
 export const query = graphql`
-  query {
+  {
     file(relativePath: { eq: "40k/start/start0.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 800, placeholder: BLURRED, layout: CONSTRAINED)
       }
     }
     halfDone: file(relativePath: { eq: "40k/half-done.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 800, placeholder: BLURRED, layout: CONSTRAINED)
       }
     }
   }

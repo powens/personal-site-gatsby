@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 
 const GridWrapper = styled.div`
@@ -12,7 +12,7 @@ const GridWrapper = styled.div`
 
 function ImageGrid(): JSX.Element {
   const { allFile } = useStaticQuery(graphql`
-    query {
+    {
       allFile(
         sort: { fields: name, order: DESC }
         filter: { relativeDirectory: { regex: "/40k\\\\/start/" } }
@@ -22,9 +22,7 @@ function ImageGrid(): JSX.Element {
             name
             id
             childImageSharp {
-              fluid(maxWidth: 1024) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
@@ -35,7 +33,7 @@ function ImageGrid(): JSX.Element {
   return (
     <GridWrapper>
       {allFile.edges.map((d) => (
-        <Img fluid={d.node.childImageSharp} key={d.id} />
+        <GatsbyImage image={d.node.childImageSharp} key={d.id} />
       ))}
     </GridWrapper>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Styled } from 'theme-ui';
+import { Themed } from 'theme-ui';
 import PostList from './PostList';
 import { PostQuery } from '../utils/types';
 
@@ -10,7 +10,7 @@ export interface Props {
 function Posts({ posts }: Props): JSX.Element {
   return (
     <section>
-      <Styled.h2>Posts</Styled.h2>
+      <Themed.h2>Posts</Themed.h2>
       <PostList posts={posts} />
     </section>
   );
