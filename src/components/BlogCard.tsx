@@ -1,5 +1,5 @@
 /** @jsx jsx **/
-import { Styled, jsx } from 'theme-ui';
+import { Themed, jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { PostProps } from '../utils/types';
@@ -26,29 +26,29 @@ const BlogCard = ({
   tags,
 }: PostProps): JSX.Element => (
   <Card>
-    <Styled.h3
+    <Themed.h3
       sx={{
         gridArea: 'title',
         marginBottom: '0',
       }}
     >
-      <Styled.a as={Link} to={slug}>
+      <Themed.a as={Link} to={slug}>
         {title}
-      </Styled.a>
-    </Styled.h3>
+      </Themed.a>
+    </Themed.h3>
     <time dateTime={computerDate} sx={{ gridArea: 'date', color: 'muted' }}>
       {date}
     </time>
     <div sx={{ gridArea: 'tags' }}>
       <TagList tags={tags} />
     </div>
-    <Styled.p
+    <Themed.p
       sx={{
         gridArea: 'excerpt',
       }}
     >
       {excerpt}
-    </Styled.p>
+    </Themed.p>
   </Card>
 );
 

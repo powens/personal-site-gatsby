@@ -39,7 +39,7 @@ interface Props {
   };
 }
 
-const BlogIndex = ({ data }: Props): JSX.Element => {
+const BlogIndex = ({ data }: Props): React.ReactNode => {
   const { allBlogPost } = data;
 
   return (
