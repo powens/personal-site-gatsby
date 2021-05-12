@@ -32,9 +32,10 @@ interface Props {
 
 function ProgressPool(props: Props): JSX.Element {
   const { steps } = props;
-  const { start, assembled, paint, done } = useMemo(() => collateSteps(steps), [
-    steps,
-  ]);
+  const { start, assembled, paint, done } = useMemo(
+    () => collateSteps(steps),
+    [steps]
+  );
 
   return (
     <Pool>

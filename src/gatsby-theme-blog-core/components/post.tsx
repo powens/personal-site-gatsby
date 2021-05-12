@@ -1,5 +1,5 @@
 /** @jsx jsx **/
-import { Styled, jsx } from 'theme-ui';
+import { Themed, jsx } from 'theme-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import SEO from '../../components/SEO';
 import TagList from '../../components/tags/TagList';
@@ -28,8 +28,8 @@ const Post = (props: Props): JSX.Element => {
     <Layout>
       <SEO title={title} description={excerpt} />
       <main>
-        <Styled.h1>{title}</Styled.h1>
-        <Styled.div
+        <Themed.h1>{title}</Themed.h1>
+        <Themed.div
           sx={{
             marginBottom: '2rem',
           }}
@@ -43,7 +43,7 @@ const Post = (props: Props): JSX.Element => {
             <time dateTime={date}>{date}</time>
           </span>
           <TagList tags={tags} />
-        </Styled.div>
+        </Themed.div>
         <MDXRenderer>{body}</MDXRenderer>
       </main>
       <BlogFooter previous={previous} next={next} />

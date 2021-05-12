@@ -1,5 +1,5 @@
 import React from 'react';
-import { Styled } from 'theme-ui';
+import { Themed } from 'theme-ui';
 import styled from '@emotion/styled';
 import Layout from '../../components/Layout';
 import Blurb from '../../components/Blurb';
@@ -47,7 +47,7 @@ const BlogIndex = ({ data }: Props): React.ReactNode => {
       <Centered>
         <Header>Patrick Owens</Header>
         <SocialBlock />
-        <Styled.hr />
+        <Themed.hr />
       </Centered>
       <Large>
         <SkillsRotator />

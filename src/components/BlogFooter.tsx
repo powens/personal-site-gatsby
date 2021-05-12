@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Styled, Flex, css } from 'theme-ui';
+import { Themed, Flex, css } from 'theme-ui';
 import FooterBlurb from './FooterBlurb';
 import { PostProps } from '../utils/types';
 
@@ -30,16 +30,16 @@ export default function BlogFooter({ next, previous }: Props): JSX.Element {
         >
           <li>
             {previous && (
-              <Styled.a as={Link} to={previous.slug} rel="prev">
+              <Themed.a as={Link} to={previous.slug} rel="prev">
                 ← {previous.title}
-              </Styled.a>
+              </Themed.a>
             )}
           </li>
           <li>
             {next && (
-              <Styled.a as={Link} to={next.slug} rel="next">
+              <Themed.a as={Link} to={next.slug} rel="next">
                 {next.title} →
-              </Styled.a>
+              </Themed.a>
             )}
           </li>
         </Flex>

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui';
+import { Themed, jsx } from 'theme-ui';
 
 const Blurb = (): JSX.Element => (
   <section
@@ -9,24 +9,24 @@ const Blurb = (): JSX.Element => (
       marginTop: '1rem',
     }}
   >
-    <Styled.p>
+    <Themed.p>
       I{"'"}m a senior full-stack software engineer for a security company. I am
       a UI architecture specialist, mentor, webpack config wrangler, infosec
       enthusiast, HAM radio operator - VA7ORO, and{' '}
-      <Styled.a href="https://twitter.com/planetside2/status/500821423091630081">
+      <Themed.a href="https://twitter.com/planetside2/status/500821423091630081">
         occasional competitive game player
-      </Styled.a>
+      </Themed.a>
       .
-    </Styled.p>
-    <Styled.p>
+    </Themed.p>
+    <Themed.p>
       I am a contributor to random open source projects, a volunteer technical
       mentor for{' '}
-      <Styled.a href="https://www.canadalearningcode.ca/">
+      <Themed.a href="https://www.canadalearningcode.ca/">
         Canada Learning Code
-      </Styled.a>
+      </Themed.a>
       , and a volunteer radio operator for{' '}
-      <Styled.a href="https://vectorradio.ca/">VECTOR</Styled.a>.
-    </Styled.p>
+      <Themed.a href="https://vectorradio.ca/">VECTOR</Themed.a>.
+    </Themed.p>
   </section>
 );
 
