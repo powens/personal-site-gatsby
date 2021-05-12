@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Styled } from 'theme-ui';
+import { Themed } from 'theme-ui';
 import mq from '../utils/responsive';
 import Header from './Header';
 import SEO from './SEO';
@@ -49,13 +49,13 @@ export interface Props {
 
 function Layout({ header = true, children }: Props): JSX.Element {
   return (
-    <Styled.root>
+    <Themed.root>
       <SiteWrapper>
         <SEO />
         {header ? <Header /> : null}
         <Content>{children}</Content>
       </SiteWrapper>
-    </Styled.root>
+    </Themed.root>
   );
 }
 

@@ -1,6 +1,6 @@
 /** @jsx jsx **/
 import { useState, useEffect, useCallback } from 'react';
-import { Styled, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import DarkToggle from './DarkToggle';
 
@@ -47,9 +47,8 @@ function Header(): JSX.Element {
         // box-shadow: 0 4px 2px -2px var(--theme-ui-colors-border);
       }}
     >
-      <Styled.a
+      <Link
         to="/"
-        as={Link}
         sx={{
           color: 'text',
           fontSize: '2.8rem',
@@ -59,7 +58,7 @@ function Header(): JSX.Element {
         }}
       >
         Patrick Owens
-      </Styled.a>
+      </Link>
       <DarkToggle />
     </header>
   );

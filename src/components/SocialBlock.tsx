@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Styled, css } from 'theme-ui';
+import { Themed, css } from 'theme-ui';
 import {
   FiGithub as GithubIcon,
   FiTwitter as TwitterIcon,
@@ -32,14 +32,14 @@ const socials = [
 const SocialBlock = (): JSX.Element => (
   <BlockWrapper>
     {socials.map(({ label, url, Icon }) => (
-      <Styled.a
+      <Themed.a
         css={css({ fontSize: '2rem', marginLeft: '1rem' })}
         key={label}
         href={url}
         aria-label={label}
       >
         <Icon />
-      </Styled.a>
+      </Themed.a>
     ))}
   </BlockWrapper>
 );

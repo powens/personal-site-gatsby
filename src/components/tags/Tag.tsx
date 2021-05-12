@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Link } from 'gatsby';
-import { Styled, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
 
 export interface Props {
   tag: string;
@@ -8,9 +8,8 @@ export interface Props {
 
 export default function Tag({ tag }: Props): JSX.Element {
   return (
-    <Styled.a
+    <Link
       to={`/tags/${tag}/`}
-      as={Link}
       sx={{
         bg: 'tagBg',
         color: 'tagFg',
@@ -18,6 +17,7 @@ export default function Tag({ tag }: Props): JSX.Element {
         padding: '0.4rem',
 
         transition: 'background 0.1s ease-in',
+        textDecoration: 'none',
 
         '&:hover': {
           bg: 'tagBgHover',
@@ -25,6 +25,6 @@ export default function Tag({ tag }: Props): JSX.Element {
       }}
     >
       {tag}
-    </Styled.a>
+    </Link>
   );
 }

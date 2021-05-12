@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Styled } from 'theme-ui';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { Themed } from 'theme-ui';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import ProjectProgress from '../components/40k-log/ProjectProgress';
@@ -256,15 +256,15 @@ function ProjectLog({ data }: Props): JSX.Element {
         keywords={['warhammer', '40k', 'hobby', 'log', 'Tau']}
       />
       <section style={{ marginBottom: '3rem' }}>
-        <Styled.h2>Warhammer 40k Project log</Styled.h2>
-        <Styled.p>
+        <Themed.h2>Warhammer 40k Project log</Themed.h2>
+        <Themed.p>
           During the lockdown, I dug my Warhammer 40k T&apos;au army out of
           storage. I original started to get into the hobby in 2016, but stopped
           due to burnout. My goal is to finish painting, and assembling this
           army. This page serves both as a log, and as a reminder of all the
           work I&apos;ve put in to the hobby. Eventually it will track all my
           40k endeavours.
-        </Styled.p>
+        </Themed.p>
         <GatsbyImage
           image={data.file.childImageSharp.gatsbyImageData}
           alt="Unpainted, mostly assembled T'au army"
@@ -275,26 +275,26 @@ function ProjectLog({ data }: Props): JSX.Element {
         />
       </section>
 
-      <Styled.h2>T&apos;au army progress</Styled.h2>
+      <Themed.h2>T&apos;au army progress</Themed.h2>
       <ProjectProgress steps={tauSteps} />
 
-      <Styled.h2>Space Wolves steps</Styled.h2>
+      <Themed.h2>Space Wolves steps</Themed.h2>
       <ProjectProgress steps={spaceWolvesSteps} />
 
-      <Styled.h2>Pile of shame progress</Styled.h2>
+      <Themed.h2>Pile of shame progress</Themed.h2>
       <ProjectProgress steps={indomitusSteps} />
 
       <section>
-        <Styled.h3>Updates</Styled.h3>
+        <Themed.h3>Updates</Themed.h3>
         <section>
           {updates.map((d) => (
             <React.Fragment key={d.date}>
-              <Styled.h4>{new Date(d.date).toDateString()}</Styled.h4>
-              <Styled.ul>
+              <Themed.h4>{new Date(d.date).toDateString()}</Themed.h4>
+              <Themed.ul>
                 {d.notes.map((j) => (
-                  <Styled.li key={j}>{j}</Styled.li>
+                  <Themed.li key={j}>{j}</Themed.li>
                 ))}
-              </Styled.ul>
+              </Themed.ul>
             </React.Fragment>
           ))}
         </section>
