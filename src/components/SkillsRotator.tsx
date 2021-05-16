@@ -33,9 +33,9 @@ const transitionItem = {
 };
 
 function SkillsRotator(): JSX.Element {
-  const ref = useRef([]);
-  const [items, set] = useState([[tags[0]]]);
-  const transitions = useTransition(items, null, {
+  const ref = useRef<NodeJS.Timeout[]>([]);
+  const [items, set] = useState<string[]>([tags[0]]);
+  const transitions = useTransition(items, {
     from: {
       opacity: 0,
       height: 0,
@@ -67,8 +67,8 @@ function SkillsRotator(): JSX.Element {
 
   return (
     <div style={{ height: '80px' }}>
-      {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
-        <animated.div css={transitionItem} key={key} style={rest}>
+      {transitions(({ innerHeight, ...rest }, item) => (
+        <animated.div css={transitionItem} key={item} style={rest}>
           <animated.div style={{ overflow: 'hidden', height: innerHeight }}>
             {item}
           </animated.div>
